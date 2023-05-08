@@ -1,0 +1,342 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="APIs" parallel="tests" thread-count="2">
+
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="test.java.common.RemoveDuplicateResults"/>
+        <listener class-name="test.java.common.RetryListener"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+
+    <test name="Navison" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Navison_CC"/>
+            <!--<class name="test.java.paymentsAPI.API_Navison_Air"/>-->
+        </classes>
+    </test>
+
+    <test name="Banner New" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Banner_New"/>
+        </classes>
+    </test>
+
+    <test name="EMI Affordability" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Eligibility_NCE"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Eligibility_Regular"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Plans_NCE_Full"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Plans_NCE_Lite"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Plans_Reg_Full"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Plans_Reg_Lite"/>
+        </classes>
+    </test>
+
+    <test name="SCLP GV" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_GV_SCLP"/>
+        </classes>
+    </test>
+
+    <test name="Instant Refund" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_IR_Get_Eligibility"/>
+            <class name="test.java.paymentsAPI.API_IR_Validate_VPA"/>
+            <class name="test.java.paymentsAPI.API_IR_Save_VPA_Details"/>
+            <class name="test.java.paymentsAPI.API_IR_Get_Cancelation_Details"/>
+            <class name="test.java.paymentsAPI.API_IR_Create_Refund"/>
+        </classes>
+    </test>
+
+    <test name="MIS Report Paytypes" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_MIS_Report"/>
+        </classes>
+    </test>
+
+    <test name="PayLater CardlessEMI" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_PayLater_CardLess_EMI"/>
+        </classes>
+    </test>
+
+    <test name="PayLater CardlessEMI Eligibility" preserve-order="true" parallel="true">
+        <classes>
+            <!--<class name="test.java.paymentsAPI.API_PayLater_CardLess_EMI_Eligibility"/>-->
+        </classes>
+    </test>
+
+    <test name="Wallet SCLP" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Wallet_SCLP"/>
+        </classes>
+    </test>
+
+    <test name="Supercoins" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_SuperCoins_CheckBalance"/>
+            <class name="test.java.paymentsAPI.API_SuperCoins_CheckEarnPoints"/>
+             <class name="test.java.paymentsAPI.API_SuperCoins_Info"/><!--
+            <class name="test.java.paymentsAPI.API_SuperCoins_MobileLinked"/>-->
+            <class name="test.java.paymentsAPI.API_SuperCoins_Hold_Unhold"/>
+            <class name="test.java.paymentsAPI.API_SuperCoins_PromoActivate"/>
+            <class name="test.java.paymentsAPI.API_SuperCoins_PromoCreate"/>
+            <class name="test.java.paymentsAPI.API_SuperCoins_PromoUpdate"/>
+        </classes>
+    </test>
+
+    <test name="GW Failure Banner" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Fetch_GW_Failure"/>
+        </classes>
+    </test>
+
+    <test name="UI config" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_UI_GetConfig_ConvFee"/>
+            <class name="test.java.paymentsAPI.API_UI_GetConfig_PayTypes"/>
+        </classes>
+    </test>
+
+
+    <test name="EMI" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_EMI_Cache"/>
+            <class name="test.java.paymentsAPI.API_EMI_Fetch"/>
+            <class name="test.java.paymentsAPI.API_EMI_NoonPlans"/>
+            <class name="test.java.paymentsAPI.API_EMI_RazorpayPlans"/>
+            <class name="test.java.paymentsAPI.API_EMI_Resources"/>
+            <class name="test.java.paymentsAPI.API_EMI_NoCost_Get_Offers"/>
+        </classes>
+    </test>
+
+    <test name="Refunds Count" preserve-order="true" parallel="true">
+        <classes>
+
+        </classes>
+    </test>
+
+    <test name="Refunds ROR Counts" preserve-order="true" parallel="true">
+        <classes>
+            <!--   <class name="test.java.paymentsAPI.API_ROR_RefundQ_Count"/>  //not live -->
+        </classes>
+    </test>
+
+    <test name="Deposit Account DA" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_DA_PayV3"/>
+            <class name="test.java.paymentsAPI.API_DA_ValidateV3"/>
+            <class name="test.java.paymentsAPI.API_DA_Pay_Async"/>
+            <!--
+            <class name="test.java.paymentsAPI.API_DA_APP_Refund"/> --><!--
+      <class name="test.java.paymentsAPI.API_DA_APP_Balance"/>  -->
+        </classes>
+    </test>
+
+    <test name="Credit Shell" preserve-order="true" parallel="true">
+        <classes>
+            <!-- <class name="test.java.paymentsAPI.API_CS_Pay"/> -->
+            <class name="test.java.paymentsAPI.API_CS_Validate"/>
+
+        </classes>
+    </test>
+
+    <test name="Pay Calls" preserve-order="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Validate"/>
+            <class name="test.java.paymentsAPI.API_CC_Visa_Type"/>
+            <class name="test.java.paymentsAPI.API_CC_GV_Wallet"/>
+            <class name="test.java.paymentsAPI.API_CC"/>
+            <class name="test.java.paymentsAPI.API_GV"/>
+            <class name="test.java.paymentsAPI.API_Wallet"/>
+            <class name="test.java.paymentsAPI.API_GV_WL"/>
+        </classes>
+    </test>
+
+    <test name="Qitaf" preserve-order="true" parallel="true">
+        <classes>
+            <!-- <class name="test.java.paymentsAPI.API_Qitaf_Redeem"/>
+            <class name="test.java.paymentsAPI.API_Qitaf_Reverse"/>
+            <class name="test.java.paymentsAPI.API_Qitaf_SendOTP"/>       -->
+        </classes>
+    </test>
+
+    <test name="CTPay V2" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_CTpay_GetUrl"/>
+            <!-- <class name="test.java.paymentsAPI.API_CTpay_Status"/>
+             <class name="test.java.paymentsAPI.API_CTpay_UpdateClient"/>-->
+            <class name="test.java.paymentsAPI.API_CTpay_URLcreation"/>
+        </classes>
+    </test>
+
+    <test name="OLA" preserve-order="true" parallel="true">
+        <classes>
+            <!--     <class name="test.java.paymentsAPI.API_OLA_Validate_Pay"/>   -->
+        </classes>
+    </test>
+
+    <test name="Fetch Payment Details" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_FetchPay_Details"/>
+            <class name="test.java.paymentsAPI.API_Fetch_TripStatus"/>
+            <class name="test.java.paymentsAPI.API_ROR_TripID_Status"/>
+        </classes>
+    </test>
+
+    <test name="Promo service" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_PromoService"/>
+            <!--   <class name="test.java.paymentsAPI.API_Promo_Activate"/> -->
+            <!-- <class name="test.java.paymentsAPI.API_Promo_Used"/>  -->
+        </classes>
+    </test>
+
+    <test name="Flyin" preserve-order="true" >
+        <classes>
+            <class name="test.java.paymentsAPI.API_FlyinPay"/>
+        </classes>
+    </test>
+
+    <test name="FK Deposit Account DA" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_DA_FK_FetchBy_PaymentID"/>
+            <class name="test.java.paymentsAPI.API_DA_FK_FetchBy_TripID"/>
+            <class name="test.java.paymentsAPI.API_DA_FK_PayV3_6000"/>
+            <class name="test.java.paymentsAPI.API_DA_FK_PayV3_Amend"/>
+            <class name="test.java.paymentsAPI.API_DA_FK_PayV3_ZeroAmt"/>
+            <class name="test.java.paymentsAPI.API_DA_FK_PayV3"/>
+            <class name="test.java.paymentsAPI.API_DA_FK_Refund_Create"/>
+            <class name="test.java.paymentsAPI.API_DA_FK_Refund_Status_Update"/>
+            <class name="test.java.paymentsAPI.API_DA_FK_Refund_Update_PartnerInfo"/>
+        </classes>
+    </test>
+
+
+    <test name="Expressway" preserve-order="true" parallel="true">
+        <classes>
+            <!-- <class name="test.java.paymentsAPI.API_EW_GetOutstanding"/>
+            <class name="test.java.paymentsAPI.API_EW_UserDetails"/>
+            <class name="test.java.paymentsAPI.API_EW_Validate"/>
+            <class name="test.java.paymentsAPI.API_EW_OptIN"/>
+            <class name="test.java.paymentsAPI.API_EW_Add_Amount"/>   -->
+
+            <!--  <class name="test.java.paymentsAPI.API_EW_Pay_Multi"/>
+                  <class name="test.java.paymentsAPI.API_EW_Pay_Multi_V3"/>
+                  <class name="test.java.paymentsAPI.API_EW_Pay_V3"/>
+                  <class name="test.java.paymentsAPI.API_EW_Pay_AutoDebit"/>
+                  <class name="test.java.paymentsAPI.API_EW_Summary"/>   -->
+
+        </classes>
+    </test>
+
+    <test name="Wallets"  preserve-order="true" parallel="true" >
+        <classes>
+            <class name="test.java.paymentsAPI.API_Wallet_RevertedPromo_info"/>
+            <class name="test.java.paymentsAPI.API_Wallet_Create"/>
+            <class name="test.java.paymentsAPI.API_Wallet_Get_Wallet_Trnx"/>
+            <class name="test.java.paymentsAPI.API_Wallet_GetDeduction"/>
+            <class name="test.java.paymentsAPI.API_Wallet_PromoUsed"/>
+            <class name="test.java.paymentsAPI.API_Wallet_RevertPromo"/>
+            <!-- <class name="test.java.paymentsAPI.API_Wallet_Promo_CashBackDetails"/> -->
+        </classes>
+    </test>
+
+    <test name="Wallet App Only"  preserve-order="true" parallel="true" >
+        <classes>
+            <class name="test.java.paymentsAPI.API_Wallet_CashBackDetails"/>
+            <class name="test.java.paymentsAPI.API_Wallet_Get_Wallet_All"/>
+            <class name="test.java.paymentsAPI.API_Wallet_Get_Wallet_INR"/>
+            <!-- <class name="test.java.paymentsAPI.API_GV_Get"/> -->
+        </classes>
+    </test>
+
+    <test name="ADCB" preserve-order="true" parallel="true">
+        <classes><!--
+      <class name="test.java.paymentsAPI.API_Reward_ADCB_CheckBalance"/>
+      <class name="test.java.paymentsAPI.API_Reward_ADCB_Pay"/>  -->
+        </classes>
+    </test>
+
+    <!--
+
+    <test name="PayBack" preserve-order="true" parallel="true">
+        <classes>
+           <class name="test.java.paymentsAPI.API_RewardPayback"/>
+        </classes>
+    </test>
+    -->
+    <!--
+    <test name="Refunds redis enque" preserve-order="true" parallel="true">
+        <classes>
+
+           <class name="test.java.paymentsAPI.API_Refunds_Enque_redis"/>
+           <class name="test.java.paymentsAPI.API_Refunds"/>
+         </classes>
+    </test>-->
+
+    <test name="Stored Card1" preserve-order="true" parallel="true">
+        <classes><class name="test.java.paymentsAPI.API_storeCard"/>
+            <class name="test.java.paymentsAPI.API_Saved_PaymentModes_UI"/>
+        </classes>
+    </test>
+
+    <test name="Create Insert record" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_CreateRecord"/>
+        </classes>
+    </test>
+
+    <test name="ROR Writes" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_ROR_Writes"/>
+        </classes>
+    </test>
+
+    <test name="Payment Reads" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_ROR_Reads"/>
+        </classes>
+    </test>
+
+    <test name="Bin Manager"  preserve-order="true" parallel="true" >
+        <classes><!--
+		<class name="test.java.paymentsAPI.API_Binmanager"/> -->
+            <class name="test.java.paymentsAPI.API_Binmanager_Add_MC_Credit"/>
+            <class name="test.java.paymentsAPI.API_Binmanager_Get_Card"/>
+            <!-- <class name="test.java.paymentsAPI.API_Binmanager_Get_Multiple_Cards"/> -->
+        </classes>
+    </test>
+
+    <test name="Reporting"  preserve-order="true" parallel="true" >
+        <classes>
+            <class name="test.java.paymentsAPI.API_Reporting"/>
+            <class name="test.java.paymentsAPI.API_Reporting_TS_V3"/>
+        </classes>
+    </test>
+
+    <test name="Refund stopped"  preserve-order="true" parallel="true" >
+        <classes>
+            <class name="test.java.paymentsAPI.API_Reporting_Disabled_Refunds"/>
+            <class name="test.java.paymentsAPI.API_Reporting_Disabled_Refunds_Json"/>
+        </classes>
+    </test>
+
+    <test name="Refund report"  preserve-order="true" parallel="true" >
+        <classes>
+            <class name="test.java.paymentsAPI.API_Reporting_Refund_Status"/>
+        </classes>
+    </test>
+
+    <test name="Reporting Archived"  preserve-order="true" parallel="true" >
+        <classes>
+            <class name="test.java.paymentsAPI.API_Reporting_TS_Archived_V3"/>
+        </classes>
+    </test>
+
+    <test name="FetchRefunds New"  preserve-order="true" parallel="true" >
+        <classes>
+            <!-- <class name="test.java.paymentsAPI.API_Refunds_Fetch"/> -->
+        </classes>
+    </test>
+</suite>

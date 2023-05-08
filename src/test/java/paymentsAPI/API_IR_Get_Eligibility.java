@@ -20,7 +20,7 @@ public class API_IR_Get_Eligibility extends API_PaymentCommon1
 	public void InstantRefund_geteligibility_DC()  {
 		Response resp ;		
 		resp = payGet("IR_Eligibility_DC","");	
-		validation("IR_Eligibility_NB", resp);
+		validation("IR_Eligibility_DC", resp);
 	}
 	
 	@Test(alwaysRun = true)

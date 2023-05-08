@@ -18,4 +18,11 @@ public class API_GV extends API_PaymentCommon1
 		resp = rearchPayment("GV","");	
 		validation("GV", resp);
 		}
+
+	@Test
+	public void paymentGV_API_SCLP() throws IOException, JSONException{
+		Response resp ;
+		resp = rearchPayment("GVSCLP","");
+		validation("GV", resp);
+	}
 }

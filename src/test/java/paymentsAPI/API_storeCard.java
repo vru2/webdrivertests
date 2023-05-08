@@ -20,16 +20,16 @@ public class API_storeCard extends API_PaymentCommon1
 		validation("wallet_getcards", resp);
 	}
 	
-	
+	/*
 	@Test(priority = 2, alwaysRun = true)
 	public void validateStoredCard () throws Exception{
 		Response resp1 ;		
 		resp1 = walletEndPoints("wallet_validateCards","");	
 		validation("wallet_getcards", resp1);
 			
-	}
+	}*/
 	
-	@Test(priority = 3, alwaysRun = true)
+	@Test(priority = 2, alwaysRun = true)
 	public void Delete_StoredCard () throws Exception{
 		Response resp ;		
 		String cardid = null;

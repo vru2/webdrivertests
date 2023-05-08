@@ -20,8 +20,6 @@ public class API_Refund_All extends API_PaymentCommon1
 			ArrayList<String> db_CC = db_get_Value();
 			String RefundID = db_CC.get(1);
 			String RefundID1 = db_CC.get(2);
-		System.out.println(RefundID);
-		System.out.println(RefundID1);
 		}
 	 
 }

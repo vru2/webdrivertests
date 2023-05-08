@@ -5,7 +5,7 @@ package test.java.  paymentsAPI;
 import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
-import test.java.paymentsUI_Air.PaymentUI_Common;
+import test.java.paymentsBento_com.PaymentUI_Common;
 
 public class API_EMI_Fetch extends PaymentUI_Common
 {
