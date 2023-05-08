@@ -17,7 +17,6 @@ public class Account_Service_MobileLogin_sendOTP_SIGNIN extends AccountsCommon_A
 		validation_user_update( resp, "Account_Service_MobileLogin_sendOTP_SIGNIN", "");
 		/*ResponseBody body = resp.getBody();
 		System.out.println("Response of API is:" + body.asString());*/
-		
 
 }
 }
