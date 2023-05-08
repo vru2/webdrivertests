@@ -10,9 +10,12 @@
 	</listeners>
 
 
+
+
+
+
 	<test name="Accounts-Service-PWA" parallel="true">
 		<classes>
-			<!-- <class name="test.java.accountsAPI.Accounts_Service_PWA_Fetch_DA_Details" /> -->
 			<class name="test.java.accountsAPI.Accounts_Service_PWA_register" />
 			<class name="test.java.accountsAPI.Account_Service_PWA_SignIn_API" />
 			<class name="test.java.accountsAPI.Account_Service_PWA_GetUser_Byemail" />
@@ -20,287 +23,272 @@
 
 		</classes>
 	</test>
-	<test name="Accounts-Service-Userclassification" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Userclassification_Parsing_CSV" />
-			<class name="test.java.accountsAPI.Userclassification_Userdetails_emailid" />
-			<class name="test.java.accountsAPI.Userclassification_Gettripdetails_fromtripid" />
-			<class name="test.java.accountsAPI.Userclassification_Health_Test_Url" />
-
-		</classes>
-	</test>
-
-	<test name="Accounts-Service-Companysearch" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Account_Service_CompanySearchAPI_withDomainname" />
-			<class
-				name="test.java.accountsAPI.Account_Service_CompanySearchAPI_internalDomainSearch" />
-			<class
-				name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithAPIkey_Companyusersandtravelers" />
-			<class name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithAPIkey" />
-			<class name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithTagID" />
-			<class
-				name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithTagID_UsersandTravellers" />
-			<class name="test.java.accountsAPI.Account_Service_CompanyConfig_GSTdetailswithID" />
-			<class
-				name="test.java.accountsAPI.Account_Service_CompanyConfig_GSTdetailswithDomainName" />
-			<class name="test.java.accountsAPI.Account_Service_CompanyConfig_GetCompanybyID" />
-			<class
-				name="test.java.accountsAPI.Account_Service_CompanyConfig_GetCompanyConfigsbyID" />
-			<class name="test.java.accountsAPI.Account_Service_CompanyVendorMapping" />
-			<class name="test.java.accountsAPI.Account_Service_Fetchdomain_nameByID" />
-			<class name="test.java.accountsAPI.Account_Service_Company_DomainName_Autocomplete" />
-
-		</classes>
-	</test>
-
-	<test name="Identity-service" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Identtiyservice_get_tokenthroughrefreshToken" />
-			<class name="test.java.accountsAPI.Identtiyservice_get_tokenthroughCode" />
-			<class name="test.java.accountsAPI.IdentityService_Getresource" />
-			<class name="test.java.accountsAPI.IdentityService_AddClient" />
-			<class name="test.java.accountsAPI.IdentityService_Signin" />
-			<class name="test.java.accountsAPI.IdentityService_Signin_FlyinUser" />
-			<class name="test.java.accountsAPI.IdentityService_ctAuth_noLoginCookie" />
-			<class name="test.java.accountsAPI.IdentityService_PeopleController_gt_token_for_userBy_ID" />
-			<class name="test.java.accountsAPI.IdentityService_PeopleController_gt_token_for_userBy_Email" />
-			<class name="test.java.accountsAPI.IdentityService_PeopleController_gt_token_for_userBy_Private_EmailandID" />
-			<class name="test.java.accountsAPI.IdentityService_ChangePassword" />
-			<class name="test.java.accountsAPI.IdentityService_ResetPassword" />
-			<class name="test.java.accountsAPI.IdentityService_UpdatePassword_ForChangePasswordflow" />
-			<class name="test.java.accountsAPI.IdentityService_UpdatePassword_ForResetPasswordflow" />
-			<class name="test.java.accountsAPI.Identity_service_RecaptchaAPI" />
-			<class name="test.java.accountsAPI.IdentityService_Signin_Userauthentication_B2C_B2B_b2cUserwithoutParams" />
-			<class name="test.java.accountsAPI.IdentityService_Signin_Userauthentication_B2C_B2B_b2cUser" />
-			<class name="test.java.accountsAPI.IdentityService_Signin_Userauthentication_B2C_B2B_b2bUser" />
 
 
-		</classes>
-	</test>
+        <test name="Accounts-Service-Userclassification" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Userclassification_Parsing_CSV" />
+                <class name="test.java.accountsAPI.Userclassification_Userdetails_emailid" />
+                <class name="test.java.accountsAPI.Userclassification_Gettripdetails_fromtripid" />
+                <class name="test.java.accountsAPI.Userclassification_Health_Test_Url" />
+
+            </classes>
+        </test>
+
+
+        <test name="Accounts-Service-Companysearch" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Account_Service_CompanySearchAPI_withDomainname" />
+                <class
+                    name="test.java.accountsAPI.Account_Service_CompanySearchAPI_internalDomainSearch" />
+                <class
+                    name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithAPIkey_Companyusersandtravelers" />
+                <class name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithAPIkey" />
+                <class name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithTagID" />
+                <class
+                    name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithTagID_UsersandTravellers" />
+                <class name="test.java.accountsAPI.Account_Service_CompanyConfig_GSTdetailswithID" />
+                <class
+                    name="test.java.accountsAPI.Account_Service_CompanyConfig_GSTdetailswithDomainName" />
+                <class name="test.java.accountsAPI.Account_Service_CompanyConfig_GetCompanybyID" />
+                <class
+                    name="test.java.accountsAPI.Account_Service_CompanyConfig_GetCompanyConfigsbyID" />
+                <class name="test.java.accountsAPI.Account_Service_CompanyVendorMapping" />
+                <class name="test.java.accountsAPI.Account_Service_Fetchdomain_nameByID" />
+                <class name="test.java.accountsAPI.Account_Service_Company_DomainName_Autocomplete" />
+
+            </classes>
+        </test>
+
+        <test name="Identity-service" parallel="true">
+            <classes>
+
+                <class name="test.java.accountsAPI.IdentityService_Signin_FlyinUser" />
+                <class name="test.java.accountsAPI.IdentityService_ctAuth_noLoginCookie" />
+                <class name="test.java.accountsAPI.IdentityService_PeopleController_gt_token_for_userBy_ID" />
+                <class name="test.java.accountsAPI.IdentityService_PeopleController_gt_token_for_userBy_Email" />
+                <class name="test.java.accountsAPI.IdentityService_PeopleController_gt_token_for_userBy_Private_EmailandID" />
+                <class name="test.java.accountsAPI.IdentityService_UpdatePassword_ForResetPasswordflow" />
+                <class name="test.java.accountsAPI.Identity_service_RecaptchaAPI" />
+                <class name="test.java.accountsAPI.IdentityService_Signin_Userauthentication_B2C_B2B_b2cUserwithoutParams" />
+                <class name="test.java.accountsAPI.IdentityService_Signin_Userauthentication_B2C_B2B_b2cUser" />
+                <class name="test.java.accountsAPI.IdentityService_Signin_Userauthentication_B2C_B2B_b2bUser" />
+
+
+            </classes>
+        </test>
 
 
 
-	<test name="Account-service-Controllers" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin" />
-			<class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin_CleartripUser" />
-			<class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin_FlyinUser" />
-			<class name="test.java.accountsAPI.Account_Service_FlyinV2_SignUP" />
-			<class name="test.java.accountsAPI.Account_Service_FlyinV2_SocialSignup" />
-			<class name="test.java.accountsAPI.Account_Service_FlyinV2_UserSearch" />
-			<class name="test.java.accountsAPI.Account_Service_Flyin_ForgotPassword" />
-			<class name="test.java.accountsAPI.Account_Service_Flyin_ResetPassword" />
-			<class name="test.java.accountsAPI.Account_Service_Flyin_Signin" />
-			<class name="test.java.accountsAPI.Account_Service_Flyin_Signup" />
-			<class name="test.java.accountsAPI.Account_Service_Flyin_Social_Signup" />
-			<class name="test.java.accountsAPI.Account_Service_UserSearch" />
-			<class name="test.java.accountsAPI.Account_Service_Partnercontroller_UpdateTraveller" />
-			<class name="test.java.accountsAPI.Account_Service_Partnercontroller_Usersearch" />
-			<class name="test.java.accountsAPI.Account_Service_FLYIN_User_Update" />
-			<class name="test.java.accountsAPI.Accounts_Service_DOCdetailsUpdate_cleartripuser" />
-			<class name="test.java.accountsAPI.Accounts_Service_FLyinUser_GSTdetailsUpdate" />
-			<class name="test.java.accountsAPI.Accounts_Service_Flyin_DOCdetails_update" />
-			<class name="test.java.accountsAPI.Account_Service_Update_User_MobileNo_OTPValidaion" />
-			<class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserByEmail" />
-			<class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserById" />
-			<class name="test.java.accountsAPI.Account_Service_People_UpdateUserRoles" />
-			<class name="test.java.accountsAPI.Accounts_Service_fetchuserdetails_withoutReferer" />
-			<class name="test.java.accountsAPI.Accounts_Service_fetchuserdetails_withReferer" />
-			<class name="test.java.accountsAPI.Account_Service_CreateWalletAPI" />
-			<class name="test.java.accountsAPI.Account_Service_RegisterFLyinUserUpdate_OTPValidation" />
-			<class name="test.java.accountsAPI.Account_Service_RegisterFLyinUserUpdate_WithoutOTP" />
-			<class name="test.java.accountsAPI.Account_Service_RegisteredCltp_UserUpdate_WithoutOTP" />
-			<class name="test.java.accountsAPI.Account_Service_SendOTP_ToUsermobileNo" />
-			<class name="test.java.accountsAPI.Account_Service_Verify_Person" />
-			<class name="test.java.accountsAPI.Account_Service_UserController_VerifyAccount" />
-			<class name="test.java.accountsAPI.Account_Service_Mongo_CacheReset" />
-			<class name="test.java.accountsAPI.Account_Service_Travellercontroller_UpdateTraveller" />
-			<class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserById_V2" />
-			<class name="test.java.accountsAPI.Account_Service_EmailVerification_API" />
-			<class name="test.java.accountsAPI.Account_Service_AuthorizeAPI_encodingCookie" />
-			<class name="test.java.accountsAPI.Account_Service_Peoplecontroller_FindByID" />
-			<class name="test.java.accountsAPI.Accounts_Service_VerifynonLoggedinUser" />
-			<class name="test.java.accountsAPI.Account_Service_Express_Checkout" />
-			<class name="test.java.accountsAPI.Accounts_Service_Cleartrip_MultipleTraveller_Updatecall" />
-			<class name="test.java.accountsAPI.Account_Service_FetchPersonalData" />
-			<class name="test.java.accountsAPI.Account_Service_GetActivationKey" />
-			<class name="test.java.accountsAPI.Account_Service_AgencyLogo" />
-			<class name="test.java.accountsAPI.Account_Service_AuthforNonLoggedinUser" />
-			<class name="test.java.accountsAPI.Account_Service_AuthforNonLoggedinUser_HotelTrip" />
-			<class name="test.java.accountsAPI.Account_Service_AuthforNonLoggedinUser_InvalidTripID" />
-			<class name="test.java.accountsAPI.Account_Service_AuthforNonLoggedinUser_VerifyOTP" />
-			<class name="test.java.accountsAPI.Account_Service_FetchCustomer_number" />
-			<class name="test.java.accountsAPI.Account_Service_CFW_GetUserStatus" />
-			<class name="test.java.accountsAPI.Account_Service_CFW_StatusUpdateCall" />
-			<class name="test.java.accountsAPI.Account_Service_FetchContactData" />
-			<class name="test.java.accountsAPI.Account_Service_Cleartrip_ResetPassword" />
-			<class name="test.java.accountsAPI.Account_Service_Cleartrip_confirmedtravlerwithActivestatus" />
-			<class name="test.java.accountsAPI.Account_Service_UserController_VerifyAccount_UsernotPresent" />
-			<class name="test.java.accountsAPI.Account_Service_GetuserdetailsbyAPIKey" />
-			<class name="test.java.accountsAPI.Account_Service_GET_UserbyCookie_CleartripUser" />
-			<class name="test.java.accountsAPI.Account_Service_GET_UserbyCookie_FlyinUser" />
-			<class name="test.java.accountsAPI.Account_Service_UserExistence_withEmailIDandDomain" />
-			<class name="test.java.accountsAPI.Account_Service_UserExistence_withID" />
-			<class name="test.java.accountsAPI.Account_Service_Update_User_Cleartrip_B2Buser" />
-		</classes>
-	</test>
+        <test name="Account-service-Controllers" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin" />
+                <class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin_CleartripUser" />
+                <class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin_FlyinUser" />
+                <class name="test.java.accountsAPI.Account_Service_FlyinV2_SignUP" />
+                <class name="test.java.accountsAPI.Account_Service_FlyinV2_SocialSignup" />
+                <class name="test.java.accountsAPI.Account_Service_FlyinV2_UserSearch" />
+                <class name="test.java.accountsAPI.Account_Service_Flyin_ForgotPassword" />
+                <class name="test.java.accountsAPI.Account_Service_Flyin_ResetPassword" />
+                <class name="test.java.accountsAPI.Account_Service_Flyin_Signin" />
+                <class name="test.java.accountsAPI.Account_Service_Flyin_Signup" />
+                <class name="test.java.accountsAPI.Account_Service_Flyin_Social_Signup" />
+                <class name="test.java.accountsAPI.Account_Service_UserSearch" />
+                <class name="test.java.accountsAPI.Account_Service_Partnercontroller_UpdateTraveller" />
+                <class name="test.java.accountsAPI.Account_Service_Partnercontroller_Usersearch" />
+                <class name="test.java.accountsAPI.Account_Service_FLYIN_User_Update" />
+                <class name="test.java.accountsAPI.Accounts_Service_DOCdetailsUpdate_cleartripuser" />
+                <class name="test.java.accountsAPI.Accounts_Service_FLyinUser_GSTdetailsUpdate" />
+                <class name="test.java.accountsAPI.Accounts_Service_Flyin_DOCdetails_update" />
+                <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserByEmail" />
+                <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserById" />
+                <class name="test.java.accountsAPI.Account_Service_People_UpdateUserRoles" />
+                <class name="test.java.accountsAPI.Account_Service_CreateWalletAPI" />
+                <class name="test.java.accountsAPI.Account_Service_RegisterFLyinUserUpdate_OTPValidation" />
+                <class name="test.java.accountsAPI.Account_Service_RegisterFLyinUserUpdate_WithoutOTP" />
+                <class name="test.java.accountsAPI.Account_Service_RegisteredCltp_UserUpdate_WithoutOTP" />
+                <class name="test.java.accountsAPI.Account_Service_SendOTP_ToUsermobileNo" />
+                <class name="test.java.accountsAPI.Account_Service_Verify_Person" />
+                <class name="test.java.accountsAPI.Account_Service_Mongo_CacheReset" />
+                <class name="test.java.accountsAPI.Account_Service_Travellercontroller_UpdateTraveller" />
+                <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserById_V2" />
+                <class name="test.java.accountsAPI.Account_Service_EmailVerification_API" />
+                <class name="test.java.accountsAPI.Account_Service_AuthorizeAPI_encodingCookie" />
+                <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_FindByID" />
+                <class name="test.java.accountsAPI.Account_Service_Express_Checkout" />
+                <class name="test.java.accountsAPI.Accounts_Service_Cleartrip_MultipleTraveller_Updatecall" />
+                <class name="test.java.accountsAPI.Account_Service_FetchPersonalData" />
+                <class name="test.java.accountsAPI.Account_Service_GetActivationKey" />
+                <class name="test.java.accountsAPI.Account_Service_AgencyLogo" />
+                <class name="test.java.accountsAPI.Account_Service_AuthforNonLoggedinUser" />
+                <class name="test.java.accountsAPI.Account_Service_AuthforNonLoggedinUser_HotelTrip" />
+                <class name="test.java.accountsAPI.Account_Service_FetchCustomer_number" />
+                <class name="test.java.accountsAPI.Account_Service_CFW_GetUserStatus" />
+                <class name="test.java.accountsAPI.Account_Service_CFW_StatusUpdateCall" />
+                <class name="test.java.accountsAPI.Account_Service_FetchContactData" />
+                <class name="test.java.accountsAPI.Account_Service_Cleartrip_ResetPassword" />
+                <class name="test.java.accountsAPI.Account_Service_Cleartrip_confirmedtravlerwithActivestatus" />
+                <class name="test.java.accountsAPI.Account_Service_UserController_VerifyAccount_UsernotPresent" />
+                <class name="test.java.accountsAPI.Account_Service_GetuserdetailsbyAPIKey" />
+                <class name="test.java.accountsAPI.Account_Service_UserExistence_withEmailIDandDomain" />
+                <class name="test.java.accountsAPI.Account_Service_UserExistence_withID" />
+            </classes>
+        </test>
 
-	<test name="Account-service-Caching-userprofile" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_Email" />
-			<class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_ID" />
-			<class name="test.java.accountsAPI.Account_Service_Update_User" />
+        <test name="Account-service-Caching-userprofile" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_Email" />
+                <class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_ID" />
+                <class name="test.java.accountsAPI.Account_Service_Update_User" />
 
-		</classes>
+            </classes>
 
-	</test>
+        </test>
 
-	<test name="Account-service-Signin Un-authorized" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Accounts_Service_Applesignin_Unauthorized" />
-			<class name="test.java.accountsAPI.Accounts_Service_CleartripV2_Signin_Unauthorized" />
-			<class name="test.java.accountsAPI.AccountsService_FlyinV2Signin_Unauthorized" />
-			<class name="test.java.accountsAPI.IdentityService_Signin_Unauthorized" />
-			<class name="test.java.accountsAPI.IdentityService_Signin_UsernotPresent" />
+        <test name="Account-service-Signin Un-authorized" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Accounts_Service_Applesignin_Unauthorized" />
+                <class name="test.java.accountsAPI.Accounts_Service_CleartripV2_Signin_Unauthorized" />
+                <class name="test.java.accountsAPI.AccountsService_FlyinV2Signin_Unauthorized" />
+                <class name="test.java.accountsAPI.IdentityService_Signin_Unauthorized" />
+                <class name="test.java.accountsAPI.IdentityService_Signin_UsernotPresent" />
 
 
 
-		</classes>
+            </classes>
 
-	</test>
+        </test>
 
-	<test name="Account-service-Apple-Signin" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Account_Service_AppleSignin" />
-			<class name="test.java.accountsAPI.Account_Service_AppleSignin_uniqueId" />
-			<class name="test.java.accountsAPI.Account_Service_AppleSignin_Entity" />
-			<class name="test.java.accountsAPI.Account_Service_AppleRegister_NullEmail" />
-			<class name="test.java.accountsAPI.Account_Service_AppleSignin_WrapperAPI" />
-		</classes>
+        <test name="Account-service-Apple-Signin" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Account_Service_AppleSignin" />
+                <class name="test.java.accountsAPI.Account_Service_AppleSignin_uniqueId" />
+                <class name="test.java.accountsAPI.Account_Service_AppleSignin_Entity" />
+                <class name="test.java.accountsAPI.Account_Service_AppleRegister_NullEmail" />
+                <class name="test.java.accountsAPI.Account_Service_AppleSignin_WrapperAPI" />
+            </classes>
 
-	</test>
-	<test name="Account-service-Deposit Account" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Account_Service_FetchcompanyBy_depositaccountID" />
-			<class name="test.java.accountsAPI.Account_Service_Depositaccountsearch_WOTlinkedparam" />
-			<class name="test.java.accountsAPI.Account_Service_Depositaccountsearch_Withlinkedparam" />
-			<class name="test.java.accountsAPI.Account_Service_LinkDepositAccount" />
-
-
-		</classes>
-
-	</test>
-	<test name="Account-service-GST Details" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Account_Service_GSTV2_SearchAPIwithGstNo" />
-			<class name="test.java.accountsAPI.Account_Service_GSTV2_SearchAPIwithGstNoAndGstID" />
-			<class name="test.java.accountsAPI.Account_Service_GstSearch_WithoutSubString" />
-			<class name="test.java.accountsAPI.Account_Service_GstSearch_WithSubString" />
-			<class name="test.java.accountsAPI.Account_Service_Company_AddGSTwith_DomainName" />
-			<class name="test.java.accountsAPI.Account_Service_Company_AddGSTwith_CompanyID" />
-			<class name="test.java.accountsAPI.Account_Service_Company_AddGSTwith_CompanyID_DomainName" />
-			<class name="test.java.accountsAPI.Accounts_service_Company_DeleteGST" />
-			<class name="test.java.accountsAPI.Accounts_service_Company_DeleteGST_CompanyID_DomainName" />
+        </test>
+        <test name="Account-service-Deposit Account" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Account_Service_FetchcompanyBy_depositaccountID" />
+                <class name="test.java.accountsAPI.Account_Service_Depositaccountsearch_WOTlinkedparam" />
+                <class name="test.java.accountsAPI.Account_Service_Depositaccountsearch_Withlinkedparam" />
+                <class name="test.java.accountsAPI.Account_Service_LinkDepositAccount" />
 
 
+            </classes>
 
-		</classes>
+        </test>
+        <test name="Account-service-GST Details" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Account_Service_GSTV2_SearchAPIwithGstNo" />
+                <class name="test.java.accountsAPI.Account_Service_GSTV2_SearchAPIwithGstNoAndGstID" />
+                <class name="test.java.accountsAPI.Account_Service_GstSearch_WithoutSubString" />
+                <class name="test.java.accountsAPI.Account_Service_GstSearch_WithSubString" />
+                <class name="test.java.accountsAPI.Account_Service_Company_AddGSTwith_DomainName" />
+                <class name="test.java.accountsAPI.Account_Service_Company_AddGSTwith_CompanyID" />
+                <class name="test.java.accountsAPI.Account_Service_Company_AddGSTwith_CompanyID_DomainName" />
+            </classes>
+        </test>
 
-	</test>
-	<test name="Flyin AND COMM -Regression Cases" parallel="true">
-		<classes>
+        <test name="Flyin AND COMM -Regression Cases" parallel="true">
+            <classes>
 
-			<class name="test.java.accountsAPI.Flyin_Regression_Partner_user_search" />
-			<class name="test.java.accountsAPI.Flyin_Regression_Partner_Social_signup" />
-			<class name="test.java.accountsAPI.Account_Service_Flyin_ForgotPassword" />
-			<class name="test.java.accountsAPI.Account_Service_Travellercontroller_UpdateTraveller_FlyRegression" />
+                <class name="test.java.accountsAPI.Flyin_Regression_Partner_user_search" />
+                <class name="test.java.accountsAPI.Flyin_Regression_Partner_Social_signup" />
+                <class name="test.java.accountsAPI.Account_Service_Flyin_ForgotPassword" />
+                <class name="test.java.accountsAPI.Account_Service_Travellercontroller_UpdateTraveller_FlyRegression" />
 
-		</classes>
-	</test>
-	<test name="Flipkart-Accounts-Service" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Flipkart_Accounts_Service_CreateUser" />
-			<class name="test.java.accountsAPI.Flipkart_Accounts_service_CreateUser_ExistingUser" />
-			<class name="test.java.accountsAPI.Flipkart_Accounts_service_Updateuser" />
-			<class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetails" />
-			<class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetailsBy_ReferenceID_withoutparams" />
+            </classes>
+        </test>
+        <test name="Flipkart-Accounts-Service" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Flipkart_Accounts_Service_CreateUser" />
+                <class name="test.java.accountsAPI.Flipkart_Accounts_service_CreateUser_ExistingUser" />
+                <class name="test.java.accountsAPI.Flipkart_Accounts_service_Updateuser" />
+                <class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetails" />
+                <class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetailsBy_ReferenceID_withoutparams" />
 
-			<class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetailsBy_UserID" />
-			<class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetailsBy_UserID_withoutparams" />
+                <class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetailsBy_UserID" />
+                <class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetailsBy_UserID_withoutparams" />
 
-			<class name="test.java.accountsAPI.Flipkart_Accounts_service_JWTtoken_flipkart" />
+                <class name="test.java.accountsAPI.Flipkart_Accounts_service_JWTtoken_flipkart" />
 
-			<class name="test.java.accountsAPI.Flipkart_Accounts_service_JWTtoken_Cleartrip" />
-
-
-		</classes>
-	</test>
-	<test name="Accounts-Service-MobileLogin" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_SIGNIN" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_UPDATE_MOBILE" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_sendEmail_SIGNUP_MERGE" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_verifyOTP_SignIn" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_verifyOTP_SIGNUP_MERGE" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_verifyOTP_UPDATE_MOBILE" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_NudgePersonaldetails" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_NudgeUpdateMobile" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLoginUpdatePersonaldetailsApi" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_UserexistenceByMobileNo" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_FetchOldCTusersApi" />
-			<class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_SIGNIN_withAppAgent" />
-
-		</classes>
-	</test>
-	<test name="Promotional-Service-Hifive" parallel="true">
-		<classes>
-			<class name="test.java.accountsAPI.Promotional_Service_healthTestAPI" />
-			<class name="test.java.accountsAPI.Promotional_Service_ValidatereferralLink" />
-			<class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsHQ" />
-			<class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsAPI" />
-			<class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink" />
-			<class name="test.java.accountsAPI.Promotional_Service_SavenudgeAPI" />
-			<class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsAPIwithRoutes" />
-			<class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
-			<class name="test.java.accountsAPI.Promotional_Service_ValidateInvalidReferralLink" />
-			<class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
-
-		</classes>
-	</test>
+                <class name="test.java.accountsAPI.Flipkart_Accounts_service_JWTtoken_Cleartrip" />
 
 
-	<!-- <test name="Account_Service_FlyinV2_Signin" parallel="true"> <classes> 
+            </classes>
+        </test>
+        <test name="Accounts-Service-MobileLogin" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_SIGNIN" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_UPDATE_MOBILE" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendEmail_SIGNUP_MERGE" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_verifyOTP_SignIn" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_verifyOTP_SIGNUP_MERGE" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_verifyOTP_UPDATE_MOBILE" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_NudgePersonaldetails" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_NudgeUpdateMobile" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLoginUpdatePersonaldetailsApi" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_UserexistenceByMobileNo" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_FetchOldCTusersApi" />
+                <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_SIGNIN_withAppAgent" />
+
+            </classes>
+        </test>
+
+    <!--
+        <test name="Promotional-Service-Hifive" parallel="true">
+            <classes>
+                <class name="test.java.accountsAPI.Promotional_Service_healthTestAPI" />
+                <class name="test.java.accountsAPI.Promotional_Service_ValidatereferralLink" />
+                <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsHQ" />
+                <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsAPI" />
+                <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink" />
+                <class name="test.java.accountsAPI.Promotional_Service_SavenudgeAPI" />
+                <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsAPIwithRoutes" />
+                <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
+                <class name="test.java.accountsAPI.Promotional_Service_ValidateInvalidReferralLink" />
+                <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
+
+            </classes>
+        </test>
+
+
+
+
+	<!- <test name="Account_Service_FlyinV2_Signin" parallel="true"> <classes>
 		<class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin" /> </classes> </test>
-		<test name="Account_Service_FlyinV2_SignUp" parallel="true"> <classes> <class 
-		name="accountsAPI.Account_Service_FlyinV2_SignUP" /> </classes> </test> <test 
-		name="Account_Service_FlyinV2_Social_SignUp" parallel="true"> <classes> <class 
-		name="accountsAPI.Account_Service_FlyinV2_SocialSignup" /> </classes> </test> 
-		<test name="Account_Service_FlyinV2_UserSearch" parallel="true"> <classes> 
+		<test name="Account_Service_FlyinV2_SignUp" parallel="true"> <classes> <class
+		name="accountsAPI.Account_Service_FlyinV2_SignUP" /> </classes> </test> <test
+		name="Account_Service_FlyinV2_Social_SignUp" parallel="true"> <classes> <class
+		name="accountsAPI.Account_Service_FlyinV2_SocialSignup" /> </classes> </test>
+		<test name="Account_Service_FlyinV2_UserSearch" parallel="true"> <classes>
 		<class name="test.java.accountsAPI.Account_Service_FlyinV2_UserSearch" /> </classes>
-		</test> <test name="Account_Service_Flyin_ForgotPassword" parallel="true"> 
+		</test> <test name="Account_Service_Flyin_ForgotPassword" parallel="true">
 		<classes> <class name="test.java.accountsAPI.Account_Service_Flyin_ForgotPassword"
-		/> </classes> </test> <test name="Account_Service_Flyin_ResetPassword" parallel="true"> 
+		/> </classes> </test> <test name="Account_Service_Flyin_ResetPassword" parallel="true">
 		<classes> <class name="test.java.accountsAPI.Account_Service_Flyin_ResetPassword" />
-		</classes> </test> <test name="Account_Service_Flyin_Signin" parallel="true"> 
+		</classes> </test> <test name="Account_Service_Flyin_Signin" parallel="true">
 		<classes> <class name="test.java.accountsAPI.Account_Service_Flyin_Signin" /> </classes>
-		</test> <test name="Account_Service_Flyin_SignUp" parallel="true"> <classes> 
+		</test> <test name="Account_Service_Flyin_SignUp" parallel="true"> <classes>
 		<class name="test.java.accountsAPI.Account_Service_Flyin_Signup" /> </classes> </test>
-		<test name="Account_Service_Flyin_SocialSignUp" parallel="true"> <classes> 
+		<test name="Account_Service_Flyin_SocialSignUp" parallel="true"> <classes>
 		<class name="test.java.accountsAPI.Account_Service_Flyin_Social_Signup" /> </classes>
-		</test> <test name="Account_Service_Flyin_UserSearch" parallel="true"> <classes> 
+		</test> <test name="Account_Service_Flyin_UserSearch" parallel="true"> <classes>
 		<class name="test.java.accountsAPI.Account_Service_UserSearch" /> </classes> </test>
-		<test name="Account_Service_Partnercontroller_Updatetraveller" parallel="true"> 
+		<test name="Account_Service_Partnercontroller_Updatetraveller" parallel="true">
 		<classes> <class name="test.java.accountsAPI.Account_Service_Partnercontroller_UpdateTraveller"
-		/> </classes> </test> <test name="Account_Service_partnercontroller_Usersearch" 
+		/> </classes> </test> <test name="Account_Service_partnercontroller_Usersearch"
 		parallel="true"> <classes> <class name="test.java.accountsAPI.Account_Service_Partnercontroller_Usersearch"
-		/> </classes> </test> <test name="Account_Service_peoplecontroller_GetuserByEmail" 
+		/> </classes> </test> <test name="Account_Service_peoplecontroller_GetuserByEmail"
 		parallel="true"> <classes> <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserByEmail"
-		/> </classes> </test> <test name="Account_Service_peoplecontroller_GetuserById" 
+		/> </classes> </test> <test name="Account_Service_peoplecontroller_GetuserById"
 		parallel="true"> <classes> <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserById"
-		/> </classes> </test> <test name="Account_Service_Travellercontroller_UpdateTraveller" 
+		/> </classes> </test> <test name="Account_Service_Travellercontroller_UpdateTraveller"
 		parallel="true"> <classes> <class name="test.java.accountsAPI.Account_Service_Travellercontroller_UpdateTraveller"
-		/> </classes> </test> <test name="Account_Service_Peoplecontroller_GetuserById_V2" 
+		/> </classes> </test> <test name="Account_Service_Peoplecontroller_GetuserById_V2"
 		parallel="true"> <classes> <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserById_V2"
 		/> </classes> </test> -->
 
