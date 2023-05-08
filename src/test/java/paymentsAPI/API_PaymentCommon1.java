@@ -20,9 +20,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 import test.java.paymentsUI.PaymentUI_CommonUtilities;
-import test.java.domains.PlatformCommonUtil;
 
-import static io.restassured.RestAssured.withArgs;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class API_PaymentCommon1 extends PlatformCommonUtil

@@ -8,13 +8,6 @@
 <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 </listeners>
 
-
-<test name="API GET Pay URL" preserve-order="true" parallel="true">
-    <classes>
-      <class name="test.java.paymentsUI_Air.Get_URL"/>
-    </classes>
-</test>
-
 <test name="API GW Failure Banner" preserve-order="true" parallel="true">
     <classes>
       <class name="test.java.paymentsAPI.API_Fetch_GW_Failure"/>
