@@ -24,7 +24,7 @@ pipelines:
             - sed -i "s/APP_NAME/$APP_NAME/g" start_command.sh
             - sed -i "s/ENV/$ENVIRONMENT/g" start_command.sh
             - sed -i "s/SUBJECT/$SUBJECT/g" start_command.sh
-            - sed -i "s/MAIL_ID/kiran.kumar@cleartrip.com,varalakshmi.venkateshaiah@cleartrip.com,saicharan.yadau@cleartrip.com,vrushabh.gurjar@cleartrip.com/g" start_command.sh
+            - sed -i "s/MAIL_ID/kiran.kumar@cleartrip.com,varalakshmi.venkateshaiah@cleartrip.com,saicharan.yadau@cleartrip.com,vrushabh.gurjar@cleartrip.com,pragya.sinha@cleartrip.com/g" start_command.sh
             - git clone git@bitbucket.org:cleartrip/docker_dependency.git
             - mv docker_dependency/* .
             - docker login -u $DOCKERHUB_UN -p $DOCKERHUB_PW
