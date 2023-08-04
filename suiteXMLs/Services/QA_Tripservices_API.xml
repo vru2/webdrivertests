@@ -13,8 +13,9 @@
 		<classes>
 			<class name="test.java.tripServices.TS_LogBooking_Air" />
 			<class name="test.java.tripServices.TS_LogBooking_Hotel" />
-			<class name="test.java.tripServices.TS_LogBooking_Local" />
-			<class name="test.java.tripServices.TS_LogBooking_Trains" />
+			<class name="test.java.tripServices.TS_LogBooking_Bus" />
+			<!--<class name="test.java.tripServices.TS_LogBooking_Local" />
+			<class name="test.java.tripServices.TS_LogBooking_Trains" />-->
 		</classes>
 	</test>
 	
@@ -22,15 +23,16 @@
 		<classes>
 			<class name="test.java.tripServices.TS_UpdateBooking_Air" />
 			<class name="test.java.tripServices.TS_UpdateBooking_Hotel" />
-			<class name="test.java.tripServices.TS_UpdateBooking_Local" />
-			<class name="test.java.tripServices.TS_UpdateBooking_Trains" />
+			<class name="test.java.tripServices.TS_UpdateBooking_Bus" />
+			<!--<class name="test.java.tripServices.TS_UpdateBooking_Local" />
+			<class name="test.java.tripServices.TS_UpdateBooking_Trains" />-->
 		    <class name="test.java.tripServices.TS_Update_Air_Module" />
 		    <class name="test.java.tripServices.TS_PUT_Trips" />
 		    <class name="test.java.tripServices.TS_POST_EmailByTxnId" />
 		    <class name="test.java.tripServices.TS_Invoice_Generation_Air" />
 		    <class name="test.java.tripServices.TS_Invoice_Generation_Hotel" />
-		    <class name="test.java.tripServices.TS_Invoice_Generation_Local" />
-		    <class name="test.java.tripServices.TS_UpdateBooking_Trains_Trainfare" />
+		  <!--  <class name="test.java.tripServices.TS_Invoice_Generation_Local" />-->
+		    <!--<class name="test.java.tripServices.TS_UpdateBooking_Trains_Trainfare" />-->
 		    <class name="test.java.tripServices.TS_Amendment" />
 		     <class name="test.java.tripServices.TS_UpdateTripFields" />
 		    
@@ -44,10 +46,10 @@
 			<class name="test.java.tripServices.TS_GET_Company_Bookstat" />
 			<class name="test.java.tripServices.TS_GET_Finance_AIR" />
 			<class name="test.java.tripServices.TS_GET_Finance_HOTEL" />
-			<class name="test.java.tripServices.TS_GET_Finance_LOCAL" />
+			<!--<class name="test.java.tripServices.TS_GET_Finance_LOCAL" />-->
 			<class name="test.java.tripServices.TS_GET_FinanceAllTrips_Air" />
 			<class name="test.java.tripServices.TS_GET_FinanceAllTrips_Hotel" />
-			<class name="test.java.tripServices.TS_GET_FinanceAllTrips_Local" />
+			<!--<class name="test.java.tripServices.TS_GET_FinanceAllTrips_Local" />-->
 			<class name="test.java.tripServices.TS_GET_Tripscount_Personid" />
 			<class name="test.java.tripServices.TS_POST_GetAllTrips" />
 			<class name="test.java.tripServices.TS_Post_UpcomingTrips" />
@@ -69,8 +71,8 @@
 			<class name="test.java.tripServices.TS_Coupon_Validation"/>
 			<class name="test.java.tripServices.TS_ProductType_Userid_Air"/>
 			<class name="test.java.tripServices.TS_ProductType_Userid_Hotel"/>
-			<class name="test.java.tripServices.TS_ProductType_Userid_Local"/>
-			<class name="test.java.tripServices.TS_ProductType_Userid_Train"/>
+			<!--<class name="test.java.tripServices.TS_ProductType_Userid_Local"/>
+			<class name="test.java.tripServices.TS_ProductType_Userid_Train"/>-->
 			<class name="test.java.tripServices.TS_GDSPNR"/>
 			<class name="test.java.tripServices.TS_GET_BookingStatus"/>
 			<class name="test.java.tripServices.TS_GET_PartnerTrips"/>
@@ -79,8 +81,11 @@
 			<class name="test.java.tripServices.TS_FetchUserID_on_txnidandtripid"/>
 			<class name="test.java.tripServices.TS_Fetch_PeopleDetails"/>
 			<class name="test.java.tripServices.TS_Get_RefundInfo"/>
-			<class name="test.java.tripServices.TS_Save_InternationFareRules"/>
-			
+			<class name="test.java.tripServices.TS_Fetch_BookingStatus"/>
+			<class name="test.java.tripServices.TS_Fetch_TripRefByBookingStatus"/>
+			<class name="test.java.tripServices.TS_Fetch_TripRefByTxnStatus"/>
+			<class name="test.java.tripServices.TS_Fetch_Useridbytripref"/>
+			<class name="test.java.tripServices.TS_Fetch_UserIdbytriprefandtxntype"/>
 		</classes>
 	</test>
 	

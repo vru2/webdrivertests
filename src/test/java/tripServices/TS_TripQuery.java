@@ -12,21 +12,9 @@ public class TS_TripQuery extends TripserviceCommon{
 	public void postTripQuery() throws IOException{
 		Response resp;
 		String url =  Service_Url("TRIPSERVICE_POST_TRIPQUERY");
-		String Host = common.value("host");
-		if(Host.equalsIgnoreCase("qa2")) {
 			Reporter.log(url);
 			resp=TripserviceTripQuery(tripquery_qa,headersForTripservicepostgraphql(),url);
 			System.out.println(resp.asString());
 			validationforgraphql(resp);
-		}
-		/*
-		 * if(Host.equalsIgnoreCase("www")){
-		 * resp=TripserviceTripQuery(tripquery_prod,headersForTripservicepostgraphql(),
-		 * url); System.out.println(resp.asString()); validationforgraphql(resp); }
-		 */
-		if(Host.equalsIgnoreCase("dev")){
-			resp=TripserviceTripQuery(tripquery_qa,headersForTripservicepostgraphql(),url);
-			validationforgraphql(resp);
-		}
 	}
 }

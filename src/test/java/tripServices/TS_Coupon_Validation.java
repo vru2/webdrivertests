@@ -16,8 +16,6 @@ public class TS_Coupon_Validation extends TripserviceCommon{
 	
 	@Test(groups={"Regression"})
 	public void couponValidation() throws IOException, InterruptedException{
-		String Host = common.value("host");
-				if(Host.equalsIgnoreCase("qa2")) {
 		Reporter.log("http://trip-service-api.cltp.com:9001/commonservice/trips/coupons/validation?couponCodes=DOMOW&count=1&usageCountRequired=false");
 		Response resp=RestAssured.get("http://trip-service-api.cltp.com:9001/commonservice/trips/coupons/validation?couponCodes=DOMOW&count=1&usageCountRequired=false");
 		System.out.println(resp.asString());
@@ -94,5 +92,4 @@ public class TS_Coupon_Validation extends TripserviceCommon{
 	
 		}
 
- }
 }

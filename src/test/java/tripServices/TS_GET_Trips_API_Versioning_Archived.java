@@ -13,8 +13,6 @@ import io.restassured.response.ResponseBody;
 public class TS_GET_Trips_API_Versioning_Archived extends TripserviceCommon {
 	@Test(groups={"Regression"})
 	public void getTripService(){
-		String Host = common.value("host");
-		if(Host.equalsIgnoreCase("qa2")) {
 		Reporter.log("http://trip-service-archived-api.cltp.com:9001/trips?tripID=Q1902280427&refundRequired=true&historyRequired=true&paymentsRequired=true&apiVersion=V1");
 		Response resp=RestAssured.get("http://trip-service-archived-api.cltp.com:9001/trips?tripID=Q1902280427&refundRequired=true&historyRequired=true&paymentsRequired=true&apiVersion=V1");
 		System.out.println(resp.asString());
@@ -107,9 +105,7 @@ public class TS_GET_Trips_API_Versioning_Archived extends TripserviceCommon {
 			Reporter.log("Status code : " + resp5.statusCode());
 			assertTrue(false);
 		}
-		
-		
-		} 
+
 	}
 
 

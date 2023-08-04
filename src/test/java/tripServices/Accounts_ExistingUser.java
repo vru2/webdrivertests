@@ -22,7 +22,7 @@ public class Accounts_ExistingUser extends TripserviceCommon {
 	    resp=RestAssured.get(url_qa);
 	    if(resp.statusCode()==200){
 	    	Reporter.log(resp.asString());
-	    	Reporter.log(resp.asString());
+	    	System.out.println(resp.asString());
 		    Reporter.log("Status code " + resp.statusCode());
 			ResponseBody body= resp.getBody();
 			String bodyAsString = body.asString();

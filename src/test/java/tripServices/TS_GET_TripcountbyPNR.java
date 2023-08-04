@@ -18,6 +18,7 @@ public class TS_GET_TripcountbyPNR extends TripserviceCommon {
 		String url=Service_Url("TRIPSERVICE_GET_TRIPCOUNT");
 		Reporter.log(url);
 		Response resp=RestAssured.get(url);
+		System.out.println(resp.asString());
 		if(resp.statusCode()==200){
 			ResponseBody body= resp.getBody();
 			String bodyAsString = body.asString();

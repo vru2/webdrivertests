@@ -11,7 +11,7 @@ import io.restassured.response.ResponseBody;
 
 public class TS_FetchUserID_on_txnidandtripid extends TripserviceCommon{
 	@Test(groups={"Regression"})
-	public void checkpnr() throws Exception{
+	public void txnidandtripid() throws Exception{
 	Reporter.log("http://trip-service-api.cltp.com:9001/trips/txn/userId/46812466?txnType=1");
 	Response resp=RestAssured.get("http://trip-service-api.cltp.com:9001/trips/txn/userId/46812466?txnType=1");
 	System.out.println(resp.asString());

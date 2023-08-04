@@ -4,6 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.HashMap;
 
+import io.restassured.response.ResponseBody;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
@@ -15,23 +16,22 @@ public class TS_GET_Cancelleddetails extends TripserviceCommon {
 	
 	@Test(groups={"Regression"})
 	public void getCancelledDetails(){
-		String Host = common.value("host");
-		if(Host.equalsIgnoreCase("qa2")) {
-			Reporter.log("http://trip-service-api.cltp.com:9001/trips/cancelledDetails?date=06-10-2022&productType=air");
+			Reporter.log("http://trip-service-api.cltp.com:9001/trips/cancelledDetails?date=06-07-2023&productType=air");
 			Response resp = RestAssured.given().
 					when().
 					log().all().
 					headers(headersForTripservicepostcall()).
-					get("http://trip-service-api.cltp.com:9001/trips/cancelledDetails?date=06-10-2022&productType=air");
+					get("http://trip-service-api.cltp.com:9001/trips/cancelledDetails?date=06-07-2023&productType=air");
 			System.out.println(resp.asString());
 			if (resp.statusCode() == 200) {
-				Assert.assertNotNull("cancel_date");
+				ResponseBody body= resp.getBody();
+				String bodyAsString = body.asString();
+				Assert.assertEquals(bodyAsString.contains("trip_ref"), true ,"Response boday contains trip_ref");
 			} else {
 				Reporter.log("Status code : " + resp.statusCode());
 				assertTrue(false);
 			}
 		}
-	}
 	
 	public HashMap<String, Object> headersForTripservicepostcall(){
 		HashMap<String, Object> headers = new HashMap<>();

@@ -15,14 +15,12 @@ public class TS_GET_Refundeddetails extends TripserviceCommon {
 	
 	@Test(groups={"Regression"})
 	public void getCancelledDetails(){
-		String Host = common.value("host");
-		if(Host.equalsIgnoreCase("qa2")) {
-		Reporter.log("http://trip-service-api.cltp.com:9001/trips/refundedDetails?date=04-20-2022&productType=air");
+		Reporter.log("http://trip-service-api.cltp.com:9001/trips/refundedDetails?date=04-20-2023&productType=air");
 		Response resp=RestAssured.given().
 				      when().
 				      log().all().
 				      headers(headersForTripservicepostcall()).
-				      get("http://trip-service-api.cltp.com:9001/trips/refundedDetails?date=04-20-2022&productType=air");
+				      get("http://trip-service-api.cltp.com:9001/trips/refundedDetails?date=04-20-2023&productType=air");
 		    System.out.println(resp.asString());
 			if(resp.statusCode()==200){
 			Assert.assertNotNull("refund_record_id");
@@ -33,7 +31,6 @@ public class TS_GET_Refundeddetails extends TripserviceCommon {
 			assertTrue(false);
 		}
 		}
-	}
 	
 	public HashMap<String, Object> headersForTripservicepostcall(){
 		HashMap<String, Object> headers = new HashMap<>();

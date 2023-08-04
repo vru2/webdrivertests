@@ -20,6 +20,7 @@ public class TS_GET_Tripscount_Personid extends TripserviceCommon {
 		System.out.println(url);
 		Reporter.log(url);
 		Response resp=RestAssured.get(url);
+		System.out.println(resp.asString());
 		if(resp.statusCode()==200){
 			Reporter.log(resp.body().asString());
 			Reporter.log("Status code " + resp.statusCode());

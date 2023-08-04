@@ -27,13 +27,10 @@ public class TS_UpdateTripFields extends TripserviceCommon{
 		resp=TripservicePostcall(params,headersForTripservicepostcall(),url);
 		validationforputcall(resp);		
 		Response resp1;
-		String Host = common.value("host");
-		if(Host.equalsIgnoreCase("qa2")) {
 		String url1 = ("http://trip-service-api.cltp.com:9001/trips/"+tripref+"/air-bookings/update-booking");
 		Reporter.log(url1);
 		resp1=TripserviceHotelsPutcall(params3,headersForTripserviceputcall(),url1);
-		validationforput(resp1);	
-	} 
+		validationforput(resp1);
 		Thread.sleep(8000);		
 		DBValidation_Txn(resp, "C");
 		Response resp2;

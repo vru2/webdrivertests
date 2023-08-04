@@ -15,7 +15,7 @@ import io.restassured.response.ResponseBody;
 
 public class TS_Save_TripPDF extends TripserviceCommon {
 	@Test(groups={"Regression"})
-	public void postPahcommqueue() throws IOException, InterruptedException{
+	public void trippdf() throws IOException, InterruptedException{
 		String url="http://trip-service-api.cltp.com:9001/trips/Q210819130428/pdf";
 		String s=RandomStringUtils.randomNumeric(4);
 		String params="{\"pdfPath\":\"test-eticket"+s+"\",\"pdfType\":\"e-ticket\",\"requestId\":\"12345\"}";

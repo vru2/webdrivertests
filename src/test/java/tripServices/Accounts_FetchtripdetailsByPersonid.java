@@ -21,7 +21,7 @@ public class Accounts_FetchtripdetailsByPersonid extends TripserviceCommon{
 	    resp=RestAssured.get(url_qa);
 	    if(resp.statusCode()==200){
 	    	Reporter.log(resp.asString());
-	    	Reporter.log(resp.asString());
+	    	System.out.println(resp.asString());
 		    Reporter.log("Status code " + resp.statusCode());
 			ResponseBody<?> body= resp.getBody();
 			String bodyAsString = body.asString();
@@ -39,7 +39,7 @@ public class Accounts_FetchtripdetailsByPersonid extends TripserviceCommon{
 	    resp1=RestAssured.get(url1_qa);
 	    if(resp1.statusCode()==200){
 	    	Reporter.log(resp1.asString());
-	    	Reporter.log(resp1.asString());
+	    	System.out.println(resp1.asString());
 		    Reporter.log("Status code " + resp1.statusCode());
 			ResponseBody<?> body= resp1.getBody();
 			String bodyAsString = body.asString();

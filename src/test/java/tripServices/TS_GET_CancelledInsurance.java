@@ -4,6 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.HashMap;
 
+import io.restassured.response.ResponseBody;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
@@ -15,46 +16,24 @@ public class TS_GET_CancelledInsurance extends TripserviceCommon {
 	
 	@Test(groups={"Regression"})
 	public void getCancelledInsurance(){
-		String Host = common.value("host");
-		if(Host.equalsIgnoreCase("qa2")) {
-		Reporter.log("http://trip-service-api.cltp.com:9001/trips/cancelledInsurances?date=12-15-2016");
+		Reporter.log("http://trip-service-api.cltp.com:9001/trips/cancelledInsurances?date=05-07-2023");
 		Response resp=RestAssured.given().
 				      when().
 				      log().all().
 				      headers(headersForTripservicepostcall()).
-				      get("http://trip-service-api.cltp.com:9001/trips/cancelledInsurances?date=12-15-2016");
+				      get("http://trip-service-api.cltp.com:9001/trips/cancelledInsurances?date=05-07-2023");
 		    System.out.println(resp.asString());
 			if(resp.statusCode()==200){
-			Assert.assertNotNull("refund_id");
-		}else{
+				ResponseBody body= resp.getBody();
+				String bodyAsString = body.asString();
+				Assert.assertEquals(bodyAsString.contains("Refund"), true ,"Response boday contains Refund");
+
+			}else{
 			Reporter.log("Status code : " + resp.statusCode());
 			assertTrue(false);
 		}
-		} /*
-			 * else if(Host.equalsIgnoreCase("www")) { Reporter.log(
-			 * "http://trip-service.cltp.com:9001/trips/cancelledInsurances?date=12-12-2019"
-			 * ); Response resp=RestAssured.get(
-			 * "http://trip-service.cltp.com:9001/trips/cancelledInsurances?date=12-12-2019"
-			 * ); System.out.println(resp.asString()); if(resp.statusCode()==200){
-			 * ResponseBody body= resp.getBody(); String bodyAsString = body.asString();
-			 * Assert.assertNotNull("refund_id"); Reporter.log(bodyAsString); }else{
-			 * Reporter.log("Status code : " + resp.statusCode()); assertTrue(false); } }
-			 */else if(Host.equalsIgnoreCase("dev")) {
-			Reporter.log("http://172.17.32.12:9031/trips/cancelledInsurances?date=08/07/2019");
-			Response resp=RestAssured.given().
-				      when().
-				      log().all().
-				      headers(headersForTripservicepostcall()).
-				      get("http://trip-service-api.cltp.com:9001/trips/cancelledInsurances?date=09-26-2019");
-		    System.out.println(resp.asString());
-			if(resp.statusCode()==200){
-			Assert.assertNotNull("refund_id");
-			}else{
-				Reporter.log("Status code : " + resp.statusCode());
-				assertTrue(false);
-			}
+
 		}
-	}
 	
 	public HashMap<String, Object> headersForTripservicepostcall(){
 		HashMap<String, Object> headers = new HashMap<>();

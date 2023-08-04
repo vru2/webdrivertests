@@ -12,6 +12,7 @@ public class TS_PUT_Trips extends TripserviceCommon {
 	String url =  Service_Url("TRIPSERVICE_PUT_TRIPS");
 	Reporter.log(url);
 	resp=TripservicePutTrips(params_putTrips,headersForTripserviceputtripscall(),url);
+	System.out.println(resp.asString());
 	validation_puttrips(resp);
 	}
 	

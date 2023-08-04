@@ -19,7 +19,7 @@ public class Accounts_Notes extends TripserviceCommon {
 	    resp=RestAssured.get(url_qa);
 	    if(resp.statusCode()==200){
 	    	Reporter.log(resp.asString());
-	    	Reporter.log(resp.asString());
+	    	System.out.println(resp.asString());
 		    Reporter.log("Status code " + resp.statusCode());
 			Assert.assertNotNull("id");
 			Assert.assertNotNull("note");

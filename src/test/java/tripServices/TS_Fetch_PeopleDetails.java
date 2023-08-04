@@ -11,7 +11,7 @@ import io.restassured.response.ResponseBody;
 
 public class TS_Fetch_PeopleDetails extends TripserviceCommon{
 	@Test(groups={"Regression"})
-	public void checkpnr() throws Exception{
+	public void peopledetails() throws Exception{
 	Reporter.log("http://trip-service-api.cltp.com:9001/trips/46812466/fetch-people-details");
 	Response resp=RestAssured.get("http://trip-service-api.cltp.com:9001/trips/46812466/fetch-people-details");
 	System.out.println(resp.asString());

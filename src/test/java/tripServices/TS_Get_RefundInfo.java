@@ -11,7 +11,7 @@ import io.restassured.response.ResponseBody;
 
 public class TS_Get_RefundInfo extends TripserviceCommon{
 	@Test(groups={"Regression"})
-	public void checkpnr() throws Exception{
+	public void refundinfo() throws Exception{
 	Reporter.log("http://trip-service-api.cltp.com:9001/trips/Q21061572422/get_refund_info?txn_id=76012482&apiVersion=V1");
 	Response resp=RestAssured.get("http://trip-service-api.cltp.com:9001/trips/Q21061572422/get_refund_info?txn_id=76012482&apiVersion=V1");
 	System.out.println(resp.asString());

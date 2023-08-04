@@ -26,7 +26,7 @@ public class Accounts_FetchtripdetailsByTripref extends TripserviceCommon{
 	    resp=RestAssured.get(url_air);
 	    if(resp.statusCode()==200){
 	    	Reporter.log(resp.asString());
-	    	Reporter.log(resp.asString());
+	    	System.out.println(resp.asString());
 		    Reporter.log("Status code " + resp.statusCode());
 			ResponseBody body= resp.getBody();
 			String bodyAsString = body.asString();
@@ -42,7 +42,7 @@ public class Accounts_FetchtripdetailsByTripref extends TripserviceCommon{
 	    resp1=RestAssured.get(url_hotel);
 	    if(resp1.statusCode()==200){
 	    	Reporter.log(resp1.asString());
-	    	Reporter.log(resp1.asString());
+	    	System.out.println(resp1.asString());
 		    Reporter.log("Status code " + resp1.statusCode());
 			ResponseBody body= resp1.getBody();
 			String bodyAsString = body.asString();
@@ -59,7 +59,7 @@ public class Accounts_FetchtripdetailsByTripref extends TripserviceCommon{
 		    resp2=RestAssured.get(url_local);
 		    if(resp2.statusCode()==200){
 		    	Reporter.log(resp2.asString());
-		    	Reporter.log(resp2.asString());
+		    	System.out.println(resp2.asString());
 			    Reporter.log("Status code " + resp2.statusCode());
 				ResponseBody body= resp2.getBody();
 				String bodyAsString = body.asString();
@@ -75,7 +75,7 @@ public class Accounts_FetchtripdetailsByTripref extends TripserviceCommon{
 	    resp3=RestAssured.get(url_train);
 	    if(resp3.statusCode()==200){
 	    	Reporter.log(resp3.asString());
-	    	Reporter.log(resp3.asString());
+	    	System.out.println(resp3.asString());
 		    Reporter.log("Status code " + resp3.statusCode());
 			ResponseBody body= resp3.getBody();
 			String bodyAsString = body.asString();
