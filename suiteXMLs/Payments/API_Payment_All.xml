@@ -109,19 +109,6 @@
             <class name="test.java.paymentsAPI.API_EMI_NoCost_Get_Offers"/>
         </classes>
     </test>
-
-    <test name="Refunds Count" preserve-order="true" parallel="true">
-        <classes>
-
-        </classes>
-    </test>
-
-    <test name="Refunds ROR Counts" preserve-order="true" parallel="true">
-        <classes>
-            <!--   <class name="test.java.paymentsAPI.API_ROR_RefundQ_Count"/>  //not live -->
-        </classes>
-    </test>
-
     <test name="Deposit Account DA" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_DA_PayV3"/>
@@ -153,13 +140,6 @@
         </classes>
     </test>
 
-    <test name="Qitaf" preserve-order="true" parallel="true">
-        <classes>
-            <!-- <class name="test.java.paymentsAPI.API_Qitaf_Redeem"/>
-            <class name="test.java.paymentsAPI.API_Qitaf_Reverse"/>
-            <class name="test.java.paymentsAPI.API_Qitaf_SendOTP"/>       -->
-        </classes>
-    </test>
 
     <test name="CTPay V2" preserve-order="true" parallel="true">
         <classes>
@@ -167,12 +147,6 @@
             <!-- <class name="test.java.paymentsAPI.API_CTpay_Status"/>
              <class name="test.java.paymentsAPI.API_CTpay_UpdateClient"/>-->
             <class name="test.java.paymentsAPI.API_CTpay_URLcreation"/>
-        </classes>
-    </test>
-
-    <test name="OLA" preserve-order="true" parallel="true">
-        <classes>
-            <!--     <class name="test.java.paymentsAPI.API_OLA_Validate_Pay"/>   -->
         </classes>
     </test>
 
@@ -212,24 +186,6 @@
         </classes>
     </test>
 
-
-    <test name="Expressway" preserve-order="true" parallel="true">
-        <classes>
-            <!-- <class name="test.java.paymentsAPI.API_EW_GetOutstanding"/>
-            <class name="test.java.paymentsAPI.API_EW_UserDetails"/>
-            <class name="test.java.paymentsAPI.API_EW_Validate"/>
-            <class name="test.java.paymentsAPI.API_EW_OptIN"/>
-            <class name="test.java.paymentsAPI.API_EW_Add_Amount"/>   -->
-
-            <!--  <class name="test.java.paymentsAPI.API_EW_Pay_Multi"/>
-                  <class name="test.java.paymentsAPI.API_EW_Pay_Multi_V3"/>
-                  <class name="test.java.paymentsAPI.API_EW_Pay_V3"/>
-                  <class name="test.java.paymentsAPI.API_EW_Pay_AutoDebit"/>
-                  <class name="test.java.paymentsAPI.API_EW_Summary"/>   -->
-
-        </classes>
-    </test>
-
     <test name="Wallets"  preserve-order="true" parallel="true" >
         <classes>
             <class name="test.java.paymentsAPI.API_Wallet_RevertedPromo_info"/>
@@ -251,29 +207,7 @@
         </classes>
     </test>
 
-    <test name="ADCB" preserve-order="true" parallel="true">
-        <classes><!--
-      <class name="test.java.paymentsAPI.API_Reward_ADCB_CheckBalance"/>
-      <class name="test.java.paymentsAPI.API_Reward_ADCB_Pay"/>  -->
-        </classes>
-    </test>
 
-    <!--
-
-    <test name="PayBack" preserve-order="true" parallel="true">
-        <classes>
-           <class name="test.java.paymentsAPI.API_RewardPayback"/>
-        </classes>
-    </test>
-    -->
-    <!--
-    <test name="Refunds redis enque" preserve-order="true" parallel="true">
-        <classes>
-
-           <class name="test.java.paymentsAPI.API_Refunds_Enque_redis"/>
-           <class name="test.java.paymentsAPI.API_Refunds"/>
-         </classes>
-    </test>-->
 
     <test name="Stored Card1" preserve-order="true" parallel="true">
         <classes><class name="test.java.paymentsAPI.API_storeCard"/>
@@ -334,9 +268,60 @@
         </classes>
     </test>
 
-    <test name="FetchRefunds New"  preserve-order="true" parallel="true" >
+
+
+
+    <!--
+
+
+    <test name="Refunds Count" preserve-order="true" parallel="true">
         <classes>
-            <!-- <class name="test.java.paymentsAPI.API_Refunds_Fetch"/> -->
+
         </classes>
     </test>
+
+
+    <test name="FetchRefunds New"  preserve-order="true" parallel="true" >
+        <classes>
+             <class name="test.java.paymentsAPI.API_Refunds_Fetch"/>
+    </classes>
+     </test>
+
+    <test name="Refunds ROR Counts" preserve-order="true" parallel="true">
+        <classes>
+              <class name="test.java.paymentsAPI.API_ROR_RefundQ_Count"/>  //not live
+    </classes>
+
+        </test>
+    <test name="ADCB" preserve-order="true" parallel="true">
+        <classes>
+      <class name="test.java.paymentsAPI.API_Reward_ADCB_CheckBalance"/>
+      <class name="test.java.paymentsAPI.API_Reward_ADCB_Pay"/>
+    </classes>
+        </test>
+
+    <test name="PayBack" preserve-order="true" parallel="true">
+        <classes>
+           <class name="test.java.paymentsAPI.API_RewardPayback"/>
+        </classes>
+    </test>
+    -->
+    <!--
+    <test name="Refunds redis enque" preserve-order="true" parallel="true">
+        <classes>
+
+           <class name="test.java.paymentsAPI.API_Refunds_Enque_redis"/>
+           <class name="test.java.paymentsAPI.API_Refunds"/>
+         </classes>
+    </test>-->
+
+
+    <test name="Qitaf" preserve-order="true" parallel="true">
+        <classes>
+            <!-- <class name="test.java.paymentsAPI.API_Qitaf_Redeem"/>
+            <class name="test.java.paymentsAPI.API_Qitaf_Reverse"/>
+            <class name="test.java.paymentsAPI.API_Qitaf_SendOTP"/>       -->
+        </classes>
+    </test>
+
 </suite>
