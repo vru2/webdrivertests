@@ -24,6 +24,12 @@
 		</classes>
 	</test>
 
+    <test name="Accounts-Service-NewAPI" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.Account_Service_LogOutAPI" />
+        </classes>
+    </test>
+
 
         <test name="Accounts-Service-Userclassification" parallel="true">
             <classes>

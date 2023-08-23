@@ -23,7 +23,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import junit.framework.Assert;
 
-public class AccountsCommon_API extends PlatformCommonUtil
+public class 	AccountsCommon_API extends PlatformCommonUtil
 {	
 	String url_EndPoint_Trip  = "/trips/v2?trip=Q1901080092";
 	String url_EndPoint_Mobile = "/trips/v2?mobile=7022651232";
@@ -266,6 +266,8 @@ public class AccountsCommon_API extends PlatformCommonUtil
 	String url_AccountsInfoAPI_BasedonUserId="/v1/people/filters?caller=ct-suite";
 	String url_Account_Service_AppleSignin="/apple/signin";
 
+	String url_logout = "/external-api/v2/user?travellersRequired=false&docRequired=false&userPreference=false&savedCards=false";
+
 	String params_CreateWallet = "{\"currency\":\"INR\", \"caller\":\"pay-refund\", \"id\":\"5682929\"}";
 	String params_FetchPeople = "{\"email_ids\":[\"vinay.raj@cleartrip.com\",\"sathianarayanan.s@cleartrip.com\",\"kiran.kumar@cleartrip.com\",\"xyz1\"]}";
 	String params_Feedbackemail="{\"email_id\":\"ns.likhitha@cleartrip.com\",\"msg\":\"test\",\"subject\":\"working\",\"email_type\":\"default\"}";
@@ -422,6 +424,14 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("Content-Type", "application/json");
 		headers.put("Referer", "www.cleartrip.com");
 		headers.put("Cookie", "ct-auth=xLkcxaKxpIdnhgUZcO%2BWiRjNDKCGySs%2F3qHQWLApkVidb3KV%2F49ubzf1Ekx1NtmzL1YjeWNmu3xY%2FpzUexWQN1w%2Fj5gAPNmv1vpKnDrAx3FoX9evvh5diDC4jtyRjOeZZJtx%2BJ31duZqrcZ2jUdJ6F4ai43jNI5aChVTEmGAfqQahvGkzHhRz5kPpCa%2F7j3utX4un4jpIzA3dx1i9UD1iDhmbaHDtVTELASCTE65iYNDav43rPHfhVjrxuJhRUe9V9J1s9EnvD%2BVObAzErSBUd%2BYomLdDuWrqqdRzGq7%2FdYA0m79Z5nuhvvWgXtLZpphBygb5DF%2BiBArg6EEGJYTRX%2BnhhaYeP8g0CEQkY6Tiy4JTEWCk4w4RPfV8FxcD5fiBiYwxcyF82ssHriGcBPoZbqcwrH37YPhmlmSgDptHRHSU4sbkK%2B1ntNdKiZtuD7S519sHoYJ20LxLarNevMhefLj6wy0K9HoNEZdzP3I6V6sfLCHbaSEDTDVfF6ZO2eL%2BY0HEOXDxFMm4qDR%2FfSwa6%2BHx%2F4do5V1cUolGYLe7LksliKRdHKdB04q2m8OnZXTH2Z4tsAXBZj47Mu0vEuTRiAH0Rp2vtFkuXiol%2Fc%2BBJD4qswYyk0D6GkqDc%2FryiGzrriKvMSxzl8ZjdP0xHKTJjDfE5MjfU2lez8Mc21eeVj4yG9Y5gNNb6MvOPOrwEDI%2FRkVukgyqFl7OJk6DNu3G%2FLNPaqxgHPoG%2Fb4MQRnyZVI9iJH8UXIBBVrkHxP0uq0KBIFqMINY881df17xzwxrP0wDfAjdIJWLC650cfnf3%2BZ8zInGGcv79tFePFr5UA0tMv7Ci9nlUUKOJuJ4P3asT%2F%2Fu6AA%2BWLog2uJ%2FY2YYqgP%2FV7P4M74%2FvZ8fgql9D8g8%2F%2F1HM9Q%2BhZwENf6sKaAU%2FkxX%2BEKCRjKf8O%2BTNUSfsuE8coUcku3YuzCaIBgM2P8Rb8sKLbSBDeyofU70uSSaMEckaUyLeYQbOVx%2F%2B7JUlOisjgFuy%2BxyJIPcX7Yv7eIVOKsnEkZCKNo2VdexAMFzV8jJWCkNJigozPGBBeEcF5L025fFK4zyLlxhOOqSrzgJ%2FV%2BKw55kneImPwOmjjTx8bKaKUlDohE7GDIWcILQ88d%2BXi7A5SMIuz2WcT5ii0Wf%2B8AovNHaAE6ks%2FCbb9HIDfkrt1RUQubPWxQct8F190iQxv9R6IFJ5ykwqipKSTD3By%2BM95FvKgObf5mq7KTh4b8T%2BeFMlESYJHyLIxZIZoHl9lVnkf7P1e8%2FtlB9wGg6ZHy9%2B0obMoFR67KLl5Gf2Fubx9%2Bu6Hxgn%2BXdJPeAfwgbb%2BQmBiXP12zCP6SuogJGXte7YQyF6Em8tznMbrROwtZON8HERSFujfxKGUlphAbOSefgP%2B7S8ROG3IPs9BT1n1utI2bh3BRC5ImSyZhXOG2sznZdCQ79pKhhufWoot4da2aQ5TFdB5HS5I82K%2BNFYkqRWdK4vmOr5j0J6GyQhEu5IsLcsngqwvuBRkhZ%2FI2BlzDhJYXPlwWKqeoicydwftbEFDnNHvr5PmogWHBoxfe612L%2FoZuaHewfiNVtslgbnGnbzo6cVZBOb0MxCSiNyccvTZ6ZeZ3IoYf5mwSBgL53KSTx%2BaaO3PBn83YSeM2dk11dlD76Dw%2Ffwp7gLIb%2F9H19TQBwMECqNmAPkW775ynG45GwhE3BA0pwhTRn%2BF4GSBlk6n2YHWpqXOktV2t3ZZwho5dU%2BaKzPeoMZcLm7nG2qmPwjWvfUgSBhOQRDOcCqRiT2EOGBgmpslREzWOrB3hyHpytZhU0J82K0I1WE%2BjcH8O%2FVdoj0Eb8tJ9rXfllmc8rC%2FXLy3f2oyrfnYDjCw0baLNpGuOehpaIsoMY5Rf5GiTwFvhXvAnYS%2B25eC0UR18ZscFbQ%2FM4rY6jOiEH0NyB%2B2zpVUqHxVKy8EA2q8%2BrZEfuQeptItz1QmCTCrG2zz535KwggZowoP32EtOqBWYhQip1WbhGbMQmAZql3Vy2xcsLuyKfwQVUtJ7iO6HxRDLIO7ZvTGTvHNX1ETbNEpyZpMgLwUjT3Qtd82ubZvhaDf0eBKLoRRS5JmntfEp5NxtVz6UwqLza%2B5jWfqwgqHy3G0T%2Fs2u0M7JwAT2wOh%2B34Xdyjuo9QT9eXMDGw3bKro5pSC2ES2LsRt06iOvAE7642f4Vz1Hu3%2BsavTJotWVhK57A3a1kzrO4fs6W1TZ164WNSXFwHHeNvILewT030Uc1nb9brw8XyF4qV3Bm%2FliftCqilrR7wJMKe%2B0bwL1b3dB19JZyR4PoUorfmRVlKTLRi36%2Fz06Maw86l5ulnZ%2FOYr0x68AzZPVKJIJgL%2FUR%2FFeMT6Z2FQgmkvN9o56uaDqljiH6EZf69ABfV0nq4kc9YcPGPRo5yJqnvzC9EySWebP15u3IQS2mOPTv%2B0EuLDC5z0TR%2FvMndyptkL3JYHxPCZ66Vd%2BVlVBbmE%2B1KNkwuStlsk8fQBPQcJVdWYRuJWwOzK%2Bgj3SRuWRkjCnDKKe8NqjkOHmdGzy1oyQ6RDiX8py1ChHoj4cjWr%2FDiVQVL7HHSTDtaEy7aJ1MyWDl56J5voX6gxsxpwT7eVQfFgWbHbKn8V%2FndnWpk6NfRBwwmzNNBnLHJgaDSiklpxQ%2B%2BOzrxb1Tox7Kq6%2FJBvLlwdghgUnsSVsjHrnbDXWQq4aEuOadeiUW2vyzpBPNOBmJmsFPmS8pOlAUMm1FILo%2B1a4hknTnPfj%2FoblSJLZSMRU95jBcoxcGvfJUFHGpmwaFOusXvBwUQItAVIqX%2B2smxWVqgEUizYO00bx2rlptTMEJwKb%2Bs4Kkul4g7WkvlpxSjq7IYISNrB1lR6oID5dw1I%3D");
+		return headers;
+	}
+
+	public HashMap<String, Object> LogoutAPI() {
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("cookie", "ct-auth=Adom04s0jWWLpYeJdqQCvSpAXAXfK%2FmItS09lB9PYEG8m%2Fmxya8oyL4s2ROkN98ZMQSQFbQVBxkZathsIXsnSbCrW27PiyVruGbls9pHIkzq7QiGDb7x8BWA5PwDmOdkWeM5kHkfXiKtBH4gyl8vNQfC8%2BU2pv2ChqgCaQM9CXOcIR8vVJAOZtJGpXFnN6KTpgw8mmtlQh%2B7XEmQWV1fBzUEeb5zfEqx82VQlFWkOI8%3D;ct-dvid=a7582pi%2F%2Bu70DqonjQ47Kd99K4dEzqRkfKTWeep2K9wCYb4Je61F8Ri0OER5PA794RDSaM5o%2FKqgCuFT2sjMAGZI6H4S%2FnVEUGthSIGMql0%3D");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("caller", "caller-app");
 		return headers;
 	}
 
@@ -2301,7 +2311,12 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		else if(Type.equals("GstDetails_Prod")) {
 			url = url_GstDetails_Prod;
 		}
-
+		else if (Type.equals("Account_Service_LogOutAPI")) {
+			RestAssured.baseURI = url_Acct_Service;
+			url = url_logout;
+			headers = LogoutAPI();
+			Reporter.log(url_Acct_Service + url);
+		}
 
 		else if(Type.equals("AcctHealthtestURL_Prod")) {
 			url = url_AcctHealthtestURL_Prod;
@@ -3492,6 +3507,11 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		}else if(Type.equalsIgnoreCase("Mobile")) {
 			if(!resp.body().asString().contains("trip_id")) {
 				Assert.assertTrue(false);						
+			}
+		}
+		else if (Type.equalsIgnoreCase("Account_Service_LogOutAPI")) {
+			if (!resp.body().asString().contains("65255898")) {
+				Assert.assertTrue(false);
 			}
 		}else if(Type.equalsIgnoreCase("Date")) {
 			if(!resp.body().asString().contains("trip_id")) {
