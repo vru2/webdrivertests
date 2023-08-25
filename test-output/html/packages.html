@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="description" content="TestNG unit test results." />
+  <link rel="stylesheet" href="css/reportng.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script> 
+  <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+  <script type="text/javascript" src="js/reportng.js"></script>
+  <script type="text/javascript">  
+    	$(document).ready(function () {  
+	            $('tr.parent')  
+	                .css("cursor", "pointer")  
+	                .attr("title", "Click to expand/collapse")  
+	                .click(function () {  
+	                    $(this).siblings('.child-' + this.id).toggle();  
+	                });
+	                $('tr.parent')  
+	                .css("cursor", "pointer")  
+	                .attr("title", "Click to expand/collapse")  
+	                .click();
+	    });
+	    function changeIcon(elementId) {
+			if ($('#'+elementId).hasClass('glyphicon glyphicon-minus')){
+				$('#'+elementId).removeClass('glyphicon glyphicon-minus').toggleClass('glyphicon glyphicon-plus');
+			}else{
+				$('#'+elementId).removeClass('glyphicon glyphicon-plus').toggleClass('glyphicon glyphicon-minus');
+			}
+		}
+		function showReport(element,report){$(element).children(".tipFrame").attr('src', report).show();}
+		function hideReport(element){$(element).children(".tipFrame").hide();}
+    </script>
+</head>
+<body onload="return false;" onkeypress="hidePassPackages();">
+<div class="row">
+	<div class="col-xs-12">
+	<h3 class="normal" style="float: left;">Package Results</h3><br>
+	<button id="hideResults" type="button" class="btn-danger" onclick="hidePassPackages(this);" style="float: right;" title="Click or Press Any key to Hide/Show All Passed Suites">Show Only Failures</button>
+    </div>
+</div>
+<br>
+<div class="well well-large">
+<table class="table table-bordered" width="100%;" id="features">
+	<thead>
+   		<tr>
+   			<th width="30px"></th>
+   			<th scope="col" style="vertical-align:middle;text-align:left;">Package</th>
+   		 	<th scope="col" width="50px">Duration&nbsp;&nbsp;&nbsp;</th>
+   		 	<th scope="col" width="30px">Passed&nbsp;&nbsp;&nbsp;</th>
+    		<th scope="col" width="30px">Skipped&nbsp;&nbsp;&nbsp;</th>
+    		<th scope="col" width="30px">Failed&nbsp;&nbsp;&nbsp;</th>
+	    	  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr class="parent" id="row0" title="Click to expand/collapse" style="cursor: pointer;" onclick="changeIcon('span-ec624f10-6745-4046-896f-2d40c02c2bdf'); ">
+<td><span id="span-ec624f10-6745-4046-896f-2d40c02c2bdf" class="glyphicon glyphicon-minus" style="color:blue"></span></td>
+<td align="left">test.java.payment_Air_Web</td><td align="center">00:14:57</td><td align="center" class="passed number">30</td><td align="center" class="zero number">0</td><td align="center" class="failed number">9</td></tr>
+<tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test1_results.html">test.java.payment_Air_Web.Air_Web_CC_PayTM_Inline</a></td><td align="center">00:01:40</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test2_results.html">test.java.payment_Air_Web.Air_Web_Paylater_FK</a></td><td align="center">00:00:34</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><td align="center" class="failedCell">1</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test3_results.html">test.java.payment_Air_Web.Air_Web_Paylater_Paytm_Postpaid</a></td><td align="center">00:02:37</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test4_results.html">test.java.payment_Air_Web.Air_Web_Paylater_FK_EMI</a></td><td align="center">00:00:25</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><td align="center" class="failedCell">1</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test5_results.html">test.java.payment_Air_Web.Air_Web_CC_PayU</a></td><td align="center">00:02:47</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><td align="center" class="failedCell">1</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test6_results.html">test.java.payment_Air_Web.Air_Web_Paylater_FK_EMI_NCE</a></td><td align="center">00:01:03</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><td align="center" class="failedCell">1</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test7_results.html">test.java.payment_Air_Web.Air_Web_CC_Razorpay</a></td><td align="center">00:01:35</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test8_results.html">test.java.payment_Air_Web.Air_Web_Coupon_Invalid</a></td><td align="center">00:01:34</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test9_results.html">test.java.payment_Air_Web.Air_Web_Coupon_Valid</a></td><td align="center">00:01:51</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test10_results.html">test.java.payment_Air_Web.Air_Web_DC_PayTM</a></td><td align="center">00:01:31</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test11_results.html">test.java.payment_Air_Web.Air_Web_EMI_BFL</a></td><td align="center">00:01:42</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test12_results.html">test.java.payment_Air_Web.Air_Web_EMI_NCE</a></td><td align="center">00:02:24</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><td align="center" class="failedCell">1</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test13_results.html">test.java.payment_Air_Web.Air_Web_EMI_Razorpay</a></td><td align="center">00:01:47</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test14_results.html">test.java.payment_Air_Web.Air_Web_GV_SCLP_CLP_WL_CC_Amex</a></td><td align="center">00:00:54</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><td align="center" class="failedCell">1</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test15_results.html">test.java.payment_Air_Web.Air_Web_GV_SCLP_Full</a></td><td align="center">00:01:39</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test16_results.html">test.java.payment_Air_Web.Air_Web_Coupon_Tray_Change_PaymentMode</a></td><td align="center">00:07:03</td><td align="center" class="passedCell">4</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test17_results.html">test.java.payment_Air_Web.Air_Web_Coupon_Tray_Enter_Coupon_Twice</a></td><td align="center">00:07:03</td><td align="center" class="passedCell">4</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test18_results.html">test.java.payment_Air_Web.Air_Web_Coupon_Tray_Enter_New</a></td><td align="center">00:07:03</td><td align="center" class="passedCell">4</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test19_results.html">test.java.payment_Air_Web.Air_Web_Coupon_Tray_Select_From_Tray</a></td><td align="center">00:07:03</td><td align="center" class="passedCell">4</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test20_results.html">test.java.payment_Air_Web.Air_Web_SavedPay_Tokenized</a></td><td align="center">00:01:54</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test21_results.html">test.java.payment_Air_Web.Air_Web_NB_Retry</a></td><td align="center">00:02:07</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test22_results.html">test.java.payment_Air_Web.Air_Web_SavedPay_UPI</a></td><td align="center">00:00:52</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><td align="center" class="failedCell">1</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test23_results.html">test.java.payment_Air_Web.Air_Web_GV_SCLP_PriceChange_PopUp</a></td><td align="center">00:00:42</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><td align="center" class="failedCell">1</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test24_results.html">test.java.payment_Air_Web.Air_Web_Saved_UPI</a></td><td align="center">00:01:01</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><td align="center" class="failedCell">1</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test25_results.html">test.java.payment_Air_Web.Air_Web_UPI_Failure_Success</a></td><td align="center">00:02:52</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test26_results.html">test.java.payment_Air_Web.Air_Web_Wallet_Full</a></td><td align="center">00:01:48</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suite1_test27_results.html">test.java.payment_Air_Web.Air_Web_UPIScan_Validation_AMEXCC</a></td><td align="center">00:02:02</td><td align="center" class="passedCell">1</td><td align="center" class="zero number">0</td><td align="center" class="zero number">0</td>
+
+  	</tbody>
+</table>
+</div>
+</body>
+</html>

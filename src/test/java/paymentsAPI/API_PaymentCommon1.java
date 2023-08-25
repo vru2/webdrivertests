@@ -585,6 +585,8 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String url_refundgetrecord = "/paymentservice/service/refund/info/";
 	String urlEndpoint_GV_GET = "http://172.17.26.11:8071/payments/gv/create";
 
+	String url_walletTOA ="/payments/wallet/v2/addcash"; //  65222417
+
 	String url_walletGetCards ="/paymentservice/card/get/65206610"; //  41654864, 41654864 41701828
 	String url_walletValidateCards ="/paymentservice/card/validate?cardNumber=340000000000009&name=test&cardTypeId=2&expiryMonth=9&expiryYear=2021&userId=65206610";
 	String url_walletDeleteCards ="/paymentservice/card/delete/%s";
@@ -827,6 +829,13 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		return headers;
 	}
 
+	public HashMap<String, Object> headersForms_Wallet_TOA(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("checksum", "3d3c2e128f58d62fb90cd9d7e9bd325031f181f3455f560ff1183d69f1c619de");
+		return headers;
+	}
+
 	public HashMap<String, Object> headersForms_UI_Wallet_Cookie(){
 		HashMap<String, Object> headers = new HashMap<>();
 		headers.put("Accept", "application/json");
@@ -966,9 +975,6 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		headers.put("checksum", "b4207cd988b53b3a1bd70a2154d73f96186c084a14b081ff183ce90e4a114d6b");
 		return headers;
 	}
-
-
-
 
 	public HashMap<String, Object> headerFormss_Hi5_GetTrnx(){
 		HashMap<String, Object> headers = new HashMap<>();
@@ -1415,7 +1421,6 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		return request;			
 	}
 
-
 	public Response payGet2(String payType, String payType1) {
 
 		HashMap<String, Object> headers = new HashMap<>();
@@ -1753,6 +1758,29 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				headers(headers).
 				post(url);
 		return request;			
+	}
+
+
+	public Response walletPost(String payType, String payType1) {
+		RestAssured.baseURI =urlWallet;
+		String url = null;
+		String params = null;
+		//HashMap<String, Object> headers = new headersForms_Wallet_TOA<>();
+
+		HashMap<String, Object> headersFormsWalletUI = new HashMap<>();
+		headersFormsWalletUI= headersForms_Wallet_TOA();
+		Response resp = null;
+
+		if(payType.equalsIgnoreCase("WALLET_TOA")){
+			url = urlWallet + url_walletTOA;
+			String paramsTOA = "{\"user_id\":\"65222417\",\"currency\":\"INR\",\"amount\":100.0,\"trip_ref\":\"Q2308251236\",\"event_type\":\"TOA\",\"wallet_type\":\"REWARD\"}";
+			resp = RestAssured.given().when().log().all().body(paramsTOA).headers(headersFormsWalletUI).post(url);
+		}
+
+
+		Reporter.log(promoURL+url);
+		Reporter.log("Params :" +params);
+		return resp;
 	}
 
 	public Response promoPost(String payType, String payType1) {
@@ -3148,6 +3176,17 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		}
 		if(payType.equals("Reporting_Pending_Refunds")) {
 			if(!(resp.body().asString().contains("Q220705556500"))){
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(payType.equals("WALLET_TOA")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String desc = j.getString("description");
+			String status = j.getString("status");
+			if (!desc.contains("Wallet cashback success") ) {
+				Assert.assertTrue(false);
+			}if (!status.contains("S")) {
 				Assert.assertTrue(false);
 			}
 		}

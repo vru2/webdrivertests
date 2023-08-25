@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/reportng.css" />
+	<script type="text/javascript">  
+    	$(document).ready(function () {  
+	            $('tr.parent')  
+	                .css("cursor", "pointer")  
+	                .attr("title", "Click to expand/collapse")  
+	                .click(function () {  
+	                    $(this).siblings('.child-' + this.id).toggle();  
+	                });
+	                $('tr.parent')  
+	                .css("cursor", "pointer")  
+	                .attr("title", "Click to expand/collapse")  
+	                .click();
+	    });
+	    function changeIcon(elementId) {
+			if ($('#'+elementId).hasClass('glyphicon glyphicon-minus')){
+				$('#'+elementId).removeClass('glyphicon glyphicon-minus').toggleClass('glyphicon glyphicon-plus');
+			}else{
+				$('#'+elementId).removeClass('glyphicon glyphicon-plus').toggleClass('glyphicon glyphicon-minus');
+			}
+		}
+		function showReport(element,report){$(element).children(".tipFrame").attr('src', report).show();}
+		function hideReport(element){$(element).children(".tipFrame").hide();}
+    </script>
+</head>
+<body>
+<h3 class="failTitle">New</h3>
+<div>
+	<div class="well well-large">
+	<h4>Regression Issues</h4>
+		<table class="table table-bordered" width="100%;" id="features">
+			<thead>
+				<tr>
+					<th scope="col" width="30px">#</th>
+					<th scope="col">Issue</th>
+					<th scope="col" colspan="2">Total Affected Tests</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="parent" id="row0" title="Click to expand/collapse" style="cursor: pointer;" onclick="changeIcon('span-e668ed0d-fd74-43bb-bcde-30ca3cc1b137'); ">
+<td><span id="span-e668ed0d-fd74-43bb-bcde-30ca3cc1b137" class="glyphicon glyphicon-minus" style="color:blue"></span></td>
+<td class="break-word">Failure!</td><td>1</td><td></td></tr><tr class="child-row0" style="display: table-row;"><td></td><td><i>Suite Name</i></td><td><i>Test Name</i></td><td><i>Class Name</i></td></tr><tr class="child-row0" style="display: table-row;"><td></td><td><a href="suites_overview.html#Air Desktop Booking">Air Desktop Booking</a></td><td><a href="suite1_test12_results.html">EMI NoCost</a></td><td class="break-word">test.java.payment_Air_Web.Air_Web_EMI_NCE</td></tr>
+<tr class="parent" id="row1" title="Click to expand/collapse" style="cursor: pointer;" onclick="changeIcon('span-179346c8-9dfb-461b-afc7-1a1e7433b057'); ">
+<td><span id="span-179346c8-9dfb-461b-afc7-1a1e7433b057" class="glyphicon glyphicon-minus" style="color:blue"></span></td>
+<td class="break-word">Failure! Element not Visible!</td><td>1</td><td></td></tr><tr class="child-row1" style="display: table-row;"><td></td><td><i>Suite Name</i></td><td><i>Test Name</i></td><td><i>Class Name</i></td></tr><tr class="child-row1" style="display: table-row;"><td></td><td><a href="suites_overview.html#Air Desktop Booking">Air Desktop Booking</a></td><td><a href="suite1_test5_results.html">CC PayU</a></td><td class="break-word">test.java.payment_Air_Web.Air_Web_CC_PayU</td></tr>
+<tr class="parent" id="row2" title="Click to expand/collapse" style="cursor: pointer;" onclick="changeIcon('span-61fb06d2-9521-4715-9743-0438413912ef'); ">
+<td><span id="span-61fb06d2-9521-4715-9743-0438413912ef" class="glyphicon glyphicon-minus" style="color:blue"></span></td>
+<td class="break-word">move target out of bounds
+  (Session info: chrome=116.0.5845.110)
+Build info: version: &apos;4.8.0&apos;, revision: &apos;267030adea&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;13.4.1&apos;, java.version: &apos;20.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [10c7c9217fd22236cdf1491a7693b71a, actions {actions=[org.openqa.selenium.interactions.Sequence@c39b485]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.110, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: /var/folders/m9/x2g4shfx3rg...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60219}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:60219/devtoo..., se:cdpVersion: 116.0.5845.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 10c7c9217fd22236cdf1491a7693b71a</td><td>1</td><td></td></tr><tr class="child-row2" style="display: table-row;"><td></td><td><i>Suite Name</i></td><td><i>Test Name</i></td><td><i>Class Name</i></td></tr><tr class="child-row2" style="display: table-row;"><td></td><td><a href="suites_overview.html#Air Desktop Booking">Air Desktop Booking</a></td><td><a href="suite1_test2_results.html">FK PayLater</a></td><td class="break-word">test.java.payment_Air_Web.Air_Web_Paylater_FK</td></tr>
+<tr class="parent" id="row3" title="Click to expand/collapse" style="cursor: pointer;" onclick="changeIcon('span-4e2cb1f1-b062-400f-85c0-6cfe73ce75b7'); ">
+<td><span id="span-4e2cb1f1-b062-400f-85c0-6cfe73ce75b7" class="glyphicon glyphicon-minus" style="color:blue"></span></td>
+<td class="break-word">move target out of bounds
+  (Session info: chrome=116.0.5845.110)
+Build info: version: &apos;4.8.0&apos;, revision: &apos;267030adea&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;13.4.1&apos;, java.version: &apos;20.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [cb3c622736af1ad999144ef8b89f561d, actions {actions=[org.openqa.selenium.interactions.Sequence@46cb3181]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.110, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: /var/folders/m9/x2g4shfx3rg...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62261}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:62261/devtoo..., se:cdpVersion: 116.0.5845.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cb3c622736af1ad999144ef8b89f561d</td><td>1</td><td></td></tr><tr class="child-row3" style="display: table-row;"><td></td><td><i>Suite Name</i></td><td><i>Test Name</i></td><td><i>Class Name</i></td></tr><tr class="child-row3" style="display: table-row;"><td></td><td><a href="suites_overview.html#Air Desktop Booking">Air Desktop Booking</a></td><td><a href="suite1_test19_results.html">Saved UPI PaymentMode</a></td><td class="break-word">test.java.payment_Air_Web.Air_Web_SavedPay_UPI</td></tr>
+<tr class="parent" id="row4" title="Click to expand/collapse" style="cursor: pointer;" onclick="changeIcon('span-14dfe4b5-3626-46e1-b88c-3b2b7ecc4573'); ">
+<td><span id="span-14dfe4b5-3626-46e1-b88c-3b2b7ecc4573" class="glyphicon glyphicon-minus" style="color:blue"></span></td>
+<td class="break-word">move target out of bounds
+  (Session info: chrome=116.0.5845.110)
+Build info: version: &apos;4.8.0&apos;, revision: &apos;267030adea&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;13.4.1&apos;, java.version: &apos;20.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e2f1d38f28037724d3171dac168f8f69, actions {actions=[org.openqa.selenium.interactions.Sequence@305eae23]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.110, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: /var/folders/m9/x2g4shfx3rg...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60364}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:60364/devtoo..., se:cdpVersion: 116.0.5845.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2f1d38f28037724d3171dac168f8f69</td><td>1</td><td></td></tr><tr class="child-row4" style="display: table-row;"><td></td><td><i>Suite Name</i></td><td><i>Test Name</i></td><td><i>Class Name</i></td></tr><tr class="child-row4" style="display: table-row;"><td></td><td><a href="suites_overview.html#Air Desktop Booking">Air Desktop Booking</a></td><td><a href="suite1_test4_results.html">FK PayLater EMI</a></td><td class="break-word">test.java.payment_Air_Web.Air_Web_Paylater_FK_EMI</td></tr>
+<tr class="parent" id="row5" title="Click to expand/collapse" style="cursor: pointer;" onclick="changeIcon('span-480e42aa-9018-4bed-aea1-0dd01f71c546'); ">
+<td><span id="span-480e42aa-9018-4bed-aea1-0dd01f71c546" class="glyphicon glyphicon-minus" style="color:blue"></span></td>
+<td class="break-word">move target out of bounds
+  (Session info: chrome=116.0.5845.110)
+Build info: version: &apos;4.8.0&apos;, revision: &apos;267030adea&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;13.4.1&apos;, java.version: &apos;20.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e8960c3933707984c3ac85d5679cdbe2, actions {actions=[org.openqa.selenium.interactions.Sequence@175cf002]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.110, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: /var/folders/m9/x2g4shfx3rg...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62448}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:62448/devtoo..., se:cdpVersion: 116.0.5845.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e8960c3933707984c3ac85d5679cdbe2</td><td>1</td><td></td></tr><tr class="child-row5" style="display: table-row;"><td></td><td><i>Suite Name</i></td><td><i>Test Name</i></td><td><i>Class Name</i></td></tr><tr class="child-row5" style="display: table-row;"><td></td><td><a href="suites_overview.html#Air Desktop Booking">Air Desktop Booking</a></td><td><a href="suite1_test21_results.html">UPI Saved</a></td><td class="break-word">test.java.payment_Air_Web.Air_Web_Saved_UPI</td></tr>
+<tr class="parent" id="row6" title="Click to expand/collapse" style="cursor: pointer;" onclick="changeIcon('span-a827c880-d0ce-4e5d-9597-0c505a1ad348'); ">
+<td><span id="span-a827c880-d0ce-4e5d-9597-0c505a1ad348" class="glyphicon glyphicon-minus" style="color:blue"></span></td>
+<td class="break-word">null</td><td>3</td><td></td></tr><tr class="child-row6" style="display: table-row;"><td></td><td><i>Suite Name</i></td><td><i>Test Name</i></td><td><i>Class Name</i></td></tr><tr class="child-row6" style="display: table-row;"><td></td><td><a href="suites_overview.html#Air Desktop Booking">Air Desktop Booking</a></td><td><a href="suite1_test6_results.html">FKPL NCE EMI</a></td><td class="break-word">test.java.payment_Air_Web.Air_Web_Paylater_FK_EMI_NCE</td></tr>
+<tr class="child-row6" style="display: table-row;"><td></td><td><a href="suites_overview.html#Air Desktop Booking">Air Desktop Booking</a></td><td><a href="suite1_test14_results.html">GV CC WL</a></td><td class="break-word">test.java.payment_Air_Web.Air_Web_GV_SCLP_CLP_WL_CC_Amex</td></tr>
+<tr class="child-row6" style="display: table-row;"><td></td><td><a href="suites_overview.html#Air Desktop Booking">Air Desktop Booking</a></td><td><a href="suite1_test20_results.html">GV amount change</a></td><td class="break-word">test.java.payment_Air_Web.Air_Web_GV_SCLP_PriceChange_PopUp</td></tr>
+
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="well well-large">
+	<h4>New Features Issues</h4>
+		<table class="table table-bordered" width="100%;" id="features">
+			<thead>
+				<tr>
+					<th scope="col" width="30px">#</th>
+					<th scope="col">Issue</th>
+					<th scope="col" colspan="2">Total Affected Tests</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr style="display: table-row;"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+			</tbody>
+		</table>
+	</div>
+	
+</div>	
+</body>
+</html>

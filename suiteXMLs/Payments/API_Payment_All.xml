@@ -194,6 +194,7 @@
             <class name="test.java.paymentsAPI.API_Wallet_GetDeduction"/>
             <class name="test.java.paymentsAPI.API_Wallet_PromoUsed"/>
             <class name="test.java.paymentsAPI.API_Wallet_RevertPromo"/>
+            <class name="test.java.paymentsAPI.API_Wallet_TOA"/>
             <!-- <class name="test.java.paymentsAPI.API_Wallet_Promo_CashBackDetails"/> -->
         </classes>
     </test>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="js/canvasjs.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/reportng.css" />
+	<script>
+		window.onload = function () {
+			var chart = new CanvasJS.Chart("chartContainer", {
+animationEnabled: true,height: 600,indexLabelFontSize: 16,theme: "light2",title:{text: ""},axisX:{},axisY: {title: "Class"},toolTip:{shared:true},legend:{cursor:"pointer",verticalAlign: "top",horizontalAlign: "left",dockInsidePlotArea: false, fontSize: 16},data: [
+{type: "stackedBar",showInLegend: true,name: "Pass",color: "green",dataPoints: [
+{ label: "Inline PayTM Tokenized Card", y: 1 },
+{ label: "FK PayLater", y: 0 },
+{ label: "Paylater Paytm Postpaid", y: 1 },
+{ label: "FK PayLater EMI", y: 0 },
+{ label: "CC PayU", y: 0 },
+{ label: "FKPL NCE EMI", y: 0 },
+{ label: "CC Razorpay", y: 1 },
+{ label: "Coupon Invalid NB", y: 1 },
+{ label: "Coupon Valid", y: 1 },
+{ label: "DC PayTM", y: 1 },
+{ label: "EMI BFL", y: 1 },
+{ label: "EMI NoCost", y: 0 },
+{ label: "EMI Razorpay", y: 1 },
+{ label: "GV CC WL", y: 0 },
+{ label: "GV Full", y: 1 },
+{ label: "Coupon Tray", y: 4 },
+{ label: "SavedCard Tokeinzed", y: 1 },
+{ label: "NB Retry", y: 1 },
+{ label: "Saved UPI PaymentMode", y: 0 },
+{ label: "GV amount change", y: 0 },
+{ label: "UPI Saved", y: 0 },
+{ label: "UPI Failure Success", y: 1 },
+{ label: "Wallet Full", y: 1 },
+{ label: "UPI Scan Amex", y: 1 },
+]},
+{type: "stackedBar",showInLegend: true,name: "Fixed",color: "blue",dataPoints: [
+{ label: "Inline PayTM Tokenized Card", y: 0 },
+{ label: "FK PayLater", y: 0 },
+{ label: "Paylater Paytm Postpaid", y: 0 },
+{ label: "FK PayLater EMI", y: 0 },
+{ label: "CC PayU", y: 0 },
+{ label: "FKPL NCE EMI", y: 0 },
+{ label: "CC Razorpay", y: 0 },
+{ label: "Coupon Invalid NB", y: 0 },
+{ label: "Coupon Valid", y: 0 },
+{ label: "DC PayTM", y: 0 },
+{ label: "EMI BFL", y: 0 },
+{ label: "EMI NoCost", y: 0 },
+{ label: "EMI Razorpay", y: 0 },
+{ label: "GV CC WL", y: 0 },
+{ label: "GV Full", y: 0 },
+{ label: "Coupon Tray", y: 0 },
+{ label: "SavedCard Tokeinzed", y: 0 },
+{ label: "NB Retry", y: 0 },
+{ label: "Saved UPI PaymentMode", y: 0 },
+{ label: "GV amount change", y: 0 },
+{ label: "UPI Saved", y: 0 },
+{ label: "UPI Failure Success", y: 0 },
+{ label: "Wallet Full", y: 0 },
+{ label: "UPI Scan Amex", y: 0 },
+]},
+{type: "stackedBar",showInLegend: true,name: "Known Defects",color: "orange",dataPoints: [
+{ label: "Inline PayTM Tokenized Card", y: 0 },
+{ label: "FK PayLater", y: 0 },
+{ label: "Paylater Paytm Postpaid", y: 0 },
+{ label: "FK PayLater EMI", y: 0 },
+{ label: "CC PayU", y: 0 },
+{ label: "FKPL NCE EMI", y: 0 },
+{ label: "CC Razorpay", y: 0 },
+{ label: "Coupon Invalid NB", y: 0 },
+{ label: "Coupon Valid", y: 0 },
+{ label: "DC PayTM", y: 0 },
+{ label: "EMI BFL", y: 0 },
+{ label: "EMI NoCost", y: 0 },
+{ label: "EMI Razorpay", y: 0 },
+{ label: "GV CC WL", y: 0 },
+{ label: "GV Full", y: 0 },
+{ label: "Coupon Tray", y: 0 },
+{ label: "SavedCard Tokeinzed", y: 0 },
+{ label: "NB Retry", y: 0 },
+{ label: "Saved UPI PaymentMode", y: 0 },
+{ label: "GV amount change", y: 0 },
+{ label: "UPI Saved", y: 0 },
+{ label: "UPI Failure Success", y: 0 },
+{ label: "Wallet Full", y: 0 },
+{ label: "UPI Scan Amex", y: 0 },
+]},
+{type: "stackedBar",showInLegend: true,name: "Fail",color: "red",dataPoints: [
+{ label: "Inline PayTM Tokenized Card", y: 0 },
+{ label: "FK PayLater", y: 1 },
+{ label: "Paylater Paytm Postpaid", y: 0 },
+{ label: "FK PayLater EMI", y: 1 },
+{ label: "CC PayU", y: 1 },
+{ label: "FKPL NCE EMI", y: 1 },
+{ label: "CC Razorpay", y: 0 },
+{ label: "Coupon Invalid NB", y: 0 },
+{ label: "Coupon Valid", y: 0 },
+{ label: "DC PayTM", y: 0 },
+{ label: "EMI BFL", y: 0 },
+{ label: "EMI NoCost", y: 1 },
+{ label: "EMI Razorpay", y: 0 },
+{ label: "GV CC WL", y: 1 },
+{ label: "GV Full", y: 0 },
+{ label: "Coupon Tray", y: 0 },
+{ label: "SavedCard Tokeinzed", y: 0 },
+{ label: "NB Retry", y: 0 },
+{ label: "Saved UPI PaymentMode", y: 1 },
+{ label: "GV amount change", y: 1 },
+{ label: "UPI Saved", y: 1 },
+{ label: "UPI Failure Success", y: 0 },
+{ label: "Wallet Full", y: 0 },
+{ label: "UPI Scan Amex", y: 0 },
+]},
+{type: "stackedBar",showInLegend: true,name: "Skip",color: "yellow",dataPoints: [
+{ label: "Inline PayTM Tokenized Card", y: 0 },
+{ label: "FK PayLater", y: 0 },
+{ label: "Paylater Paytm Postpaid", y: 0 },
+{ label: "FK PayLater EMI", y: 0 },
+{ label: "CC PayU", y: 0 },
+{ label: "FKPL NCE EMI", y: 0 },
+{ label: "CC Razorpay", y: 0 },
+{ label: "Coupon Invalid NB", y: 0 },
+{ label: "Coupon Valid", y: 0 },
+{ label: "DC PayTM", y: 0 },
+{ label: "EMI BFL", y: 0 },
+{ label: "EMI NoCost", y: 0 },
+{ label: "EMI Razorpay", y: 0 },
+{ label: "GV CC WL", y: 0 },
+{ label: "GV Full", y: 0 },
+{ label: "Coupon Tray", y: 0 },
+{ label: "SavedCard Tokeinzed", y: 0 },
+{ label: "NB Retry", y: 0 },
+{ label: "Saved UPI PaymentMode", y: 0 },
+{ label: "GV amount change", y: 0 },
+{ label: "UPI Saved", y: 0 },
+{ label: "UPI Failure Success", y: 0 },
+{ label: "Wallet Full", y: 0 },
+{ label: "UPI Scan Amex", y: 0 },
+]}
+]});
+
+			chart.render();
+		}
+	</script>
+</head>
+<body>
+<div id="graphPerTime">
+	<h3 class="normal">Results Per Class</h3>
+	<div id="chartContainer" style="height: 100%; max-width: 100%; margin: 0px auto;"></div>
+</div>			
+</body>
+</html>
