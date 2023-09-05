@@ -15,23 +15,22 @@
         </classes>
     </test>
 
-	<test name="Accounts-Service-PWA" parallel="true">
+	<test name="PWA" parallel="true">
 		<classes>
 			<class name="test.java.accountsAPI.Accounts_Service_PWA_register" />
 			<class name="test.java.accountsAPI.Account_Service_PWA_SignIn_API" />
 			<class name="test.java.accountsAPI.Account_Service_PWA_GetUser_Byemail" />
 			<class name="test.java.accountsAPI.Account_Service_PWA_GetUserbyID" />
-
 		</classes>
 	</test>
 
-    <test name="Accounts-Service-NewAPI" parallel="true">
+    <test name="Log Out" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.Account_Service_LogOutAPI" />
         </classes>
     </test>
 
-        <test name="Accounts-Service-Userclassification" parallel="true">
+        <test name="User Classification" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Userclassification_Parsing_CSV" />
                 <class name="test.java.accountsAPI.Userclassification_Userdetails_emailid" />
@@ -40,7 +39,7 @@
             </classes>
         </test>
 
-        <test name="Accounts-Service-Companysearch" parallel="true">
+        <test name="Company Search" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_CompanySearchAPI_withDomainname" />
                 <class name="test.java.accountsAPI.Account_Service_CompanySearchAPI_internalDomainSearch" />
@@ -58,9 +57,8 @@
             </classes>
         </test>
 
-        <test name="Identity-service" parallel="true">
+        <test name="Identity Service" parallel="true">
             <classes>
-
                 <class name="test.java.accountsAPI.IdentityService_Signin_FlyinUser" />
                 <class name="test.java.accountsAPI.IdentityService_ctAuth_noLoginCookie" />
                 <class name="test.java.accountsAPI.IdentityService_PeopleController_gt_token_for_userBy_ID" />
@@ -74,7 +72,7 @@
             </classes>
         </test>
 
-        <test name="Account-service-Controllers" parallel="true">
+        <test name="Controllers" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin" />
                 <class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin_CleartripUser" />
@@ -129,7 +127,7 @@
             </classes>
         </test>
 
-        <test name="Account-service-Caching-userprofile" parallel="true">
+        <test name="User Profile" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_Email" />
                 <class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_ID" />
@@ -137,7 +135,7 @@
             </classes >
         </test>
 
-        <test name="Account-service-Signin Un-authorized" parallel="true">
+        <test name="Signin Un authorized" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Accounts_Service_Applesignin_Unauthorized" />
                 <class name="test.java.accountsAPI.Accounts_Service_CleartripV2_Signin_Unauthorized" />
@@ -147,7 +145,7 @@
             </classes>
         </test>
 
-        <test name="Account-service-Apple-Signin" parallel="true">
+        <test name="Apple Signin" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_AppleSignin" />
                 <class name="test.java.accountsAPI.Account_Service_AppleSignin_uniqueId" />
@@ -157,7 +155,7 @@
             </classes>
 
         </test>
-        <test name="Account-service-Deposit Account" parallel="true">
+        <test name="Deposit Account" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_FetchcompanyBy_depositaccountID" />
                 <class name="test.java.accountsAPI.Account_Service_Depositaccountsearch_WOTlinkedparam" />
@@ -166,7 +164,7 @@
             </classes>
 
         </test>
-        <test name="Account-service-GST Details" parallel="true">
+        <test name="GST Details" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_GSTV2_SearchAPIwithGstNo" />
                 <class name="test.java.accountsAPI.Account_Service_GSTV2_SearchAPIwithGstNoAndGstID" />
@@ -199,7 +197,7 @@
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_JWTtoken_Cleartrip" />
             </classes>
         </test>
-        <test name="Accounts-Service-MobileLogin" parallel="true">
+        <test name="MobileLogin" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_SIGNIN" />
                 <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_UPDATE_MOBILE" />
