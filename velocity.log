@@ -1,0 +1,27 @@
+Wed Aug 30 08:32:55 IST 2023  [debug] AvalonLogChute initialized using file 'velocity.log'
+Wed Aug 30 08:32:55 IST 2023  [trace] *******************************************************************
+Wed Aug 30 08:32:55 IST 2023  [debug] Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+Wed Aug 30 08:32:55 IST 2023  [trace] RuntimeInstance initializing.
+Wed Aug 30 08:32:55 IST 2023  [debug] Default Properties File: org/apache/velocity/runtime/defaults/velocity.properties
+Wed Aug 30 08:32:55 IST 2023  [debug] Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+Wed Aug 30 08:32:55 IST 2023  [debug] Using logger class org.apache.velocity.runtime.log.AvalonLogChute
+Wed Aug 30 08:32:55 IST 2023  [debug] Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+Wed Aug 30 08:32:55 IST 2023  [debug] ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Wed Aug 30 08:32:55 IST 2023  [trace] ClasspathResourceLoader : initialization complete.
+Wed Aug 30 08:32:55 IST 2023  [debug] ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+Wed Aug 30 08:32:55 IST 2023  [trace] Default ResourceManager initialization complete.
+Wed Aug 30 08:32:55 IST 2023  [debug] Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+Wed Aug 30 08:32:55 IST 2023  [debug] Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+Wed Aug 30 08:32:55 IST 2023  [debug] Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+Wed Aug 30 08:32:55 IST 2023  [debug] Loaded System Directive: org.apache.velocity.runtime.directive.Include
+Wed Aug 30 08:32:55 IST 2023  [debug] Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+Wed Aug 30 08:32:55 IST 2023  [debug] Created '20' parsers.
+Wed Aug 30 08:32:55 IST 2023  [trace] Velocimacro : initialization starting.
+Wed Aug 30 08:32:55 IST 2023  [debug] Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+Wed Aug 30 08:32:55 IST 2023  [debug] Velocimacro : Default library not found.
+Wed Aug 30 08:32:55 IST 2023  [debug] Velocimacro : allowInline = true : VMs can be defined inline in templates
+Wed Aug 30 08:32:55 IST 2023  [debug] Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+Wed Aug 30 08:32:55 IST 2023  [debug] Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+Wed Aug 30 08:32:55 IST 2023  [debug] Velocimacro : autoload off : VM system will not automatically reload global library macros
+Wed Aug 30 08:32:55 IST 2023  [trace] Velocimacro : Velocimacro : initialization complete.
+Wed Aug 30 08:32:55 IST 2023  [trace] RuntimeInstance successfully initialized.
