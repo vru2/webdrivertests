@@ -9,10 +9,11 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
 
-
-
-
-
+    <test name="Promotional Services" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.Promotional_Service_healthTestAPI" />
+        </classes>
+    </test>
 
 	<test name="Accounts-Service-PWA" parallel="true">
 		<classes>
@@ -30,39 +31,30 @@
         </classes>
     </test>
 
-
         <test name="Accounts-Service-Userclassification" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Userclassification_Parsing_CSV" />
                 <class name="test.java.accountsAPI.Userclassification_Userdetails_emailid" />
                 <class name="test.java.accountsAPI.Userclassification_Gettripdetails_fromtripid" />
                 <class name="test.java.accountsAPI.Userclassification_Health_Test_Url" />
-
             </classes>
         </test>
-
 
         <test name="Accounts-Service-Companysearch" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_CompanySearchAPI_withDomainname" />
-                <class
-                    name="test.java.accountsAPI.Account_Service_CompanySearchAPI_internalDomainSearch" />
-                <class
-                    name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithAPIkey_Companyusersandtravelers" />
+                <class name="test.java.accountsAPI.Account_Service_CompanySearchAPI_internalDomainSearch" />
+                <class name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithAPIkey_Companyusersandtravelers" />
                 <class name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithAPIkey" />
                 <class name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithTagID" />
-                <class
-                    name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithTagID_UsersandTravellers" />
+                <class name="test.java.accountsAPI.Account_Service_CompanySearchAPIwithTagID_UsersandTravellers" />
                 <class name="test.java.accountsAPI.Account_Service_CompanyConfig_GSTdetailswithID" />
-                <class
-                    name="test.java.accountsAPI.Account_Service_CompanyConfig_GSTdetailswithDomainName" />
+                <class name="test.java.accountsAPI.Account_Service_CompanyConfig_GSTdetailswithDomainName" />
                 <class name="test.java.accountsAPI.Account_Service_CompanyConfig_GetCompanybyID" />
-                <class
-                    name="test.java.accountsAPI.Account_Service_CompanyConfig_GetCompanyConfigsbyID" />
+                <class name="test.java.accountsAPI.Account_Service_CompanyConfig_GetCompanyConfigsbyID" />
                 <class name="test.java.accountsAPI.Account_Service_CompanyVendorMapping" />
                 <class name="test.java.accountsAPI.Account_Service_Fetchdomain_nameByID" />
                 <class name="test.java.accountsAPI.Account_Service_Company_DomainName_Autocomplete" />
-
             </classes>
         </test>
 
@@ -79,12 +71,8 @@
                 <class name="test.java.accountsAPI.IdentityService_Signin_Userauthentication_B2C_B2B_b2cUserwithoutParams" />
                 <class name="test.java.accountsAPI.IdentityService_Signin_Userauthentication_B2C_B2B_b2cUser" />
                 <class name="test.java.accountsAPI.IdentityService_Signin_Userauthentication_B2C_B2B_b2bUser" />
-
-
             </classes>
         </test>
-
-
 
         <test name="Account-service-Controllers" parallel="true">
             <classes>
@@ -146,9 +134,7 @@
                 <class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_Email" />
                 <class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_ID" />
                 <class name="test.java.accountsAPI.Account_Service_Update_User" />
-
-            </classes>
-
+            </classes >
         </test>
 
         <test name="Account-service-Signin Un-authorized" parallel="true">
@@ -158,11 +144,7 @@
                 <class name="test.java.accountsAPI.AccountsService_FlyinV2Signin_Unauthorized" />
                 <class name="test.java.accountsAPI.IdentityService_Signin_Unauthorized" />
                 <class name="test.java.accountsAPI.IdentityService_Signin_UsernotPresent" />
-
-
-
             </classes>
-
         </test>
 
         <test name="Account-service-Apple-Signin" parallel="true">
@@ -181,8 +163,6 @@
                 <class name="test.java.accountsAPI.Account_Service_Depositaccountsearch_WOTlinkedparam" />
                 <class name="test.java.accountsAPI.Account_Service_Depositaccountsearch_Withlinkedparam" />
                 <class name="test.java.accountsAPI.Account_Service_LinkDepositAccount" />
-
-
             </classes>
 
         </test>
@@ -200,12 +180,10 @@
 
         <test name="Flyin AND COMM -Regression Cases" parallel="true">
             <classes>
-
                 <class name="test.java.accountsAPI.Flyin_Regression_Partner_user_search" />
                 <class name="test.java.accountsAPI.Flyin_Regression_Partner_Social_signup" />
                 <class name="test.java.accountsAPI.Account_Service_Flyin_ForgotPassword" />
                 <class name="test.java.accountsAPI.Account_Service_Travellercontroller_UpdateTraveller_FlyRegression" />
-
             </classes>
         </test>
         <test name="Flipkart-Accounts-Service" parallel="true">
@@ -215,15 +193,10 @@
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_Updateuser" />
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetails" />
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetailsBy_ReferenceID_withoutparams" />
-
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetailsBy_UserID" />
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_GetUserDetailsBy_UserID_withoutparams" />
-
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_JWTtoken_flipkart" />
-
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_JWTtoken_Cleartrip" />
-
-
             </classes>
         </test>
         <test name="Accounts-Service-MobileLogin" parallel="true">
@@ -240,26 +213,27 @@
                 <class name="test.java.accountsAPI.Account_Service_MobileLogin_UserexistenceByMobileNo" />
                 <class name="test.java.accountsAPI.Account_Service_MobileLogin_FetchOldCTusersApi" />
                 <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_SIGNIN_withAppAgent" />
-
             </classes>
         </test>
+<!--
+
+    <test name="Promotional-Service-Hifive" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.Promotional_Service_ValidatereferralLink" />
+            <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsHQ" />
+            <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsAPI" />
+            <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink" />
+            <class name="test.java.accountsAPI.Promotional_Service_SavenudgeAPI" />
+            <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsAPIwithRoutes" />
+            <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
+            <class name="test.java.accountsAPI.Promotional_Service_ValidateInvalidReferralLink" />
+            <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
+
+        </classes>
+    </test>
+-->
 
     <!--
-        <test name="Promotional-Service-Hifive" parallel="true">
-            <classes>
-                <class name="test.java.accountsAPI.Promotional_Service_healthTestAPI" />
-                <class name="test.java.accountsAPI.Promotional_Service_ValidatereferralLink" />
-                <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsHQ" />
-                <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsAPI" />
-                <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink" />
-                <class name="test.java.accountsAPI.Promotional_Service_SavenudgeAPI" />
-                <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsAPIwithRoutes" />
-                <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
-                <class name="test.java.accountsAPI.Promotional_Service_ValidateInvalidReferralLink" />
-                <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
-
-            </classes>
-        </test>
 
 
 

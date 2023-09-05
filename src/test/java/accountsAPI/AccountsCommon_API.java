@@ -49,7 +49,7 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_Acct_Service="http://accounts-service-api.cltp.com:9001";
 	
-	String url_Promotional_Service="http://172.17.64.185:8337";
+	String url_Promotional_Service="http://172.29.23.245:9001";
 	String url_Promotional_Service_domain ="http://promotional-service-api.cltp.com:9001";
 	
 	String 	url_Acct_Service_gateway="https://platformqa2new.cleartrip.com";
@@ -599,7 +599,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 	
 		headers.put("accept", "*/*");
 		headers.put("caller", "b2c");
-		headers.put("referer", "www.cleartrip.com");
+		headers.put("referer", "qa2new.cleartrip.com");
 
 		return headers;
 	}
@@ -2756,7 +2756,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			Reporter.log(url_Promotional_Service_domain+url);
 		}
 		else if (Type.equals("Promotional_Service_GetReferradetailsHQ")){
-			RestAssured.baseURI=url_Promotional_Service_domain;
+			RestAssured.baseURI=url_Promotional_Service;
 			url = url_Promotional_Service_GetReferradetailsHQ;
 			headers = headersFormpromotionalvalidate();
 
