@@ -373,6 +373,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String urlSavedCards ="/paymentservice/saved/payments/get/65218452";
 
 	String urlEMI_NoCost_Offers = "/paymentservice/emi/offers";
+	String urlEMI_NoCost_Offers_Eligibility_New = "/paymentservice/emiOfferEligibility"; // Juspay EMI Api
 	String urlEMI_Banks = "/paymentservice/service/emibanks";
 	String urlEMI_Interest = "/paymentservice/service/emiinterests";
 	String urlpayReporting= "/paymentservice/service/air/mis/detail?tripRef=Q190530193406&paymentType=CC&reqFor=refund";
@@ -625,8 +626,17 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	
 
 	String url_Singlebincard="/v1/payment/card";
-	
-	String url_EMI_Cache_Refresh ="/paymentservice/ui/refresh/emiCache?domain=IN"; 
+
+	String url_EMI_Cache_Refresh ="/paymentservice/ui/refresh/emiCache?domain=IN";
+
+	String url_EMI_Bank_Details ="/paymentservice/emiBankDetails";
+	String url_EMI_Routing ="/paymentservice/emiQuotaConfig";
+
+
+	String url_EMI_GetPlans ="/paymentservice/emi/emi-plan?provider=bank&providerValue=5&paymentType=EMI&paymentSubtype=CC";
+
+	String EMI_Juspay_GetOffer = "/paymentservice/emi/emi-offer?id=6&ctOfferId=CT_EMI_OFFER_V2_NO_COST_67_4000.0";
+	String url_EMI_Cache_Refresh_New ="/paymentservice/emi/cache";
 	String url_EMI_Cache_ResourcesRefresh ="/paymentservice/ui/refresh/cachedEmiResources"; 
 	String url_EMI_GW_Razorpay = "/paymentservice/ui/fetch/emiCache?domain=IN&gateway=RAZORPAYV2";
 	String url_EMI_GW_Noon = "/paymentservice/ui/fetch/emiCache?domain=AE&gateway=NOON";
@@ -1040,6 +1050,29 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			Reporter.log(urlPay);
 			url= url_SCLP_Raterule_PL;
 		}
+		else if(payType.equalsIgnoreCase("EMIBankDetails")) {
+			RestAssured.baseURI =urlPay;
+			Reporter.log(urlPay);
+			url= url_EMI_Bank_Details;
+		}
+		else if(payType.equalsIgnoreCase("EMIRouting")) {
+			RestAssured.baseURI =urlPay;
+			Reporter.log(urlPay);
+			url= url_EMI_Routing;
+		}
+		else if(payType.equalsIgnoreCase("EMI_Juspay_GetPlans")) {
+			RestAssured.baseURI =urlPay;
+			Reporter.log(urlPay);
+			url= url_EMI_GetPlans;
+		}
+		else if(payType.equalsIgnoreCase("EMI_Juspay_GetOffer")) {
+			RestAssured.baseURI =urlPay;
+			Reporter.log(urlPay);
+			url= EMI_Juspay_GetOffer;
+		}
+
+
+
 
 
 		else if(payType.equalsIgnoreCase("MIS_Report")) {
@@ -1100,6 +1133,12 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			RestAssured.baseURI =urlPay;
 			Reporter.log(urlPay);
 			url= urlEMI_NoCost_Offers;
+		}
+
+		else if(payType.equalsIgnoreCase("EMI_Offer_eligibility_New")) {
+			RestAssured.baseURI =urlPay;
+			Reporter.log(urlPay);
+			url= urlEMI_NoCost_Offers_Eligibility_New;
 		}
 
 		
@@ -1460,8 +1499,15 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 
 			url= url_EMI_Cache_Refresh;
 			params= "";
-		} 
-		
+		}
+
+
+		else if(payType.equalsIgnoreCase("EMICache_New")) {
+			RestAssured.baseURI =urlPay;
+
+			url= url_EMI_Cache_Refresh_New;
+			params= "";
+		}
 
 		else if(payType.equalsIgnoreCase("EMIResources")) {
 			RestAssured.baseURI =urlPay;
@@ -3179,6 +3225,13 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Assert.assertTrue(false);
 			}
 		}
+		if(payType.equals("EMIRouting")) {
+			if(!(resp.body().asString().contains("providerToMonthlyQuotaMap"))){
+				Assert.assertTrue(false);
+			}
+		}
+
+
 
 		if(payType.equals("WALLET_TOA")) {
 			JsonPath j = new JsonPath(resp.asString());
@@ -3208,6 +3261,36 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Assert.assertTrue(false);
 			}
 		}
+
+		if(payType.equals("EMIBankDetails")) {
+			if(!resp.body().asString().contains("Kotak Mahindra Bank")){
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(payType.equals("EMI_Juspay_GetPlans")) {
+			if(!resp.body().asString().contains("offer_MXub89rjoAnoqy")){
+				Assert.assertTrue(false);
+			}
+			JsonPath j = new JsonPath(resp.asString());
+			String credentialName = j.getString("emiSubventionList.emiSubventionGatewayMapping.credentialName");
+			if (!credentialName.contains("Tests_HDFC") ) {
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("EMI_Juspay_GetOffer")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String id = j.getString("emiSubventionGatewayMapping.id");
+			String subventionType = j.getString("subventionType");
+			if (!subventionType.contains("NO_COST") ) {
+				Assert.assertTrue(false);
+			}
+			if (!id.contains("3") ) {
+				Assert.assertTrue(false);
+			}
+		}
+
+
 
 		if(payType.equals("Affor_Plans_Reg_Full")) {
 			if(!resp.body().asString().contains("{monthly_value}/mo")){
@@ -3339,6 +3422,13 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Assert.assertTrue(false);
 			}
 		}
+		else if(payType.equalsIgnoreCase("EMI_Offer_eligibility_New")) {
+
+			if(!(resp.body().asString().contains("CT_EMI_OFFER_V2_NO_COST_73_4000"))){
+				Assert.assertTrue(false);
+			}
+		}
+
 
 		else if(payType.equalsIgnoreCase("VALIDATE")) {
 			String redirection = jsonPathEvaluator.getString("redirection_required");
@@ -5045,8 +5135,14 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			Assert.assertTrue(false);
 		}
 	}
+		else if(payType.equals("EMICache_New")) {
+			if(!resp.body().asString().contains("SUCCESS")) {
+				Reporter.log("SUCCESS is not displayed");
+				Assert.assertTrue(false);
+			}
+		}
 	else if(payType.equals("EMICache")) {
-		if(!resp.body().asString().contains("success")) {
+		if(!resp.body().asString().contains("SUCCESS")) {
 			Reporter.log("success is not displayed");
 			Assert.assertTrue(false);
 		}

@@ -54,7 +54,7 @@ public class bus_Common_API {
         String endpoint = null;
         HashMap<String, Object> headers = new HashMap<>();
         headers = headersForms();
-        Response request;
+        Response resp;
         if (useCase.equalsIgnoreCase("Search")) {
             RestAssured.baseURI = url_QA2;
             endpoint = url_EndPoint_Search;
@@ -63,12 +63,12 @@ public class bus_Common_API {
         }
 
         Reporter.log(url_Bus+endpoint);
-        request = RestAssured.given().
+        resp = RestAssured.given().
                 when().
                 log().all().
                 headers(headers).
                 get(endpoint);
-        return request;
+        return resp;
     }
 
     public Response busPut(String useCase, String busType1) {

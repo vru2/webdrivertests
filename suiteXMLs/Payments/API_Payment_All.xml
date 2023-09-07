@@ -109,6 +109,20 @@
             <class name="test.java.paymentsAPI.API_EMI_NoCost_Get_Offers"/>
         </classes>
     </test>
+
+    <test name="EMI Juspay" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_EMI_BankDetails"/>
+            <class name="test.java.paymentsAPI.API_EMI_Routing_Fetch"/>
+            <class name="test.java.paymentsAPI.API_EMI_BankDetails"/>
+            <class name="test.java.paymentsAPI.API_EMI_Juspay_GetPlans"/>
+            <class name="test.java.paymentsAPI.API_EMI_Juspay_GetOffer"/>
+            <class name="test.java.paymentsAPI.API_EMI_Juspay_Extra_Apis"/>
+
+
+        </classes>
+    </test>
+
     <test name="Deposit Account DA" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_DA_PayV3"/>

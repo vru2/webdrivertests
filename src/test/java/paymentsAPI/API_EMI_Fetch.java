@@ -10,8 +10,9 @@ public class API_EMI_Fetch extends API_PaymentCommon1
 {
 	@Test
 	public void EMIFetch() throws Exception {
+		//
+		// resp = payUIget("Air", "", tripRef);
 		String tripRef = getNewDate_TripID();
-		resp = payUIget("Air", "", tripRef);
 		Response resp ;		
 		resp = rearchPayment("EMIFetch",tripRef);	
 		validation("EMIFetch", resp);	
