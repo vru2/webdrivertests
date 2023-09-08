@@ -21,6 +21,11 @@ public class API_EMI_Cache extends API_PaymentCommon1
 		resp = payPut("EMICache_New","");
 		validation("EMICache_New", resp);
 	}
+
+	@Test
+	public void EMICache_Refresh_New() {
+		Response resp ;
+		resp = payGet("EMICache_Refresh_New","");
+		validation("EMICache_Refresh_New", resp);
+	}
 }
-
-

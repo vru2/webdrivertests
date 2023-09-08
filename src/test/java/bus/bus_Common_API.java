@@ -40,12 +40,18 @@ public class bus_Common_API {
 
     String url_Bus = "";
 
+    String url_Coupon = "http://172.29.9.7:9001";
+
     String url_Bus_Trip = "http://172.29.8.215:9001";
 
     String url_QA2 = "http://qa2new.cleartrip.com";
 
     String url_EndPoint_Update_Trip = "/trips/Q221215615418/bus-bookings/update-booking";
     String url_EndPoint_Search = "/api/bus/v1/search?fromCity=6772&toCity=4292&journeyDate=2023-11-28";
+
+
+    String url_EndPoint_AutoSuggest = "/api/bus/v1/auto-suggest/?value=ban";
+    String url_EndPoint_Coupon_Active = "/offer/search?active=true";
 
     String payload_Update_Trip = "{\"bus_booking_infos\":[{\"seq_no\":1,\"pax_info_seq_no\":1}],\"bus_pricing_infos\":[{\"seq_no\":1,\"bus_cost_pricing_info\":{\"seq_no\":1,\"pricing_elements\":[]},\"pricing_elements\":[{\"amount\":20,\"category\":\"COUPON\",\"code\":\"TEST10\",\"label\":\"Coupon\"}]}]}";
 
@@ -60,6 +66,18 @@ public class bus_Common_API {
             endpoint = url_EndPoint_Search;
             headers = headersForms_Search();
             Reporter.log(url_Bus + endpoint);
+        }
+        if (useCase.equalsIgnoreCase("couponActive")){
+            RestAssured.baseURI = url_Coupon;
+            endpoint = url_EndPoint_Coupon_Active;
+            //headers = headersForms_Search();
+            Reporter.log(url_Bus + endpoint);
+        }
+        if (useCase.equalsIgnoreCase("autoSuggest")){
+            RestAssured.baseURI = url_QA2;
+            endpoint = url_EndPoint_AutoSuggest;
+            headers = headersForms_Search();
+            Reporter.log(url_QA2 + endpoint);
         }
 
         Reporter.log(url_Bus+endpoint);
@@ -126,7 +144,6 @@ public class bus_Common_API {
         int statusCode = resp.getStatusCode();
         Reporter.log("statusCode: " + statusCode);
         JsonPath jsonPathEvaluator = resp.jsonPath();
-
         if (useCase.equals("Update_Trip")) {
             String trip_ref= jsonPathEvaluator.getString("trip_ref");
             Reporter.log("trip_ref " +trip_ref);
@@ -134,6 +151,39 @@ public class bus_Common_API {
                 Assert.assertTrue(false);
             }
         }
+        else if (useCase.equals("couponActive")) {
+            String code= jsonPathEvaluator.getString("code");
+            Reporter.log("code " +code);
+            if(!code.contains("UTMMONTUE20")) {
+                Assert.assertTrue(false);
+            }
+            String validationFieldExtractor= jsonPathEvaluator.getString("offerValidationRuleGroups.offerValidationRules[0].validationFieldExtractor");
+            Reporter.log("validationFieldExtractor " +validationFieldExtractor);
+            if(!validationFieldExtractor.contains("BookingDateExtractor")) {
+                Assert.assertTrue(false);
+            }
+
+        }
+        else if (useCase.equals("Search")) {
+            String totalAvailBuses= jsonPathEvaluator.getString("data.totalAvailBuses");
+            Reporter.log("totalAvailBuses " +totalAvailBuses);
+            if(!totalAvailBuses.contains("1")) {
+                Assert.assertTrue(false);
+            }
+        }
+        else if (useCase.equals("autoSuggest")) {
+            String success= jsonPathEvaluator.getString("success");
+            String suggestions= jsonPathEvaluator.getString("data.suggestions.cityName");
+            Reporter.log("success " +success);
+            if(!success.contains("true")) {
+                Assert.assertTrue(false);
+            }
+            if(!suggestions.contains("Bangalore")) {
+                Assert.assertTrue(false);
+            }
+        }
+
+
 
         return resp;
     }

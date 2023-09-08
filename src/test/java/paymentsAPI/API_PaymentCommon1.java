@@ -228,6 +228,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String ParamsAffordability_Plans_Reg_Full="{\"product_type\":\"DOMESTIC_AIR\",\"uuid\":\"NI68503666e0-2ace-4be1-be9a-230123150313\",\"payment_mode\":\"EMI\",\"payment_sub_mode\":\"REGULAR\",\"amount\":123853,\"request_mode\":\"FULL\"}";
 	String ParamsAffordability_Plans_Reg_Lite="{\"product_type\":\"INTL_AIR\",\"uuid\":\"NI68503666e0-2ace-4be1-be9a-230123150313\",\"payment_mode\":\"EMI\",\"payment_sub_mode\":\"REGULAR\",\"amount\":123853,\"request_mode\":\"LITE\"}";
 
+	String ParamsEMI_Juspay_SaveAPI="[{\"tenure\":50,\"interest\":12,\"minAmount\":3000.0,\"maxAmount\":null,\"bankFee\":199.0,\"paymentType\":\"EMI\",\"paymentSubtype\":\"CC\",\"providerValue\":\"192\",\"provider\":\"bank\",\"displayPlan\":true,\"emiPlanGatewayMapping\":[{\"gatewayId\":25,\"credentialName\":\"RAZORPAY_V2_TEST\",\"gatewayPlanId\":null},{\"gatewayId\":27,\"credentialName\":\"Tests_HDFC\",\"gatewayPlanId\":null}]}]";
 
 	String ParamsSuperCoins_Hold = "{\"rewardsType\":\"SUPERCOINS\",\"rewardsRequestType\":\"HOLD\",\"trackId\":\"681f76-6de-4ec-b359adhks1s6\",\"productType\":\"AIR\",\"amount\":1.6,\"params\":{\"mobile\":\"+919986696785\",\"itineraryId\":\"681f76-6de-4ec-16559048910479\"}}";
 	String ParamsSuperCoins_Unhold = "{\"rewardsType\":\"SUPERCOINS\",\"rewardsRequestType\":\"UNHOLD\",\"trackId\":\"681f76-6de-4ec-b359adhks1s6\",\"params\":{\"mobile\":\"+919986696785\",\"itineraryId\":\"NI68ff2771a0-361c-4a65-bb92-220721200825\"}}";
@@ -634,6 +635,8 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 
 
 	String url_EMI_GetPlans ="/paymentservice/emi/emi-plan?provider=bank&providerValue=5&paymentType=EMI&paymentSubtype=CC";
+
+	String url_EMI_Juspay_SavePlan ="/paymentservice/emi/emi-plan";
 
 	String EMI_Juspay_GetOffer = "/paymentservice/emi/emi-offer?id=6&ctOfferId=CT_EMI_OFFER_V2_NO_COST_67_4000.0";
 	String url_EMI_Cache_Refresh_New ="/paymentservice/emi/cache";
@@ -1069,6 +1072,11 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			RestAssured.baseURI =urlPay;
 			Reporter.log(urlPay);
 			url= EMI_Juspay_GetOffer;
+		}
+		else if(payType.equalsIgnoreCase("EMICache_Refresh_New")) {
+			RestAssured.baseURI =urlPay;
+			Reporter.log(urlPay);
+			url= url_EMI_Cache_Refresh_New;
 		}
 
 
@@ -1572,6 +1580,11 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		if(payType.equalsIgnoreCase("ROR_Create_ProfileList")) {
 			params = Params_ROR_Create_Profile_List;
 			url= urlROR_Create_ProfileList;
+		}
+		if(payType.equalsIgnoreCase("EMI_Juspay_Save_Plan")) {
+			params = urlPay;
+			url= url_EMI_Juspay_SavePlan;
+			params = ParamsEMI_Juspay_SaveAPI;
 		}
 		else if(payType.equalsIgnoreCase("Affor_Eligibility_NCE")) {
 			RestAssured.baseURI =urlAffordability;
@@ -3290,7 +3303,17 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			}
 		}
 
-
+		if(payType.equals("EMI_Juspay_Save_Plan")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String id = j.getString("id");
+			if(id!=null){
+			} else Assert.assertTrue(false);
+		}
+		if(payType.equals("EMI_Juspay_Delete_Plan")) {
+			if(!resp.body().asString().contains("SUCCESS")){
+				Assert.assertTrue(false);
+			}
+		}
 
 		if(payType.equals("Affor_Plans_Reg_Full")) {
 			if(!resp.body().asString().contains("{monthly_value}/mo")){
@@ -5135,12 +5158,18 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			Assert.assertTrue(false);
 		}
 	}
-		else if(payType.equals("EMICache_New")) {
+	else if(payType.equals("EMICache_New")) {
 			if(!resp.body().asString().contains("SUCCESS")) {
 				Reporter.log("SUCCESS is not displayed");
 				Assert.assertTrue(false);
 			}
 		}
+	else if(payType.equals("EMICache_Refresh_New")) {
+		if(!resp.body().asString().contains("CT_EMI_PLAN_V2_EMI_CC_192_bank_6_3000")) {
+				Reporter.log("CT_EMI_PLAN_V2_EMI_CC_192_bank_6_3000 not displayed");
+				Assert.assertTrue(false);
+		}
+	}
 	else if(payType.equals("EMICache")) {
 		if(!resp.body().asString().contains("SUCCESS")) {
 			Reporter.log("success is not displayed");

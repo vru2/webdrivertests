@@ -117,9 +117,7 @@
             <class name="test.java.paymentsAPI.API_EMI_BankDetails"/>
             <class name="test.java.paymentsAPI.API_EMI_Juspay_GetPlans"/>
             <class name="test.java.paymentsAPI.API_EMI_Juspay_GetOffer"/>
-            <class name="test.java.paymentsAPI.API_EMI_Juspay_Extra_Apis"/>
-
-
+            <class name="test.java.paymentsAPI.API_EMI_Juspay_Save_Delete_Plan"/>
         </classes>
     </test>
 
