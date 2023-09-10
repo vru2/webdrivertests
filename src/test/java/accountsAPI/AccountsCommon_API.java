@@ -224,10 +224,17 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_Account_Service_GetActivationKey="/user/v2/activation-key/65213401";
 	String url_Promotional_Service_healthTestAPI="/actuator/health";
 	String url_Promotional_Service_GenerateReferralLink="/referral/link?action=HI_FIVE";
-	String url_Promotional_Service_ValidatereferralLink="/referral/validate?action=HI_FIVE&referralLink=https://m.cltp.in/ref/NLLOLLne";
-	String url_Promotional_Service_ValidateInvalidReferralLink="/referral/validate?action=HI_FIVE&referralLink=https://m.cltp.in/ref/NLLOLLneiiiiiiiiiiii";
-	String url_Promotional_Service_GetReferradetailsHQ="/referral/history?action=HI_FIVE&peopleId=65218836";
+	String url_Promotional_Service_ValidatereferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bl";
+	String url_Promotional_Service_ValidateInvalidReferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bleeee";
+	String url_Promotional_Service_GetReferradetailsHQ="/referral/history?action=HI_FIVE&peopleId=65262210";
 	String url_Promotional_Service_GetReferradetailsAPI="/referral/details?action=HI_FIVE";
+
+	String url_Promotional_Service_GetConfigAPI="resource/stageConfig";
+
+	String url_Promotional_Service_Getreferralhistory="/referral/history?action=HI_FIVE&peopleId=65261422";
+
+	String url_Promotional_Service_RefreshStageConfig="/resource/refresh/stageConfig?programType=HI_FIVE";
+
 	String url_Account_Service_GET_UserbyCookie_CleartripUser="/external-api/v2/user";
 	String url_Account_Service_AgencyLogo="/company/logo?id=100161";
 	String url_Account_Service_UserExistence_withEmailIDandDomain="/external-api/user-exists?emailId=ns.likhitha@cleartrip.com&domain=www.cleartrip.com";
@@ -341,6 +348,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String params_IdentityService_UpdatePassword_ForChangePasswordflow="{\"emailId\":\"ns.likhitha@cleartrip.com\",\"oldPassword\":\"Cleartrip@1\",\"newPassword\":\"Cleartrip@2\",\"otp\":\"035175\"}";
 	String params_IdentityService_UpdatePassword_ForResetPasswordflow="{\"emailId\":\"ns.likhitha@cleartrip.com\",\"newPassword\":\"Cleartrip@8\",\"mailerKey\":\"aIWr1jRjfDPjXojg\"}";
 	String params_Account_Service_UserController_VerifyAccount="";
+
+	String params_Promotional_service_RefreshStageCinfig="";
 	String params_Account_Service_MobileLoginUpdatePersonaldetailsApi="{\"marketingSubscription\":1,\"personalData\":{\"firstName\":\"cool\",\"lastName\":\"oktest\",\"gender\":\"male\"}}";
 	String params_Account_Service_People_UpdateUserRoles="{\"userId\":3863174,\"companyPeopleDetails\":[{\"companyId\":87321,\"companyPeopleId\":58963,\"role\":{\"id\":1,\"accessLevel\":0}},{\"companyId\":87321,\"role\":{\"id\":1064,\"accessLevel\":0}},{\"companyId\":87321,\"role\":{\"id\":10000,\"accessLevel\":0}},{\"companyId\":21,\"role\":{\"id\":2,\"name\":\"Finance \",\"accessLevel\":0}}]}";
 	String params_Accounts_service_Company_DeleteGST="";
@@ -600,6 +609,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("accept", "*/*");
 		headers.put("caller", "b2c");
 		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("cookie","ct-dvId=uOTynOa%2B8J%2BMJMRIFgEIONQQHUa0%2Fi%2FKx8GAunz5KldCfXq%2FIi2yB5oQWYnanIMX9NDc0YIoklz%2BAyQK%2FyB%2F6lNuTFXTg4xxugtQw72wmQg%3D; ct-auth=0BCimsXF7VH%2FYE9fCpumHuiCoUwzrwYnno7wEN9uqrehCB9EU0PZvscAk0CG8hlPFy0UoL5sjLHrNfj5CAB2pWBk1m2aHkPL1QZDSee2HSrBWqTKbGwhQfi4APgTuVPT%2Brx0V%2BNJZHQ7d%2BGE2yyJ5o9aHBF%2B1Ku2%2FKgQVVKoS3WJJCdRMQk6LDPO%2Blo6J0GWS1zzV4031n%2BclFr2JikBuc3gpCp2%2Fv8DEH6mN1qRuQDXCF5KewYSQcx%2FVXCksyc5IkT4ul0jMOpdUAX%2BK6Id3CBuuJkXa9GYYIBdZla7r4YVpAuiM1vW5qwA%2F5TNtOpRVKVKBQqO%2BzJlJlzPRNIfgPVP4feDTis5sWFapOjWXKyq9cD%2FZ74dBJfq3QH14BTT5nCMzuDUfW7T5cGZZw2h%2FV9UcLt0g8iNTuovsi0NObbLcw4U9l72Gufoy4114vYG%2Bk9oH%2Fjc6gwQa23nD4uRjisStTEbYHElo%2BCkg%2FANYh8RM7wK8NkdIp4FM2C3c6E4DCXFgL7tWpFqTMXr%2FPJL9w%3D%3D");
 
 		return headers;
 	}
@@ -607,9 +617,19 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		HashMap<String, Object> headers = new HashMap<>();
 	
 		headers.put("accept", "*/*");
-		headers.put("caller", "b2c");
-		headers.put("referer", "www.cleartrip.com");
-		headers.put("cookie", "ct-auth=QiXC2u1xs9nYBXSd5ff2NwMX%2BplTSp6gTKLX6tDM1JuJn3RPa7rKHW6W%2F%2F8%2Bp2gsL1YjeWNmu3xY%2FpzUexWQN1w%2Fj5gAPNmv1vpKnDrAx3FoX9evvh5diDC4jtyRjOeZZJtx%2BJ31duZqrcZ2jUdJ6F4ai43jNI5aChVTEmGAfqQahvGkzHhRz5kPpCa%2F7j3utX4un4jpIzA3dx1i9UD1iDhmbaHDtVTELASCTE65iYNDav43rPHfhVjrxuJhRUe9V9J1s9EnvD%2BVObAzErSBUd%2BYomLdDuWrqqdRzGq7%2FdYA0m79Z5nuhvvWgXtLZpphBygb5DF%2BiBArg6EEGJYTRX%2BnhhaYeP8g0CEQkY6Tiy4JTEWCk4w4RPfV8FxcD5fiBiYwxcyF82ssHriGcBPoZbqcwrH37YPhmlmSgDptHRHSU4sbkK%2B1ntNdKiZtuD7S519sHoYJ20LxLarNevMhefLj6wy0K9HoNEZdzP3I6V6sfLCHbaSEDTDVfF6ZO2eL%2BY0HEOXDxFMm4qDR%2FfSwa6%2BHx%2F4do5V1cUolGYLe7LksliKRdHKdB04q2m8OnZXTH2Z4tsAXBZj47Mu0vEuTRiAH0Rp2vtFkuXiol%2Fc%2BBJD4qswYyk0D6GkqDc%2FryiGzrriKvMSxzl8ZjdP0xHKTJjDfE5MjfU2lez8Mc21eeVj4yG9Y5gNNb6MvOPOrwEDI%2FRkVukgyqFl7OJk6DNu3G%2FLNPaqxgHPoG%2Fb4MQRnyZVI9iJH8UXIBBVrkHxP0uq0KBIFqMINY881df17xzwxrP0wDfAjdIJWLC650cfnf3%2BZ8zInGGcv79tFePFr5UA0tMv7Ci9nlUUKOJuJ4P3asT%2F%2Fu6AA%2BWLog2uJ%2FY2YYqgP%2FV7P4M74%2FvZ8fgql9D8g8%2F%2F1HM9Q%2BhZwENf6sKaAU%2FkxX%2BEKCRjKf8O%2BTNUSfsuE8coUcku3YuzCaIBgM2P8Rb8sKLbSBDeyofU70uSSaMEckaUyLeYQbOVx%2F%2B7JUlOisjgFuy%2BxyJIPcX7Yv7eIVOKsnEkZCKNo2VdexAMFzV8jJWCkNJigozPGBBeEcF5L025fFK4zyLlxhOOqSrzgJ%2FV%2BKw55kneImPwOmjjTx8bKaKUlDohE7GDIWcILQ88d%2BXi7A5SMIuz2WcT5ii0Wf%2B8AovNHaAE6ks%2FCbb9HIDfkrt1RUQubPWxQct8F190iQxv9R6IFJ5ykwqipKSTD3By%2BM95FvKgObf5mq7KTh4b8T%2BeFMlESYJHyLIxZIZoHl9lVnkf7P1e8%2FtlB9wGg6ZHy9%2B0obMoFR67KLl5Gf2Fubx9%2Bu6Hxgn%2BXdJPeAfwgbb%2BQmBiXP12zCP6SuogJGXte7YQyF6Em8tznMbrROwtZON8HERSFujfxKGUlphAbOSefgP%2B7S8ROG3IPs9BT1n1utI2bh3BRC5ImSyZhXOG2sznZdCQ79pKhhufWoot4da2aQ5TFdB5HS5I82K%2BNFYkqRWdK4vmOr5j0J6GyQhEu5IsLcsngqwvuBRkhZ%2FI2BlzDhJYXPlwWKqeoicydwftbEFDnNHvr5PmogWHBoxfe612L%2FoZuaHewfiNVtslgbnGnbzo6cVZBOb0MxCSiNyccvTZ6ZeZ3IoYf5mwSBgL53KSTx%2BaaO3PBn83YSeM2dk11dlD76Dw%2Ffwp7gLIb%2F9H19TQBwMECqNmAPkW775ynG45GwhE3BA0pwhTRn%2BF4GSBlk6n2YHWpqXOktV2t3ZZwho5dU%2BaKzPeoMZcLm7nG2qmPwjWvfUgSBhOQRDPJ61KK3h5ergANs990ONktVQKpLd7T2ZfitUMVCyRxh9eYTwMkwRfz8%2BjFLbkDc%2BdHyCGdKrjWAMzxDfcNYbPo6NsbPlXlEJMRneFQw86dfQb4OBMx7R5zgJpTCUGpFYDd7RGz%2BmLIP52vj0or2LZLvWhcaZ%2Ftx8useXcbDwxcx3%2Fj2JqsFvTz%2FmrD%2Bm773bMaIKcPz3eEfU2U2Ge5h%2BJrDZHsqmN1sriVew1SmqTIV8FV4O46VR55oZc5B7FVbINAg4DLnGLrRjxpm%2FD3wWoraXo72aFeD%2BHfi4huvr6voTsfVMdb8Qqaa%2F0rQaboxApmcoeDxvjVM2KxxCTpkacGcHZsaPe2IBRAwhOoWA7CefXGLIFsg8d7q7py3Fh9TsHT4q4pVZJ%2FhYgC%2BaA61pQr%2BB%2FsJOkUzVcEV9drsduQRHys5IovGmeOf3F505PrBnFaJ715WjrH%2B2REQYykGMS0IEHIi5Yt2QI3rtJOION2rNc2qx3o%2FJt%2Bs4or0Yad7EwbKIXk2903FxV47Je8aoc7rBjyzhfNPIVlOHgUheZNrqCIGnPTvtDbVLrktsn1OkQqOd9ZfxUdtasCwF%2F91WRWAET9hR19NepCRnWULFOZtvHs2JP6BlUWP1fYtWgT%2BCNlF%2BTJMt56QM4IXPwONM00b89XvPNnWMCeuCdWCySir9BpEZKIt8gU6CcmYkn3IFO5mN0XcRwlZtlbBEXwGdDEJYMRL3m9311MoXkTLa2ak0Ay%2Fohb41aQpUdY%2FtMWlMdQttL8tMLM%2F1iCyd7nXgB13TPexg87I0W9EK1NPffN%2B8lDnK%2FT9nNKHdRABJQIMuppnZVerhPCFmWNjDoYA0cwQ6DbgEzpgwiUYXkGVZibdQ4VZL3SoweWsSFmDEwnFGaBmPrD2l%2F0T5xl43xyg5gU%2FBpiIiDxxNcfC9t6LiTs7qQb98fVtZALoVjXKWzRgMM%2BNlrgZoZ0omB%2FO0ryrnXqgHIoEUJCxaM8koAwDVVsXGEZ2mTpOvxs25AFN%2B8b8eQtA5EX%2FUo%2Bay7bMZHm0bPn9eGRcAa0AKiRUUTjsQfxp0Ncn2kYn%2BZ9wWcGOESmjHI%3D'");
+		headers.put("caller", "test");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("cookie", "ct-dvid =fBt2Oj1JZMLr5cCsDHejgsoMrrWh22E5Y9CWe5mdSGrCIqaABaRjww1sU289rqXfiDWLVdoTwGK7QrGrjtMRW0JZj7wwJFDH4KYa%2FUo7d4k%3D;ct-auth =e8Xtn%2Fi5A%2FGkFF9QRFLwMsixzutagL8KSDOKskJ8vP%2FPAC5BnG1VhKqX9iEbXPIdvdb22kmKGrhj2VAI20AltgYWbs0hUeS1dDOVoTv%2FC8oS3xBwBQbHAAgSFMgFCe0tlyhz2jVZSGwnR4Xe68L0aoK2eEoXgM73GXnr6ZXWU%2FuqLI6EfEr5fYarVjfH7mwKJC%2FgkOzzBJNHMAiA1hc6EQ%3D%3D");
+
+		return headers;
+	}
+
+	public HashMap<String, Object> headersFormpromotionalgetConfigdetails(){
+		HashMap<String, Object> headers = new HashMap<>();
+
+		headers.put("accept", "*/*");
+		headers.put("caller", "test");
+		headers.put("referer", "qa2new.cleartrip.com");
 
 		return headers;
 	}
@@ -619,7 +639,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("accept", "*/*");
 		headers.put("caller", "b2c");
 		headers.put("referer", "www.cleartrip.com");
-		headers.put("cookie", "ct-auth=testme");
+		headers.put("cookie", "=uOTynOa%2B8J%2BMJMRIFgEIONQQHUa0%2Fi%2FKx8GAunz5KldCfXq%2FIi2yB5oQWYnanIMX9NDc0YIoklz%2BAyQK%2FyB%2F6lNuTFXTg4xxugtQw72wmQg%3D; ct-auth=0BCimsXF7VH%2FYE9fCpumHuiCoUwzrwYnno7wEN9uqrehCB9EU0PZvscAk0CG8hlPFy0UoL5sjLHrNfj5CAB2pWBk1m2aHkPL1QZDSee2HSrBWqTKbGwhQfi4APgTuVPT%2Brx0V%2BNJZHQ7d%2BGE2yyJ5o9aHBF%2B1Ku2%2FKgQVVKoS3WJJCdRMQk6LDPO%2Blo6J0GWS1zzV4031n%2BclFr2JikBuc3gpCp2%2Fv8DEH6mN1qRuQDXCF5KewYSQcx%2FVXCksyc5IkT4ul0jMOpdUAX%2BK6Id3CBuuJkXa9GYYIBdZla7r4YVpAuiM1vW5qwA%2F5TNtOpRVKVKBQqO%2BzJlJlzPRNIfgPVP4feDTis5sWFapOjWXKyq9cD%2FZ74dBJfq3QH14BTT5nCMzuDUfW7T5cGZZw2h%2FV9UcLt0g8iNTuovsi0NObbLcw4U9l72Gufoy4114vYG%2Bk9oH%2Fjc6gwQa23nD4uRjisStTEbYHElo%2BCkg%2FANYh8RM7wK8NkdIp4FM2C3c6E4DCXFgL7tWpFqTMXr%2FPJL9w%3D%3D;");
 		return headers;
 	}
 	
@@ -1242,7 +1262,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			headers = headersFormpromotionalgetreferraldetails();
 
 			RestAssured.baseURI =url_Promotional_Service_domain;
-			url = url_Promotional_Service_GenerateReferralLink;					
+			url = url_Promotional_Service_GenerateReferralLink;
 			params =params_Promotional_Service_GenerateReferralLink;
 			Reporter.log(url_Promotional_Service_domain+url);
 
@@ -2112,6 +2132,14 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			headers = verifyaccount();
 			Reporter.log(url_Acct_Service+url);
 		}
+
+		else if (Type.equals("Promotional_Service_RefreshStageConfig")){
+			RestAssured.baseURI=url_Promotional_Service_domain;
+			url = url_Promotional_Service_RefreshStageConfig;
+			params= params_Promotional_service_RefreshStageCinfig;
+			headers = headersFormpromotionalgetConfigdetails();
+			Reporter.log(url_Promotional_Service_domain+url);
+		}
 		else if(Type.equals("Promotional_Service_SavenudgeAPI"))
 		{
 			RestAssured.baseURI=url_Promotional_Service_domain;
@@ -2769,6 +2797,22 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 			Reporter.log(url_Promotional_Service_domain+url);
 		}
+
+		else if (Type.equals("Promotional_Service_GetStageConfig")){
+			RestAssured.baseURI=url_Promotional_Service_domain;
+			url = url_Promotional_Service_GetConfigAPI;
+			headers = headersFormpromotionalgetConfigdetails();
+			Reporter.log(url_Promotional_Service_domain+url);
+		}
+
+		else if (Type.equals("Promotional_Service_GetReferralhistory")){
+			RestAssured.baseURI=url_Promotional_Service_domain;
+			url = url_Promotional_Service_Getreferralhistory;
+			headers = headersFormpromotionalgetConfigdetails();
+			Reporter.log(url_Promotional_Service_domain+url);
+		}
+
+
 		else if (Type.equals("Promotional_Service_GetReferradetailsAPIwithRoutes")){
 			RestAssured.baseURI=url_identity;
 			url = url_Promotional_Service_GetReferradetailsAPI;
@@ -3264,8 +3308,16 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		//int statusCode1 = resp.getStatusCode();
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
-		if(statusCode!=401) {
-			Assert.assertTrue(false);
+
+		if(Type.equalsIgnoreCase("Promotional_Service_ValidateInvalidReferralLink")){
+			if (statusCode != 404) {
+				Assert.assertTrue(false);
+			}
+		}
+		else{
+			if (statusCode != 401) {
+				Assert.assertTrue(false);
+			}
 		}
 
 		if(Type.equalsIgnoreCase("Account_Service_AppleRegister_NullEmail")) {
@@ -3370,13 +3422,13 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		}
 		if(Type.equalsIgnoreCase("Promotional_Service_GenerateReferralLink_InvalidAuth")) {
 			String message = jsonPathEvaluator.getString("message");
-			if(!message.contains("INVALID_AUTH_COOKIE")) {
+			if(!message.contains("INVALID_COOKIE_SESSION")) {
 				Assert.assertTrue(false);						
 			}
 		}
 		if(Type.equalsIgnoreCase("Promotional_Service_Savenudge_InvalidCookie")) {
 			String message = jsonPathEvaluator.getString("message");
-			if(!message.contains("INVALID_AUTH_COOKIE")) {
+			if(!message.contains("INVALID_COOKIE_SESSION")) {
 				Assert.assertTrue(false);						
 			}
 		}
@@ -3755,6 +3807,10 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 			if(!ReponseStr.contains("\"https:")) {
 				Assert.assertTrue(false);						
+			}
+
+			if(!ReponseStr.contains("ACTIVE")) {
+				Assert.assertTrue(false);
 			}
 
 		}
@@ -4461,8 +4517,8 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		else if(Type.equalsIgnoreCase("Promotional_Service_ValidatereferralLink")) {
 
 			String ReponseStr = resp.body().asString();
-			String status = resp.body().asString();
-			if(!status.contains("EXPIRED")){
+			String linkStatus = resp.body().asString();
+			if(!linkStatus.contains("ACTIVE")){
 				Assert.assertTrue(false);
 			}
 		
@@ -4504,20 +4560,55 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		else if(Type.equalsIgnoreCase("Promotional_Service_GetReferradetailsAPI")) {
 
 			String ReponseStr = resp.body().asString();
-			String startHiFive = resp.body().asString();
-			if(!startHiFive.contains("true")){
+			String referralSignupRewardAmount = resp.body().asString();
+			if(!referralSignupRewardAmount.contains("100")){
 				Assert.assertTrue(false);
 			}
-			String resultSeen = resp.body().asString();
-			if(!resultSeen.contains("false")){
+			String resultViewed = resp.body().asString();
+			if(!resultViewed.contains("false")){
 				Assert.assertTrue(false);
 			}
-			String rewardAmount = resp.body().asString();
-			if(!rewardAmount.contains("500.0")){
+			String rewardValue = resp.body().asString();
+			if(!rewardValue.contains("50.0")){
 				Assert.assertTrue(false);
 			}
 			
 		
+		}
+
+		else if(Type.equalsIgnoreCase("Promotional_Service_GetStageConfig")) {
+
+			String ReponseStr = resp.body().asString();
+			String milestoneType = resp.body().asString();
+			if(!milestoneType.contains("REFERRAL")){
+				Assert.assertTrue(false);
+			}
+			String rewardValue = resp.body().asString();
+			if(!rewardValue.contains("50.0")){
+				Assert.assertTrue(false);
+			}
+		}
+
+		else if(Type.equalsIgnoreCase("Promotional_Service_GetReferralhistory")) {
+
+			String ReponseStr = resp.body().asString();
+			String referralStatus = resp.body().asString();
+			if(!referralStatus.contains("SUCCESS")){
+				Assert.assertTrue(false);
+			}
+			String signUpCount = resp.body().asString();
+			if(!signUpCount.contains("6")){
+				Assert.assertTrue(false);
+			}
+		}
+
+		else if(Type.equalsIgnoreCase("Promotional_Service_RefreshStageConfig")) {
+
+			String ReponseStr = resp.body().asString();
+
+			if(!ReponseStr.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
 		}
 		else if(Type.equalsIgnoreCase("Account_Service_GET_UserbyCookie_CleartripUser")) {
 			String ReponseStr = resp.body().asString();
