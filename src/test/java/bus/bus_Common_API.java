@@ -38,22 +38,37 @@ public class bus_Common_API {
         return headers;
     }
 
+    public HashMap<String, Object> headersForms_Cancel_Trip_Status() {
+        HashMap<String, Object> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("x-ct-source", "PULSE");
+        return headers;
+    }
     String url_Bus = "";
 
     String url_Coupon = "http://172.29.9.7:9001";
 
     String url_Bus_Trip = "http://172.29.8.215:9001";
 
+    String url_Bus_PostBook = "http://bus-post-book.cltp.com:9001";
+
     String url_QA2 = "http://qa2new.cleartrip.com";
 
     String url_EndPoint_Update_Trip = "/trips/Q221215615418/bus-bookings/update-booking";
     String url_EndPoint_Search = "/api/bus/v1/search?fromCity=6772&toCity=4292&journeyDate=2023-11-28";
 
+    String url_Endpoint_Cancelation_Eligibility = "/bus/hq/v2/refund-info/Q230911782400?reason=CR01";
+
+    String url_Endpoint_Cancel_Trip_Status = "/bus/hq/v2/cancel/Q230911782400?reason=CR04";
 
     String url_EndPoint_AutoSuggest = "/api/bus/v1/auto-suggest/?value=ban";
     String url_EndPoint_Coupon_Active = "/offer/search?active=true";
 
+    String url_EndPoint_Coupon_Activate = "/offer/activate/237";
+    String url_EndPoint_Coupon_Deactivate = "/offer/deactivate/237";
+
     String payload_Update_Trip = "{\"bus_booking_infos\":[{\"seq_no\":1,\"pax_info_seq_no\":1}],\"bus_pricing_infos\":[{\"seq_no\":1,\"bus_cost_pricing_info\":{\"seq_no\":1,\"pricing_elements\":[]},\"pricing_elements\":[{\"amount\":20,\"category\":\"COUPON\",\"code\":\"TEST10\",\"label\":\"Coupon\"}]}]}";
+    String payload_Canceled_Trip_Status = "{\"note\":\"string\",\"subject\":\"string\",\"trip_id\":0,\"user_id\":0}";
 
     public Response busGet(String useCase, String busType1) {
         RestAssured.baseURI = url_Bus;
@@ -70,7 +85,16 @@ public class bus_Common_API {
         if (useCase.equalsIgnoreCase("couponActive")){
             RestAssured.baseURI = url_Coupon;
             endpoint = url_EndPoint_Coupon_Active;
-            //headers = headersForms_Search();
+            Reporter.log(url_Bus + endpoint);
+        }
+        if (useCase.equalsIgnoreCase("couponActivate")){
+            RestAssured.baseURI = url_Coupon;
+            endpoint = url_EndPoint_Coupon_Activate;
+            Reporter.log(url_Bus + endpoint);
+        }
+        if (useCase.equalsIgnoreCase("couponDeactivate")){
+            RestAssured.baseURI = url_Coupon;
+            endpoint = url_EndPoint_Coupon_Deactivate;
             Reporter.log(url_Bus + endpoint);
         }
         if (useCase.equalsIgnoreCase("autoSuggest")){
@@ -100,6 +124,12 @@ public class bus_Common_API {
             endpoint = url_Bus_Trip+url_EndPoint_Update_Trip;
             params = payload_Update_Trip;
         }
+        if (useCase.equalsIgnoreCase("Trip_Status")) {
+            endpoint = url_Bus_PostBook+url_Endpoint_Cancel_Trip_Status;
+            params = payload_Canceled_Trip_Status;
+            headers = headersForms_Cancel_Trip_Status();
+        }
+
         Reporter.log(endpoint);
         Reporter.log("Params :" + params);
         request = RestAssured.given().
@@ -119,11 +149,10 @@ public class bus_Common_API {
         HashMap<String, Object> headers = new HashMap<>();
         headers = headersForms();
         Response request;
-        if (busType.equalsIgnoreCase("")) {
-            Random rand = new Random();
-            endpoint = url_Bus;
-            params = params;
-
+        if (busType.equalsIgnoreCase("Cancellation_Eligibility")) {
+            endpoint = url_Bus_PostBook+url_Endpoint_Cancelation_Eligibility;
+            params = payload_Canceled_Trip_Status;
+            headers = headersForms_Cancel_Trip_Status();
         }
 
         Reporter.log(url_Bus);
@@ -151,18 +180,71 @@ public class bus_Common_API {
                 Assert.assertTrue(false);
             }
         }
+        else  if (useCase.equals("Cancellation_Eligibility")) {
+            String isCancellationApplicable= jsonPathEvaluator.getString("isCancellationApplicable");
+            Reporter.log("isCancellationApplicable " +isCancellationApplicable);
+            if(!isCancellationApplicable.equals("false")) {
+                Assert.assertTrue(false);
+            }
+        }
+        else  if (useCase.equals("Trip_Status")) {
+            String cancellationProcessed= jsonPathEvaluator.getString("cancellationProcessed");
+            String refundAmount= jsonPathEvaluator.getString("refundAmount");
+            Reporter.log("cancellationProcessed " +cancellationProcessed);
+            if(!cancellationProcessed.equals("true")) {
+                Assert.assertTrue(false);
+            }
+            if(!refundAmount.equals("12")) {
+                Assert.assertTrue(false);
+            }
+        }
         else if (useCase.equals("couponActive")) {
             String code= jsonPathEvaluator.getString("code");
+            String active= jsonPathEvaluator.getString("active");
+            String validationFieldExtractor= jsonPathEvaluator.getString("offerValidationRuleGroups.offerValidationRules[0].validationFieldExtractor");
             Reporter.log("code " +code);
+            Reporter.log("active " +active);
             if(!code.contains("UTMMONTUE20")) {
                 Assert.assertTrue(false);
             }
-            String validationFieldExtractor= jsonPathEvaluator.getString("offerValidationRuleGroups.offerValidationRules[0].validationFieldExtractor");
-            Reporter.log("validationFieldExtractor " +validationFieldExtractor);
+            if(!active.contains("true")) {
+                Assert.assertTrue(false);
+            }
             if(!validationFieldExtractor.contains("BookingDateExtractor")) {
                 Assert.assertTrue(false);
             }
-
+        }
+        else if (useCase.equals("couponActivate")) {
+            String code= jsonPathEvaluator.getString("code");
+            String active= jsonPathEvaluator.getString("active");
+            String type= jsonPathEvaluator.getString("type");
+            Reporter.log("code " +code);
+            Reporter.log("active " +active);
+            if(!code.contains("CTCHANNEL")) {
+                Assert.assertTrue(false);
+            }
+            if(!active.contains("true")) {
+                Assert.assertTrue(false);
+            }
+            if(!type.contains("PERCENTAGE_DISCOUNT")) {
+                Assert.assertTrue(false);
+            }
+        }
+        else if (useCase.equals("couponDeactivate")) {
+            String code= jsonPathEvaluator.getString("code");
+            String active= jsonPathEvaluator.getString("active");
+            String type= jsonPathEvaluator.getString("type");
+            Reporter.log("code " +code);
+            Reporter.log("active " +active);
+            if(!code.contains("CTCHANNEL")) {
+                Assert.assertTrue(false);
+            }
+            if(!active.contains("false")) {
+                Assert.assertTrue(false);
+            }
+            if(!type.contains("PERCENTAGE_DISCOUNT")) {
+                Assert.assertTrue(false);
+            }
         }
         else if (useCase.equals("Search")) {
             String totalAvailBuses= jsonPathEvaluator.getString("data.totalAvailBuses");
