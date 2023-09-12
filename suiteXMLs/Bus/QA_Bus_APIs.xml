@@ -1,0 +1,61 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BUS APIs QA" parallel="tests" thread-count="2">
+
+		<listeners>
+			<listener class-name="org.uncommons.reportng.HTMLReporter" />
+			<listener class-name="test.java.common.RemoveDuplicateResults"/>
+			<listener class-name="test.java.common.RetryListener"/>
+			<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		</listeners>
+
+	<test name="AutoSuggest" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_AutoSuggest"/>
+		</classes>
+	</test>
+
+	<test name="Coupon Activate" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_Coupon_Activate"/>
+		</classes>
+	</test>
+
+	<test name="Active Coupon List" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_Coupon_Active"/>
+		</classes>
+	</test>
+
+
+	<test name="Coupon Deactivate" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_Coupon_Deactivate"/>
+		</classes>
+	</test>
+
+
+	<test name="Search Api" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_Search_Api"/>
+		</classes>
+	</test>
+
+	<test name="Trip Cancellation Eligibility" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_Trip_Cancellation_Eligibility"/>
+		</classes>
+	</test>
+
+	<test name="Trip Cancellation Status" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_Trip_Cancellation_Status"/>
+		</classes>
+	</test>
+
+	<test name="Update Trip" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_Update_Trip"/>
+		</classes>
+	</test>
+
+</suite>
