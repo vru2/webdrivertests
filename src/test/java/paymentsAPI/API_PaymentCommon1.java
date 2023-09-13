@@ -228,6 +228,8 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String ParamsAffordability_Plans_Reg_Full="{\"product_type\":\"DOMESTIC_AIR\",\"uuid\":\"NI68503666e0-2ace-4be1-be9a-230123150313\",\"payment_mode\":\"EMI\",\"payment_sub_mode\":\"REGULAR\",\"amount\":123853,\"request_mode\":\"FULL\"}";
 	String ParamsAffordability_Plans_Reg_Lite="{\"product_type\":\"INTL_AIR\",\"uuid\":\"NI68503666e0-2ace-4be1-be9a-230123150313\",\"payment_mode\":\"EMI\",\"payment_sub_mode\":\"REGULAR\",\"amount\":123853,\"request_mode\":\"LITE\"}";
 
+	String ParamsAffordability_PL_Eligibility="\",   \"productType\": \"DOMESTIC_AIR\",   \"affordabilityType\": \"PL\",   \"amount\": 8000,   \"uuid\": \"Q12345\" }";
+
 	String ParamsEMI_Juspay_SaveAPI="[{\"tenure\":50,\"interest\":12,\"minAmount\":3000.0,\"maxAmount\":null,\"bankFee\":199.0,\"paymentType\":\"EMI\",\"paymentSubtype\":\"CC\",\"providerValue\":\"192\",\"provider\":\"bank\",\"displayPlan\":true,\"emiPlanGatewayMapping\":[{\"gatewayId\":25,\"credentialName\":\"RAZORPAY_V2_TEST\",\"gatewayPlanId\":null},{\"gatewayId\":27,\"credentialName\":\"Tests_HDFC\",\"gatewayPlanId\":null}]}]";
 
 	String ParamsSuperCoins_Hold = "{\"rewardsType\":\"SUPERCOINS\",\"rewardsRequestType\":\"HOLD\",\"trackId\":\"681f76-6de-4ec-b359adhks1s6\",\"productType\":\"AIR\",\"amount\":1.6,\"params\":{\"mobile\":\"+919986696785\",\"itineraryId\":\"681f76-6de-4ec-16559048910479\"}}";
@@ -366,6 +368,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String urlSuperCoins_CreatePromo = "/promoservice/v1/promogroups";
 	String urlAffordability_EMI_Eligibility_Plans = "/payments/affordability/plans?tripId=21234";
 	String urlAffordability_EMI_Eligibility = "/payments/affordability/eligibility";
+	String urlAffordability_PL_Eligibility = "/paymentservice/api/getAllPayLaterMerchants";
 
 	String urlSuperCoins_UpdatePromo = "/promoservice/v1/promogroups/Q2109156655/promotions/64905";
 	String urlSuperCoins_ActivatePromo = "/promoservice/v1/promogroups/Q210921153722/promotions/65253";
@@ -1615,6 +1618,11 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			RestAssured.baseURI =urlAffordability;
 			url= urlAffordability_EMI_Eligibility_Plans;
 			params = ParamsAffordability_Plans_Reg_Lite;
+		}
+		else if(payType.equalsIgnoreCase("Affor_Eligibility_PL")) {
+			RestAssured.baseURI =urlPay;
+			url= urlAffordability_PL_Eligibility;
+			params = "{\"userId\":\""+payType1+ParamsAffordability_PL_Eligibility;
 		}
 		else if(payType.equalsIgnoreCase("SuperCoins_MobileLinked")) {
 			headers=headersForms_Supercoins();
@@ -3243,7 +3251,69 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Assert.assertTrue(false);
 			}
 		}
+		if(payType.equals("Affor_Eligibility_PL")) {
+			String[] paymentTypeArr = {null,null,null,null,null,null};
+			JsonPath j = new JsonPath(resp.asString());
+			for (int i = 0; i < 5; i++) {
+				String paymentType = j.getString("instrument.merchants.paymentTypeType["+i+"]");
+				paymentTypeArr[i] = paymentType;
+			}
+			for (int i = 0; i<=6; i++) {
+				if(!paymentTypeArr[i].contains("PL")){
+					if(i==6){
+						Assert.assertTrue(false);
+					}
+				} else break;
+			}
+		}
 
+		if(payType.equals("Affor_Eligibility_CLEMI")) {
+			String[] paymentTypeArr = {null,null,null,null,null,null};
+			JsonPath j = new JsonPath(resp.asString());
+			for (int i = 0; i < 5; i++) {
+				String paymentType = j.getString("instrument.merchants.paymentTypeType["+i+"]");
+				paymentTypeArr[i] = paymentType;
+			}
+			for (int i = 0; i<=6; i++) {
+				if(!paymentTypeArr[i].contains("CL_EMI")){
+					if(i==6){
+						Assert.assertTrue(false);
+					}
+				} else break;
+			}
+		}
+
+		if(payType.equals("Affor_Eligibility_FKPL")) {
+			String[] paymentTypeArr = {null,null,null,null,null,null};
+			JsonPath j = new JsonPath(resp.asString());
+			for (int i = 0; i < 5; i++) {
+				String paymentType = j.getString("instrument.merchants.paymentTypeType["+i+"]");
+				paymentTypeArr[i] = paymentType;
+			}
+			for (int i = 0; i<=6; i++) {
+				if(!paymentTypeArr[i].contains("FKPL")){
+					if(i==6){
+						Assert.assertTrue(false);
+					}
+				} else break;
+			}
+		}
+
+		if(payType.equals("Affor_Eligibility_PayTMPostpaid")) {
+			String[] paymentTypeArr = {null,null,null,null,null,null};
+			JsonPath j = new JsonPath(resp.asString());
+			for (int i = 0; i < 5; i++) {
+				String paymentType = j.getString("instrument.merchants.paymentTypeType["+i+"]");
+				paymentTypeArr[i] = paymentType;
+			}
+			for (int i = 0; i<=6; i++) {
+				if(!paymentTypeArr[i].contains("Post")){
+					if(i==6){
+						Assert.assertTrue(false);
+					}
+				} else break;
+			}
+		}
 
 
 		if(payType.equals("WALLET_TOA")) {

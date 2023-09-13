@@ -32,6 +32,12 @@
         </classes>
     </test>
 
+    <test name="PL Affordability paymentservice" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Affordability_PL_Eligibility"/>
+        </classes>
+    </test>
+
     <test name="SCLP GV" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_GV_SCLP"/>
