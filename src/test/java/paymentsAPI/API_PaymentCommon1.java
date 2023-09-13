@@ -3363,12 +3363,12 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		}
 		if(payType.equals("EMI_Juspay_GetOffer")) {
 			JsonPath j = new JsonPath(resp.asString());
-			String id = j.getString("emiSubventionGatewayMapping.id");
+			String gatewaySubventionId = j.getString("emiSubventionGatewayMapping.gatewaySubventionId");
 			String subventionType = j.getString("subventionType");
 			if (!subventionType.contains("NO_COST") ) {
 				Assert.assertTrue(false);
 			}
-			if (!id.contains("3") ) {
+			if (!gatewaySubventionId.contains("offer_MXub89rjoAnoqy") ) {
 				Assert.assertTrue(false);
 			}
 		}

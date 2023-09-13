@@ -18,7 +18,7 @@ class Api_ChecksumTOA {
                 .append(currency).append(pipe)
                 .append(amount).append(pipe)
                 .append(checksumkey).toString();
-        System.out.println(hash);
+       // System.out.println(hash);
 
         System.out.println(calculateHash(hashType,hash));
     }
