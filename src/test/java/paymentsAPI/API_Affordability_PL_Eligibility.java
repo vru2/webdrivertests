@@ -23,10 +23,17 @@ public class API_Affordability_PL_Eligibility extends API_PaymentCommon1 {
 	}
 
 	@Test
-	public void Eligibility_FKPL() throws Exception {
+	public void Eligibility_FKPL() throws Exception { // PL & CL_EMI validation
 		Response resp ;
 		resp = payPost("Affor_Eligibility_PL","13957750");
 		validation("Affor_Eligibility_FKPL", resp);
+	}
+
+	@Test
+	public void Eligibility_FKPL_Only() throws Exception {// PL validation only
+		Response resp ;
+		resp = payPost("Affor_Eligibility_FKPL_Only","13957750");
+		validation("Affor_Eligibility_FKPL_Only", resp);
 	}
 
 	@Test
