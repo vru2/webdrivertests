@@ -221,6 +221,14 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String ParamsSuperCoins_CheckMobileLinked1="{\"rewardsType\":\"SUPERCOINS\",\"rewardsRequestType\":\"ACCOUNT_LINKED_AND_BALANCE\",\"productType\":\"HOTEL\",\"params\":{\"itineraryId\":\"756177b6c1-fab4-4643-ab7c-220704151433\",\"mobile\":\"+919986696785\"},\"amount\":1000.0,\"uid\":\"756177b6c1-fab4-4643-ab7c-220704151433\"}";
 	String ParamsSuperCoins_TrnxInfo="{\"tripRef\":\"Q210922154594\",\"paymentId\":\"\",\"txnType\":[\"INIT_EARN\"]}";
 
+
+	String ParamsAffordability_Eligi_NCE_PL_V2="{\"product_type\":\"DOMESTIC_AIR\",\"payment_mode_list\":[{\"payment_mode\":\"EMI\",\"payment_sub_mode\":\"NOCOST\"},{\"payment_mode\":\"PL\"}],\"customer_info\":{\"user_id\":\"";
+	String ParamsAffordability_Eligi_NCE_PL_V2_2="\"},\"pricing_list\":[{\"amount\":4000,\"uuid\":\"122\"},{\"amount\":6000,\"uuid\":\"133\"}]}";
+
+
+	String ParamsAffordability_Eligi_NCE_PL_V2_Plans="{\"uuid\":\"NI68503666e0-2ace-4be1-be9a-230123150313\",\"product_type\":\"DOMESTIC_AIR\",\"payment_mode_list\":[{\"payment_mode\":\"EMI\",\"payment_sub_mode\":\"NOCOST\"},{\"payment_mode\":\"PL\"}],\"customer_info\":{\"user_id\":\"";
+	String ParamsAffordability_Eligi_NCE_PL_V2_2_Plans="\"},\"amount\":9100,\"request_mode\":\"FULL\"}";
+
 	String ParamsAffordability_Eligi_NCE="{\"product_type\":\"INTL_AIR\",\"payment_mode_list\":[{\"payment_mode\":\"EMI\",\"payment_sub_mode\":\"NOCOST\"}],\"pricing_list\":[{\"amount\":100,\"uuid\":\"12\"},{\"amount\":20000,\"uuid\":\"122\"}]}";
 	String ParamsAffordability_Eligi_Reg="{\"product_type\":\"INTL_AIR\",\"payment_mode_list\":[{\"payment_mode\":\"EMI\",\"payment_sub_mode\":\"REGULAR\"}],\"pricing_list\":[{\"amount\":100,\"uuid\":\"12\"},{\"amount\":20000,\"uuid\":\"122\"}]}";
 	String ParamsAffordability_Plans_NCE_Full="{\"product_type\":\"DOMESTIC_AIR\",\"uuid\":\"NI68503666e0-2ace-4be1-be9a-230123150313\",\"payment_mode\":\"EMI\",\"payment_sub_mode\":\"NOCOST\",\"amount\":123853,\"request_mode\":\"FULL\"}";
@@ -370,7 +378,9 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String urlSuperCoins_CreatePromo = "/promoservice/v1/promogroups";
 	String urlAffordability_EMI_Eligibility_Plans = "/payments/affordability/plans?tripId=21234";
 	String urlAffordability_EMI_Eligibility = "/payments/affordability/eligibility";
+	String urlAffordability_EMI_V2_Plans = "/payments/affordability/plans";
 	String urlAffordability_PL_Eligibility = "/paymentservice/api/getAllPayLaterMerchants";
+
 
 	String urlSuperCoins_UpdatePromo = "/promoservice/v1/promogroups/Q2109156655/promotions/64905";
 	String urlSuperCoins_ActivatePromo = "/promoservice/v1/promogroups/Q210921153722/promotions/65253";
@@ -824,6 +834,13 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		headers.put("Content-Length", "<calculated when request is sent>");
 		headers.put("Host", "<calculated when request is sent>");*/
 		headers.put("Cookie", "ct-auth=cvlYMINwAZRln63Yy%2FxTL568HM%2FlJBdzmm2h%2BU3Y05v2zwkQAPQe5Vd9D3VsgwyxL5w%2BfbtxsaW%2BbtdHrc%2BWsScG24OcK1SPJLWfpxAcYSUZ%2BDPJWIpT6PozXecbENnMvrpx3EcElSt8IxAixuU3Wx1urIG%2BJIXXp1dllo9UaxruwmmL4%2Fl%2BZmNgLOEFFQEHIBmo7ujFj4IR251LE1REPIl0hD%2BOGrq3TzykZUx%2BW0wEWrlcwiuBMyRp%2FjW2ZkBtsCH0dQMu8eNGLFfYURLEzxWteZk4kgVCTdhW8xwshOSRXS16FEAEuu%2F0%2BY4jXzpsD%2BBMWmzm2HjhJN3LrqPmJl%2BPb%2BtRIDeSJJ8B3pwqUtovU9euu0zuyj4pUK7H7Exfn3xsb72VU1fgZGUiAqGNjlr4i1%2BstEIodrXyWaIerOwsliKRdHKdB04q2m8OnZXTH2Z4tsAXBZj47Mu0vEuTRiAH0Rp2vtFkuXiol%2Fc%2BBJD4qswYyk0D6GkqDc%2FryiGzrriKvMSxzl8ZjdP0xHKTJjDfE5MjfU2lez8Mc21eeVj4yG9Y5gNNb6MvOPOrwEDI%2FRkVukgyqFl7OJk6DNu3G%2FLNPaqxgHPoG%2Fb4MQRnyZVI9iJH8UXIBBVrkHxP0uq0KBIFqMINY881df17xzwxrP0wDfAjdIJWLC650cfnf3%2BZ8zInGGcv79tFePFr5UA0tMv7Ci9nlUUKOJuJ4P3asT%2F%2Fu6AA%2BWLog2uJ%2FY2YYqgP%2FV7P4M74%2FvZ8fgql9D8g8%2F%2F1HM9Q%2BhZwENf6sKaAU%2FkxX%2BEKCRjKf8O%2BTNUSfsuE8coUcku3YuzCaIBgM2P8Rb8sKLbSBDeyofU70uSSaPMHgCym1TRbOwe4kMI3sC%2BxNY2SNpWEXNL%2B8qnJRC3izkqTBVx8eUSmCMEROlIxUX3V3khzmrd4HsCxqs0QPfyV377s8BRI51ht8oyW%2FzMrKpsxMHx8GV2Wrz8SXH%2BJ4L7k2DAeId6CWMfLGEE76GmqZ7oItSHv5%2F5UO3DEKBLdNgJ6hCK8jDxka%2F19EfaquJ%2FSxkyRZqMldWabWMA8RFSkXBqexHhTLDzmgQVTrTtMzlNFPfPmCegfz2VJg5y%2Bh8C6ZuqGprbV9JxNvdZWfas1vK%2BlbxoIkTOxeVMYoTzx%2BRDEyo9MjCQlcI5K%2BXqy75cBiovhF%2FKcf00zq%2B4kHLbNgQWHsPxU03SG2PnNTTKvShsNtANjRoE31K8EhQCUxAy0RKUSZCsC9rC3NzCyiZQ8OMPyxuJe8aT3kw6b6Vr5W6ItDyb4p912T8y4Fmb%2BkWvTbYc3Gs6r0RfKxtBdJ7XZo8xSwXirQmVaFYJIN9SOYihXgvoe0tBEocfUYUUWT%2B21WjlsPFl3GqgqbnhOpQnwu4MuBFLJXP%2FGwt5epuyxkim5u3c1uLqpdlcKqTiJklaTM5EIWuxV%2BaxHXwh%2BX0x6JaS%2BJVI%2FViRLDjDvQxUjikuijAL%2BCIze%2BR0CONXQZwkQogOIBXtmmoU7CXBduaNzsLsrm0xPzTZjAvB1t1bEN8iIA9Fm3g2V6y48Pcv105pi%2F0nOxsa88OJMSX3bnJI%2F3pgvKn2lnUXPLJ7y2Eu5XYFyvRuvn8a18e%2B8QW%2BDTpp4h6bdpj%2FZ9V%2FRA%2BDYvT8d%2B0SoNyAooj0VtvXSMlfWLLScXRLU%2BZaNO4FeNzu9omIl8wyeWqwu8rZig4caleCF1rb7B0cXdHlu22SFZBRDdm61ES55aWujhpwye7ll1z5%2BCvKfEGNj16XgE8nl%2BknQOMmlSXdgI%2BJFHEAfZDmnjfzC2WV5xvuKqSmWWXeio0nh2R21fe8daY7Ojjo6NrqXDwQ6jZAjW349e5ztY0ocyXbt3mUSAALPlSZH315et1tPeY6CAhN3g8jTi%2B5T067h1hS925YjG5GVWQEGPrqiotCIMZf53SSRFJifXJIaxURXAN73vVKQpNfYJD6mKYvS77BJ1HSahQWO8rzmGvOJz6lU2vmvg5v2yYWzQbPfgX5sziMP%2Fp6at%2Fg5EUSUNbxqsajCjtC4Sy4Z%2FcEq0OVtCOVMb5LGLl%2B%2FaRcmVwIivbXgF6WJgGUyqQ%2FXYwgA%2Fd9fga3Wk9c01HYm8wnioO4gmHaHVqQNmgGYeBrRXYvmI7n0EifouUynX87T2pv9AtznT%2BGRE6YbjHJMx5nzalaKkdHPfrRRUzMejSVax39JguN5OkUi2cnUbya%2FFSiCtp%2By8Ubg5ROodIVxVaYSNtFg8%2FGBOW6RnvXjvo2J6aYJW4Dwa4%2Bqo2J56VlK7p5gikInWq5kpbwMOT5ewyDoK4sB7QCaCOGKCAw9mQlGqrQU5MUNpJgjO%2Bvcj2nSPdpoA%2BndoEUb2M%2F1KyL5QnnmD2uv");
+		return headers;
+	}
+
+	public HashMap<String, Object> headersForms_Eligibility_V2(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("api-version","2");
 		return headers;
 	}
 	
@@ -1590,6 +1607,16 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			params = urlPay;
 			url= url_EMI_Juspay_SavePlan;
 			params = ParamsEMI_Juspay_SaveAPI;
+		}
+		else if(payType.equalsIgnoreCase("Affor_Eligibility_NCE_V2")) {
+			headers=headersForms_Eligibility_V2();
+			url= urlAffordability+urlAffordability_EMI_Eligibility;
+			params = ParamsAffordability_Eligi_NCE_PL_V2+payType1+ParamsAffordability_Eligi_NCE_PL_V2_2;
+		}
+		else if(payType.equalsIgnoreCase("Affor_Plans_V2")) {
+			headers=headersForms_Eligibility_V2();
+			url= urlAffordability+urlAffordability_EMI_V2_Plans;
+			params = ParamsAffordability_Eligi_NCE_PL_V2_Plans+payType1+ParamsAffordability_Eligi_NCE_PL_V2_2_Plans;
 		}
 		else if(payType.equalsIgnoreCase("Affor_Eligibility_NCE")) {
 			RestAssured.baseURI =urlAffordability;
@@ -3277,6 +3304,112 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 						}
 					} else break;
 				}
+			}
+		}
+		if(payType.equals("Affor_Eligibility_NCE_V2_PayTM")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String type, value =null;
+			type = j.getString("data.call_out_attributes.EMI.ui_attributes.type[0]");
+			if(!type.contains("number")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+			value = j.getString("data.call_out_attributes.PL.ui_attributes.value[1]");
+			if(!value.contains("Paytm Postpaid")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(payType.equals("Affor_Eligibility_NCE_V2_FKPL")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String type, value =null;
+			type = j.getString("data.call_out_attributes.EMI.ui_attributes.type[0]");
+			if(!type.contains("number")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+			value = j.getString("data.call_out_attributes.PL.ui_attributes.value[1]");
+			if(!value.contains("Flipkart Pay Later EMI")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(payType.equals("Affor_Eligibility_NCE_V2_PL")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String type, value =null;
+			type = j.getString("data.call_out_attributes.EMI.ui_attributes.type[0]");
+			if(!type.contains("number")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+			value = j.getString("data.call_out_attributes.PL.ui_attributes.value[1]");
+			if(!value.contains("Axio")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(payType.equals("Affor_Eligibility_NCE_V2_PayTM_Plans")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String type, value , Proc_Fee=null;
+			type = j.getString("call_out_attributes.EMI.ui_attributes.type[3]");
+			if(!type.contains("number")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+			Proc_Fee = j.getString("call_out_attributes.EMI.ui_attributes.value[4]");
+			if(!Proc_Fee.contains("A processing fee with applicable taxes will be charged by the Bank for each EMI order")){
+				Reporter.log("Proc_Fee "+Proc_Fee);
+				Assert.assertTrue(false);
+			}
+			value = j.getString("call_out_attributes.PL.ui_attributes.value[1]");
+			if(!value.contains("Paytm Postpaid")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(payType.equals("Affor_Eligibility_NCE_V2_FKPL_Plans")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String type, value, Proc_Fee =null;
+			type = j.getString("call_out_attributes.EMI.ui_attributes.type[3]");
+
+			if(!type.contains("number")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+			Proc_Fee = j.getString("call_out_attributes.EMI.ui_attributes.value[4]");
+			if(!Proc_Fee.contains("A processing fee with applicable taxes will be charged by the Bank for each EMI order")){
+				Reporter.log("Proc_Fee "+Proc_Fee);
+				Assert.assertTrue(false);
+			}
+			value = j.getString("call_out_attributes.PL.ui_attributes.value[2]");
+			System.out.println("value "+value);
+			if(!value.contains("with your Flipkart Pay Later EMI")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(payType.equals("Affor_Eligibility_NCE_V2_PL_Plans")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String type, value , Proc_Fee=null;
+			type = j.getString("call_out_attributes.EMI.ui_attributes.type[3]");
+			if(!type.contains("number")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
+			}
+			Proc_Fee = j.getString("call_out_attributes.EMI.ui_attributes.value[4]");
+			if(!Proc_Fee.contains("A processing fee with applicable taxes will be charged by the Bank for each EMI order")){
+				Reporter.log("Proc_Fee "+Proc_Fee);
+				Assert.assertTrue(false);
+			}
+			value = j.getString("call_out_attributes.PL.ui_attributes.value[1]");
+			if(!value.contains("IDFC Bank")){
+				Reporter.log("type "+type);
+				Assert.assertTrue(false);
 			}
 		}
 
