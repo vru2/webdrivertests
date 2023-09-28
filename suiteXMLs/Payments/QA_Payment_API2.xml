@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="APIs" parallel="tests" thread-count="2">
 
-<listeners>
-<listener class-name="org.uncommons.reportng.HTMLReporter" />
-<listener class-name="test.java.common.RemoveDuplicateResults"/>
-<listener class-name="test.java.common.RetryListener"/>
-<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-</listeners>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="test.java.common.RemoveDuplicateResults"/>
+        <listener class-name="test.java.common.RetryListener"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
 
 
 
