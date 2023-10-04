@@ -39,6 +39,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String promoURL = "http://172.29.20.76:9001";//http://promoservice.cltp.com:9001";http://172.17.51.86:7999";
 	String urlRewards = "http://rewardsservice.cltp.com:9080";//http://172.17.56.51:9080";
 	String urlAffordability = "http://payments-affordability.cltp.com:9001";//http://172.17.56.51:9080";
+	//String FPE = "http://172.29.20.90:9001";
 	String urlWallet = "http://172.29.20.92:9001";//"http://wallet-service-qa.cltp.com:9001";
 	String urlCardInfo_Service="http://172.29.20.21:9001";// http://172.29.8.152:8331";//http://172.17.51.86:8331";
 	String urlrewards_validate = "http://172.29.20.90:9001";//"http://paymentservice.cltp.com:9001";"http://172.17.51.86:8070";
@@ -378,6 +379,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String urlSuperCoins_CreatePromo = "/promoservice/v1/promogroups";
 	String urlAffordability_EMI_Eligibility_Plans = "/payments/affordability/plans?tripId=21234";
 	String urlAffordability_EMI_Eligibility = "/payments/affordability/eligibility";
+	String url_FPE = "/paymentservice/payments/device-attributes?tripRef=Q231003796048";
 	String urlAffordability_EMI_V2_Plans = "/payments/affordability/plans";
 	String urlAffordability_PL_Eligibility = "/paymentservice/api/getAllPayLaterMerchants";
 
@@ -1361,6 +1363,14 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			url= urlSuperCoins_CheckEarnPoints;
 			Reporter.log(urlRewards+url);
 		}
+
+		else if(payType.equalsIgnoreCase("FPE")) {
+
+			RestAssured.baseURI =urlPay;
+			url= url_FPE;
+			Reporter.log(urlPay+url);
+		}
+
 		else if(payType.equalsIgnoreCase("Saved_PaymentModes")) {
 
 			RestAssured.baseURI =url_QA2;
@@ -3310,6 +3320,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			JsonPath j = new JsonPath(resp.asString());
 			String type, value =null;
 			type = j.getString("data.call_out_attributes.EMI.ui_attributes.type[0]");
+			System.out.println(type);
 			if(!type.contains("number")){
 				Reporter.log("type "+type);
 				Assert.assertTrue(false);
@@ -3324,7 +3335,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		if(payType.equals("Affor_Eligibility_NCE_V2_FKPL")) {
 			JsonPath j = new JsonPath(resp.asString());
 			String type, value =null;
-			type = j.getString("data.call_out_attributes.EMI.ui_attributes.type[0]");
+			type = j.getString("data.call_out_attributes.PL.ui_attributes.value[0]");
 			if(!type.contains("number")){
 				Reporter.log("type "+type);
 				Assert.assertTrue(false);
@@ -3514,6 +3525,25 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			}
 		}
 
+		if(payType.equals("FPE")) {
+			if (!resp.body().asString().contains("tripRef")) {
+				Assert.assertTrue(false);
+			}
+			if (!resp.body().asString().contains("device_ga_aa_id")) {
+				Assert.assertTrue(false);
+			}
+			JsonPath j = new JsonPath(resp.asString());
+			String device_dvid = j.getString("device_dvid");
+			String st = j.getString("status");
+			if(!st.contains("SUCCESS"))
+			{
+				Assert.assertTrue(false);
+			}
+			if (!device_dvid.contains("30068def-7291-3ae9-b003-ce9d07784c48")) {
+				Assert.assertTrue(false);
+			}
+		}
+
 		if(payType.equals("Affor_Eligibility_NCE")) {
 			if(!resp.body().asString().contains("{monthly_value}/mo")){
 				Assert.assertTrue(false);
@@ -3533,10 +3563,11 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		}
 
 		if(payType.equals("EMIBankDetails")) {
-			if(!resp.body().asString().contains("Kotak Mahindra Bank")){
-				Assert.assertTrue(false);
-			}
-		}
+            if (!resp.body().asString().contains("Kotak Mahindra Bank")) {
+                Assert.assertTrue(false);
+            }
+        }
+
 
 		if(payType.equals("EMI_Juspay_GetPlans")) {
 			if(!resp.body().asString().contains("offer_MXub89rjoAnoqy")){
@@ -3589,10 +3620,6 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Assert.assertTrue(false);
 			}
 		}
-
-
-
-
 		if(payType.equals("Affor_Plans_NCE_Lite")) {
 			if(!resp.body().asString().contains("https://fastui.cltpstatic.com/image/upload/resources/images/banklogo/hdfc.png")){
 				Assert.assertTrue(false);
