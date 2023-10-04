@@ -182,7 +182,7 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_AccntHealthtest="/accountsR3/health_test";
 	String url_partnercontroller_usersearch="/account/partner/people/v1/search?emails=test@flyin.com&partner=1";
 	String url_Account_Service_Caching_Userprofilejson_Email="/account/people/v2/fetch?docRequired=true&savedCards=false&travellersRequired=true&userPreference=true&emailId=ns.likhitha@cleartrip.com&domain=qa.cleartrip.com";
-	String url_Account_Service_Caching_Userprofilejson_ID="/account/people/v2/fetch?docRequired=true&savedCards=false&travellersRequired=true&userPreference=true&emailId=ns.likhitha%40cleartrip.com&domain=www.cleartrip.com";
+	String url_Account_Service_Caching_Userprofilejson_ID="/account/people/v2/fetch?docRequired=true&savedCards=false&travellersRequired=true&userPreference=true&emailId=ns.likhitha@cleartrip.com&domain=www.cleartrip.com";
 	String url_peoplecontroller_getuserbyemail="/account/people?docRequired=false&email=kirti.pandey@cleartrip.com&partner=1&travellersRequired=false&userPreference=false";
 	String url_peoplecontroller_getuserbyid="account/people/7707500017642?docRequired=false&partner=1&travellersRequired=false&userPreference=false";
 	String url_Account_Service_PWA_GetUserbyID="/account/people/v2/14029546?docRequired=false&savedCards=true&travellersRequired=true&userPreference=true";
@@ -777,7 +777,8 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 	public HashMap<String, Object> headersFormscfwoptinstatus(){
 		HashMap<String, Object> headers = new HashMap<>();
 		headers.put("auth_key", "7GHT#@D65yhgder4R1234");
-		//headers.put("accept","*/*");
+		headers.put("docRequired","true");
+
 		//GCP --	headers.put("AUTH_KEY", "H67f$we&HGTR34clQ");
 
 		return headers;
@@ -964,6 +965,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		//headers.put("Content-Type", "text/plain");
 		headers.put("X-CT-SOURCETYPE", "mobile");
 		headers.put("Referer", "www.cleartrip.com");
+		headers.put("cookie","ct-dvid =fBt2Oj1JZMLr5cCsDHejgsoMrrWh22E5Y9CWe5mdSGrCIqaABaRjww1sU289rqXfiDWLVdoTwGK7QrGrjtMRW0JZj7wwJFDH4KYa%2FUo7d4k%3D;ct-auth =e8Xtn%2Fi5A%2FGkFF9QRFLwMsixzutagL8KSDOKskJ8vP%2FPAC5BnG1VhKqX9iEbXPIdvdb22kmKGrhj2VAI20AltgYWbs0hUeS1dDOVoTv%2FC8oS3xBwBQbHAAgSFMgFCe0tlyhz2jVZSGwnR4Xe68L0aoK2eEoXgM73GXnr6ZXWU%2FuqLI6EfEr5fYarVjfH7mwKJC%2FgkOzzBJNHMAiA1hc6EQ%3D%3D");
 		return headers;
 	}
 
@@ -3809,7 +3811,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 				Assert.assertTrue(false);						
 			}
 
-			if(!ReponseStr.contains("ACTIVE")) {
+			if(!ReponseStr.contains("linkStatus")) {
 				Assert.assertTrue(false);
 			}
 
