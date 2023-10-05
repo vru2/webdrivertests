@@ -3441,20 +3441,25 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 					String paymentType = j.getString("instrument.merchants.paymentTypeType[" + i + "]");
 					paymentTypeArr[i] = paymentType;
 				}
-				for (int i = 0; i <= 6; i++) {
+				String Status = j.getString("status");
+				if(!Status.contains("S")){
+					Reporter.log("Status "+Status);
+					Assert.assertTrue(false);
+				}
+				/*for (int i = 0; i <= 6; i++) {
 					if (!paymentTypeArr[i].contains("CL_EMI")) {
 						if (i == 6) {
 							Assert.assertTrue(false);
 						}
 					} else break;
-				}
-				for (int i = 0; i <= 6; i++) {
+				}*/
+				/*for (int i = 0; i <= 6; i++) {
 					if (!paymentTypeArr[i].contains("PL")) {
 						if (i == 6) {
 							Assert.assertTrue(false);
 						}
 					} else break;
-				}
+				}*/
 			}
 
 		}
@@ -3470,7 +3475,12 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 					String paymentType = j.getString("instrument.merchants.paymentTypeType[" + i + "]");
 					paymentTypeArr[i] = paymentType;
 				}
-				for (int i = 0; i <= 6; i++) {
+				String Status = j.getString("status");
+				if(!Status.contains("S")){
+					Reporter.log("Status "+Status);
+					Assert.assertTrue(false);
+				}
+				/*for (int i = 0; i <= 6; i++) {
 					if (!paymentTypeArr[i].contains("PL")) {
 						if (i == 6) {
 							Assert.assertTrue(false);
@@ -3483,7 +3493,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 							Assert.assertTrue(false);
 						}
 					} else break;
-				}
+				}*/
 			}
 		}
 

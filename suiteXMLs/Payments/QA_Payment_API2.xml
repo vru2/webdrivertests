@@ -8,11 +8,9 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
 
-
-
-    <test name="Wallets"  preserve-order="true" parallel="true" >
+    <test name="PL Affordability paymentservice" preserve-order="true" parallel="true">
         <classes>
-            <class name="test.java.paymentsAPI.API_Wallet_RevertedPromo_info"/>
+            <class name="test.java.paymentsAPI.API_Affordability_PL_Eligibility"/>
         </classes>
     </test>
 
