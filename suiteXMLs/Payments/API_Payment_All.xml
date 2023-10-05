@@ -51,6 +51,12 @@
         </classes>
     </test>
 
+    <test name="FPE" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_FPE"/>
+        </classes>
+    </test>
+
     <test name="Instant Refund" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_IR_Get_Eligibility"/>
