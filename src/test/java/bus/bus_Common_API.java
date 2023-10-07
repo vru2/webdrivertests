@@ -30,6 +30,15 @@ public class bus_Common_API {
         return headers;
     }
 
+    public HashMap<String, Object> SelfCare_GetTripInfo() {
+        HashMap<String, Object> headers = new HashMap<>();
+        headers.put("app-agent", "PWA");
+        headers.put("x-ct-source", "MOBILE");
+        headers.put("user-agent", "Chrome");
+        headers.put("Cookie", "ct-auth = ncQX8HBir/yltoTHe7qrgbUJ1T9jAOy1EvcBd6FaFuLInX5RLPqffpexfkF3rZyZvdb22kmKGrhj2VAI20AltmsyCOKbufFIzgps5dmd9XM/dyo3uhimugoUQdKxicgjrYLG5r0EF4a6dKt8TrXMc5vXfXLYcJDnhUuM80Ho91Mn8LwEM2zpT8wjlKDpAUL+v4vpnustaZV7GqGZKryR3g==");
+        return headers;
+    }
+
     public HashMap<String, Object> headersForms_UpdateTrip() {
         HashMap<String, Object> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
@@ -44,7 +53,7 @@ public class bus_Common_API {
         headers.put("x-ct-source", "PULSE");
         return headers;
     }
-    String url_Bus = "";
+    String url_Bus = "http://bus-api.cltp.com:9001";
 
     String url_Coupon = "http://172.29.9.7:9001";
 
@@ -56,10 +65,18 @@ public class bus_Common_API {
 
     String url_EndPoint_Update_Trip = "/trips/Q221215615418/bus-bookings/update-booking";
     String url_EndPoint_Search = "/api/bus/v1/search?fromCity=6772&toCity=4292&journeyDate=2023-11-28";
+    String url_SelfCare_GetTripInfo = "/api/bus/v1/self-care/get-trip-info?tripId=Q231007798824";
+    String url_SelfCare_CancelationInfo = "/api/bus/v1/self-care/cancel-info?tripId=Q231007798824";
+
+    String url_SelfCare_CancelBooking = "/api/bus/v1/self/cancel/Q231007798824";
+    String url_SelfCare_Download_eTicket = "/api/bus/v1/download-eTicket/Q231007798824";
+
+    String url_SelfCare_TripDetails_Email = "/api/bus/v1/trip-details-email/Q231007798824?emailld=kiran.kumar@cleartrip.com";
 
     String url_Endpoint_Cancelation_Eligibility = "/bus/hq/v2/refund-info/Q230911782400?reason=CR01";
 
     String url_Endpoint_Cancel_Trip_Status = "/bus/hq/v2/cancel/Q230911782400?reason=CR04";
+    String url_Endpoint_Cancel_Booking = "/api/bus/v1/self/cancel/Q231007798824";
 
     String url_EndPoint_AutoSuggest = "/api/bus/v1/auto-suggest/?value=ban";
     String url_EndPoint_Coupon_Active = "/offer/search?active=true";
@@ -69,6 +86,8 @@ public class bus_Common_API {
 
     String payload_Update_Trip = "{\"bus_booking_infos\":[{\"seq_no\":1,\"pax_info_seq_no\":1}],\"bus_pricing_infos\":[{\"seq_no\":1,\"bus_cost_pricing_info\":{\"seq_no\":1,\"pricing_elements\":[]},\"pricing_elements\":[{\"amount\":20,\"category\":\"COUPON\",\"code\":\"TEST10\",\"label\":\"Coupon\"}]}]}";
     String payload_Canceled_Trip_Status = "{\"note\":\"string\",\"subject\":\"string\",\"trip_id\":0,\"user_id\":0}";
+    String payload_Cancel_Booking =  "{\"reason\":\"CR01\"}";
+
 
     public Response busGet(String useCase, String busType1) {
         RestAssured.baseURI = url_Bus;
@@ -80,6 +99,31 @@ public class bus_Common_API {
             RestAssured.baseURI = url_QA2;
             endpoint = url_EndPoint_Search;
             headers = headersForms_Search();
+            Reporter.log(url_Bus + endpoint);
+        }
+        if (useCase.equalsIgnoreCase("CancellationInfo")) {
+            RestAssured.baseURI = url_QA2;
+            endpoint = url_SelfCare_CancelationInfo;
+            headers = SelfCare_GetTripInfo();
+            Reporter.log(url_Bus + endpoint);
+        }
+        if (useCase.equalsIgnoreCase("Download_eTicket")) {
+            RestAssured.baseURI = url_Bus;
+            endpoint = url_SelfCare_Download_eTicket;
+            headers = SelfCare_GetTripInfo();
+            Reporter.log(url_Bus + endpoint);
+        }
+        if (useCase.equalsIgnoreCase("GetTripDetails_Email")) {
+            RestAssured.baseURI = url_Bus;
+            endpoint = url_SelfCare_TripDetails_Email;
+            headers = SelfCare_GetTripInfo();
+            Reporter.log(url_Bus + endpoint);
+        }
+
+        if (useCase.equalsIgnoreCase("GetTripInfo")) {
+            RestAssured.baseURI = url_Bus;
+            endpoint = url_SelfCare_GetTripInfo;
+            headers = SelfCare_GetTripInfo();
             Reporter.log(url_Bus + endpoint);
         }
         if (useCase.equalsIgnoreCase("couponActive")){
@@ -129,6 +173,11 @@ public class bus_Common_API {
             params = payload_Canceled_Trip_Status;
             headers = headersForms_Cancel_Trip_Status();
         }
+        if (useCase.equalsIgnoreCase("Cancel_booking")) {
+            endpoint = url_Bus+url_Endpoint_Cancel_Booking;
+            params = payload_Cancel_Booking;
+            headers = SelfCare_GetTripInfo();
+        }
 
         Reporter.log(endpoint);
         Reporter.log("Params :" + params);
@@ -173,10 +222,48 @@ public class bus_Common_API {
         int statusCode = resp.getStatusCode();
         Reporter.log("statusCode: " + statusCode);
         JsonPath jsonPathEvaluator = resp.jsonPath();
+        if(!(useCase.equals("Cancel_booking"))) {
+            if (statusCode != 200) {
+                Assert.assertTrue(false);
+            }
+        }
         if (useCase.equals("Update_Trip")) {
             String trip_ref= jsonPathEvaluator.getString("trip_ref");
             Reporter.log("trip_ref " +trip_ref);
             if(!trip_ref.equals("Q221215615418")) {
+                Assert.assertTrue(false);
+            }
+        }
+        else if (useCase.equals("GetTripInfo")) {
+            String bookingConfirmed= jsonPathEvaluator.getString("bookingConfirmed");
+            Reporter.log("bookingConfirmed " +bookingConfirmed);
+            if(!bookingConfirmed.equals("false")) {
+                Assert.assertTrue(false);
+            }
+
+        }
+        else  if (useCase.equals("CancellationInfo")) {
+            String cancellationApplicable= jsonPathEvaluator.getString("cancellationApplicable");
+            Reporter.log("cancellationApplicable " +cancellationApplicable);
+            if(!cancellationApplicable.equals("false")) {
+                Assert.assertTrue(false);
+            }
+        }
+        else  if (useCase.equals("GetTripDetails_Email")) {
+          /*  String cancellationApplicable= jsonPathEvaluator.getString("cancellationApplicable");
+            Reporter.log("cancellationApplicable " +cancellationApplicable);
+            if(!cancellationApplicable.equals("false")) {
+                Assert.assertTrue(false);
+            }*/
+        }
+        else  if (useCase.equals("Cancel_booking")) {
+            String success= jsonPathEvaluator.getString("success");
+            String message= jsonPathEvaluator.getString("error.message");
+            Reporter.log("message " +message);
+            if(!success.equals("false")) {
+                Assert.assertTrue(false);
+            }
+            if(!message.equals("Something went wrong")) {
                 Assert.assertTrue(false);
             }
         }

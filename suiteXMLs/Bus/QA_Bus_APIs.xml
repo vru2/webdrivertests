@@ -14,6 +14,36 @@
 		</classes>
 	</test>
 
+	<test name="SelfCare Get tripinfo" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_SelfCare_Get_TripInfo"/>
+		</classes>
+	</test>
+
+	<test name="SelfCare Cancel Booking" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_SelfCare_Trip_Cancel_Booking"/>
+		</classes>
+	</test>
+
+	<test name="SelfCare Cancellation Info" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_SelfCare_Cancellation_Info"/>
+		</classes>
+	</test>
+
+	<test name="SelfCare Get Tripdeatails email" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_SelfCare_Get_TripDetails_Email"/>
+		</classes>
+	</test>
+
+	<test name="SelfCare Download eTicket" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_SelfCare_Download_eTicket"/>
+		</classes>
+	</test>
+
 	<test name="Coupon Activate" preserve-order="true" parallel="true">
 		<classes>
 			<class name="test.java.bus.bus_Coupon_Activate"/>
