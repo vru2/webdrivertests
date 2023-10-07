@@ -249,7 +249,7 @@ public class bus_Common_API {
         else if (useCase.equals("Search")) {
             String totalAvailBuses= jsonPathEvaluator.getString("data.totalAvailBuses");
             Reporter.log("totalAvailBuses " +totalAvailBuses);
-            if(!totalAvailBuses.contains("1")) {
+            if(!totalAvailBuses.contains("5")) {
                 Assert.assertTrue(false);
             }
         }
