@@ -44,6 +44,7 @@
     <test name="FKVIP" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.FkVIP_Injest_Profile" />
+            <class name="test.java.accountsAPI.FK_Injest_ProfileExpiry" />
         </classes>
     </test>
 
