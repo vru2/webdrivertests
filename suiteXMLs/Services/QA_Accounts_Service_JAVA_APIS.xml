@@ -9,7 +9,7 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
 
-    <test name="Promotional Services" parallel="true">
+        <test name="Promotional Services" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.Promotional_Service_healthTestAPI" />
             <class name="test.java.accountsAPI.Promotional_Service_GetReferralhistory" />
@@ -26,7 +26,7 @@
         </classes>
     </test>
 
-	<test name="PWA" parallel="true">
+        <test name="PWA" parallel="true">
 		<classes>
 			<class name="test.java.accountsAPI.Accounts_Service_PWA_register" />
 			<class name="test.java.accountsAPI.Account_Service_PWA_SignIn_API" />
@@ -35,13 +35,13 @@
 		</classes>
 	</test>
 
-    <test name="Log Out" parallel="true">
+        <test name="Log Out" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.Account_Service_LogOutAPI" />
         </classes>
     </test>
 
-    <test name="FKVIP" parallel="true">
+        <test name="FKVIP" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.FkVIP_Injest_Profile" />
             <class name="test.java.accountsAPI.FK_Injest_ProfileExpiry" />
