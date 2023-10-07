@@ -41,6 +41,12 @@
         </classes>
     </test>
 
+    <test name="FKVIP" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.FkVIP_Injest_Profile" />
+        </classes>
+    </test>
+
         <test name="User Classification" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Userclassification_Parsing_CSV" />
