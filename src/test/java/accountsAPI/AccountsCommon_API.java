@@ -51,6 +51,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	
 	String url_Promotional_Service="http://172.29.23.245:9001";
 	String url_Promotional_Service_domain ="http://promotional-service-api.cltp.com:9001";
+
+	String url_ingestion_Service_domain = "http://ingestion-service.cltp.com:9001";
 	
 	String 	url_Acct_Service_gateway="https://platformqa2new.cleartrip.com";
 
@@ -137,7 +139,7 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_IdentityService_ResetPassword="/user/resetPassword?email=ns.likhitha@cleartrip.com";
 	String url_Account_Service_RegisterFLyinUserUpdate_OTPValidation="/account/people/v2?domain=www.flyin.com";
 	String url_Account_Service_FLYIN_User_Update="/account/people/v2?domain=www.flyin.com";
-	String url_Account_Service_Update_User_MobileNo_OTPValidaion="/account/people/v2?domain=qa2.cleartrip.com";
+	String url_Account_Service_Update_User_MobileNo_OTPValidaion="/account/people/v2?domain=qa2new.cleartrip.com";
 	String url_Account_Service_MobileLogin_verifyOTP_SignIn="/external-api/otp/verify-action";
 	String url_Account_Service_MobileLogin_NudgePersonaldetails="/external-api/nudge?type=PERSONAL_DETAILS";
 	String url_Account_Service_MobileLogin_NudgeUpdateMobile="/external-api/nudge?type=UPDATE_MOBILE";
@@ -224,6 +226,9 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_Account_Service_GetActivationKey="/user/v2/activation-key/65213401";
 	String url_Promotional_Service_healthTestAPI="/actuator/health";
 	String url_Promotional_Service_GenerateReferralLink="/referral/link?action=HI_FIVE";
+
+	String url_FKVIP_Injest_Profile = "/ingest/v1/flipkart/profile";
+
 	String url_Promotional_Service_ValidatereferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bl";
 	String url_Promotional_Service_ValidateInvalidReferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bleeee";
 	String url_Promotional_Service_GetReferradetailsHQ="/referral/history?action=HI_FIVE&peopleId=65262210";
@@ -298,6 +303,45 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String params_Account_Service_CFW_StatusUpdateCall="";
 	String params_flyinsigninV2_CleartripUser="{ \"password\": \"cleartrip123\", \"partner\": 0, \"source\": \"home_page\", \"username\": \"ns.likhitha@cleartrip.com\", \"persist_login\": false}";
 	String params_Promotional_Service_GenerateReferralLink="";
+
+	String params_FKVIP_injest_profile= "{\n" +
+			"    \"eventType\": \"ACTIVATION\",\n" +
+			"    \"membershipPIITierDetails\": {\n" +
+			"        \"phoneNumber\": \"8692e1407354fcdc6af54b11a2b6188e950f0d2b0eccb12abb0979100c78ed9c\",\n" +
+			"        \"campaignIds\": [\n" +
+			"            \"CT_CAMP1\"\n" +
+			"        ],\n" +
+			"        \"membershipTierInfo\": {\n" +
+			"            \"tier\": \"VIP\",\n" +
+			"          \"start\": \"2023-09-10 23:00:00\",\n" +
+			"            \"end\": \"2025-09-10 23:00:00\",\n" +
+			"            \"membershipTenureDuration\": {\n" +
+			"                \"duration\": 365,\n" +
+			"                \"durationTimeUnit\": \"DAY\"\n" +
+			"            }\n" +
+			"        }\n" +
+			"    }\n" +
+			"}";
+
+	String params_FKVIP_injest_profileEXPIRY= "{\n" +
+			"    \"eventType\": \"EXPIRY\",\n" +
+			"    \"membershipPIITierDetails\": {\n" +
+			"        \"phoneNumber\": \"8692e1407354fcdc6af54b11a2b6188e950f0d2b0eccb12abb0979100c78ed9c\",\n" +
+			"        \"campaignIds\": [\n" +
+			"            \"CT_CAMP1\"\n" +
+			"        ],\n" +
+			"        \"membershipTierInfo\": {\n" +
+			"            \"tier\": \"VIP\",\n" +
+			"          \"start\": \"2023-09-10 23:00:00\",\n" +
+			"            \"end\": \"2025-09-10 23:00:00\",\n" +
+			"            \"membershipTenureDuration\": {\n" +
+			"                \"duration\": 365,\n" +
+			"                \"durationTimeUnit\": \"DAY\"\n" +
+			"            }\n" +
+			"        }\n" +
+			"    }\n" +
+			"}";
+
 	String params_Account_Service_MobileLogin_sendOTP_SIGNIN="{\"type\":\"MOBILE\",\"value\":\"7799964888\",\"countryCode\":\"+91\",\"action\":\"SIGNIN\"}";
 	String params_Account_Service_MobileLogin_sendOTP_UPDATE_MOBILE="{\"type\":\"MOBILE\",\"value\":\"7799964888\",\"countryCode\":\"+91\",\"action\":\"UPDATE_MOBILE\"}";
 	String params_Account_Service_MobileLogin_sendEmail_SIGNUP_MERGE="{\"type\":\"EMAIL\",\"value\":\"ns.likhitha@cleartrip.com\",\"action\":\"SIGNUP_MERGE\"}";
@@ -620,6 +664,15 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("caller", "test");
 		headers.put("referer", "qa2new.cleartrip.com");
 		headers.put("cookie", "ct-dvid =fBt2Oj1JZMLr5cCsDHejgsoMrrWh22E5Y9CWe5mdSGrCIqaABaRjww1sU289rqXfiDWLVdoTwGK7QrGrjtMRW0JZj7wwJFDH4KYa%2FUo7d4k%3D;ct-auth =e8Xtn%2Fi5A%2FGkFF9QRFLwMsixzutagL8KSDOKskJ8vP%2FPAC5BnG1VhKqX9iEbXPIdvdb22kmKGrhj2VAI20AltgYWbs0hUeS1dDOVoTv%2FC8oS3xBwBQbHAAgSFMgFCe0tlyhz2jVZSGwnR4Xe68L0aoK2eEoXgM73GXnr6ZXWU%2FuqLI6EfEr5fYarVjfH7mwKJC%2FgkOzzBJNHMAiA1hc6EQ%3D%3D");
+
+		return headers;
+	}
+
+	public HashMap<String, Object> headersFormFKVIPInjestProfile(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("authkey", "692b3754-33c1-4c17-88d1-2339de3ccbec");
+		headers.put("Content-Type", "application/json");
 
 		return headers;
 	}
@@ -989,7 +1042,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		String urlMobile = url_IVR+url_EndPoint_Mobile;
 		String urlDate= url_IVR+url_EndPoint_Date;
 		String urlPersonJson = url_PersonJson;
-		HashMap<String, Object> headers = new HashMap<>();
+		HashMap<String, Object> headers;
 		headers = headersForms();
 		Response request = null;							
 		if(Type.equals("TripID")) {
@@ -1104,6 +1157,8 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		HashMap<String, Object> headers = new HashMap<>();
 		headers = headersForms1();
+
+
 
 		if(Type.equals("CreateWallet")) {
 			RestAssured.baseURI =url_Acct;
@@ -1269,6 +1324,29 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			Reporter.log(url_Promotional_Service_domain+url);
 
 		}
+
+		if(Type.equals("FkVIP_Injest_Profile")) {
+			headers = headersFormFKVIPInjestProfile();
+
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Injest_Profile;
+			params =params_FKVIP_injest_profile ;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("FK_Injest_ProfileExpiry")) {
+			headers = headersFormFKVIPInjestProfile();
+
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Injest_Profile;
+			params =params_FKVIP_injest_profileEXPIRY ;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+
+
 		if(Type.equals("Promotional_Service_GenerateReferralLink_InvalidAuth")) {
 			headers = headersFormpromotionalgetreferraldetailsinvalid();
 
@@ -3428,6 +3506,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 				Assert.assertTrue(false);						
 			}
 		}
+
 		if(Type.equalsIgnoreCase("Promotional_Service_Savenudge_InvalidCookie")) {
 			String message = jsonPathEvaluator.getString("message");
 			if(!message.contains("INVALID_COOKIE_SESSION")) {
@@ -3555,6 +3634,30 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		if(statusCode!=200) {
 			System.out.println(statusCode);
 			Assert.assertTrue(false);
+		}
+
+		if(Type.equalsIgnoreCase("FkVIP_Injest_Profile")) {
+			System.out.println(statusCode);
+			if(statusCode!=200) {
+				Assert.assertTrue(false);
+			}
+			String message = jsonPathEvaluator.getString("status");
+			System.out.println(message);
+			if(!message.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FK_Injest_ProfileExpiry")) {
+			System.out.println(statusCode);
+			if(statusCode!=200) {
+				Assert.assertTrue(false);
+			}
+			String message = jsonPathEvaluator.getString("status");
+			System.out.println(message);
+			if(!message.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
 		}
 
 		if(Type.equalsIgnoreCase("TripID")) {
