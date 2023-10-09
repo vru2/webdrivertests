@@ -229,6 +229,9 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_FKVIP_Injest_Profile = "/ingest/v1/flipkart/profile";
 
+	String url_FKVIP_Discover_API = "/cohort/v1/benefits/191121006/fetch";
+
+
 	String url_Promotional_Service_ValidatereferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bl";
 	String url_Promotional_Service_ValidateInvalidReferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bleeee";
 	String url_Promotional_Service_GetReferradetailsHQ="/referral/history?action=HI_FIVE&peopleId=65262210";
@@ -342,6 +345,24 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"    }\n" +
 			"}";
 
+	String params_FKVIP_Discover_API = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000008\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
+			"    },\n" +
+			"    \"requestId\": \"uuid\",\n" +
+			"    \"filter\": {\n" +
+			"        \"productType\": \"hotel\"\n" +
+			"    }\n" +
+			"}";
+
+	String params_FKVIP_Discover_API_WIthOutFilter = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000008\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
+			"    },\n" +
+			"    \"requestId\": \"uuid\"\n" +
+			"}";
 	String params_Account_Service_MobileLogin_sendOTP_SIGNIN="{\"type\":\"MOBILE\",\"value\":\"7799964888\",\"countryCode\":\"+91\",\"action\":\"SIGNIN\"}";
 	String params_Account_Service_MobileLogin_sendOTP_UPDATE_MOBILE="{\"type\":\"MOBILE\",\"value\":\"7799964888\",\"countryCode\":\"+91\",\"action\":\"UPDATE_MOBILE\"}";
 	String params_Account_Service_MobileLogin_sendEmail_SIGNUP_MERGE="{\"type\":\"EMAIL\",\"value\":\"ns.likhitha@cleartrip.com\",\"action\":\"SIGNUP_MERGE\"}";
@@ -677,6 +698,15 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		return headers;
 	}
 
+	public HashMap<String, Object> headersFormFKVIPDiscoverAPI(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("Accept", "application/json");
+		headers.put("caller", "hotel-srp,hotel-itineary");
+
+		return headers;
+	}
 	public HashMap<String, Object> headersFormpromotionalgetConfigdetails(){
 		HashMap<String, Object> headers = new HashMap<>();
 
@@ -1341,6 +1371,26 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			RestAssured.baseURI =url_ingestion_Service_domain;
 			url = url_FKVIP_Injest_Profile;
 			params =params_FKVIP_injest_profileEXPIRY ;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("FKVIP_Discovery_API")) {
+			headers = headersFormFKVIPDiscoverAPI();
+
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Discover_API;
+			params =params_FKVIP_Discover_API ;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("FKVIP_Discovery_API_WithOutFilter")) {
+			headers = headersFormFKVIPDiscoverAPI();
+
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Discover_API;
+			params =params_FKVIP_Discover_API_WIthOutFilter ;
 			Reporter.log(url_ingestion_Service_domain+url);
 
 		}
@@ -3656,6 +3706,37 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			String message = jsonPathEvaluator.getString("status");
 			System.out.println(message);
 			if(!message.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_Discovery_API")) {
+
+			String message = jsonPathEvaluator.getString("userId");
+			String activeCohorts = jsonPathEvaluator.getString("response.activeCohorts");
+			String campaignId = jsonPathEvaluator.getString("response.cohortBenefitMap.MYNTRA_ICON_V1.campaignId");
+			if(!message.contains("191121006")) {
+				Assert.assertTrue(false);
+			}
+			if(!activeCohorts.contains("MYNTRA_ICON_V1"))
+			{
+				Assert.assertTrue(false);
+			}
+			if(!campaignId.contains("CAMPID_MYNTRA_ICON_HOTEL_001"))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_Discovery_API_WithOutFilter")) {
+
+			String message = jsonPathEvaluator.getString("userId");
+			String activeCohorts = jsonPathEvaluator.getString("response.activeCohorts");
+			if(!message.contains("191121006")) {
+				Assert.assertTrue(false);
+			}
+			if(!activeCohorts.contains("MYNTRA_ICON_V1"))
+			{
 				Assert.assertTrue(false);
 			}
 		}
