@@ -9,7 +9,7 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
 
-    <test name="FK VIP" parallel="true" preserve-order="true">
+    <test name="FK VIP" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.FkVIP_Injest_Profile"/>
             <class name="test.java.accountsAPI.FK_Injest_ProfileExpiry"/>
@@ -18,7 +18,7 @@
         </classes>
     </test>
 
-        <test name="PWA" parallel="true" preserve-order="true">
+        <test name="PWA" preserve-order="true" parallel="true">
 		<classes>
 			<class name="test.java.accountsAPI.Accounts_Service_PWA_register" />
 			<class name="test.java.accountsAPI.Account_Service_PWA_SignIn_API" />
@@ -27,13 +27,13 @@
 		</classes>
 	</test>
 
-        <test name="Log Out" parallel="true" preserve-order="true">
+        <test name="Log Out" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.Account_Service_LogOutAPI"/>
         </classes>
     </test>
 
-    <test name="Promotional Services" parallel="true" preserve-order="true">
+    <test name="Promotional Services" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.Promotional_Service_healthTestAPI" />
             <class name="test.java.accountsAPI.Promotional_Service_GetReferralhistory" />
@@ -50,7 +50,7 @@
         </classes>
     </test>
 
-     <test name="User Classification" parallel="true">
+     <test name="User Classification" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Userclassification_Parsing_CSV" />
                 <class name="test.java.accountsAPI.Userclassification_Userdetails_emailid" />
@@ -59,7 +59,7 @@
             </classes>
         </test>
 
-        <test name="Company Search" parallel="true">
+        <test name="Company Search" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_CompanySearchAPI_withDomainname" />
                 <class name="test.java.accountsAPI.Account_Service_CompanySearchAPI_internalDomainSearch" />
@@ -77,7 +77,7 @@
             </classes>
         </test>
 
-        <test name="Identity Service" parallel="true">
+        <test name="Identity Service" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.IdentityService_Signin_FlyinUser" />
                 <class name="test.java.accountsAPI.IdentityService_ctAuth_noLoginCookie" />
@@ -92,7 +92,7 @@
             </classes>
         </test>
 
-        <test name="Controllers" parallel="true">
+        <test name="Controllers" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin" />
                 <class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin_CleartripUser" />
@@ -147,7 +147,7 @@
             </classes>
         </test>
 
-        <test name="User Profile" parallel="true">
+        <test name="User Profile" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_Email" />
                 <class name="test.java.accountsAPI.Account_Service_Caching_Userprofilejson_ID" />
@@ -155,7 +155,7 @@
             </classes >
         </test>
 
-        <test name="Signin Un authorized" parallel="true">
+        <test name="Signin Un authorized" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Accounts_Service_Applesignin_Unauthorized" />
                 <class name="test.java.accountsAPI.Accounts_Service_CleartripV2_Signin_Unauthorized" />
@@ -165,7 +165,7 @@
             </classes>
         </test>
 
-        <test name="Apple Signin" parallel="true">
+        <test name="Apple Signin" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_AppleSignin" />
                 <class name="test.java.accountsAPI.Account_Service_AppleSignin_uniqueId" />
@@ -175,7 +175,7 @@
             </classes>
 
         </test>
-        <test name="Deposit Account" parallel="true">
+        <test name="Deposit Account" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_FetchcompanyBy_depositaccountID" />
                 <class name="test.java.accountsAPI.Account_Service_Depositaccountsearch_WOTlinkedparam" />
@@ -184,7 +184,7 @@
             </classes>
 
         </test>
-        <test name="GST Details" parallel="true">
+        <test name="GST Details" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_GSTV2_SearchAPIwithGstNo" />
                 <class name="test.java.accountsAPI.Account_Service_GSTV2_SearchAPIwithGstNoAndGstID" />
@@ -196,7 +196,7 @@
             </classes>
         </test>
 
-        <test name="Flyin AND COMM -Regression Cases" parallel="true">
+        <test name="Flyin AND COMM -Regression Cases" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Flyin_Regression_Partner_user_search" />
                 <class name="test.java.accountsAPI.Flyin_Regression_Partner_Social_signup" />
@@ -204,7 +204,7 @@
                 <class name="test.java.accountsAPI.Account_Service_Travellercontroller_UpdateTraveller_FlyRegression" />
             </classes>
         </test>
-        <test name="Flipkart-Accounts-Service" parallel="true">
+        <test name="Flipkart-Accounts-Service" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Flipkart_Accounts_Service_CreateUser" />
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_CreateUser_ExistingUser" />
@@ -217,7 +217,7 @@
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_JWTtoken_Cleartrip" />
             </classes>
         </test>
-        <test name="MobileLogin" parallel="true">
+        <test name="MobileLogin" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_SIGNIN" />
                 <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_UPDATE_MOBILE" />
@@ -235,7 +235,7 @@
         </test>
 
 
-    <test name="Promotional-Service-Hifive" parallel="true">
+    <test name="Promotional-Service-Hifive" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.Promotional_Service_ValidatereferralLink" />
             <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsHQ" />
