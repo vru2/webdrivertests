@@ -17,6 +17,9 @@
             <class name="test.java.accountsAPI.FKVIP_Discovery_API_WithOutFilter"/>
             <class name="test.java.accountsAPI.FKVIP_InValid_RedeemAPI"/>
             <class name="test.java.accountsAPI.FKVIP_InValid_RollBackAPI"/>
+            <class name="test.java.accountsAPI.FKVIP_ActiveEntity_API"/>
+            <class name="test.java.accountsAPI.FKVIP_ActiveEntity_Invalid_API"/>
+            <class name="test.java.accountsAPI.FKVIP_GetBenefitDetails_API"/>
         </classes>
     </test>
 

@@ -235,6 +235,10 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_FKVIP_Invalid_Rollback_API = "/cohort/v1/benefits/rollback";
 
+	String  url_FKVIP_Active_Entity = "/cohort/v1/entity/fetch";
+
+	String url_FKVIP_GetBenefitDetails_API = "/cohort/v1/benefits/data/Q906523733692";
+
 
 	String url_Promotional_Service_ValidatereferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bl";
 	String url_Promotional_Service_ValidateInvalidReferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bleeee";
@@ -408,7 +412,20 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"    \"tripRef\": \"Q909523733692\"\n" +
 			"}";
 
+	String params_FKVIP_Active_Entity = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000007\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
+			"    },\n" +
+			"    \"requestId\": \"uuid\"\n" +
+			"}";
 
+	String params_FKVIP_Active_Entity_Invalid_API = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000007\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
+			"    }\n" +
+			"}";
 
 	String params_Account_Service_MobileLogin_sendOTP_SIGNIN="{\"type\":\"MOBILE\",\"value\":\"7799964888\",\"countryCode\":\"+91\",\"action\":\"SIGNIN\"}";
 	String params_Account_Service_MobileLogin_sendOTP_UPDATE_MOBILE="{\"type\":\"MOBILE\",\"value\":\"7799964888\",\"countryCode\":\"+91\",\"action\":\"UPDATE_MOBILE\"}";
@@ -783,6 +800,16 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		return headers;
 	}
+
+	public HashMap<String, Object> headersFormFKVIPActiveEntity(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("Accept", "application/json");
+		headers.put("caller", "hotel-srp,hotel-itineary");
+		return headers;
+	}
+
 	public HashMap<String, Object> headersFormpromotionalgetConfigdetails(){
 		HashMap<String, Object> headers = new HashMap<>();
 
@@ -1506,6 +1533,24 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		}
 
+		if(Type.equals("FKVIP_ActiveEntity_API")) {
+
+			headers = headersFormFKVIPActiveEntity();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Active_Entity;
+			params =params_FKVIP_Active_Entity;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+		if(Type.equals("FKVIP_ActiveEntity_Invalid_API")) {
+
+			headers = headersFormFKVIPActiveEntity();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Active_Entity;
+			params =params_FKVIP_Active_Entity_Invalid_API;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
 
 		if(Type.equals("Promotional_Service_GenerateReferralLink_InvalidAuth")) {
 			headers = headersFormpromotionalgetreferraldetailsinvalid();
@@ -3188,6 +3233,13 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			url = url_b2bgetTravelerURL;
 		}
 
+		else if(Type.equals("FKVIP_GetBenefitDetails_API")) {
+			headers = headersFormFKVIPInvalidRollBackAPI();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_GetBenefitDetails_API;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
 
 		Reporter.log("url  "+url);
 		request = RestAssured.given().						
@@ -3792,7 +3844,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
 
-		if(Type.equals("FKVIP_InValid_RedeemAPI"))
+		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API"))
 		{
 			if(statusCode!=400) {
 				System.out.println(statusCode);
@@ -3905,6 +3957,55 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			{
 				Assert.assertTrue(false);
 			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_GetBenefitDetails_API")) {
+			String cohortName = jsonPathEvaluator.getString("cohortName[0]");
+			String status = jsonPathEvaluator.getString("status[0]");
+			System.out.println(cohortName);
+			System.out.println(status);
+			if(!cohortName.contains("FLIPKART_VIP_V1"))
+			{
+				Assert.assertTrue(false);
+			}
+			if(!status.contains("SUCCESS"))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_ActiveEntity_API")) {
+
+			String entityName = jsonPathEvaluator.getString("response.entities.entityName");
+			String cohortName1 = jsonPathEvaluator.getString("response.entities.cohortDetails[0].cohortName[0]");
+			String cohortName2 = jsonPathEvaluator.getString("response.entities.cohortDetails[0].cohortName[1]");
+			System.out.println(entityName);
+			System.out.println(cohortName1);
+			System.out.println(cohortName2);
+			if(!entityName.contains("Myntra"))
+			{
+				Assert.assertTrue(false);
+			}
+			if(!cohortName1.contains("MYNTRA_ICON_V1"))
+			{
+				Assert.assertTrue(false);
+			}
+			if(!cohortName2.contains("MYNTRA_ELITE_V1"))
+			{
+				Assert.assertTrue(false);
+			}
+
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_ActiveEntity_Invalid_API")) {
+
+			String errorMessage = jsonPathEvaluator.getString("errorResponse.errorMessage");
+			System.out.println(errorMessage);
+			if(!errorMessage.contains("requestId must not be blank"))
+			{
+				Assert.assertTrue(false);
+			}
+
 		}
 
 		if(Type.equalsIgnoreCase("TripID")) {
