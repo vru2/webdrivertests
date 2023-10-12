@@ -70,7 +70,6 @@
         </classes>
     </test>
 
-
     <test name="EMI" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_EMI_Cache"/>

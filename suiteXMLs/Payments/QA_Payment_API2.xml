@@ -8,6 +8,25 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
     </listeners>
 
+    <test name="EMI Affordability" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Eligibility_NCE"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Eligibility_Regular"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Plans_NCE_Full"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Plans_NCE_Lite"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Plans_Reg_Full"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Plans_Reg_Lite"/>
+        </classes>
+    </test>
+
+
+    <test name="Affordability V2 Eligibility and plans" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Eligibility_V2"/>
+            <class name="test.java.paymentsAPI.API_Affordability_EMI_Plans_V2"/>
+        </classes>
+    </test>
+
     <test name="PL Affordability paymentservice" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_Affordability_PL_Eligibility"/>

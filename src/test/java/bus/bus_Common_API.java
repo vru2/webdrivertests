@@ -53,6 +53,14 @@ public class bus_Common_API {
         headers.put("x-ct-source", "PULSE");
         return headers;
     }
+
+    public HashMap<String, Object> headersForms_Bus_Booking() {
+        HashMap<String, Object> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("x-ct-source", "MOBILE");
+        headers.put("app-agent", "MOBILE");
+        return headers;
+    }
     String url_Bus = "http://bus-api.cltp.com:9001";
 
     String url_Coupon = "http://172.29.9.7:9001";
@@ -61,10 +69,10 @@ public class bus_Common_API {
 
     String url_Bus_PostBook = "http://bus-post-book.cltp.com:9001";
 
-    String url_QA2 = "http://qa2new.cleartrip.com";
+    String url_QA2 = "https://qa2new.cleartrip.com";
 
     String url_EndPoint_Update_Trip = "/trips/Q221215615418/bus-bookings/update-booking";
-    String url_EndPoint_Search = "/api/bus/v1/search?fromCity=6772&toCity=4292&journeyDate=2023-11-28";
+    String url_EndPoint_Search = "/api/bus/v1/search?fromCity=4292&toCity=4562&journeyDate=2023-10-29";
     String url_SelfCare_GetTripInfo = "/api/bus/v1/self-care/get-trip-info?tripId=Q231007798824";
     String url_SelfCare_CancelationInfo = "/api/bus/v1/self-care/cancel-info?tripId=Q231007798824";
 
@@ -77,6 +85,7 @@ public class bus_Common_API {
 
     String url_Endpoint_Cancel_Trip_Status = "/bus/hq/v2/cancel/Q230911782400?reason=CR04";
     String url_Endpoint_Cancel_Booking = "/api/bus/v1/self/cancel/Q231007798824";
+    String url_Endpoint_Update_Traveller = "/api/bus/v1/itin/travellers";
 
     String url_EndPoint_AutoSuggest = "/api/bus/v1/auto-suggest/?value=ban";
     String url_EndPoint_Coupon_Active = "/offer/search?active=true";
@@ -178,7 +187,12 @@ public class bus_Common_API {
             params = payload_Cancel_Booking;
             headers = SelfCare_GetTripInfo();
         }
-
+        if (useCase.equalsIgnoreCase("UpdateTraveller")) {
+            RestAssured.baseURI = url_QA2;
+            endpoint = url_QA2+url_Endpoint_Update_Traveller;
+            params = busType1;
+            headers = headersForms_Bus_Booking();
+        }
         Reporter.log(endpoint);
         Reporter.log("Params :" + params);
         request = RestAssured.given().
@@ -202,6 +216,21 @@ public class bus_Common_API {
             endpoint = url_Bus_PostBook+url_Endpoint_Cancelation_Eligibility;
             params = payload_Canceled_Trip_Status;
             headers = headersForms_Cancel_Trip_Status();
+        }
+        if (busType.equalsIgnoreCase("Chart")) {
+            endpoint = "https://qa2new.cleartrip.com/api/bus/v1/chart";
+            params = busType1;
+            headers = headersForms_Bus_Booking();
+        }
+        if (busType.equalsIgnoreCase("Itinerary")) {
+            endpoint = "https://qa2new.cleartrip.com/api/bus/v1/itin";
+            params = busType1;
+            headers = headersForms_Bus_Booking();
+        }
+        if (busType.equalsIgnoreCase("PreBook")) {
+            endpoint = "http://bus-book.cltp.com:9001/bus/v1/preBook?itineraryId="+busType1;
+            params = "";
+            headers = headersForms_Bus_Booking();
         }
 
         Reporter.log(url_Bus);
