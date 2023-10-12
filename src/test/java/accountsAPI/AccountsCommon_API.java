@@ -229,6 +229,17 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_FKVIP_Injest_Profile = "/ingest/v1/flipkart/profile";
 
+	String url_FKVIP_Discover_API = "/cohort/v1/benefits/191121006/fetch";
+
+	String url_FKVIP_Redeem_API = "/cohort/v1/benefits/redeem";
+
+	String url_FKVIP_Invalid_Rollback_API = "/cohort/v1/benefits/rollback";
+
+	String  url_FKVIP_Active_Entity = "/cohort/v1/entity/fetch";
+
+	String url_FKVIP_GetBenefitDetails_API = "/cohort/v1/benefits/data/Q906523733692";
+
+
 	String url_Promotional_Service_ValidatereferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bl";
 	String url_Promotional_Service_ValidateInvalidReferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bleeee";
 	String url_Promotional_Service_GetReferradetailsHQ="/referral/history?action=HI_FIVE&peopleId=65262210";
@@ -339,6 +350,80 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"                \"durationTimeUnit\": \"DAY\"\n" +
 			"            }\n" +
 			"        }\n" +
+			"    }\n" +
+			"}";
+
+	String params_FKVIP_Discover_API = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000008\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
+			"    },\n" +
+			"    \"requestId\": \"uuid\",\n" +
+			"    \"filter\": {\n" +
+			"        \"productType\": \"hotel\"\n" +
+			"    }\n" +
+			"}";
+
+	String params_FKVIP_Discover_API_WIthOutFilter = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000008\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
+			"    },\n" +
+			"    \"requestId\": \"uuid\"\n" +
+			"}";
+
+	String params_FKVIP_Redeem_API = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000008\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
+			"    },\n" +
+			"    \"campaignId\": \"CAMPID_MYNTRA_ICON_HOTEL_001\",\n" +
+			"    \"cohortName\": \"MYNTRA_ICON_V1\",\n" +
+			"    \"benefitId\": \"64cdce544fbadd0e2a83962e\",\n" +
+			"    \"tripRef\": \"Q019523733692\",\n" +
+			"    \"benefitTxnDetails\": {\n" +
+			"        \"txnAmount\": 10,\n" +
+			"        \"notionalValue\": 5\n" +
+			"    }\n" +
+			"}";
+
+	String params_FKVIP_InValid_Redeem_API = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000008\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
+			"    },\n" +
+			"    \"campaignId\": \"CAMPID_MYNTRA_ICON_HOTEL_001\",\n" +
+			"    \"cohortName\": \"MYNTRA_ICON_V1\",\n" +
+			"    \"tripRef\": \"Q019523733692\",\n" +
+			"    \"benefitTxnDetails\": {\n" +
+			"        \"txnAmount\": 10,\n" +
+			"        \"notionalValue\": 5\n" +
+			"    }\n" +
+			"}";
+
+	int benefitRedemptionId;
+	String params_FKVIP_Invalid_RollBack_API = "{\n" +
+			"    \"benefitRedemptionId\": \"245\",\n" +
+			"    \"tripRef\": \"Q909523733692\"\n" +
+			"}";
+
+	String params_FKVIP_Valid_RollBack_API = "{\n" +
+			"    \"benefitRedemptionId\": "+benefitRedemptionId+",\n" +
+			"    \"tripRef\": \"Q909523733692\"\n" +
+			"}";
+
+	String params_FKVIP_Active_Entity = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000007\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
+			"    },\n" +
+			"    \"requestId\": \"uuid\"\n" +
+			"}";
+
+	String params_FKVIP_Active_Entity_Invalid_API = "{\n" +
+			"    \"identity\": {\n" +
+			"        \"identifier\": \"2500000007\",\n" +
+			"        \"type\": \"MOBILE\"\n" +
 			"    }\n" +
 			"}";
 
@@ -674,6 +759,54 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("authkey", "692b3754-33c1-4c17-88d1-2339de3ccbec");
 		headers.put("Content-Type", "application/json");
 
+		return headers;
+	}
+
+	public HashMap<String, Object> headersFormFKVIPDiscoverAPI(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("Accept", "application/json");
+		headers.put("caller", "hotel-srp,hotel-itineary");
+
+		return headers;
+	}
+
+	public HashMap<String, Object> headersFormFKVIPRedeemAPI(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("cookie", "cookieValue");
+		headers.put("caller", "air-consumer");
+
+		return headers;
+	}
+	public HashMap<String, Object> headersFormFKVIPValidRollBackAPI(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("cookie", "cookieValue");
+		headers.put("caller", "air-consumer");
+
+		return headers;
+	}
+
+	public HashMap<String, Object> headersFormFKVIPInvalidRollBackAPI(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("cookie", "cookieValue");
+		headers.put("caller", "air-consumer");
+
+		return headers;
+	}
+
+	public HashMap<String, Object> headersFormFKVIPActiveEntity(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("Accept", "application/json");
+		headers.put("caller", "hotel-srp,hotel-itineary");
 		return headers;
 	}
 
@@ -1345,7 +1478,79 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		}
 
+		if(Type.equals("FKVIP_Discovery_API")) {
+			headers = headersFormFKVIPDiscoverAPI();
 
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Discover_API;
+			params =params_FKVIP_Discover_API ;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("FKVIP_Discovery_API_WithOutFilter")) {
+			headers = headersFormFKVIPDiscoverAPI();
+
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Discover_API;
+			params =params_FKVIP_Discover_API_WIthOutFilter ;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("FKVIP_Valid_RedeemAPI")) {
+			headers = headersFormFKVIPRedeemAPI();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Redeem_API;
+			params =params_FKVIP_Redeem_API;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("FKVIP_InValid_RedeemAPI")) {
+			headers = headersFormFKVIPRedeemAPI();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Redeem_API;
+			params =params_FKVIP_InValid_Redeem_API;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("FKVIP_Valid_RollBackAPI")) {
+			headers = headersFormFKVIPValidRollBackAPI();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			params =params_FKVIP_Valid_RollBack_API;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("FKVIP_InValid_RollBackAPI")) {
+			headers = headersFormFKVIPInvalidRollBackAPI();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Invalid_Rollback_API;
+			params =params_FKVIP_Invalid_RollBack_API;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("FKVIP_ActiveEntity_API")) {
+
+			headers = headersFormFKVIPActiveEntity();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Active_Entity;
+			params =params_FKVIP_Active_Entity;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+		if(Type.equals("FKVIP_ActiveEntity_Invalid_API")) {
+
+			headers = headersFormFKVIPActiveEntity();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_Active_Entity;
+			params =params_FKVIP_Active_Entity_Invalid_API;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
 
 		if(Type.equals("Promotional_Service_GenerateReferralLink_InvalidAuth")) {
 			headers = headersFormpromotionalgetreferraldetailsinvalid();
@@ -3028,6 +3233,13 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			url = url_b2bgetTravelerURL;
 		}
 
+		else if(Type.equals("FKVIP_GetBenefitDetails_API")) {
+			headers = headersFormFKVIPInvalidRollBackAPI();
+			RestAssured.baseURI =url_ingestion_Service_domain;
+			url = url_FKVIP_GetBenefitDetails_API;
+			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
 
 		Reporter.log("url  "+url);
 		request = RestAssured.given().						
@@ -3631,7 +3843,15 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		//int statusCode1 = resp.getStatusCode();
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
-		if(statusCode!=200) {
+
+		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API"))
+		{
+			if(statusCode!=400) {
+				System.out.println(statusCode);
+				Assert.assertTrue(false);
+			}
+		}
+		else if(statusCode!=200){
 			System.out.println(statusCode);
 			Assert.assertTrue(false);
 		}
@@ -3658,6 +3878,134 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			if(!message.contains("SUCCESS")) {
 				Assert.assertTrue(false);
 			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_Discovery_API")) {
+
+			String message = jsonPathEvaluator.getString("userId");
+			String activeCohorts = jsonPathEvaluator.getString("response.activeCohorts");
+			String campaignId = jsonPathEvaluator.getString("response.cohortBenefitMap.MYNTRA_ICON_V1.campaignId");
+			if(!message.contains("191121006")) {
+				Assert.assertTrue(false);
+			}
+			if(!activeCohorts.contains("MYNTRA_ICON_V1"))
+			{
+				Assert.assertTrue(false);
+			}
+			if(!campaignId.contains("CAMPID_MYNTRA_ICON_HOTEL_001"))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_Discovery_API_WithOutFilter")) {
+
+			String message = jsonPathEvaluator.getString("userId");
+			String activeCohorts = jsonPathEvaluator.getString("response.activeCohorts");
+			if(!message.contains("191121006")) {
+				Assert.assertTrue(false);
+			}
+			if(!activeCohorts.contains("MYNTRA_ICON_V1"))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_Valid_RedeemAPI")) {
+
+			benefitRedemptionId = jsonPathEvaluator.getInt("response.benefitRedemptionId");
+			System.out.println(benefitRedemptionId);
+			String status = jsonPathEvaluator.getString("response.status");
+			if(!status.contains("SUCCESS"))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_Valid_RollBackAPI")) {
+
+			System.out.println(benefitRedemptionId);
+			String status = jsonPathEvaluator.getString("response.status");
+			if(!status.contains("SUCCESS"))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_InValid_RedeemAPI")) {
+
+		  String errormessage = jsonPathEvaluator.getString("errorResponse.errorMessage");
+			if(!errormessage.contains("benefitId must not be blank"))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+
+
+		if(Type.equalsIgnoreCase("FKVIP_InValid_RollBackAPI")) {
+
+			String status = jsonPathEvaluator.getString("response.status");
+			System.out.println(status);
+			String description = jsonPathEvaluator.getString("response.description");
+			System.out.println(description);
+			if(!status.contains("FAILURE"))
+			{
+				Assert.assertTrue(false);
+			}
+			if(!description.contains("The benefit has already been rolled back."))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_GetBenefitDetails_API")) {
+			String cohortName = jsonPathEvaluator.getString("cohortName[0]");
+			String status = jsonPathEvaluator.getString("status[0]");
+			System.out.println(cohortName);
+			System.out.println(status);
+			if(!cohortName.contains("FLIPKART_VIP_V1"))
+			{
+				Assert.assertTrue(false);
+			}
+			if(!status.contains("SUCCESS"))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_ActiveEntity_API")) {
+
+			String entityName = jsonPathEvaluator.getString("response.entities.entityName");
+			String cohortName1 = jsonPathEvaluator.getString("response.entities.cohortDetails[0].cohortName[0]");
+			String cohortName2 = jsonPathEvaluator.getString("response.entities.cohortDetails[0].cohortName[1]");
+			System.out.println(entityName);
+			System.out.println(cohortName1);
+			System.out.println(cohortName2);
+			if(!entityName.contains("Myntra"))
+			{
+				Assert.assertTrue(false);
+			}
+			if(!cohortName1.contains("MYNTRA_ICON_V1"))
+			{
+				Assert.assertTrue(false);
+			}
+			if(!cohortName2.contains("MYNTRA_ELITE_V1"))
+			{
+				Assert.assertTrue(false);
+			}
+
+		}
+
+		if(Type.equalsIgnoreCase("FKVIP_ActiveEntity_Invalid_API")) {
+
+			String errorMessage = jsonPathEvaluator.getString("errorResponse.errorMessage");
+			System.out.println(errorMessage);
+			if(!errorMessage.contains("requestId must not be blank"))
+			{
+				Assert.assertTrue(false);
+			}
+
 		}
 
 		if(Type.equalsIgnoreCase("TripID")) {
