@@ -381,8 +381,6 @@ public class bus_Common_API {
             }
         }
 
-
-
         return resp;
     }
 }
