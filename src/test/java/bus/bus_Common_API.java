@@ -72,7 +72,8 @@ public class bus_Common_API {
     String url_QA2 = "https://qa2new.cleartrip.com";
 
     String url_EndPoint_Update_Trip = "/trips/Q221215615418/bus-bookings/update-booking";
-    String url_EndPoint_Search = "/api/bus/v1/search?fromCity=4292&toCity=4562&journeyDate=2023-10-29";
+    String url_EndPoint_Search = "/api/bus/v1/search?fromCity=4292&toCity=4562&journeyDate=2023-10-27";
+    String url_Pay_Inititate = "/paymentservice/api/initiatePayment/";
     String url_SelfCare_GetTripInfo = "/api/bus/v1/self-care/get-trip-info?tripId=Q231007798824";
     String url_SelfCare_CancelationInfo = "/api/bus/v1/self-care/cancel-info?tripId=Q231007798824";
 
@@ -107,6 +108,12 @@ public class bus_Common_API {
         if (useCase.equalsIgnoreCase("Search")) {
             RestAssured.baseURI = url_QA2;
             endpoint = url_EndPoint_Search;
+            headers = headersForms_Search();
+            Reporter.log(url_Bus + endpoint);
+        }
+        if (useCase.equalsIgnoreCase("PayInti")) {
+            RestAssured.baseURI = url_QA2;
+            endpoint = url_Pay_Inititate+busType1;
             headers = headersForms_Search();
             Reporter.log(url_Bus + endpoint);
         }
@@ -204,6 +211,31 @@ public class bus_Common_API {
         return request;
     }
 
+    public Response busPostNew(String busType, String busType1, String busType2) {
+        RestAssured.baseURI = "http://bus-book.cltp.com:9001";
+        String endpoint = null;
+        String params = null;
+        HashMap<String, Object> headers = new HashMap<>();
+        headers = headersForms();
+        Response request;
+        if (busType.equalsIgnoreCase("Param_BookInternal")) {
+            endpoint = "/bus/v1/bookInternal/"+busType1;
+            params = busType2;
+            headers = headersForms_Bus_Booking();
+        }
+
+
+        Reporter.log(url_Bus);
+        Reporter.log("Params :" + params);
+
+        request = RestAssured.given().
+                when().
+                log().all().
+                headers(headers).
+                body(params).
+                post(endpoint);
+        return request;
+    }
 
     public Response busPost(String busType, String busType1) {
         RestAssured.baseURI = url_Bus;
@@ -232,6 +264,20 @@ public class bus_Common_API {
             params = "";
             headers = headersForms_Bus_Booking();
         }
+        if (busType.equalsIgnoreCase("Param_BookInternal")) {
+            endpoint = "/bus/v1/bookInternal/"+busType1;
+            params = "";
+            headers = headersForms_Bus_Booking();
+        }
+
+        if (busType.equalsIgnoreCase("PayWall")) {
+            RestAssured.baseURI = "http://172.29.20.90:9001";
+            endpoint = "/paymentservice/service/pay/v3";
+            params = busType1;
+            headers = headersForms_Bus_Booking();
+        }
+
+
 
         Reporter.log(url_Bus);
         Reporter.log("Params :" + params);
