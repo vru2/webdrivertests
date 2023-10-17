@@ -63,6 +63,8 @@ public class bus_Common_API {
     }
     String url_Bus = "http://bus-api.cltp.com:9001";
 
+    String url_Pay = "http://172.29.20.90:9001";
+
     String url_Coupon = "http://172.29.9.7:9001";
 
     String url_Bus_Trip = "http://172.29.8.215:9001";
@@ -99,7 +101,7 @@ public class bus_Common_API {
     String payload_Cancel_Booking =  "{\"reason\":\"CR01\"}";
 
 
-    public Response busGet(String useCase, String busType1) {
+    public Response busGet(String useCase, String busType) {
         RestAssured.baseURI = url_Bus;
         String endpoint = null;
         HashMap<String, Object> headers = new HashMap<>();
@@ -113,7 +115,7 @@ public class bus_Common_API {
         }
         if (useCase.equalsIgnoreCase("PayInti")) {
             RestAssured.baseURI = url_QA2;
-            endpoint = url_Pay_Inititate+busType1;
+            endpoint = url_Pay_Inititate+busType;
             headers = headersForms_Search();
             Reporter.log(url_Bus + endpoint);
         }
@@ -173,7 +175,7 @@ public class bus_Common_API {
         return resp;
     }
 
-    public Response busPut(String useCase, String busType1) {
+    public Response busPut(String useCase, String busType) {
         RestAssured.baseURI = url_Bus;
         String endpoint = null;
         String params = null;
@@ -197,7 +199,7 @@ public class bus_Common_API {
         if (useCase.equalsIgnoreCase("UpdateTraveller")) {
             RestAssured.baseURI = url_QA2;
             endpoint = url_QA2+url_Endpoint_Update_Traveller;
-            params = busType1;
+            params = busType;
             headers = headersForms_Bus_Booking();
         }
         Reporter.log(endpoint);
@@ -211,16 +213,16 @@ public class bus_Common_API {
         return request;
     }
 
-    public Response busPostNew(String busType, String busType1, String busType2) {
+    public Response busPostNew(String useCase, String busType, String param) {
         RestAssured.baseURI = "http://bus-book.cltp.com:9001";
         String endpoint = null;
         String params = null;
         HashMap<String, Object> headers = new HashMap<>();
         headers = headersForms();
         Response request;
-        if (busType.equalsIgnoreCase("Param_BookInternal")) {
-            endpoint = "/bus/v1/bookInternal/"+busType1;
-            params = busType2;
+        if (useCase.equalsIgnoreCase("Param_BookInternal")) {
+            endpoint = "/bus/v1/bookInternal/"+busType;
+            params = param;
             headers = headersForms_Bus_Booking();
         }
 
@@ -237,48 +239,45 @@ public class bus_Common_API {
         return request;
     }
 
-    public Response busPost(String busType, String busType1) {
+    public Response busPost(String useCase, String busType) {
         RestAssured.baseURI = url_Bus;
         String endpoint = null;
         String params = null;
         HashMap<String, Object> headers = new HashMap<>();
         headers = headersForms();
         Response request;
-        if (busType.equalsIgnoreCase("Cancellation_Eligibility")) {
+        if (useCase.equalsIgnoreCase("Cancellation_Eligibility")) {
             endpoint = url_Bus_PostBook+url_Endpoint_Cancelation_Eligibility;
             params = payload_Canceled_Trip_Status;
             headers = headersForms_Cancel_Trip_Status();
         }
-        if (busType.equalsIgnoreCase("Chart")) {
+        if (useCase.equalsIgnoreCase("Chart")) {
             endpoint = "https://qa2new.cleartrip.com/api/bus/v1/chart";
-            params = busType1;
+            params = busType;
             headers = headersForms_Bus_Booking();
         }
-        if (busType.equalsIgnoreCase("Itinerary")) {
+        if (useCase.equalsIgnoreCase("Itinerary")) {
             endpoint = "https://qa2new.cleartrip.com/api/bus/v1/itin";
-            params = busType1;
+            params = busType;
             headers = headersForms_Bus_Booking();
         }
-        if (busType.equalsIgnoreCase("PreBook")) {
-            endpoint = "http://bus-book.cltp.com:9001/bus/v1/preBook?itineraryId="+busType1;
+        if (useCase.equalsIgnoreCase("PreBook")) {
+            endpoint = "http://bus-book.cltp.com:9001/bus/v1/preBook?itineraryId="+busType;
             params = "";
             headers = headersForms_Bus_Booking();
         }
-        if (busType.equalsIgnoreCase("Param_BookInternal")) {
-            endpoint = "/bus/v1/bookInternal/"+busType1;
+        if (useCase.equalsIgnoreCase("Param_BookInternal")) {
+            endpoint = "/bus/v1/bookInternal/"+busType;
             params = "";
             headers = headersForms_Bus_Booking();
         }
 
-        if (busType.equalsIgnoreCase("PayWall")) {
-            RestAssured.baseURI = "http://172.29.20.90:9001";
+        if (useCase.equalsIgnoreCase("PayWall")) {
+            RestAssured.baseURI = url_Pay;
             endpoint = "/paymentservice/service/pay/v3";
-            params = busType1;
+            params = busType;
             headers = headersForms_Bus_Booking();
         }
-
-
-
         Reporter.log(url_Bus);
         Reporter.log("Params :" + params);
 
