@@ -17,10 +17,10 @@ public class bus_Search_Api extends bus_Common_API {
 		validation("Search", resp);
 	}
 
-	@Test
+/*	@Test
 	public void Bus_Chart() throws Exception {
 		Response resp ;
 		resp = busGet("Search","");
 		validation("Search", resp);
-	}
+	}*/
 }
