@@ -10,8 +10,8 @@ import junit.framework.Assert;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Reporter;
 
-import java.util.HashMap;
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class bus_Common_API {
 
@@ -63,7 +63,7 @@ public class bus_Common_API {
     }
     String url_Bus = "http://bus-api.cltp.com:9001";
 
-    String url_Pay = "http://172.29.20.90:9001";
+    String url_Pay = "http://paymentservice.cltp.com:9001";
 
     String url_Coupon = "http://172.29.9.7:9001";
 
@@ -74,7 +74,7 @@ public class bus_Common_API {
     String url_QA2 = "https://qa2new.cleartrip.com";
 
     String url_EndPoint_Update_Trip = "/trips/Q221215615418/bus-bookings/update-booking";
-    String url_EndPoint_Search = "/api/bus/v1/search?fromCity=4292&toCity=4562&journeyDate=2023-10-27";
+    String url_EndPoint_Search = "/api/bus/v1/search?fromCity=4292&toCity=4562&journeyDate=";
     String url_Pay_Inititate = "/paymentservice/api/initiatePayment/";
     String url_SelfCare_GetTripInfo = "/api/bus/v1/self-care/get-trip-info?tripId=Q231007798824";
     String url_SelfCare_CancelationInfo = "/api/bus/v1/self-care/cancel-info?tripId=Q231007798824";
@@ -90,6 +90,8 @@ public class bus_Common_API {
     String url_Endpoint_Cancel_Booking = "/api/bus/v1/self/cancel/Q231007798824";
     String url_Endpoint_Update_Traveller = "/api/bus/v1/itin/travellers";
 
+    String url_Endpoint_Cancellation = "/api/bus/v1/self/cancel/";
+
     String url_EndPoint_AutoSuggest = "/api/bus/v1/auto-suggest/?value=ban";
     String url_EndPoint_Coupon_Active = "/offer/search?active=true";
 
@@ -101,6 +103,14 @@ public class bus_Common_API {
     String payload_Cancel_Booking =  "{\"reason\":\"CR01\"}";
 
 
+    public String SRP_Date(int toDate) throws Exception {
+        Calendar c = new GregorianCalendar();
+        c.add(Calendar.DATE, +toDate);
+        Date s = c.getTime();
+        String dateString = new SimpleDateFormat("yyyy-MM-dd").format(s);
+        return dateString;
+    }
+
     public Response busGet(String useCase, String busType) {
         RestAssured.baseURI = url_Bus;
         String endpoint = null;
@@ -109,7 +119,7 @@ public class bus_Common_API {
         Response resp;
         if (useCase.equalsIgnoreCase("Search")) {
             RestAssured.baseURI = url_QA2;
-            endpoint = url_EndPoint_Search;
+            endpoint = url_EndPoint_Search+busType;
             headers = headersForms_Search();
             Reporter.log(url_Bus + endpoint);
         }
@@ -200,6 +210,12 @@ public class bus_Common_API {
             RestAssured.baseURI = url_QA2;
             endpoint = url_QA2+url_Endpoint_Update_Traveller;
             params = busType;
+            headers = headersForms_Bus_Booking();
+        }
+        if (useCase.equalsIgnoreCase("Cancellation")) {
+            RestAssured.baseURI = url_Bus;
+            endpoint = url_Endpoint_Cancellation+busType;
+            params = payload_Cancel_Booking;
             headers = headersForms_Bus_Booking();
         }
         Reporter.log(endpoint);
@@ -408,9 +424,9 @@ public class bus_Common_API {
             }
         }
         else if (useCase.equals("Search")) {
-            String totalAvailBuses= jsonPathEvaluator.getString("data.totalAvailBuses");
-            Reporter.log("totalAvailBuses " +totalAvailBuses);
-            if(!totalAvailBuses.contains("5")) {
+            String toCityName= jsonPathEvaluator.getString("data.sc.toCityName");
+            Reporter.log("toCityName " +toCityName);
+            if(!toCityName.contains("Chennai")) {
                 Assert.assertTrue(false);
             }
         }

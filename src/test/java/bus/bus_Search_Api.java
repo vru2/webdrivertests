@@ -13,9 +13,7 @@ public class bus_Search_Api extends bus_Common_API {
 	@Test
 	public void Bus__Search() throws Exception {
 		Response resp ;		
-		resp = busGet("Search","");
-		JsonPath jsonPathEvaluator = resp.jsonPath();
-		search_id= jsonPathEvaluator.getString("data.sc.searchId");
+		resp = busGet("Search",SRP_Date(10));
 		validation("Search", resp);
 	}
 
@@ -23,7 +21,6 @@ public class bus_Search_Api extends bus_Common_API {
 	public void Bus_Chart() throws Exception {
 		Response resp ;
 		resp = busGet("Search","");
-		JsonPath jsonPathEvaluator = resp.jsonPath();
 		validation("Search", resp);
 	}
 }
