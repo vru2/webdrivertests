@@ -20,6 +20,7 @@
             <class name="test.java.accountsAPI.FKVIP_ActiveEntity_API"/>
             <class name="test.java.accountsAPI.FKVIP_ActiveEntity_Invalid_API"/>
             <class name="test.java.accountsAPI.FKVIP_GetBenefitDetails_API"/>
+            <class name="test.java.accountsAPI.FKVIP_Myntra_BulkAPI"/>
         </classes>
     </test>
 
@@ -131,6 +132,7 @@
                 <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserById_V2" />
                 <class name="test.java.accountsAPI.Account_Service_EmailVerification_API" />
                 <class name="test.java.accountsAPI.Account_Service_AuthorizeAPI_encodingCookie" />
+                <class name="test.java.accountsAPI.Account_Service_AuthorizeAPI_InvalidCookie"/>
                 <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_FindByID" />
                 <class name="test.java.accountsAPI.Account_Service_Express_Checkout" />
                 <class name="test.java.accountsAPI.Accounts_Service_Cleartrip_MultipleTraveller_Updatecall" />
