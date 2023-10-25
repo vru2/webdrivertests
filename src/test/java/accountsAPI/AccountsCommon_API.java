@@ -748,7 +748,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("accept", "*/*");
 		headers.put("caller", "test");
 		headers.put("referer", "qa2new.cleartrip.com");
-		headers.put("cookie", "ct-dvid =fBt2Oj1JZMLr5cCsDHejgsoMrrWh22E5Y9CWe5mdSGrCIqaABaRjww1sU289rqXfiDWLVdoTwGK7QrGrjtMRW0JZj7wwJFDH4KYa%2FUo7d4k%3D;ct-auth =e8Xtn%2Fi5A%2FGkFF9QRFLwMsixzutagL8KSDOKskJ8vP%2FPAC5BnG1VhKqX9iEbXPIdvdb22kmKGrhj2VAI20AltgYWbs0hUeS1dDOVoTv%2FC8oS3xBwBQbHAAgSFMgFCe0tlyhz2jVZSGwnR4Xe68L0aoK2eEoXgM73GXnr6ZXWU%2FuqLI6EfEr5fYarVjfH7mwKJC%2FgkOzzBJNHMAiA1hc6EQ%3D%3D");
+		headers.put("cookie", "ct-dvid =4gLS4huJcVGV8p94znaAEvoyINckh0kTHQV%2Bjb8ufJKfCzVMGlLAMGVUT8vk9e3jDgs03T27Z2m7K7ZBsQ6HSjL%2FODpg9cAY1j3JMoR2Dw8%3D;ct-auth =Y400q%2FpP3g85mpgEWl%2B4HZsk8Ugb%2Bvo3vQYExqYLY%2FiABKMol3vJWsOlkk1h%2FcKKMQSQFbQVBxkZathsIXsnSbCrW27PiyVruGbls9pHIkxHPv%2FuoQqCHKK0N8MT3qVLxHFEJs2cUKLJWysUo%2FJdZ5LTgw82tE3ZdKNx6VfhLQo5%2BWfVGTxz4Vb2MQFwhODc67qCoGPbj1sz3ZVPdOWDjhNaDu9yxhMB47BEs7Iv%2FBs%3D");
 
 		return headers;
 	}
