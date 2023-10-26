@@ -1,8 +1,9 @@
 package test.java.  tripServicesProd;
 
+import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
 
-import com.jayway.restassured.path.json.JsonPath;
+//import com.jayway.restassured.path.json.JsonPath;
 
 import io.restassured.response.Response;
 

@@ -41,6 +41,16 @@ public class bus_Common_API {
         return headers;
     }
 
+    public HashMap<String, Object> SelfCare_Cancel() {
+        HashMap<String, Object> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("app-agent", "PWA");
+        headers.put("x-ct-source", "MOBILE");
+        headers.put("user-agent", "Chrome");
+        headers.put("Cookie", "ct-auth = 8%2FoAirXyddvCUQYarT7xxGkltofgCmEXQLXo%2FGD32%2FQndzR%2BiHxcEe64De4yJyydEUrgVSM3cgM9x6wexLhWoQAvoCkHaCucwBqS439OaRj2Esu5jALbJD%2BpN5fLK%2BI3ajjlnxi9AmOXalhgAkk0fngZpCcVNGVWyWxx%2BiSK22%2F7T9cUvNn3kqvJXHxV%2FT%2BrbCcKl6B4fBA%2BlNr6eWTadxedDVNvZVzKna5dKidUAJE1l8vfB3iRW1SXF48TfCUTS86rLddtn5Ezp1sQr%2FUUltCf1u2X6Qbv9VdFB1bQ0guGs%2BqtBLn4Wj5zB1G2lB%2F9eBipeSDhnAMp%2B5sk8JbmuJsofFNO27tV00nkDyiX5uGqQJA%2FKe6R0QbpNFydUJJHHN%2BMynqWQfeY3pDCWhpUVB%2BuC4N9Yclsc19rIgExeF1cjoyYvIqWlfRSCuBHDDRZOJGQFQNhEcb%2Bohy0v%2FLE7uIN%2FfEz6qk38F88X9l5qu9Y%2FSZkri97CR5hIkTwC5h9AFxEgk1nmhSvj%2Bc0AlPDOUqho84pYsQDNtPlcn0e8I00RmtnUxxeEwmvtgdS4JEfK6iQv3uJwxmNErKS%2BgHAlpyRsJpKrNRNb5Q%2FaT8TL8euFvf%2BgBYNhNLXLn44QE2nXmxV%2FhsJQiW59DxLdnMALJD2hLVKIQ6Bbz0GpBD%2F5182nMuZk7sPtnjwlY%2BlxuM%2F3zAOOvYF3MbTEC%2FseSyM2o1fubtb3p7elN606%2B4H%2BzMtkIWgfs%2FvSZoxB%2FHntlpnRoRruZC6bk9DJkpPGgLc71EsC7NPVvZHeXDl%2B0HZHnTHLcwVJbqcoihMOmU8h3bKYIK55ppNwCq31G3DI%2Fm%2B0sSMYa7JvaWb7tBZkRcNWwlHfgHy9w0XRAJqNrvZNG%2FtcCsUviGKMSNy2mhCBCnh%2BgAgjf6oS6NSbuXMylPZ6oWZdLAWaz9bYT0hph3tcgDR9t2BS51jx0Gt8MBGdImHPKcQ%2BRE%2Fi7OpNhzHulCPJvq0YiIxJAiTs6hBqAqN2yWFWNKy7fd%2FRXv2Xz4fDIFAWdkwz21EyElfSU%2F7UswxzJOpv87xjAaa9KtBV7s5FGFenKxZBLgKjE8bBREGgTxCcf82MwgbGlVbFg2yOewvazWyVlKM8qlGFfPoCZdArrNIPm3473cM6%2FpV54ffNOjwb3d9E4sKahWgzrgwIcLCCZCmy%2FoZYEJyDRsucVySX3A2h3N3Fw7miIdvh6ov5GfWF2YxwQz88G4Ayb8q%2FPm9ufItL%2BS7A0zniugo%2FDggkXMkfdM4QACfve5Zg3OXves%2BFSgTF40dmGwALzNh3AlHtWvy8vFQLVRot6alUo4fIX%2B7FmzzzXTJygYREiFTJarOfbcFcN0yD56%2BRV2ZtPOrgNX8%2F36ErOh8%2F64Iwf3Ghb%2Bg1vPKVk7Aa1XKm8AJJiLmNGKnkuH6VyxlFhxSpmNZxksrkue%2F8ST3oVl4Ku7V8FEs0UNWcZ3IOoqlmjeJzKMTOWBQUI%2B4Fe17PCAxL2VADoDjnHUESTaPTdDMrzpQhjJkQwRp1iMgVekpSXdyIUtXOWEwEzdh2oek7XchwEPUM8sSkWIaO7Gy3l0g%2FfiZsdEviw0KuRYrfHRyow%2BSUv3X9Pcvqqff2Ix0VIcmRgbCB3BT8DCv661JyLJngDDBOYNJCEkBZIBwUUnsuiH5cQKGwR23YuHpGrK4xPkdj65xH2elncH72VAbybQf2DCfl8ViWMa8pBxqjxR%2BQmajPb01DT%2FjbBcVGxtgieF9uZWQRtDtZDsZybs%2BKKHB%2F8NxnknI2MCEVzbpoHO9SYuQPF3%2BWMWkfqxa7IxDp6W9J2umVuWwC1R5vgEBpEWO1O0tNnKnKID3vO8VBpqMNuRmYRr%2BeDPElY1RmF83%2B5eiGXr8B2GhR01b%2BYzCNcBjFaoSJ4enJcMGGMJZFem3q13K00%2ByLzuIy5VuaF%2BulE8SB5sIH0QZ40Q96P%2FCpOaViL6XVl7Cx%2FGSu9rXa5nx1h3K9qJaZayxSRHCXGifRCi0DMJR4GQmLjAFIP1lTFsSO567tJGS8zI%2BAq34LXHtFVkvkWheaujQ%2BInjFMuEM5V1snIXM1UcrLCQYQplOyiSo%2FnCFhUBZ6MjzlaQR%2BZRUlqYwgJLmFC2RGkSc%2B8ivXwiA86zNUGolF1iTYFXI0eOAgqZ79SNuxfzVgrEjtOKhN7ActQPEJuEN0up3zSbKgL%2F0AGsRYy9f8yk9wrILSRG4%2BKhAJcXSyUREoZtLNxkBn%2FHcDguh7PYIrvVZKrGXZfAz9h7fM9FrU4le%2BrnKDn6%2Be4M4lEtKY70U5%2FZUjxpi%2FGCM%2Fb%2FC1KGTuJ7ulLQ1UQAzd6%2FarTJYDUOFkptX8BCjS1OWtQRvcsVH%2BZoUN5rBq3ifYBsdaHaEWiiSKZ1Hz8OIRQsoa4voWH8y0S8L%2BqO%2Fn%2BWGLSp");
+        return headers;
+    }
+
     public HashMap<String, Object> headersForms_UpdateTrip() {
         HashMap<String, Object> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
@@ -86,10 +96,12 @@ public class bus_Common_API {
 
     String url_QA2 = "https://qa2new.cleartrip.com";
 
+    String url_TS = "http://trip-service-api.cltp.com:9001";
+
     String url_EndPoint_Update_Trip = "/trips/Q221215615418/bus-bookings/update-booking";
     String url_EndPoint_Search = "/api/bus/v1/search?fromCity=4292&toCity=4562&journeyDate=";
     String url_Pay_Inititate = "/paymentservice/api/initiatePayment/";
-    String url_SelfCare_GetTripInfo = "/api/bus/v1/self-care/get-trip-info?tripId=Q231018802670";
+    String url_SelfCare_GetTripInfo = "/api/bus/v1/self-care/get-trip-info?tripId=Q231026805040";
     String url_SelfCare_CancelationInfo = "/api/bus/v1/self-care/cancel-info?tripId=Q231018802670";
 
     String url_SelfCare_CancelBooking = "/api/bus/v1/self/cancel/Q231018802670";
@@ -106,6 +118,10 @@ public class bus_Common_API {
     String url_Endpoint_Cancellation = "/api/bus/v1/self/cancel/";
 
     String url_EndPoint_AutoSuggest = "/api/bus/v1/auto-suggest/?value=ban";
+
+    String url_TS_Fetch = "/trips?tripID=";
+
+
     String url_EndPoint_Coupon_Active = "/offer/search?active=true";
 
     String url_EndPoint_Coupon_Activate = "/offer/activate/237";
@@ -114,6 +130,10 @@ public class bus_Common_API {
     String payload_Update_Trip = "{\"bus_booking_infos\":[{\"seq_no\":1,\"pax_info_seq_no\":1}],\"bus_pricing_infos\":[{\"seq_no\":1,\"bus_cost_pricing_info\":{\"seq_no\":1,\"pricing_elements\":[]},\"pricing_elements\":[{\"amount\":20,\"category\":\"COUPON\",\"code\":\"TEST10\",\"label\":\"Coupon\"}]}]}";
     String payload_Canceled_Trip_Status = "{\"note\":\"string\",\"subject\":\"string\",\"trip_id\":0,\"user_id\":0}";
     String payload_Cancel_Booking =  "{\"reason\":\"CR01\"}";
+
+    String payload_Cancel_Booking1 =  "{reason:\"CR01\",isCompleteCancellation:true}";
+
+
 
 
     public String SRP_Date(int toDate) throws Exception {
@@ -189,6 +209,13 @@ public class bus_Common_API {
             Reporter.log(url_QA2 + endpoint);
         }
 
+        if(useCase.equalsIgnoreCase("TripID_Fetch")){
+            RestAssured.baseURI = url_TS;
+            endpoint = url_TS_Fetch+busType;
+            headers = headersForms();
+            Reporter.log(url_TS + endpoint);
+        }
+
         Reporter.log(url_Bus+endpoint);
         resp = RestAssured.given().
                 when().
@@ -226,14 +253,13 @@ public class bus_Common_API {
             headers = headersForms_Bus_Booking();
         }
         if (useCase.equalsIgnoreCase("Cancellation")) {
-            RestAssured.baseURI = url_Bus;
+            RestAssured.baseURI = "https://qa2new.cleartrip.com";
             endpoint = url_Endpoint_Cancellation+busType;
             params = payload_Cancel_Booking;
-            headers = SelfCare_GetTripInfo();
+            headers = SelfCare_Cancel();
            // headers.put("charset", "UTF-8");
         }
-        RestAssured.config = RestAssuredConfig.newConfig().encoderConfig(
-                EncoderConfig.encoderConfig().defaultContentCharset("UTF-8"));
+        //RestAssured.config = RestAssuredConfig.newConfig().encoderConfig(EncoderConfig.encoderConfig().defaultContentCharset("UTF-8"));
         Reporter.log(endpoint);
         Reporter.log("Params :" + params);
         request = RestAssured.given().
@@ -294,7 +320,9 @@ public class bus_Common_API {
             headers = headersForms_Bus_Booking();
         }
         if (useCase.equalsIgnoreCase("PreBook")) {
-            endpoint = "http://bus-book.cltp.com:9001/bus/v1/preBook?itineraryId="+busType;
+            //endpoint = "http://bus-book.cltp.com:9001/bus/v1/preBook?itineraryId="+busType;
+
+            endpoint = "https://qa2new.cleartrip.com/api/bus/v1/preBook?itineraryId="+busType;
             params = "";
             headers = headersForms_Bus_Booking();
         }
@@ -356,11 +384,10 @@ public class bus_Common_API {
             }
         }
         else  if (useCase.equals("GetTripDetails_Email")) {
-          /*  String cancellationApplicable= jsonPathEvaluator.getString("cancellationApplicable");
-            Reporter.log("cancellationApplicable " +cancellationApplicable);
-            if(!cancellationApplicable.equals("false")) {
+            String status= jsonPathEvaluator.getString("status");
+            if(!status.equals("ACCEPTED")) {
                 Assert.assertTrue(false);
-            }*/
+            }
         }
         else  if (useCase.equals("Cancel_booking")) {
             String success= jsonPathEvaluator.getString("success");
@@ -457,7 +484,11 @@ public class bus_Common_API {
                 Assert.assertTrue(false);
             }
         }
-
+        else if (useCase.equals("Download_eTicket")) {
+            if(!resp.body().asString().contains("CreationDate")){
+                Assert.assertTrue(false);
+            }
+        }
         return resp;
     }
 }

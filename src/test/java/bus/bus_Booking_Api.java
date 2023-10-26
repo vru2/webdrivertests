@@ -17,7 +17,7 @@ public class bus_Booking_Api extends bus_Common_API {
 		//-------------------------------------- Search ---------------------------------------------------//
 
 		String Operator_Name = "GDS Demo Testnaveen";
-		Response respSearch = busGet("Search", SRP_Date(11));
+		Response respSearch = busGet("Search", SRP_Date(10));
 		JsonPath jsonPathEvaluatorSearch = respSearch.jsonPath();
 		Reporter.log("Search response : " + respSearch.body().asString());
 		//System.out.println("Search response : " + respSearch.body().asString());
@@ -30,6 +30,9 @@ public class bus_Booking_Api extends bus_Common_API {
 				break;
 			}
 		}
+		String Buses = jsonPathEvaluatorSearch.getString("data.buses["+i+"]");
+		//System.out.println("Buses "+Buses);
+		//System.out.println(OperatorList[i]);
 		String Soln_Id = jsonPathEvaluatorSearch.getString("data.buses[" + i + "].solutionId");
 		Reporter.log("Soln_Id " + Soln_Id);
 		Reporter.log("search_id " + searchId);
@@ -52,7 +55,7 @@ public class bus_Booking_Api extends bus_Common_API {
 		for ( i = 0; i < totalSeats; i++) {
 			if (jsonPathEvaluatorChart.getString("data.chart.lowerDeck["+i+"]").contains("AVAILABLE_FOR_ALL")) {
 				SeatDetails = jsonPathEvaluatorChart.getString("data.chart.lowerDeck["+i+"]");
-			//	System.out.println("SeatDetails "+SeatDetails);
+				System.out.println("SeatDetails "+SeatDetails);
 				break;
 			}
 		}
@@ -64,6 +67,7 @@ public class bus_Booking_Api extends bus_Common_API {
 			}
 		}
 		AvailableSeatNo = AvailableSeatNo.replace("seatNum:","");
+		AvailableSeatNo = AvailableSeatNo.replace("[","");
 		String pickUp = jsonPathEvaluatorChart.getString("data.chart.pickups[0].pickupCode");
 		String dropOff = jsonPathEvaluatorChart.getString("data.chart.dropOffs[0].dropOffCode");
 		System.out.println("pickups "+pickUp);
@@ -104,20 +108,17 @@ public class bus_Booking_Api extends bus_Common_API {
 
 		//---------------------------------------- Initiate pay --------------------------------------------//
 
-
 		Thread.sleep(5000);
 		Response respPayInitiate = busGet("PayInti", paymentUrl );
 		JsonPath jsonPathrespPayInitiate = respPayInitiate.jsonPath();
-		System.out.println("respPayInitiate response : " + respPayInitiate.body().asString());
+		//System.out.println("respPayInitiate response : " + respPayInitiate.body().asString());
 		String tripId = jsonPathrespPayInitiate.getString("trip_info.tripId");
-
+		System.out.println("tripId "+tripId);
 		String total_fare = jsonPathrespPayInitiate.getString("bus_booking.total_fare");
-
-		Response respTS= RestAssured.get("http://trip-service-api.cltp.com:9001/trips?tripID="+tripId);
-		//System.out.println(respTS.asString());
-
+		Response respTS = busGet("TripID_Fetch", tripId);
+		System.out.println(respTS.asString());
 		JsonPath jsonPathrespTS = respTS.jsonPath();
-		System.out.println("respPayInitiate response : " + respTS.body().asString());
+		//System.out.println("respPayInitiate response : " + respTS.body().asString());
 		String trip_id_TS = jsonPathrespTS.getString("id");
 		//System.out.println("ID : " + trip_id_TS);
 
@@ -127,7 +128,7 @@ public class bus_Booking_Api extends bus_Common_API {
 		Response respPayWallet = busPost("PayWall", payLoad_Pay_Wall );
 		JsonPath jsonPathrespPayWallet = respPayWallet.jsonPath();
 		Reporter.log("jsonPathrespPayWallet response : " + respPayWallet.body().asString());
-		System.out.println("jsonPathrespPayWallet response : " + respPayWallet.body().asString());
+		//System.out.println("jsonPathrespPayWallet response : " + respPayWallet.body().asString());
 		String status = jsonPathrespPayWallet.getString("status");
 		System.out.println("Wallet Pay status : " + jsonPathrespPayWallet.getString("status"));
 		String PayStatus = "FAILED";
@@ -138,10 +139,12 @@ public class bus_Booking_Api extends bus_Common_API {
 			Reporter.log("Payment failed "+status);
 			Assert.assertTrue(false);
 		}
+
 		//---------------------------------------- Book Internal ------------------------------------------------//
 
 		Thread.sleep(2000);
-		String payLoad_BookInternal = "{\"payments\":[{\"convenience_fee\":0.0,\"trip_ref\":\"" + tripId + "\",\"txn_id\":\"77148770\",\"amount\":" + total_fare + ",\"payment_category\":\"B\",\"payment_type\":\"WT\",\"status\":\""+PayStatus+"\",\"description\":\"Wallet payment success\",\"customer_detail\":{\"user_id\":65254983,\"ip_address\":\"35.190.36.127\",\"mobile\":\"9986696785\",\"email\":\"kiran@cleartrip.com\",\"first_name\":\"Kiran\",\"last_name\":\"Kumar\"},\"payment_additional_params\":{}}],\"super_coin_earn_eligible\":false,\"additional_params\":{\"saved_cards_available\":\"yes\",\"offer_banner_available\":\"no\",\"payment_mode\":\"WT\",\"token_selected\":\"no\",\"saved_vpa_abcookie\":\"n/a\",\"sub_payment_mode\":\"N/A\",\"supercoin_burnt\":0,\"ct_wallet_balance\":1147851.77,\"wallet_balance_used\":4,\"primary_payment_method\":\"WT\",\"primary_payment_subtype\":\"N/A\",\"primary_payment_value\":4,\"payment_ab_cookie\":\"coupon_tray:a;\"}}";
+		String payLoad_BookInternal = "{\"payments\":[{\"convenience_fee\":0.0,\"trip_ref\":\""+tripId+"\",\"txn_id\":\"77155508\",\"amount\":"+total_fare+",\"payment_category\":\"B\",\"payment_type\":\"WT\",\"status\":\""+PayStatus+"\",\"description\":\"Wallet payment success\",\"customer_detail\":{\"user_id\":13957750,\"ip_address\":\"35.190.36.127\",\"mobile\":\"9986696785\",\"email\":\"kiran.kumar@cleartrip.com\",\"first_name\":\"Kiran\",\"last_name\":\"Kumar\"},\"payment_additional_params\":{}}],\"super_coin_earn_eligible\":true,\"additional_params\":{\"saved_cards_available\":\"yes\",\"offer_banner_available\":\"no\",\"payment_mode\":\"WT\",\"token_selected\":\"no\",\"saved_vpa_abcookie\":\"n/a\",\"sub_payment_mode\":\"N/A\",\"supercoin_burnt\":0,\"ct_wallet_balance\":299697,\"wallet_balance_used\":12,\"primary_payment_method\":\"WT\",\"primary_payment_subtype\":\"N/A\",\"primary_payment_value\":12,\"payment_ab_cookie\":\"coupon_tray:a;\"}}";
+		String payLoad_BookInternal1= "{\"payments\":[{\"convenience_fee\":0.0,\"trip_ref\":\"" + tripId + "\",\"txn_id\":\"77148770\",\"amount\":" + total_fare + ",\"payment_category\":\"B\",\"payment_type\":\"WT\",\"status\":\""+PayStatus+"\",\"description\":\"Wallet payment success\",\"customer_detail\":{\"user_id\":65254983,\"ip_address\":\"35.190.36.127\",\"mobile\":\"9986696785\",\"email\":\"kiran@cleartrip.com\",\"first_name\":\"Kiran\",\"last_name\":\"Kumar\"},\"payment_additional_params\":{}}],\"super_coin_earn_eligible\":false,\"additional_params\":{\"saved_cards_available\":\"yes\",\"offer_banner_available\":\"no\",\"payment_mode\":\"WT\",\"token_selected\":\"no\",\"saved_vpa_abcookie\":\"n/a\",\"sub_payment_mode\":\"N/A\",\"supercoin_burnt\":0,\"ct_wallet_balance\":1147851.77,\"wallet_balance_used\":4,\"primary_payment_method\":\"WT\",\"primary_payment_subtype\":\"N/A\",\"primary_payment_value\":4,\"payment_ab_cookie\":\"coupon_tray:a;\"}}";
 		Response respBookInternal = busPostNew("Param_BookInternal", Itinerary_ID,  payLoad_BookInternal);
 		JsonPath jsonPathrespBookInternal = respBookInternal.jsonPath();
 		//System.out.println("respBookInternal response : " + respBookInternal.body().asString());
@@ -161,7 +164,12 @@ public class bus_Booking_Api extends bus_Common_API {
 		Thread.sleep(10000);
 		Response respCancellation = busPut("Cancellation", tripId);
 		JsonPath jsonPathrespCancellation = respCancellation.jsonPath();
-		System.out.println("respCancellation response : " + respCancellation.body().asString());
+		//System.out.println("respCancellation response : " + respCancellation.body().asString());
+		String cancellationProcessed = jsonPathrespCancellation.getString("cancellationProcessed");
+		System.out.println("cancellationProcessed : " + cancellationProcessed);
+		if(!cancellationProcessed.equalsIgnoreCase("true")){
+			Assert.assertTrue(false);
+		}
 	}
 
 }

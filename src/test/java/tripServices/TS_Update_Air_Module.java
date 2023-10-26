@@ -3,7 +3,7 @@ package test.java.  tripServices;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
-import com.jayway.restassured.path.json.JsonPath;
+//import com.jayway.restassured.path.json.JsonPath;
 
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;

@@ -4,9 +4,14 @@
 		<listeners>
 			<listener class-name="org.uncommons.reportng.HTMLReporter" />
 			<listener class-name="test.java.common.RemoveDuplicateResults"/>
-<!--			<listener class-name="test.java.common.RetryListener"/>-->
 			<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 		</listeners>
+
+	<test name="Book and Cancel" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_Booking_Api"/>
+		</classes>
+	</test>
 
 	<test name="AutoSuggest" preserve-order="true" parallel="true">
 		<classes>
@@ -19,12 +24,12 @@
 			<class name="test.java.bus.bus_SelfCare_Get_TripInfo"/>
 		</classes>
 	</test>
-
+<!--
 	<test name="SelfCare Cancel Booking" preserve-order="true" parallel="true">
 		<classes>
 			<class name="test.java.bus.bus_SelfCare_Trip_Cancel_Booking"/>
 		</classes>
-	</test>
+	</test>-->
 
 	<test name="SelfCare Cancellation Info" preserve-order="true" parallel="true">
 		<classes>
@@ -32,7 +37,7 @@
 		</classes>
 	</test>
 
-	<test name="SelfCare Get Tripdeatails email" preserve-order="true" parallel="true">
+	<test name="SelfCare Get Trip details email" preserve-order="true" parallel="true">
 		<classes>
 			<class name="test.java.bus.bus_SelfCare_Get_TripDetails_Email"/>
 		</classes>
@@ -56,13 +61,11 @@
 		</classes>
 	</test>
 
-
 	<test name="Coupon Deactivate" preserve-order="true" parallel="true">
 		<classes>
 			<class name="test.java.bus.bus_Coupon_Deactivate"/>
 		</classes>
 	</test>
-
 
 	<test name="Search Api" preserve-order="true" parallel="true">
 		<classes>
