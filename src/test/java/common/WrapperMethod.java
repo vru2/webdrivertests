@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -17,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -198,7 +197,7 @@ public class WrapperMethod extends CommonUtil {
 		elementVisible(driver, by, 20);
 		elementPresent(driver, by);
 		WebElement we = driver.findElement(by);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, 50);
 		we = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		we = wait.until(ExpectedConditions.elementToBeClickable(by));
 		we = wait.until(ExpectedConditions.visibilityOf(we));
@@ -217,7 +216,7 @@ public class WrapperMethod extends CommonUtil {
 		if (elementVisible(driver, by, 2)) {
 			elementPresent(driver, by);
 			WebElement we = driver.findElement(by);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+			WebDriverWait wait = new WebDriverWait(driver, 2);
 
 			we = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			we = wait.until(ExpectedConditions.elementToBeClickable(by));
@@ -264,7 +263,7 @@ public class WrapperMethod extends CommonUtil {
 		elementPresent(driver, by);
 		boolean element = isElementPresent(driver, by);
 		WebElement we = driver.findElement(by);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, 5);
 		we.clear();
 		we = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		if (element) {
@@ -285,7 +284,7 @@ public class WrapperMethod extends CommonUtil {
 		if (elementPresent_Time(driver, by, 1)) {
 			boolean element = isElementPresent(driver, by);
 			WebElement we = driver.findElement(by);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+			WebDriverWait wait = new WebDriverWait(driver, 1);
 			we.clear();
 			we = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			if (element) {
@@ -307,7 +306,7 @@ public class WrapperMethod extends CommonUtil {
 		elementPresent(driver, by);
 		boolean element = isElementPresent(driver, by);
 		WebElement we = driver.findElement(by);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		WebDriverWait wait = new WebDriverWait(driver, 15);
 
 		we = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		if (element) {
@@ -332,7 +331,7 @@ public class WrapperMethod extends CommonUtil {
 				driver.switchTo().alert().accept();
 			}
 			WebElement we = driver.findElement(by);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebDriverWait wait = new WebDriverWait(driver, 10);
 
 			we = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			String text = null;
@@ -355,7 +354,7 @@ public class WrapperMethod extends CommonUtil {
 				driver.switchTo().alert().accept();
 			}
 			WebElement we = driver.findElement(by);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebDriverWait wait = new WebDriverWait(driver, 10);
 
 			we = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			String text = null;
@@ -377,7 +376,7 @@ public class WrapperMethod extends CommonUtil {
 				driver.switchTo().alert().accept();
 			}
 			WebElement we = driver.findElement(by);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebDriverWait wait = new WebDriverWait(driver, 10);
 
 			we = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			String text = null;
