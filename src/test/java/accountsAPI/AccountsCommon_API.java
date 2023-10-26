@@ -233,17 +233,11 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_FKVIP_Redeem_API = "/cohort/v1/benefits/redeem";
 
-	String url_FKVIP_Valid_Rollback_API = "/cohort/v1/benefits/rollback";
-
 	String url_FKVIP_Invalid_Rollback_API = "/cohort/v1/benefits/rollback";
 
 	String  url_FKVIP_Active_Entity = "/cohort/v1/entity/fetch";
 
-	String  url_FKVIP_Myntra = "/ingest/v1/bulk/subscription/profile";
-
 	String url_FKVIP_GetBenefitDetails_API = "/cohort/v1/benefits/data/Q906523733692";
-
-	String url_FKSSO_CallBack_Api = "/sso/v1/oauth2/callback?state=SiozVfSwVV9yPIATJZCr8q10bFSqHv-_bQ==&code=230518134424740TIPFT";
 
 
 	String url_Promotional_Service_ValidatereferralLink="/referral/validate?action=HI_FIVE&referralLink=https://qa2m.cltp.in/ref/Q2hQr8bl";
@@ -407,14 +401,13 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"    }\n" +
 			"}";
 
-	public static String benefitRedemptionId;
-
+	int benefitRedemptionId;
 	String params_FKVIP_Invalid_RollBack_API = "{\n" +
 			"    \"benefitRedemptionId\": \"245\",\n" +
 			"    \"tripRef\": \"Q909523733692\"\n" +
 			"}";
 
-	static String params_FKVIP_Valid_RollBack_API = "{\n" +
+	String params_FKVIP_Valid_RollBack_API = "{\n" +
 			"    \"benefitRedemptionId\": "+benefitRedemptionId+",\n" +
 			"    \"tripRef\": \"Q909523733692\"\n" +
 			"}";
@@ -432,36 +425,6 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"        \"identifier\": \"2500000007\",\n" +
 			"        \"type\": \"MOBILE\"\n" +
 			"    }\n" +
-			"}";
-
-	String params_FKVIP_Myntra_BulkAPI = "{\n" +
-			"    \"profileList\": [\n" +
-			"        {\n" +
-			"            \"eventType\": \"ACTIVATION\",\n" +
-			"            \"entity\": \"Myntra\",\n" +
-			"            \"identifierDetails\": {\n" +
-			"                \"identifier\": \"ls+Tl3dhKdqYLd1fHfvfCAkwJwRen6A38IWZ3w4Ppw4=\",\n" +
-			"                \"identifierUnit\": \"mobile\",\n" +
-			"                \"identifierHashed\": true\n" +
-			"            },\n" +
-			"            \"subscriptionDetails\": {\n" +
-			"                \"subscriptionName\": \"ELITE\"\n" +
-			"            }\n" +
-			"        },\n" +
-			"        {\n" +
-			"            \"eventType\": \"ACTIVATION\",\n" +
-			"            \"entity\": \"Myntra\",\n" +
-			"            \"identifierDetails\": {\n" +
-			"                \"identifier\": \"vitO5WnUyivZerKG1KUA6BkpF3kJ80iVM1iPast7fxA=\",\n" +
-			"                \"identifierUnit\": \"mobile\",\n" +
-			"                \"identifierHashed\": true\n" +
-			"            },\n" +
-			"            \"subscriptionDetails\": {\n" +
-			"                \"subscriptionName\": \"ICON\"\n" +
-			"            }\n" +
-			"        }\n" +
-			"    \n" +
-			"    ]\n" +
 			"}";
 
 	String params_Account_Service_MobileLogin_sendOTP_SIGNIN="{\"type\":\"MOBILE\",\"value\":\"7799964888\",\"countryCode\":\"+91\",\"action\":\"SIGNIN\"}";
@@ -847,14 +810,6 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		return headers;
 	}
 
-	public HashMap<String, Object> headersFormFKVIPMyntraBulkAPI(){
-
-		HashMap<String, Object> headers = new HashMap<>();
-		headers.put("Content-Type", "application/json");
-		headers.put("Cookie", "ct-dvId=zpABzZHrmb1MmqvQm9%2Ftn5%2FyHvw916dr4tHbhjUiyOZfamBiFlP%2BE4s4GQ51FXBPJagMRhUsKj4U5ZrbNbdta%2BOS9%2BGvufo%2FHPF3v2f3IUk%3D");
-		return headers;
-	}
-
 	public HashMap<String, Object> headersFormpromotionalgetConfigdetails(){
 		HashMap<String, Object> headers = new HashMap<>();
 
@@ -963,16 +918,6 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("AUTH_KEY", "7GHT#@D65yhgder4R");
 		headers.put("accept", "*/*");
 		headers.put("Cookie", "ct-auth=iK9awlY61qdV4QrA5oZe1D7eBdLisHP%2BIN0Ia75KZxqbN7BPDR1WQatqAEu23MdyfNDGUT3e7d7YCOHpHUqxWZjJfVdGhDt6EBXP56tMKTF%2F3cr90Rtklnq90CfYjkCeDp39AmjLqkH5qZECs9cDakpZoj0Q4dHck6%2F9P9TFiIY%3D");
-		headers.put("Referer","qa2new.cleartrip.com");
-
-		return headers;
-	}
-
-	public HashMap<String, Object> Account_Service_AuthorizeAPI(){
-		HashMap<String, Object> headers = new HashMap<>();
-		headers.put("AUTH_TYPE", "COOKIE");
-		headers.put("AUTH_KEY", "7GHT#@D65yhgder4R");
-		headers.put("accept", "*/*");
 		headers.put("Referer","qa2new.cleartrip.com");
 
 		return headers;
@@ -1573,7 +1518,6 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		if(Type.equals("FKVIP_Valid_RollBackAPI")) {
 			headers = headersFormFKVIPValidRollBackAPI();
-			url = url_FKVIP_Valid_Rollback_API;
 			RestAssured.baseURI =url_ingestion_Service_domain;
 			params =params_FKVIP_Valid_RollBack_API;
 			Reporter.log(url_ingestion_Service_domain+url);
@@ -1604,16 +1548,6 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			RestAssured.baseURI =url_ingestion_Service_domain;
 			url = url_FKVIP_Active_Entity;
 			params =params_FKVIP_Active_Entity_Invalid_API;
-			Reporter.log(url_ingestion_Service_domain+url);
-
-		}
-
-		if(Type.equals("FKVIP_Myntra_BulkAPI")) {
-
-			headers = headersFormFKVIPMyntraBulkAPI();
-			RestAssured.baseURI =url_ingestion_Service_domain;
-			url = url_FKVIP_Myntra;
-			params =params_FKVIP_Myntra_BulkAPI;
 			Reporter.log(url_ingestion_Service_domain+url);
 
 		}
@@ -3227,13 +3161,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			RestAssured.baseURI=url_Acct_Service;
 			url = url_Account_Service_AuthorizeAPI_encodingCookie;
 			headers =Account_Service_AuthorizeAPI_encodingCookie ();
-			Reporter.log(url_Acct_Service+url);
-		}
 
-		else if (Type.equals("Account_Service_AuthorizeAPI_InvalidCookie")){
-			RestAssured.baseURI=url_Acct_Service;
-			url = url_Account_Service_AuthorizeAPI_encodingCookie;
-			headers =Account_Service_AuthorizeAPI();
 			Reporter.log(url_Acct_Service+url);
 		}
 
@@ -3312,15 +3240,6 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			Reporter.log(url_ingestion_Service_domain+url);
 
 		}
-
-
-		else if(Type.equals("FKSSO_Callback_API")) {
-			RestAssured.baseURI =url_Identitymicro_service;
-			url = url_FKSSO_CallBack_Api;
-			Reporter.log(url_Identitymicro_service+url);
-		}
-
-
 
 		Reporter.log("url  "+url);
 		request = RestAssured.given().						
@@ -3925,7 +3844,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
 
-		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Account_Service_AuthorizeAPI_InvalidCookie"))
+		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API"))
 		{
 			if(statusCode!=400) {
 				System.out.println(statusCode);
@@ -3937,15 +3856,11 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			Assert.assertTrue(false);
 		}
 
-		if(Type.equalsIgnoreCase("FKSSO_Callback_API"))
-		{
+		if(Type.equalsIgnoreCase("FkVIP_Injest_Profile")) {
 			System.out.println(statusCode);
 			if(statusCode!=200) {
 				Assert.assertTrue(false);
 			}
-		}
-		if(Type.equalsIgnoreCase("FkVIP_Injest_Profile")) {
-
 			String message = jsonPathEvaluator.getString("status");
 			System.out.println(message);
 			if(!message.contains("SUCCESS")) {
@@ -3954,7 +3869,10 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		}
 
 		if(Type.equalsIgnoreCase("FK_Injest_ProfileExpiry")) {
-
+			System.out.println(statusCode);
+			if(statusCode!=200) {
+				Assert.assertTrue(false);
+			}
 			String message = jsonPathEvaluator.getString("status");
 			System.out.println(message);
 			if(!message.contains("SUCCESS")) {
@@ -3995,8 +3913,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		if(Type.equalsIgnoreCase("FKVIP_Valid_RedeemAPI")) {
 
-			benefitRedemptionId = jsonPathEvaluator.getString("response.benefitRedemptionId");
-			System.out.println("RE");
+			benefitRedemptionId = jsonPathEvaluator.getInt("response.benefitRedemptionId");
 			System.out.println(benefitRedemptionId);
 			String status = jsonPathEvaluator.getString("response.status");
 			if(!status.contains("SUCCESS"))
@@ -4007,21 +3924,8 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		if(Type.equalsIgnoreCase("FKVIP_Valid_RollBackAPI")) {
 
-			System.out.println("RB");
 			System.out.println(benefitRedemptionId);
-
 			String status = jsonPathEvaluator.getString("response.status");
-			if(!status.contains("SUCCESS"))
-			{
-				Assert.assertTrue(false);
-			}
-		}
-
-		if(Type.equalsIgnoreCase("FKVIP_Myntra_BulkAPI")) {
-
-			String status = jsonPathEvaluator.getString("status");
-			System.out.println(status);
-			System.out.println(statusCode);
 			if(!status.contains("SUCCESS"))
 			{
 				Assert.assertTrue(false);
@@ -5243,17 +5147,10 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			if(!rolesList.contains("1064")) {
 				Assert.assertTrue(false);						
 			}
+
+
+
 		}
-
-		else if(Type.equalsIgnoreCase("Account_Service_AuthorizeAPI_InvalidCookie")) {
-
-			String message = jsonPathEvaluator.getString("message");
-			if(!message.contains("Required cookie 'ct-auth' for method parameter type String is not present")) {
-				Assert.assertTrue(false);
-			}
-			
-		}
-
 		else if(Type.equalsIgnoreCase("IdentityService_ctAuth_noLoginCookie")) {
 
 			String status = jsonPathEvaluator.getString("status");
