@@ -55,6 +55,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_ingestion_Service_domain = "http://ingestion-service.cltp.com:9001";
 
 	String url_monetisation_Service_domain = "https://qa2new.cleartrip.com";
+
+	String url_monetisation_Service = "http://monetisation-service.cltp.com:9001";
 	
 	String 	url_Acct_Service_gateway="https://platformqa2new.cleartrip.com";
 
@@ -235,6 +237,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_Floater_Get_API = "/monetisation/v1/floater/fetch";
 
+	String url_FLoater_AddTemplate = "/floater/template/add";
+
 	String url_FKVIP_Redeem_API = "/cohort/v1/benefits/redeem";
 
 	String url_FKVIP_Invalid_Rollback_API = "/cohort/v1/benefits/rollback";
@@ -359,6 +363,27 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String params_Floater_Get_API = "{\n" +
 			"\"slotIds\" : [\"air_pwa_home_page\",\"air_pwa_home\"]\n" +
+			"}";
+
+    String tempID = RandomStringUtils.randomNumeric(5);
+
+	String params_Floater_AddTemplate = "{\n" +
+			"    \"templateId\" : "+tempID+",\n" +
+			"    \"templateBody\" : \"[{\\\"id\\\":1,\\\"attributes\\\":[{\\\"type\\\":\\\"button\\\",\\\"action\\\":\\\"close\\\"},{\\\"type\\\":\\\"button\\\",\\\"action\\\":\\\"maximize\\\",\\\"minimisedOnly\\\":true},{\\\"type\\\":\\\"artifact\\\",\\\"properties\\\":{\\\"title\\\":\\\"${artifact_title}\\\",\\\"url\\\":\\\"${artifact_url}\\\",\\\"imageType\\\":\\\"${artifact_type}\\\"}},{\\\"type\\\":\\\"button\\\",\\\"action\\\":\\\"redirect\\\",\\\"properties\\\":{\\\"title\\\":\\\"${redirection_title}\\\",\\\"url\\\":\\\"${redirection_url}\\\"}}]}]\"\n" +
+			"}";
+
+	String params_Floater_AddDuplicateTemplate = "{\n" +
+			"    \"templateId\" : \"08998\",\n" +
+			"    \"templateBody\" : \"[{\\\"id\\\":1,\\\"attributes\\\":[{\\\"type\\\":\\\"button\\\",\\\"action\\\":\\\"close\\\"},{\\\"type\\\":\\\"button\\\",\\\"action\\\":\\\"maximize\\\",\\\"minimisedOnly\\\":true},{\\\"type\\\":\\\"artifact\\\",\\\"properties\\\":{\\\"title\\\":\\\"${artifact_title}\\\",\\\"url\\\":\\\"${artifact_url}\\\",\\\"imageType\\\":\\\"${artifact_type}\\\"}},{\\\"type\\\":\\\"button\\\",\\\"action\\\":\\\"redirect\\\",\\\"properties\\\":{\\\"title\\\":\\\"${redirection_title}\\\",\\\"url\\\":\\\"${redirection_url}\\\"}}]}]\"\n" +
+			"}";
+
+	String params_Floater_InvalidBody = "{\n" +
+			"    \n" +
+			"    \"templateBody\" : \"[{\\\"id\\\":1,\\\"attributes\\\":[{\\\"type\\\":\\\"button\\\",\\\"action\\\":\\\"close\\\"},{\\\"type\\\":\\\"button\\\",\\\"action\\\":\\\"maximize\\\",\\\"minimisedOnly\\\":true},{\\\"type\\\":\\\"artifact\\\",\\\"properties\\\":{\\\"title\\\":\\\"${artifact_title}\\\",\\\"url\\\":\\\"${artifact_url}\\\",\\\"imageType\\\":\\\"${artifact_type}\\\"}},{\\\"type\\\":\\\"button\\\",\\\"action\\\":\\\"redirect\\\",\\\"properties\\\":{\\\"title\\\":\\\"${redirection_title}\\\",\\\"url\\\":\\\"${redirection_url}\\\"}}]}]\"\n" +
+			"}";
+
+	String params_Floater_WithoutTemplateBody = "{\n" +
+			"    \"templateId\" : \"08998\"\n" +
 			"}";
 
 	String params_Floater_Get_API_WithNewbody = "{\n" +
@@ -783,6 +808,12 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		return headers;
 	}
 
+	public HashMap<String, Object> headersFormFloaterAddTemplate(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
 	public HashMap<String, Object> headersFormFloaterGetAPI(){
 
 		HashMap<String, Object> headers = new HashMap<>();
@@ -1529,6 +1560,38 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			params =params_FKVIP_Discover_API ;
 			Reporter.log(url_ingestion_Service_domain+url);
 
+		}
+
+		if(Type.equals("Floater_Add_Template_API")) {
+			headers = headersFormFloaterAddTemplate();
+			RestAssured.baseURI =url_monetisation_Service;
+			url = url_FLoater_AddTemplate;
+			params =params_Floater_AddTemplate ;
+			Reporter.log(url_monetisation_Service_domain+url);
+		}
+
+		if(Type.equals("Floater_Add_Template_DuplicateAPI")) {
+			headers = headersFormFloaterAddTemplate();
+			RestAssured.baseURI =url_monetisation_Service;
+			url = url_FLoater_AddTemplate;
+			params =params_Floater_AddDuplicateTemplate ;
+			Reporter.log(url_monetisation_Service_domain+url);
+		}
+
+		if(Type.equals("Floater_Add_Template_InvalidAPI")) {
+			headers = headersFormFloaterAddTemplate();
+			RestAssured.baseURI =url_monetisation_Service;
+			url = url_FLoater_AddTemplate;
+			params =params_Floater_InvalidBody ;
+			Reporter.log(url_monetisation_Service_domain+url);
+		}
+
+		if(Type.equals("Floater_Add_Template_WithoutBody")) {
+			headers = headersFormFloaterAddTemplate();
+			RestAssured.baseURI =url_monetisation_Service;
+			url = url_FLoater_AddTemplate;
+			params =params_Floater_WithoutTemplateBody ;
+			Reporter.log(url_monetisation_Service_domain+url);
 		}
 
 		if(Type.equals("Floater_Get_FloaterBy_SlotID")) {
@@ -3922,7 +3985,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
 
-		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader"))
+		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")||Type.equals("Floater_Add_Template_InvalidAPI")||Type.equals("Floater_Add_Template_DuplicateAPI")||Type.equals("Floater_Add_Template_WithoutBody"))
 		{
 			if(statusCode!=400) {
 				System.out.println(statusCode);
@@ -3954,6 +4017,42 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			String message = jsonPathEvaluator.getString("status");
 			System.out.println(message);
 			if(!message.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Floater_Add_Template_API")) {
+
+			String Res = resp.body().asString();
+			System.out.println(Res);
+			if(!Res.contains("successfully added the template")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Floater_Add_Template_DuplicateAPI")) {
+
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("template already present")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Floater_Add_Template_InvalidAPI")) {
+
+			String error = jsonPathEvaluator.getString("error");
+			System.out.println(error);
+			if(!error.contains("Bad Request")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Floater_Add_Template_WithoutBody")) {
+
+			String error = jsonPathEvaluator.getString("error");
+			System.out.println(error);
+			if(!error.contains("Bad Request")) {
 				Assert.assertTrue(false);
 			}
 		}
