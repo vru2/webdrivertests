@@ -1569,7 +1569,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		if(Type.equals("FKVIP_Discovery_API_WithOutFilter")) {
 			headers = headersFormFKVIPDiscoverAPI();
 
-			RestAssured.baseURI =url_monetisation_Service_domain;
+			RestAssured.baseURI =url_ingestion_Service_domain;
 			url = url_FKVIP_Discover_API;
 			params =params_FKVIP_Discover_API_WIthOutFilter ;
 			Reporter.log(url_monetisation_Service_domain+url);
