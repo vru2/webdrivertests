@@ -9,6 +9,15 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
 
+    <test name="Floater APIS" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.Floater_Get_FloaterBy_SlotID"/>
+            <class name="test.java.accountsAPI.Floater_Get_FloaterBy_SlotID_Invalid"/>
+            <class name="test.java.accountsAPI.Floater_Get_FloaterBy_SlotID_WithoutHeader"/>
+            <class name="test.java.accountsAPI.Floater_Get_FloaterBy_SlotID_WithNewbody"/>
+        </classes>
+    </test>
+
     <test name="FK VIP" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.FkVIP_Injest_Profile"/>

@@ -53,6 +53,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_Promotional_Service_domain ="http://promotional-service-api.cltp.com:9001";
 
 	String url_ingestion_Service_domain = "http://ingestion-service.cltp.com:9001";
+
+	String url_monetisation_Service_domain = "https://qa2new.cleartrip.com";
 	
 	String 	url_Acct_Service_gateway="https://platformqa2new.cleartrip.com";
 
@@ -231,6 +233,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_FKVIP_Discover_API = "/cohort/v1/benefits/191121006/fetch";
 
+	String url_Floater_Get_API = "/monetisation/v1/floater/fetch";
+
 	String url_FKVIP_Redeem_API = "/cohort/v1/benefits/redeem";
 
 	String url_FKVIP_Invalid_Rollback_API = "/cohort/v1/benefits/rollback";
@@ -351,6 +355,14 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"            }\n" +
 			"        }\n" +
 			"    }\n" +
+			"}";
+
+	String params_Floater_Get_API = "{\n" +
+			"\"slotIds\" : [\"air_pwa_home_page\",\"air_pwa_home\"]\n" +
+			"}";
+
+	String params_Floater_Get_API_WithNewbody = "{\n" +
+			"\"slotIds\" : [\"air_pwa_home_page\"]\n" +
 			"}";
 
 	String params_FKVIP_Discover_API = "{\n" +
@@ -768,7 +780,38 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("Content-Type", "application/json");
 		headers.put("Accept", "application/json");
 		headers.put("caller", "hotel-srp,hotel-itineary");
+		return headers;
+	}
 
+	public HashMap<String, Object> headersFormFloaterGetAPI(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("userId", "sai");
+		headers.put("product", "air");
+		headers.put("deviceId", "test");
+		headers.put("channel", "Desktop");
+		headers.put("Cookie", "ct-dvid=fBt2Oj1JZMLr5cCsDHejgsoMrrWh22E5Y9CWe5mdSGrCIqaABaRjww1sU289rqXfiDWLVdoTwGK7QrGrjtMRW0JZj7wwJFDH4KYa%2FUo7d4k%3D;ct-auth =e8Xtn%2Fi5A%2FGkFF9QRFLwMsixzutagL8KSDOKskJ8vP%2FPAC5BnG1VhKqX9iEbXPIdvdb22kmKGrhj2VAI20AltgYWbs0hUeS1dDOVoTv%2FC8oS3xBwBQbHAAgSFMgFCe0tlyhz2jVZSGwnR4Xe68L0aoK2eEoXgM73GXnr6ZXWU%2FuqLI6EfEr5fYarVjfH7mwKJC%2FgkOzzBJNHMAiA1hc6EQ%3D%3D");
+		return headers;
+	}
+	public HashMap<String, Object> headersFormInvalidFloaterGetAPI(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("userId", "sai");
+		headers.put("deviceId", "test");
+		headers.put("channel", "PWA");
+		headers.put("Cookie", "ct-dvid=fBt2Oj1JZMLr5cCsDHejgsoMrrWh22E5Y9CWe5mdSGrCIqaABaRjww1sU289rqXfiDWLVdoTwGK7QrGrjtMRW0JZj7wwJFDH4KYa%2FUo7d4k%3D;ct-auth =e8Xtn%2Fi5A%2FGkFF9QRFLwMsixzutagL8KSDOKskJ8vP%2FPAC5BnG1VhKqX9iEbXPIdvdb22kmKGrhj2VAI20AltgYWbs0hUeS1dDOVoTv%2FC8oS3xBwBQbHAAgSFMgFCe0tlyhz2jVZSGwnR4Xe68L0aoK2eEoXgM73GXnr6ZXWU%2FuqLI6EfEr5fYarVjfH7mwKJC%2FgkOzzBJNHMAiA1hc6EQ%3D%3D");
+		return headers;
+	}
+	public HashMap<String, Object> headersFormFloaterGetAPIWithOutHeader(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("userId", "sai");
+		headers.put("product", "air");
+		headers.put("deviceId", "test");
+		headers.put("Cookie", "ct-dvid=fBt2Oj1JZMLr5cCsDHejgsoMrrWh22E5Y9CWe5mdSGrCIqaABaRjww1sU289rqXfiDWLVdoTwGK7QrGrjtMRW0JZj7wwJFDH4KYa%2FUo7d4k%3D;ct-auth =e8Xtn%2Fi5A%2FGkFF9QRFLwMsixzutagL8KSDOKskJ8vP%2FPAC5BnG1VhKqX9iEbXPIdvdb22kmKGrhj2VAI20AltgYWbs0hUeS1dDOVoTv%2FC8oS3xBwBQbHAAgSFMgFCe0tlyhz2jVZSGwnR4Xe68L0aoK2eEoXgM73GXnr6ZXWU%2FuqLI6EfEr5fYarVjfH7mwKJC%2FgkOzzBJNHMAiA1hc6EQ%3D%3D");
 		return headers;
 	}
 
@@ -1482,19 +1525,54 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			headers = headersFormFKVIPDiscoverAPI();
 
 			RestAssured.baseURI =url_ingestion_Service_domain;
-			url = url_FKVIP_Discover_API;
+			url = url_Floater_Get_API;
 			params =params_FKVIP_Discover_API ;
 			Reporter.log(url_ingestion_Service_domain+url);
+
+		}
+
+		if(Type.equals("Floater_Get_FloaterBy_SlotID")) {
+			headers = headersFormFloaterGetAPI();
+			RestAssured.baseURI =url_monetisation_Service_domain;
+			url = url_Floater_Get_API;
+			params =params_Floater_Get_API ;
+			Reporter.log(url_monetisation_Service_domain+url);
+		}
+
+		if(Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")) {
+			headers = headersFormInvalidFloaterGetAPI();
+			RestAssured.baseURI =url_monetisation_Service_domain;
+			url = url_Floater_Get_API;
+			params =params_Floater_Get_API ;
+			Reporter.log(url_monetisation_Service_domain+url);
+
+		}
+
+		if(Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")) {
+			headers = headersFormFloaterGetAPIWithOutHeader();
+			RestAssured.baseURI =url_monetisation_Service_domain;
+			url = url_Floater_Get_API;
+			params =params_Floater_Get_API ;
+			Reporter.log(url_monetisation_Service_domain+url);
+
+		}
+
+		if(Type.equals("Floater_Get_FloaterBy_SlotID_WithNewbody")) {
+			headers = headersFormFloaterGetAPI();
+			RestAssured.baseURI =url_monetisation_Service_domain;
+			url = url_Floater_Get_API;
+			params =params_Floater_Get_API_WithNewbody ;
+			Reporter.log(url_monetisation_Service_domain+url);
 
 		}
 
 		if(Type.equals("FKVIP_Discovery_API_WithOutFilter")) {
 			headers = headersFormFKVIPDiscoverAPI();
 
-			RestAssured.baseURI =url_ingestion_Service_domain;
+			RestAssured.baseURI =url_monetisation_Service_domain;
 			url = url_FKVIP_Discover_API;
 			params =params_FKVIP_Discover_API_WIthOutFilter ;
-			Reporter.log(url_ingestion_Service_domain+url);
+			Reporter.log(url_monetisation_Service_domain+url);
 
 		}
 
@@ -3844,7 +3922,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
 
-		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API"))
+		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader"))
 		{
 			if(statusCode!=400) {
 				System.out.println(statusCode);
@@ -3876,6 +3954,45 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			String message = jsonPathEvaluator.getString("status");
 			System.out.println(message);
 			if(!message.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Floater_Get_FloaterBy_SlotID_WithoutHeader")) {
+
+			String error = jsonPathEvaluator.getString("error");
+			System.out.println(error);
+			if(!error.contains("Bad Request")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Floater_Get_FloaterBy_SlotID_Invalid")){
+
+			String error = jsonPathEvaluator.getString("error");
+			System.out.println(error);
+			if(!error.contains("Bad Request")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Floater_Get_FloaterBy_SlotID")){
+
+			String slotId = jsonPathEvaluator.getString("slotId");
+			System.out.println(slotId);
+			if(!slotId.contains("air_pwa_home_page")) {
+				Assert.assertTrue(false);
+			}
+			if(!slotId.contains("air_pwa_home")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Floater_Get_FloaterBy_SlotID_WithNewbody")){
+
+			String slotId = jsonPathEvaluator.getString("slotId");
+			System.out.println(slotId);
+			if(!slotId.contains("air_pwa_home_page")) {
 				Assert.assertTrue(false);
 			}
 		}
