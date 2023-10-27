@@ -237,6 +237,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_Floater_Get_API = "/monetisation/v1/floater/fetch";
 
+	String url_Floater_SaveImpression = "/monetisation/v1/floater/impression";
+
 	String url_FLoater_AddTemplate = "/floater/template/add";
 
 	String url_FKVIP_Redeem_API = "/cohort/v1/benefits/redeem";
@@ -363,6 +365,12 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String params_Floater_Get_API = "{\n" +
 			"\"slotIds\" : [\"air_pwa_home_page\",\"air_pwa_home\"]\n" +
+			"}";
+
+	String params_Floater_SaveImpression = "{\n" +
+			"    \"campaign\" : \"111\",\n" +
+			"    \"timestamp\" : 1693546587000,\n" +
+			"    \"impressionType\" : \"VIEW\"\n" +
 			"}";
 
     String tempID = RandomStringUtils.randomNumeric(5);
@@ -1599,6 +1607,14 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			RestAssured.baseURI =url_monetisation_Service_domain;
 			url = url_Floater_Get_API;
 			params =params_Floater_Get_API ;
+			Reporter.log(url_monetisation_Service_domain+url);
+		}
+
+		if(Type.equals("Floater_SaveImpression_API")) {
+			headers = headersFormFloaterGetAPI();
+			RestAssured.baseURI =url_monetisation_Service_domain;
+			url = url_Floater_SaveImpression;
+			params =params_Floater_SaveImpression ;
 			Reporter.log(url_monetisation_Service_domain+url);
 		}
 
@@ -4095,6 +4111,17 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 				Assert.assertTrue(false);
 			}
 		}
+
+		if(Type.equalsIgnoreCase("Floater_SaveImpression_API")){
+
+			String ReponseStr = resp.body().asString();
+			System.out.println(ReponseStr);
+			if(!ReponseStr.contains("successfully added the impression")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+
 
 		if(Type.equalsIgnoreCase("FKVIP_Discovery_API")) {
 

@@ -19,6 +19,7 @@
             <class name="test.java.accountsAPI.Floater_Add_Template_DuplicateAPI"/>
             <class name="test.java.accountsAPI.Floater_Add_Template_InvalidAPI"/>
             <class name="test.java.accountsAPI.Floater_Add_Template_WithoutBody"/>
+            <class name="test.java.accountsAPI.Floater_SaveImpression_API"/>
         </classes>
     </test>
 
