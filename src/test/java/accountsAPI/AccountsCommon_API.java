@@ -1525,7 +1525,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			headers = headersFormFKVIPDiscoverAPI();
 
 			RestAssured.baseURI =url_ingestion_Service_domain;
-			url = url_Floater_Get_API;
+			url = url_FKVIP_Discover_API;
 			params =params_FKVIP_Discover_API ;
 			Reporter.log(url_ingestion_Service_domain+url);
 
