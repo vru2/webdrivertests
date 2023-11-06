@@ -13,6 +13,12 @@
 		</classes>
 	</test>
 
+	<test name="Update Trip" preserve-order="true" parallel="true">
+		<classes>
+			<class name="test.java.bus.bus_Update_Trip"/>
+		</classes>
+	</test>
+
 	<test name="AutoSuggest" preserve-order="true" parallel="true">
 		<classes>
 			<class name="test.java.bus.bus_AutoSuggest"/>
@@ -82,12 +88,6 @@
 	<test name="Trip Cancellation Status" preserve-order="true" parallel="true">
 		<classes>
 			<class name="test.java.bus.bus_Trip_Cancellation_Status"/>
-		</classes>
-	</test>
-
-	<test name="Update Trip" preserve-order="true" parallel="true">
-		<classes>
-			<class name="test.java.bus.bus_Update_Trip"/>
 		</classes>
 	</test>
 
