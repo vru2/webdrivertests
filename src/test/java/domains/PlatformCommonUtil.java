@@ -13,11 +13,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import org.testng.Reporter;
 
-import  test.java.common.WrapperMethod;
+import test.java.common.CommonUtil;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class PlatformCommonUtil extends WrapperMethod {
+public class PlatformCommonUtil extends CommonUtil {
 	public String Service_Url (String Service) throws IOException {
 		String url = "";
 		String environment = common.value("host");

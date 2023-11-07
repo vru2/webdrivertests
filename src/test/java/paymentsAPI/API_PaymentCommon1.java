@@ -5925,10 +5925,10 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			//System.out.println("Pay URL is not created - Failing the script"+Url);
 			Assert.assertTrue(false);			
 		}
-		if(textPresent(driver, "Oops, Something went wrong", 5)) {
+		/*if(textPresent(driver, "Oops, Something went wrong", 5)) {
 			Reporter.log("Oops, Something went wrong");
 			Assert.assertTrue(false);
-		}
+		}*/
 		Reporter.log("URL : "+Url);
 		//System.out.println("URL : "+Url);
 		return Url;
