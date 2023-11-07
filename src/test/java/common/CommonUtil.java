@@ -11,8 +11,8 @@ import static test.java.common.CachedProperties.platformInstance;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+//import java.time.LocalDateTime;
+//import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -159,9 +159,10 @@ public class CommonUtil {
 
 	public String getNewDate_TripID() throws Exception {
 		Random random = new Random();
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hhmmSSS");
-		LocalDateTime now =  LocalDateTime.now();
-		String TripID = "Q2320"+random.nextInt(100)+dtf.format(now);
+		//String dft = new SimpleDateFormat("hhmmSSS").format(s);
+		//DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hhmmSSS");
+		//LocalDateTime now =  LocalDateTime.now();
+		String TripID = "Q2320"+random.nextInt(10000);
 		return TripID;
 	}
 
