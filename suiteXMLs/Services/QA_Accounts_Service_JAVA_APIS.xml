@@ -9,6 +9,18 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
 
+    <test name="ProfileRevamp" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.Account_Service_Update_GST_Details" />
+            <class name="test.java.accountsAPI.Account_Service_Update_GST_Details_InvalidCookie" />
+            <class name="test.java.accountsAPI.Account_Service_Update_Personal_Details" />
+            <class name="test.java.accountsAPI.Account_Service_Update_GST_Details_InValidGST" />
+            <class name="test.java.accountsAPI.Account_Service_Update_GST_Details_WithoutCookie" />
+            <class name="test.java.accountsAPI.Account_Service_Update_Personal_Details_InvalidCookie" />
+            <class name="test.java.accountsAPI.Account_Service_Update_Personal_Details_WithoutCookie" />
+        </classes>
+    </test>
+
     <test name="Floater APIS" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.Floater_Get_FloaterBy_SlotID"/>
@@ -236,6 +248,7 @@
                 <class name="test.java.accountsAPI.Flipkart_Accounts_service_JWTtoken_Cleartrip" />
             </classes>
         </test>
+
         <test name="MobileLogin" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_SIGNIN" />
@@ -252,6 +265,7 @@
                 <class name="test.java.accountsAPI.Account_Service_MobileLogin_sendOTP_SIGNIN_withAppAgent" />
             </classes>
         </test>
+
 
 
     <!--

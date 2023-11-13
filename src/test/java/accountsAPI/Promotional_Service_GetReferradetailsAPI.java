@@ -15,9 +15,5 @@ public class Promotional_Service_GetReferradetailsAPI extends AccountsCommon_API
 		resp =getCall("Promotional_Service_GetReferradetailsAPI", "");
 		validation( resp, "Promotional_Service_GetReferradetailsAPI", "");
 
-	/*	ResponseBody body = resp.getBody();
-		System.out.println("Response of API is:" + body.asString());*/
-
-
 	}
 }

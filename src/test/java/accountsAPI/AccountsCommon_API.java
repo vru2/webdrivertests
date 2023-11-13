@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.testng.Reporter;
 
 //import com.sun.javafx.collections.MappingChange.Map;
@@ -39,6 +40,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_qa2 = "https://qa2.cleartrip.com:9001";
 
+	String qaurl = "https://qa2new.cleartrip.com/";
+
 	String url_Acct_Service_applesgnin = "http://172.29.23.236:9001/";
 
 	String url_identity="https://qa2.cleartrip.com";
@@ -48,6 +51,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_Identitymicro_service="http://identity-microservice.cltp.com:9001";
 
 	String url_Acct_Service="http://accounts-service-api.cltp.com:9001";
+
+	String url_prod = "https://www.cleartrip.com";
 	
 	String url_Promotional_Service="http://172.29.23.245:9001";
 	String url_Promotional_Service_domain ="http://promotional-service-api.cltp.com:9001";
@@ -74,6 +79,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_Userclassification_Health_Test_Url="/actuator/health";
 	String url_Account_Service_Verify_Person="/account/people/verify?id=14029546&emailId=ns.likhitha@cleartrip.com&domain=www.cleartrip.com&companyId=110340";
 	String url_Account_Service_UserController_VerifyAccount="/user/v1/account/verify/14029546";
+
+	String url_Account_Service_Update_Personal_Details = "/external-api/user";
 	String url_Account_Service_MobileLoginUpdatePersonaldetailsApi="/external-api/user";
 	String url_Promotional_Service_SavenudgeAPI="/referral/nudge?action=HI_FIVE&type=RESULT_SEEN";
 	String url_Account_Service_UserController_VerifyAccount_UsernotPresent="/user/v1/account/verify/1402954698";
@@ -207,6 +214,9 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_Account_Service_CompanyConfig_GetCompanybyID="/company/v2/profile/110340";
 
 	String url_Account_Service_GetuserdetailsbyAPIKey="/account/people/v2/api-key/111test111?docRequired=true&savedCards=true&travellersRequired=true&userPreference=true";
+	String url_Accounts_Service_AccountExits = "/accounts-api/people/v2/fetch?mobile=9908636704&countryCode=%2B91&domain=www.cleartrip.com";
+
+	String url_Accounts_Service_AccountExits_Invalid = "/accounts-api/people/v2/fetch?mobile=9908636704&countryCode=%2B91&domain=www.cleartrip.com";
 
 	//String url_Account_Service_GetuserdetailsbyAPIKey="company/v2/search?apiKey=test";
 	// company/v2/search?apiKey=test
@@ -230,6 +240,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_Account_Service_GetActivationKey="/user/v2/activation-key/65213401";
 	String url_Promotional_Service_healthTestAPI="/actuator/health";
 	String url_Promotional_Service_GenerateReferralLink="/referral/link?action=HI_FIVE";
+
+	String url_Update_GST_Details = "accounts/external-api/gst";
 
 	String url_FKVIP_Injest_Profile = "/ingest/v1/flipkart/profile";
 
@@ -324,6 +336,24 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String params_Account_Service_CFW_StatusUpdateCall="";
 	String params_flyinsigninV2_CleartripUser="{ \"password\": \"cleartrip123\", \"partner\": 0, \"source\": \"home_page\", \"username\": \"ns.likhitha@cleartrip.com\", \"persist_login\": false}";
 	String params_Promotional_Service_GenerateReferralLink="";
+
+	String params_Update_GST_Details = "{\n" +
+			"   \"id\": 21257,\n" +
+			"  \"gstNumber\": \"29AAAAA1111A1A0\",\n" +
+			"  \"gstHolderName\": \"okok\",\n" +
+			"  \"gstHolderAddress\": \"okok\",\n" +
+			"  \"gstHolderStateCode\": \"1111\",\n" +
+			"  \"gstHolderStateName\": \"okok\"\n" +
+			"}\n";
+
+	String params_Update_Invalid_GST_Details = "{\n" +
+			"   \"id\": 21257,\n" +
+			"  \"gstNumber\": \"2AAAAA1111A1A0\",\n" +
+			"  \"gstHolderName\": \"okok\",\n" +
+			"  \"gstHolderAddress\": \"okok\",\n" +
+			"  \"gstHolderStateCode\": \"1111\",\n" +
+			"  \"gstHolderStateName\": \"okok\"\n" +
+			"}\n";
 
 	String params_FKVIP_injest_profile= "{\n" +
 			"    \"eventType\": \"ACTIVATION\",\n" +
@@ -523,6 +553,18 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String params_IdentityService_UpdatePassword_ForResetPasswordflow="{\"emailId\":\"ns.likhitha@cleartrip.com\",\"newPassword\":\"Cleartrip@8\",\"mailerKey\":\"aIWr1jRjfDPjXojg\"}";
 	String params_Account_Service_UserController_VerifyAccount="";
 
+	String params_Accounts_Service_Update_Personal_Details= "{\n" +
+			"    \"personalData\": {\n" +
+			"        \"firstName\": \"saitest\",\n" +
+			"        \"lastName\": \"saitest\",\n" +
+			"        \"gender\": \"male\",\n" +
+			"        \"title\": \"Mr\",\n" +
+			"        \"dateOfBirth\": \"1996-04-25T00:00:00\",\n" +
+			"        \"anniversaryDate\": \"1990-04-24T00:00:00\",\n" +
+			"        \"maritalStatus\": \"SINGLE\"\n" +
+			"    }\n" +
+			"}";
+
 	String params_Promotional_service_RefreshStageCinfig="";
 	String params_Account_Service_MobileLoginUpdatePersonaldetailsApi="{\"marketingSubscription\":1,\"personalData\":{\"firstName\":\"cool\",\"lastName\":\"oktest\",\"gender\":\"male\"}}";
 	String params_Account_Service_People_UpdateUserRoles="{\"userId\":3863174,\"companyPeopleDetails\":[{\"companyId\":87321,\"companyPeopleId\":58963,\"role\":{\"id\":1,\"accessLevel\":0}},{\"companyId\":87321,\"role\":{\"id\":1064,\"accessLevel\":0}},{\"companyId\":87321,\"role\":{\"id\":10000,\"accessLevel\":0}},{\"companyId\":21,\"role\":{\"id\":2,\"name\":\"Finance \",\"accessLevel\":0}}]}";
@@ -599,6 +641,64 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		HashMap<String, Object> headers = new HashMap<>();
 		headers.put("Accept", "*/*");
 		headers.put("domain", "www.cleartrip.com");
+		return headers;
+	}
+
+	public HashMap<String, Object> UpdateDetails(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "*/*");
+		headers.put("caller", "test");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("Cookie", "ct-dvid=%2BB6O71lMcsFN942M%2FhT8afvaHdaTwQTiXi7da7FXIO5ImG3etibRpxjeZ1aCatCs%2FfBp%2BzlAOnxjxOvOCuJk8b5UUJG3wh%2B7OIt9pCPkXSg%3D;ct-auth=CigXXDTZTngTH2Arz8oIPCQddBlBZUdIPUqCmZUsHUabf07V%2FhoDsfXYp4pteeXLvdb22kmKGrhj2VAI20Altvlo45ep4eR7a9mOAYg%2FmuE3ajvTNuAb%2Bn%2FFpOyEvi15Rmw1lz2uzfJKx3gdbD6V5h2zfNaG%2BH1iyQ6g7a79aXDRVOJ61ho6dIOaKB1eF1NqEkocmYRqIc9wFaoCfqQYaA%3D%3D");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+	public HashMap<String, Object> InvalidCookie(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "*/*");
+		headers.put("caller", "test");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("Cookie", "ct-dvid=6O71lMcsFN942M%2FhT8afvaHdaTwQTiXi7da7FXIO5ImG3etibRpxjeZ1aCatCs%2FfBp%2BzlAOnxjxOvOCuJk8b5UUJG3wh%2B7OIt9pCPkXSg%3D;ct-auth=CigXXDTZTngTH2Arz8oIPCQddBlBZUdIPUqCmZUsHUabf07V%2FhoDsfXYp4pteeXLvdb22kmKGrhj2VAI20Altvlo45ep4eR7a9mOAYg%2FmuE3ajvTNuAb%2Bn%2FFpOyEvi15Rmw1lz2uzfJKx3gdbD6V5h2zfNaG%2BH1iyQ6g7a79aXDRVOJ61ho6dIOaKB1eF1NqEkocmYRqIc9wFaoCfqQYaA%3D%3D");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+	public HashMap<String, Object> validCookieGST(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "*/*");
+		headers.put("caller", "test");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("Cookie", "ct-dvid =6zZbIR3f1VrcZ8kj0mX3gosNlI56hj0OwodJkQF4yWtjozHGIn%2BwTlq7ftkpjZ84Gx%2Fp193kCXLOdETDzSeGxLoFaRcsYY9%2F%2BB18%2BtAmsjw%3D;ct-auth =qMICmZuE7Q5Z2RAZXBHwuyxOprp22izAzhVjo253NKqSvC79%2F5xapTxvJ1ue4Iww4SA3FzbNJhJHYcQI%2FpWP17AVN5TvbjN74E5L45eSIZot89mt1%2BaNhxx%2B84NLp1L3kfsx09cv5iFyoF%2BlqP6mq20j8vGkUb6O0wuuFkd1Qv5fdDbc4pC5qlhRWl%2FvLbCsfJkgiU1sdHK4%2BvexJlf0VEHvL%2Bv4UF1eS0s%2FBKHslhY%3D");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+	public HashMap<String, Object> InvalidCookieGST(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "*/*");
+		headers.put("caller", "test");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("Cookie", "ct-dvid =f0Gs3IlQ0lk0zkIvak8FnLCM%2B5aOxVWjwAcEAKVFB4jGVGxmwRlewPsfHDTER5gY7PriSwIiQwSjUG03szIoLW5Vni6rw8ANwtGSxRoZY%3D;ct-auth =ws4jHEgBevSnVBpmMFVyHPmn4uznYeRyvk7623ZaV157mjyswQ7Ox2mJQpt8uq0Q4SA3FzbNJhJHYcQI%2FpWP17AVN5TvbjN74E5L45eSIZqDB%2BAjjQ519FDknWCaH5HwbUbMqyjio8LLuBk1Bx1ICYsqgq9HCFSkRPqEf7skAptPQLaVBu1BssZHli8SBy81aFT6ArZ5rQdwWBdJMsoFzcqcG4eT3FA%2FdO6SDc4SnaY%3D");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+	public HashMap<String, Object> WithOutCookieGST(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "*/*");
+		headers.put("caller", "test");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+
+	public HashMap<String, Object> WithoutCookie(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "*/*");
+		headers.put("caller", "test");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("Content-Type", "application/json");
 		return headers;
 	}
 	
@@ -729,9 +829,18 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("caller", "b2c");
 		headers.put("accept", "*/*");
 		//GCP -- headers.put("AUTH_KEY", "H67f$we&HGTR34clQ");
-
 		return headers;
 	}
+
+	public HashMap<String, Object> headersFormAccountExits(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("caller", "b2c");
+		headers.put("accept", "*/*");
+		return headers;
+	}
+
+
 	public HashMap<String, Object> headersFormcachereset(){
 		HashMap<String, Object> headers = new HashMap<>();
 		
@@ -1719,6 +1828,41 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		}
 
+		if(Type.equals("Account_Service_Update_GST_Details")) {
+			headers = validCookieGST();
+
+			RestAssured.baseURI =qaurl;
+			url = url_Update_GST_Details;
+			params =params_Update_GST_Details;
+			Reporter.log(qaurl+url);
+		}
+
+		if(Type.equals("Account_Service_Update_GST_Details_InValidGST")) {
+			headers = validCookieGST();
+
+			RestAssured.baseURI =qaurl;
+			url = url_Update_GST_Details;
+			params =params_Update_Invalid_GST_Details;
+			Reporter.log(qaurl+url);
+		}
+
+		if(Type.equals("Account_Service_Update_GST_Details_WithoutCookie")) {
+			headers = WithOutCookieGST();
+			RestAssured.baseURI =qaurl;
+			url = url_Update_GST_Details;
+			params =params_Update_GST_Details;
+			Reporter.log(qaurl+url);
+		}
+
+		if(Type.equals("Account_Service_Update_GST_Details_InvalidCookie")) {
+			headers = InvalidCookieGST();
+			RestAssured.baseURI =qaurl;
+			url = url_Update_GST_Details;
+			params =params_Update_GST_Details;
+			Reporter.log(qaurl+url);
+		}
+
+
 		if(Type.equals("Accounts_Service_FLyinV2_Signin_Unauthorized")) {
 			headers = headersForms4();
 
@@ -2565,7 +2709,32 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		}
 
 
+	else if(Type.equals("Account_Service_Update_Personal_Details"))
+		{
+			RestAssured.baseURI=url_Acct_Service;
+			url = url_Account_Service_Update_Personal_Details;
+			params= params_Accounts_Service_Update_Personal_Details;
+			headers = UpdateDetails();
+			Reporter.log(url_Acct_Service+url);
+		}
 
+		else if(Type.equals("Account_Service_Update_Personal_Details_InvalidCookie"))
+		{
+			RestAssured.baseURI=url_Acct_Service;
+			url = url_Account_Service_Update_Personal_Details;
+			params= params_Accounts_Service_Update_Personal_Details;
+			headers = InvalidCookie();
+			Reporter.log(url_Acct_Service+url);
+		}
+
+		else if(Type.equals("Account_Service_Update_Personal_Details_WithoutCookie"))
+		{
+			RestAssured.baseURI=url_Acct_Service;
+			url = url_Account_Service_Update_Personal_Details;
+			params= params_Accounts_Service_Update_Personal_Details;
+			headers = WithoutCookie();
+			Reporter.log(url_Acct_Service+url);
+		}
 		else if(Type.equals("Account_Service_UserController_VerifyAccount"))
 		{
 			RestAssured.baseURI=url_Acct_Service;
@@ -3067,6 +3236,21 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			headers = headersFormdepoist();
 
 			Reporter.log(url_Acct_Service+url);
+		}
+
+		else if (Type.equals("Account_Service_AccountExitsAPI_Valid")){
+			RestAssured.baseURI=url_prod;
+			url = url_Accounts_Service_AccountExits;
+			headers = headersFormAccountExits();
+			Reporter.log(url_prod+url);
+		}
+
+		else if (Type.equals("Account_Service_AccountExitsAPI_InValid")){
+			RestAssured.baseURI=url_prod;
+			url = url_Accounts_Service_AccountExits_Invalid;
+			headers = headersFormAccountExits();
+
+			Reporter.log(url_prod+url);
 		}
 		
 		else if (Type.equals("Accounts_Service_fetchuserdetails_withoutReferer")){
@@ -4001,7 +4185,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
 
-		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")||Type.equals("Floater_Add_Template_InvalidAPI")||Type.equals("Floater_Add_Template_DuplicateAPI")||Type.equals("Floater_Add_Template_WithoutBody"))
+		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")||Type.equals("Floater_Add_Template_InvalidAPI")||Type.equals("Floater_Add_Template_DuplicateAPI")||Type.equals("Floater_Add_Template_WithoutBody")||Type.equals("Account_Service_Update_Personal_Details_InvalidCookie")||Type.equals("Account_Service_Update_Personal_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InValidGST")||Type.equals("Account_Service_Update_GST_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InvalidCookie"))
 		{
 			if(statusCode!=400) {
 				System.out.println(statusCode);
@@ -4013,6 +4197,56 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			Assert.assertTrue(false);
 		}
 
+		if(Type.equalsIgnoreCase("Account_Service_Update_GST_Details_InValidGST")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("INVALID_REQUEST")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Account_Service_AccountExitsAPI_Valid")) {
+
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("status");
+			System.out.println(message);
+			if(!message.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
+		}
+		if(Type.equalsIgnoreCase("Account_Service_Update_GST_Details_InvalidCookie")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("INVALID_COOKIE_PASSED")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Account_Service_Update_GST_Details")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("id");
+			String number = jsonPathEvaluator.getString("gstNumber");
+			System.out.println(message);
+			System.out.println(number);
+			if(!message.contains("21257")) {
+				Assert.assertTrue(false);
+			}
+			if(!number.contains("29AAAAA1111A1A0")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Account_Service_Update_GST_Details_WithoutCookie")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("cookie not found")) {
+				Assert.assertTrue(false);
+			}
+		}
+
 		if(Type.equalsIgnoreCase("FkVIP_Injest_Profile")) {
 			System.out.println(statusCode);
 			if(statusCode!=200) {
@@ -4021,6 +4255,37 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			String message = jsonPathEvaluator.getString("status");
 			System.out.println(message);
 			if(!message.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Account_Service_Update_Personal_Details")) {
+			System.out.println(statusCode);
+			if(statusCode!=200) {
+				Assert.assertTrue(false);
+			}
+			String message = jsonPathEvaluator.getString("status");
+			System.out.println(message);
+			if(!message.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Account_Service_Update_Personal_Details_WithoutCookie")) {
+			System.out.println(statusCode);
+
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("cookie not found")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("Account_Service_Update_Personal_Details_InvalidCookie")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("INVALID_COOKIE_PASSED")) {
 				Assert.assertTrue(false);
 			}
 		}
@@ -6375,8 +6640,6 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		}
 
 
-
-
 		else if(Type.equalsIgnoreCase("AccountsInfoAPI_BasedonUserId")) {
 
 			if(statusCode!=200) {
@@ -6393,6 +6656,26 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 				}
 			}
 
+		}
+
+		return resp;
+	}
+
+
+	public Response ErrorValidation(Response resp, String Type) {
+		Reporter.log("Response body " + Type + " : " + resp.body().asString());
+		int statusCode = resp.getStatusCode();
+		Reporter.log("statusCode: " + statusCode);
+		JsonPath jsonPathEvaluator = resp.jsonPath();
+
+		if(Type.equalsIgnoreCase("Account_Service_AccountExitsAPI_InValid")) {
+
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("status");
+			System.out.println(message);
+			if(!message.contains("FAILURE")) {
+				Assert.assertTrue(false);
+			}
 		}
 
 		return resp;
