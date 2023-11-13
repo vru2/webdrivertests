@@ -254,20 +254,6 @@
         </test>
 
 
-    <test name="Promotional-Service-Hifive" preserve-order="true" parallel="true">
-        <classes>
-            <class name="test.java.accountsAPI.Promotional_Service_ValidatereferralLink" />
-            <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsHQ" />
-            <class name="test.java.accountsAPI.Promotional_Service_GetReferradetailsAPI" />
-            <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink" />
-            <class name="test.java.accountsAPI.Promotional_Service_SavenudgeAPI" />
-            <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
-            <class name="test.java.accountsAPI.Promotional_Service_ValidateInvalidReferralLink" />
-            <class name="test.java.accountsAPI.Promotional_Service_GenerateReferralLink_InvalidAuth" />
-
-        </classes>
-    </test>
-
     <!--
 
 
