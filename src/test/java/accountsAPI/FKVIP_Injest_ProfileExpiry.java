@@ -4,9 +4,8 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.testng.annotations.*;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 
-public class FK_Injest_ProfileExpiry extends AccountsCommon_API {
+public class FKVIP_Injest_ProfileExpiry extends AccountsCommon_API {
 
     @Test
     public void FK_Injest_ProfileExpiry()  throws IOException, JSONException {

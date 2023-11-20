@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
-public class AS_Caching_Userprofilejson_ID extends AccountsCommon_API
+public class AS_Userprofile_Caching_Json_ID extends AccountsCommon_API
 {
 	@Test
 	public void Account_Service_Caching_Userprofilejson_ID() throws IOException, JSONException{

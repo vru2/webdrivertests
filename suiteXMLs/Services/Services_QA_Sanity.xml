@@ -90,7 +90,7 @@
 	<test name="Account-service-Caching-userprofile" parallel="true">
 		<classes>
 			
-			<class name="test.java.accountsAPI.AS_Update_User" />
+			<class name="test.java.accountsAPI.AS_Userprofile_User" />
 		</classes>
 
 	</test>

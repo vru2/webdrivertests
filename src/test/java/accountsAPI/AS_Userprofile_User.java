@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
-public class AS_Update_User extends AccountsCommon_API
+public class AS_Userprofile_User extends AccountsCommon_API
 {
 
 	@Test

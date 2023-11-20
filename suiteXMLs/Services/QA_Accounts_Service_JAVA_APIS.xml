@@ -38,7 +38,7 @@
     <test name="FK VIP" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.FkVIP_Injest_Profile"/>
-            <class name="test.java.accountsAPI.FK_Injest_ProfileExpiry"/>
+            <class name="test.java.accountsAPI.FKVIP_Injest_ProfileExpiry"/>
             <class name="test.java.accountsAPI.FKVIP_Discovery_API"/>
             <class name="test.java.accountsAPI.FKVIP_Discovery_API_WithOutFilter"/>
             <class name="test.java.accountsAPI.FKVIP_InValid_RedeemAPI"/>
@@ -212,9 +212,9 @@
 
         <test name="User Profile" preserve-order="true" parallel="true">
             <classes>
-                <class name="test.java.accountsAPI.AS_Caching_Userprofilejson_Email" />
-                <class name="test.java.accountsAPI.AS_Caching_Userprofilejson_ID" />
-                <class name="test.java.accountsAPI.AS_Update_User" />
+                <class name="test.java.accountsAPI.AS_Userprofile_Caching_Json_Email" />
+                <class name="test.java.accountsAPI.AS_Userprofile_Caching_Json_ID" />
+                <class name="test.java.accountsAPI.AS_Userprofile_User" />
             </classes >
         </test>
 
@@ -233,8 +233,8 @@
                 <class name="test.java.accountsAPI.AS_AppleSignin" />
                 <class name="test.java.accountsAPI.AS_AppleSignin_uniqueId" />
                 <class name="test.java.accountsAPI.AS_AppleSignin_Entity" />
-                <class name="test.java.accountsAPI.AS_AppleRegister_NullEmail" />
                 <class name="test.java.accountsAPI.AS_AppleSignin_WrapperAPI" />
+                <class name="test.java.accountsAPI.AS_AppleRegister_NullEmail" />
             </classes>
 
         </test>
