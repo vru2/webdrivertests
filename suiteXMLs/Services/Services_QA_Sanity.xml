@@ -57,7 +57,7 @@
 	<test name="Accounts-Service-PWA" parallel="true">
 		<classes>
 			
-			<class name="test.java.accountsAPI.Account_Service_PWA_SignIn_API" />
+			<class name="test.java.accountsAPI.AS_PWA_SignIn_API" />
 		</classes>
 	</test>
 	
@@ -81,7 +81,7 @@
 
 	<test name="Account-service-Controllers" parallel="true">
 		<classes>
-			<class name="test.java.accountsAPI.Account_Service_FlyinV2_Signin" />
+			<class name="test.java.accountsAPI.AS_FlyinV2_Signin" />
 			
 
 		</classes>
@@ -90,14 +90,14 @@
 	<test name="Account-service-Caching-userprofile" parallel="true">
 		<classes>
 			
-			<class name="test.java.accountsAPI.Account_Service_Update_User" />
+			<class name="test.java.accountsAPI.AS_Update_User" />
 		</classes>
 
 	</test>
 
 	<test name="Account-service-Apple-Signin" parallel="true">
 		<classes>
-			<class name="test.java.accountsAPI.Account_Service_AppleSignin" />
+			<class name="test.java.accountsAPI.AS_AppleSignin" />
 			
 		</classes>
 

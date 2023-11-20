@@ -14,8 +14,8 @@
 
 			<class name="test.java.accountsAPI.Flyin_Regression_Partner_user_search" />
 			<class name="test.java.accountsAPI.Flyin_Regression_Partner_Social_signup" />
-			<class name="test.java.accountsAPI.Account_Service_Flyin_ForgotPassword" />
-			<class name="test.java.accountsAPI.Account_Service_Travellercontroller_UpdateTraveller_FlyRegression" />
+			<class name="test.java.accountsAPI.AS_Flyin_ForgotPassword" />
+			<class name="test.java.accountsAPI.AS_Travellercontroller_UpdateTraveller_FlyRegression" />
 
 		</classes>
 	</test>
