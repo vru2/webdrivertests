@@ -1,6 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Accounts Service JAVA API " parallel="tests" thread-count="1">
-
+<suite name="Accounts Service " parallel="tests" thread-count="1">
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -64,7 +63,7 @@
         </classes>
     </test>
 
-    <test name="Promotional Services" preserve-order="true" parallel="true">
+    <test name="Promotional Service" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.Promotional_Service_healthTestAPI" />
             <class name="test.java.accountsAPI.Promotional_Service_GetReferralhistory" />
@@ -123,7 +122,6 @@
             </classes>
         </test>
 
-
     <test name="Flyin" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.AS_FlyinV2_Signin" />
@@ -172,7 +170,6 @@
         </classes>
     </test>
 
-
     <test name="CFW" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.AS_CFW_GetUserStatus" />
@@ -218,7 +215,7 @@
             </classes >
         </test>
 
-        <test name="Signin Unauthorized" preserve-order="true" parallel="true">
+        <test name="Unauthorized Signin" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.AS_Unauthorized_Applesignin" />
                 <class name="test.java.accountsAPI.AS_Unauthorized_CleartripV2_Signin" />
@@ -236,8 +233,8 @@
                 <class name="test.java.accountsAPI.AS_AppleSignin_WrapperAPI" />
                 <class name="test.java.accountsAPI.AS_AppleRegister_NullEmail" />
             </classes>
-
         </test>
+
         <test name="Deposit Account" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.AS_DA_Fetchcompany_DA_ID" />
@@ -245,8 +242,8 @@
                 <class name="test.java.accountsAPI.AS_DA_Search_Withlinkedparam" />
                 <class name="test.java.accountsAPI.AS_DA_Link_DepositAccount" />
             </classes>
-
         </test>
+
         <test name="GST Details" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.AS_GSTV2_SearchAPIwithGstNo" />
@@ -259,7 +256,7 @@
             </classes>
         </test>
 
-        <test name="Flipkart Accounts-Service" preserve-order="true" parallel="true">
+        <test name="FK Accounts-Service" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.AS_FK_CreateUser" />
                 <class name="test.java.accountsAPI.AS_FK_ExistingUser" />
