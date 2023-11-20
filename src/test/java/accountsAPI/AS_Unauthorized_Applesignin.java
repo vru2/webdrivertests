@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
-public class AS_Applesignin_Unauthorized extends AccountsCommon_API
+public class AS_Unauthorized_Applesignin extends AccountsCommon_API
 {
 	
 		@Test

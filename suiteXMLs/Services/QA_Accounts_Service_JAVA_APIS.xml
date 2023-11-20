@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Accounts Service JAVA API - BB" parallel="tests" thread-count="1">
+<suite name="Accounts Service JAVA API " parallel="tests" thread-count="1">
 
 
 	<listeners>
@@ -9,19 +9,19 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
 
-    <test name="ProfileRevamp" preserve-order="true" parallel="true">
+    <test name="Profile Update" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.AS_Update_GST_Details" />
             <class name="test.java.accountsAPI.AS_Update_GST_Details_InvalidCookie" />
             <class name="test.java.accountsAPI.AS_Update_Personal_Details" />
             <class name="test.java.accountsAPI.AS_Update_GST_Details_InValidGST" />
-            <class name="test.java.accountsAPI.Account_Service_Update_GST_Details_WithoutCookie" />
+            <class name="test.java.accountsAPI.AS_Update_GST_Details_WithoutCookie" />
             <class name="test.java.accountsAPI.AS_Update_Personal_Details_InvalidCookie" />
             <class name="test.java.accountsAPI.AS_Update_Personal_Details_WithoutCookie" />
         </classes>
     </test>
 
-    <test name="Floater APIS" preserve-order="true" parallel="true">
+    <test name="Floater" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.Floater_Get_FloaterBy_SlotID"/>
             <class name="test.java.accountsAPI.Floater_Get_FloaterBy_SlotID_Invalid"/>
@@ -123,41 +123,74 @@
             </classes>
         </test>
 
-        <test name="Controllers" preserve-order="true" parallel="true">
+
+    <test name="Flyin" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.AS_FlyinV2_Signin" />
+            <class name="test.java.accountsAPI.AS_FlyinV2_Signin_CleartripUser" />
+            <class name="test.java.accountsAPI.AS_FlyinV2_Signin_FlyinUser" />
+            <class name="test.java.accountsAPI.AS_FlyinV2_SignUP" />
+            <class name="test.java.accountsAPI.AS_FlyinV2_SocialSignup" />
+            <class name="test.java.accountsAPI.AS_FlyinV2_UserSearch" />
+            <class name="test.java.accountsAPI.AS_Flyin_ForgotPassword" />
+            <class name="test.java.accountsAPI.AS_Flyin_ResetPassword" />
+            <class name="test.java.accountsAPI.AS_Flyin_Signin" />
+            <class name="test.java.accountsAPI.AS_Flyin_Signup" />
+            <class name="test.java.accountsAPI.AS_Flyin_Social_Signup" />
+            <class name="test.java.accountsAPI.AS_FLYIN_User_Update" />
+            <class name="test.java.accountsAPI.AS_FlyinUser_GSTdetailsUpdate" />
+            <class name="test.java.accountsAPI.AS_Flyin_DOCdetails_update" />
+            <class name="test.java.accountsAPI.Flyin_Regression_Partner_user_search" />
+            <class name="test.java.accountsAPI.Flyin_Regression_Partner_Social_signup" />
+            <class name="test.java.accountsAPI.AS_Flyin_ForgotPassword" />
+            <class name="test.java.accountsAPI.AS_RegisterFlyinUserUpdate_OTPValidation" />
+            <class name="test.java.accountsAPI.AS_RegisterFLyinUserUpdate_WithoutOTP" />
+        </classes>
+    </test>
+
+    <test name="User Search" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.AS_UserSearch" />
+        </classes>
+    </test>
+
+
+    <test name="Partner Controller" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.AS_Partnercontroller_UpdateTraveller" />
+            <class name="test.java.accountsAPI.AS_Partnercontroller_Usersearch" />
+        </classes>
+    </test>
+
+    <test name="People Controller" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.AS_Peoplecontroller_GetuserByEmail" />
+            <class name="test.java.accountsAPI.AS_Peoplecontroller_GetuserById" />
+            <class name="test.java.accountsAPI.AS_People_UpdateUserRoles" />
+            <class name="test.java.accountsAPI.AS_Peoplecontroller_GetuserById_V2" />
+            <class name="test.java.accountsAPI.AS_Peoplecontroller_FindByID" />
+        </classes>
+    </test>
+
+
+    <test name="CFW" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.AS_CFW_GetUserStatus" />
+            <class name="test.java.accountsAPI.AS_CFW_StatusUpdateCall" />
+        </classes>
+    </test>
+
+    <test name="Controllers" preserve-order="true" parallel="true">
             <classes>
-                <class name="test.java.accountsAPI.AS_FlyinV2_Signin" />
-                <class name="test.java.accountsAPI.AS_FlyinV2_Signin_CleartripUser" />
-                <class name="test.java.accountsAPI.AS_FlyinV2_Signin_FlyinUser" />
-                <class name="test.java.accountsAPI.AS_FlyinV2_SignUP" />
-                <class name="test.java.accountsAPI.AS_FlyinV2_SocialSignup" />
-                <class name="test.java.accountsAPI.AS_FlyinV2_UserSearch" />
-                <class name="test.java.accountsAPI.AS_Flyin_ForgotPassword" />
-                <class name="test.java.accountsAPI.AS_Flyin_ResetPassword" />
-                <class name="test.java.accountsAPI.AS_Flyin_Signin" />
-                <class name="test.java.accountsAPI.AS_Flyin_Signup" />
-                <class name="test.java.accountsAPI.AS_Flyin_Social_Signup" />
-                <class name="test.java.accountsAPI.AS_UserSearch" />
-                <class name="test.java.accountsAPI.AS_Partnercontroller_UpdateTraveller" />
-                <class name="test.java.accountsAPI.AS_Partnercontroller_Usersearch" />
-                <class name="test.java.accountsAPI.AS_FLYIN_User_Update" />
                 <class name="test.java.accountsAPI.AS_DOCdetailsUpdate_cleartripuser" />
-                <class name="test.java.accountsAPI.AS_FlyinUser_GSTdetailsUpdate" />
-                <class name="test.java.accountsAPI.AS_Flyin_DOCdetails_update" />
-                <class name="test.java.accountsAPI.AS_Peoplecontroller_GetuserByEmail" />
-                <class name="test.java.accountsAPI.Account_Service_Peoplecontroller_GetuserById" />
-                <class name="test.java.accountsAPI.AS_People_UpdateUserRoles" />
                 <class name="test.java.accountsAPI.AS_CreateWalletAPI" />
-                <class name="test.java.accountsAPI.AS_RegisterFlyinUserUpdate_OTPValidation" />
-                <class name="test.java.accountsAPI.AS_RegisterFLyinUserUpdate_WithoutOTP" />
                 <class name="test.java.accountsAPI.AS_RegisteredCltp_UserUpdate_WithoutOTP" />
                 <class name="test.java.accountsAPI.AS_SendOTP_ToUsermobileNo" />
                 <class name="test.java.accountsAPI.AS_Verify_Person" />
                 <class name="test.java.accountsAPI.AS_Mongo_CacheReset" />
                 <class name="test.java.accountsAPI.AS_Travellercontroller_UpdateTraveller" />
-                <class name="test.java.accountsAPI.AS_Peoplecontroller_GetuserById_V2" />
                 <class name="test.java.accountsAPI.AS_EmailVerification_API" />
                 <class name="test.java.accountsAPI.AS_AuthorizeAPI_encodingCookie" />
-                <class name="test.java.accountsAPI.AS_Peoplecontroller_FindByID" />
                 <class name="test.java.accountsAPI.AS_Express_Checkout" />
                 <class name="test.java.accountsAPI.AS_Cleartrip_MultipleTraveller_Updatecall" />
                 <class name="test.java.accountsAPI.AS_FetchPersonalData" />
@@ -166,8 +199,6 @@
                 <class name="test.java.accountsAPI.AS_AuthforNonLoggedinUser" />
                 <class name="test.java.accountsAPI.AS_AuthforNonLoggedinUser_HotelTrip" />
                 <class name="test.java.accountsAPI.AS_FetchCustomer_number" />
-                <class name="test.java.accountsAPI.AS_CFW_GetUserStatus" />
-                <class name="test.java.accountsAPI.AS_CFW_StatusUpdateCall" />
                 <class name="test.java.accountsAPI.AS_FetchContactData" />
                 <class name="test.java.accountsAPI.AS_Cleartrip_ResetPassword" />
                 <class name="test.java.accountsAPI.AS_Cleartrip_confirmedtravlerwithActivestatus" />
@@ -175,6 +206,7 @@
                 <class name="test.java.accountsAPI.AS_GetuserdetailsbyAPIKey" />
                 <class name="test.java.accountsAPI.AS_UserExistence_withEmailIDandDomain" />
                 <class name="test.java.accountsAPI.AS_UserExistence_withID" />
+                <class name="test.java.accountsAPI.AS_Travellercontroller_UpdateTraveller_FlyRegression" />
             </classes>
         </test>
 
@@ -186,12 +218,12 @@
             </classes >
         </test>
 
-        <test name="Signin Un authorized" preserve-order="true" parallel="true">
+        <test name="Signin Unauthorized" preserve-order="true" parallel="true">
             <classes>
-                <class name="test.java.accountsAPI.AS_Applesignin_Unauthorized" />
-                <class name="test.java.accountsAPI.AS_CleartripV2_Signin_Unauthorized" />
-                <class name="test.java.accountsAPI.AccountsService_FlyinV2Signin_Unauthorized" />
-                <class name="test.java.accountsAPI.IdentityService_Signin_Unauthorized" />
+                <class name="test.java.accountsAPI.AS_Unauthorized_Applesignin" />
+                <class name="test.java.accountsAPI.AS_Unauthorized_CleartripV2_Signin" />
+                <class name="test.java.accountsAPI.AS_Unauthorized_FlyinV2Signin" />
+                <class name="test.java.accountsAPI.IdentityService_Unauthorized_Signin" />
                 <class name="test.java.accountsAPI.IdentityService_Signin_UsernotPresent" />
             </classes>
         </test>
@@ -208,10 +240,10 @@
         </test>
         <test name="Deposit Account" preserve-order="true" parallel="true">
             <classes>
-                <class name="test.java.accountsAPI.AS_FetchcompanyBy_depositaccountID" />
-                <class name="test.java.accountsAPI.AS_Depositaccountsearch_WOTlinkedparam" />
-                <class name="test.java.accountsAPI.AS_Depositaccountsearch_Withlinkedparam" />
-                <class name="test.java.accountsAPI.AS_LinkDepositAccount" />
+                <class name="test.java.accountsAPI.AS_DA_Fetchcompany_DA_ID" />
+                <class name="test.java.accountsAPI.AS_DA_Search_With_Linkable_Type" />
+                <class name="test.java.accountsAPI.AS_DA_Search_Withlinkedparam" />
+                <class name="test.java.accountsAPI.AS_DA_Link_DepositAccount" />
             </classes>
 
         </test>
@@ -227,15 +259,7 @@
             </classes>
         </test>
 
-        <test name="Flyin AND COMM -Regression Cases" preserve-order="true" parallel="true">
-            <classes>
-                <class name="test.java.accountsAPI.Flyin_Regression_Partner_user_search" />
-                <class name="test.java.accountsAPI.Flyin_Regression_Partner_Social_signup" />
-                <class name="test.java.accountsAPI.AS_Flyin_ForgotPassword" />
-                <class name="test.java.accountsAPI.AS_Travellercontroller_UpdateTraveller_FlyRegression" />
-            </classes>
-        </test>
-        <test name="Flipkart-Accounts-Service" preserve-order="true" parallel="true">
+        <test name="Flipkart Accounts-Service" preserve-order="true" parallel="true">
             <classes>
                 <class name="test.java.accountsAPI.AS_FK_CreateUser" />
                 <class name="test.java.accountsAPI.AS_FK_ExistingUser" />

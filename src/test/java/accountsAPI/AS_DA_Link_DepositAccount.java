@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
-public class AS_LinkDepositAccount extends AccountsCommon_API
+public class AS_DA_Link_DepositAccount extends AccountsCommon_API
 {
 	@Test
 	public void linkdepositaccount() throws IOException, JSONException{

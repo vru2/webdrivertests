@@ -6,9 +6,8 @@ import org.json.JSONException;
 import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 
-public class IdentityService_Signin_Unauthorized extends AccountsCommon_API
+public class IdentityService_Unauthorized_Signin extends AccountsCommon_API
 {
 
 	@Test

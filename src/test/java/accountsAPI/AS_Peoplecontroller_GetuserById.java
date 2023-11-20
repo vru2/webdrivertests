@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 
-public class Account_Service_Peoplecontroller_GetuserById  extends AccountsCommon_API
+public class AS_Peoplecontroller_GetuserById  extends AccountsCommon_API
 {
 	@Test
 	public void peoplecontroller_getuserbyid() throws IOException, JSONException{
