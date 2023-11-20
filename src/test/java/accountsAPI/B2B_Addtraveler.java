@@ -7,24 +7,19 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
-public class B2BgetTravelerdetails extends AccountsCommon_API
-
+public class B2B_Addtraveler extends AccountsCommon_API
 {
 
 	@Test
-	public void b2bAddTraveler() throws IOException, JSONException{
+	public void b2bAddtraveler() throws IOException, JSONException{
 		Response resp ;		
-		resp =getCall("b2bgetTravelerURL", "");
-		validation( resp, "b2bgetTravelerURL", "");
-		/*
-
+		resp =postCall("b2bAddtraveler","");
+		System.out.println(resp.asString());
+		validation( resp, "b2bAddtraveler", "");
+/*
 		ResponseBody body = resp.getBody();
 		System.out.println("Response of API is:" + body.asString());*/
-		
-		
-		
-	}
-
 	
 	
+}
 }
