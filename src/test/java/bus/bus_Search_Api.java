@@ -12,10 +12,12 @@ public class bus_Search_Api extends bus_Common_API {
 	String search_id = null;
 	@Test
 	public void Bus__Search() throws Exception {
-		Response resp ;		
+		Response resp ;
 		resp = busGet("Search",SRP_Date(10));
 		validation("Search", resp);
 	}
+
+
 
 /*	@Test
 	public void Bus_Chart() throws Exception {

@@ -3580,7 +3580,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 
 
 		if(payType.equals("EMI_Juspay_GetPlans")) {
-			if(!resp.body().asString().contains("offer_MXub89rjoAnoqy")){
+			if(!resp.body().asString().contains("emiPlanGatewayMapping")){
 				Assert.assertTrue(false);
 			}
 			JsonPath j = new JsonPath(resp.asString());
