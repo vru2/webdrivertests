@@ -8,6 +8,21 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners>
 
+
+    <test name="Session maintenance" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.AS_Fetch_details_api"/>
+            <class name="test.java.accountsAPI.AS_Fetch_details_api_Invalid"/>
+        </classes>
+    </test>
+
+    <test name="update Apis" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.AS_update_company_profile"/>
+            <class name="test.java.accountsAPI.AS_update_contact_data"/>
+        </classes>
+    </test>
+
     <test name="Profile Update" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.AS_Update_GST_Details" />

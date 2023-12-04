@@ -243,7 +243,12 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_Update_GST_Details = "accounts/external-api/gst";
 
+	String url_Update_contact_data = "account/people/v2/update/contactData?userId=65214457";
+
+	String url_Update_User_profile = "/company/v2/update/131304";
+
 	String url_FKVIP_Injest_Profile = "/ingest/v1/flipkart/profile";
+
 
 	String url_FKVIP_Discover_API = "/cohort/v1/benefits/191121006/fetch";
 
@@ -270,6 +275,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_Promotional_Service_GetConfigAPI="resource/stageConfig";
 
 	String url_Promotional_Service_Getreferralhistory="/referral/history?action=HI_FIVE&peopleId=65261422";
+
+	String url_Fetch_details = "people/v2/fetch/details";
 
 	String url_Promotional_Service_RefreshStageConfig="/resource/refresh/stageConfig?programType=HI_FIVE";
 
@@ -346,6 +353,80 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"  \"gstHolderStateName\": \"okok\"\n" +
 			"}\n";
 
+	String params_Update_Contact_Data = "{\n" +
+			"    \"userId\": 65214024,\n" +
+			"    \"contactData\": {\n" +
+			"        \"phoneNumbers\": [\n" +
+			"            {\n" +
+			"                \"mobileNumber\": \"9899889889\",\n" +
+			"                \"category\": \"mobile\"\n" +
+			"            }\n" +
+			"        ],\n" +
+			"        \"addresses\": [\n" +
+			"            {\n" +
+			"               \"city\": \"vijayawada\",\n" +
+			"                \"cityId\": 1111,\n" +
+			"                \"country\": \"India\",\n" +
+			"                \"countryId\": 1111,\n" +
+			"                \"pincode\": \"123456\",\n" +
+			"                \"state\": \"maharashtra\",\n" +
+			"                \"stateId\": 1111,\n" +
+			"                \"streetAddress\":\"street\",\n" +
+			"                \"category\": \"test\",\n" +
+			"                \"seqNo\": \"1\"\n" +
+			"            },\n" +
+			"            {\n" +
+			"                \"city\": \"bangalore\",\n" +
+			"                \"country\": \"India\",\n" +
+			"                \"pincode\": \"505505\",\n" +
+			"                \"state\": \"karnataka\",\n" +
+			"                \"streetAddress\": \"jpnagar\",\n" +
+			"                \"category\": \"home\"\n" +
+			"            }\n" +
+			"        ],\n" +
+			"        \"emails\": [\n" +
+			"            {\n" +
+			"                \"emailId\": \"temp@test.com\",\n" +
+			"                \"category\": \"work\",\n" +
+			"                   \"seqNo\": 11\n" +
+			"            },\n" +
+			"            {\n" +
+			"                \n" +
+			"                \"emailId\": \"okok@test.com\",\n" +
+			"                \"category\": \"work\",\n" +
+			"                   \"seqNo\": 11\n" +
+			"            }\n" +
+			"        ],\n" +
+			"        \"otherDetails\": [\n" +
+			"            {\n" +
+			"                \"category\": \"chat\",\n" +
+			"                \"name\": \"yahoo\",\n" +
+			"                \"value\": \"testChat\",\n" +
+			"                \"seqNo\": 12\n" +
+			"            },\n" +
+			"            {\n" +
+			"                  \n" +
+			"                \"category\": \"test\",\n" +
+			"                \"name\": \"hi\",\n" +
+			"                \"value\": \"testChat\",\n" +
+			"                \"seqNo\": 12\n" +
+			"            }\n" +
+			"        ],\n" +
+			"        \"websites\": [\n" +
+			"            {\n" +
+			"                \"category\": \"work\",\n" +
+			"                \"url\": \"www.work.com\",\n" +
+			"                \"seqNo\": 11\n" +
+			"            },\n" +
+			"             {\n" +
+			"                \"category\": \"work\",\n" +
+			"                \"url\": \"http://test.work.com\",\n" +
+			"                \"seqNo\": 11\n" +
+			"            }\n" +
+			"        ]\n" +
+			"    }\n" +
+			"}";
+
 	String params_Update_Invalid_GST_Details = "{\n" +
 			"   \"id\": 21257,\n" +
 			"  \"gstNumber\": \"2AAAAA1111A1A0\",\n" +
@@ -353,6 +434,129 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"  \"gstHolderAddress\": \"okok\",\n" +
 			"  \"gstHolderStateCode\": \"1111\",\n" +
 			"  \"gstHolderStateName\": \"okok\"\n" +
+			"}\n";
+
+	String params_Update_Profile_Data = "{\n" +
+			"    \"about\": \"tree1\",\n" +
+			"    \"address1\": \"treesiv\",\n" +
+			"    \"address2\": \"treesiv\",\n" +
+			"    \"annualTravelBudget\": \"21\",\n" +
+			"    \"channelType\": \"1\",\n" +
+			"    \"city\": \"treesiv\",\n" +
+			"    \"companyWebsite\": \"http://treesiv.cltp.com\",\n" +
+			"    \"country\": \"India\",\n" +
+			"    \"custServiceEmail\": \"treesiv@gmail.com\",\n" +
+			"    \"custServicePhone\": \"1234567890\",\n" +
+			"    \"effectiveFrom\": \"2011-12-08\",\n" +
+			"    \"effectiveTo\": \"2033-12-08\",\n" +
+			"    \"groupName\": \"treesiv\",\n" +
+			"    \"name\": \"treesiv\",\n" +
+			"    \"panCardDetails\": \"treesiv\",\n" +
+			"    \"serviceNo\": \"1\",\n" +
+			"    \"siteDescription\": \"treesiv\",\n" +
+			"    \"siteName\": \"treesiv\",\n" +
+			"    \"state\": \"treesiv\",\n" +
+			"    \"status\": \"1\",\n" +
+			"    \"tinNumber\": \"ATN1234\",\n" +
+			"    \"zip\": \"treesiv\",\n" +
+			"    \"contactData\": {\n" +
+			"        \"phoneNumbers\": [\n" +
+			"            {\n" +
+			"                   \"mobileNumber\": \"111111\",               \n" +
+			"                \"mobileCountryCode\": \"9198\",\n" +
+			"                \"category\": \"mobile\",\n" +
+			"                \"phoneNumberValue\": \"1\",\n" +
+			"                \"seqNo\": \"1\"\n" +
+			"            },\n" +
+			"            {\n" +
+			"                   \"mobileNumber\": \"122222222\",               \n" +
+			"                \"mobileCountryCode\": \"+481\",\n" +
+			"                \"category\": \"mobile\",\n" +
+			"                \"phoneNumberValue\": \"1\",\n" +
+			"                \"seqNo\": \"1\"\n" +
+			"            }\n" +
+			"             \n" +
+			"            \n" +
+			"        ],\n" +
+			"        \"whatsappDetails\": [\n" +
+			"            {\n" +
+			"               \n" +
+			"                \"mobileNumber\": \"0000000\",\n" +
+			"                \"status\": \"A\"\n" +
+			"            },\n" +
+			"             {\n" +
+			"                \"mobileNumber\": \"2222\",\n" +
+			"                \"status\": \"B\"\n" +
+			"            }\n" +
+			"        ],\n" +
+			"        \"addresses\": [\n" +
+			"           \n" +
+			"            {\n" +
+			"                \"city\": \"vijayawada\",\n" +
+			"                \"cityId\": null,\n" +
+			"                \"country\": \"India\",\n" +
+			"                \"countryId\": null,\n" +
+			"                \"pincode\": \"123456\",\n" +
+			"                \"state\": \"maharashtra\",\n" +
+			"                \"stateId\": null,\n" +
+			"                \"streetAddress\":\"street\",\n" +
+			"                \"category\": \"test\",\n" +
+			"                \"seqNo\": \"1\"\n" +
+			"            },\n" +
+			"              {\n" +
+			"                \"city\": \"vja\",\n" +
+			"                \"cityId\": null,\n" +
+			"                \"country\": \"India\",\n" +
+			"                \"countryId\": null,\n" +
+			"                \"pincode\": \"123456\",\n" +
+			"                \"state\": \"maharashtra\",\n" +
+			"                \"stateId\": null,\n" +
+			"                \"streetAddress\":\"street\",\n" +
+			"                \"category\": \"test\",\n" +
+			"                \"seqNo\": \"1\"\n" +
+			"            }\n" +
+			"\n" +
+			"        ],\n" +
+			"        \"emails\": [\n" +
+			"            \n" +
+			"             {\n" +
+			"                 \"id\":9804604,\n" +
+			"                \"emailId\": \"ooooooo@aa.com\",\n" +
+			"                \"category\": \"test\",\n" +
+			"                \"seqNo\": null\n" +
+			"            }\n" +
+			"        ],\n" +
+			"        \"otherDetails\": [\n" +
+			"            {\n" +
+			"                \"category\": \"testqa\",\n" +
+			"                \"seqNo\": \"1\",\n" +
+			"                \"name\": \"testqa\",\n" +
+			"                \"value\": \"testqa\"\n" +
+			"            }\n" +
+			"        ],\n" +
+			"        \"websites\": [\n" +
+			"           \n" +
+			"            {\n" +
+			"                \"category\": \"Atest\",\n" +
+			"                \"seqNo\": 4,\n" +
+			"                \"url\": \"http://qa2.cleartrip.com\"\n" +
+			"            }\n" +
+			"        ]\n" +
+			"    },\n" +
+			"    \"companyConfigs\": [\n" +
+			"        {\n" +
+			"            \"configName\": \"test12345\",\n" +
+			"            \"configValue\": \"test123456\",\n" +
+			"            \"createdBy\": null,\n" +
+			"            \"updatedBy\": null\n" +
+			"        }\n" +
+			"    ],\n" +
+			"    \"depositAccounts\": [\n" +
+			"        \n" +
+			"        {\n" +
+			"            \"id\": 11111110\n" +
+			"        }\n" +
+			"    ]\n" +
 			"}\n";
 
 	String params_FKVIP_injest_profile= "{\n" +
@@ -502,7 +706,13 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"    }\n" +
 			"}";
 
-	String params_Account_Service_MobileLogin_sendOTP_SIGNIN="{\"type\":\"MOBILE\",\"value\":\"7799964888\",\"countryCode\":\"+91\",\"action\":\"SIGNIN\"}";
+	String params_Account_Service_MobileLogin_sendOTP_SIGNIN="{\n" +
+			"  \"type\": \"MOBILE\",\n" +
+			"  \"value\": \"1111022299\",\n" +
+			"  \"countryCode\": \"+91\",\n" +
+			"  \"action\": \"SIGNIN\"\n" +
+			"}\n" +
+			"\n";
 	String params_Account_Service_MobileLogin_sendOTP_UPDATE_MOBILE="{\"type\":\"MOBILE\",\"value\":\"7799964888\",\"countryCode\":\"+91\",\"action\":\"UPDATE_MOBILE\"}";
 	String params_Account_Service_MobileLogin_sendEmail_SIGNUP_MERGE="{\"type\":\"EMAIL\",\"value\":\"ns.likhitha@cleartrip.com\",\"action\":\"SIGNUP_MERGE\"}";
 	String params_Identity_service_RecaptchaAPI="";
@@ -673,6 +883,25 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("Content-Type", "application/json");
 		return headers;
 	}
+
+	public HashMap<String, Object> UpdateUserData(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "*/*");
+		headers.put("caller", "test");
+		headers.put("AUTH_KEY", "7GHT#@D65yhgder4R");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+	public HashMap<String, Object> UpdateUserProfile(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "*/*");
+		headers.put("caller", "b2c");
+		headers.put("AUTH_KEY", "7GHT#@D65yhgder4R1234");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
 	public HashMap<String, Object> InvalidCookieGST(){
 		HashMap<String, Object> headers = new HashMap<>();
 		headers.put("accept", "*/*");
@@ -1007,9 +1236,29 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("accept", "*/*");
 		headers.put("caller", "test");
 		headers.put("referer", "qa2new.cleartrip.com");
-
 		return headers;
 	}
+
+	public HashMap<String, Object> headersForFetchdetails(){
+		HashMap<String, Object> headers = new HashMap<>();
+
+		headers.put("accept", "application/json");
+		headers.put("caller", "b2c");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("cookie","ct-dvId=3iAabvmskTN2monK2E9Z90rB%2BG0ENKr5Xkt4dyYT4PYTDTdWv8xIufeL2o6HUUx4%2BRsI4pgsvS7%2Bi%2BqgaYOad7AX1H9ENzOipl5A8GUG%2BUM%3D;ct-auth=maxgeOBa83Q0gXVN9ViJh7CeLasHd7PDYNIY3BVKHCa96ZaI5cD1rZaJhxBn7ecuvdb22kmKGrhj2VAI20AltrABAF8SR%2BYjh0LJNisiNwQCMwMYGu%2Bvx3fHDXHnbJtzwh%2FUBkbF9StbS9TM02g%2Fzp29nfHldR7dUIiSF8s0onwEi5u%2BJXnXLue%2FmvX6mHcucPq7k%2FbhYQG%2FoqcwrNkguQ%3D%3D");
+		return headers;
+	}
+
+	public HashMap<String, Object> headersForFetchdetailsInvalid(){
+		HashMap<String, Object> headers = new HashMap<>();
+
+		headers.put("accept", "application/json");
+		headers.put("caller", "b2c");
+		headers.put("referer", "qa2new.cleartrip.com");
+		return headers;
+	}
+
+
 	public HashMap<String, Object>headersFormpromotionalgetreferraldetailsinvalid (){
 		HashMap<String, Object> headers = new HashMap<>();
 	
@@ -1287,11 +1536,11 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 	}
 	public HashMap<String, Object> headersForms_MobileLoginsendotpwithappagent(){
 		HashMap<String, Object> headers = new HashMap<>();
-		headers.put("Content-Type", "application/json");
-		headers.put("referer", "www.cleartrip.com");
-		headers.put("Accept", "*/*");
+		headers.put("ab-otp", "B");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("accept", "*/*");
 		headers.put("caller", "b2c");
-		headers.put("app-agent", "AndroidApp");
+		headers.put("app-agent", "Android");
 		return headers;
 	}
 	
@@ -1828,9 +2077,25 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		}
 
+
+		if(Type.equals("AS_update_contact_data")) {
+			headers = UpdateUserData();
+			RestAssured.baseURI =url_Acct_Service;
+			url = url_Update_contact_data;
+			params =params_Update_Contact_Data;
+			Reporter.log(qaurl+url);
+		}
+
+		if(Type.equals("AS_update_company_profile")) {
+			headers = UpdateUserProfile();
+			RestAssured.baseURI =url_Acct_Service;
+			url = url_Update_User_profile;
+			params =params_Update_Profile_Data;
+			Reporter.log(qaurl+url);
+		}
+
 		if(Type.equals("Account_Service_Update_GST_Details")) {
 			headers = validCookieGST();
-
 			RestAssured.baseURI =qaurl;
 			url = url_Update_GST_Details;
 			params =params_Update_GST_Details;
@@ -3431,6 +3696,22 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			Reporter.log(url_Promotional_Service_domain+url);
 		}
 
+		else if (Type.equals("AS_Fetch_details_api")){
+
+			RestAssured.baseURI=qaurl;
+			url = url_Fetch_details;
+			headers = headersForFetchdetails();
+			Reporter.log(qaurl+url);
+		}
+
+		else if (Type.equals("AS_Fetch_details_api_Invalid")){
+
+			RestAssured.baseURI=qaurl;
+			url = url_Fetch_details;
+			headers = headersForFetchdetailsInvalid();
+			Reporter.log(qaurl+url);
+		}
+
 		else if (Type.equals("Promotional_Service_GetReferralhistory")){
 			RestAssured.baseURI=url_Promotional_Service_domain;
 			url = url_Promotional_Service_Getreferralhistory;
@@ -4185,16 +4466,35 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
 
-		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")||Type.equals("Floater_Add_Template_InvalidAPI")||Type.equals("Floater_Add_Template_DuplicateAPI")||Type.equals("Floater_Add_Template_WithoutBody")||Type.equals("Account_Service_Update_Personal_Details_InvalidCookie")||Type.equals("Account_Service_Update_Personal_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InValidGST")||Type.equals("Account_Service_Update_GST_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InvalidCookie"))
+		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")||Type.equals("Floater_Add_Template_InvalidAPI")||Type.equals("Floater_Add_Template_DuplicateAPI")||Type.equals("Floater_Add_Template_WithoutBody")||Type.equals("Account_Service_Update_Personal_Details_InvalidCookie")||Type.equals("Account_Service_Update_Personal_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InValidGST")||Type.equals("Account_Service_Update_GST_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InvalidCookie")||Type.equals("AS_Fetch_details_api_Invalid"))
 		{
-			if(statusCode!=400) {
+			 if(statusCode!=400) {
 				System.out.println(statusCode);
 				Assert.assertTrue(false);
 			}
+
 		}
 		else if(statusCode!=200){
 			System.out.println(statusCode);
 			Assert.assertTrue(false);
+		}
+
+		if(Type.equalsIgnoreCase("AS_update_contact_data")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("userId");
+			System.out.println(message);
+			if(!message.contains("65214024")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("AS_update_company_profile")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("id");
+			System.out.println(message);
+			if(!message.contains("131304")) {
+				Assert.assertTrue(false);
+			}
 		}
 
 		if(Type.equalsIgnoreCase("Account_Service_Update_GST_Details_InValidGST")) {
@@ -5552,13 +5852,34 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		else if(Type.equalsIgnoreCase("Promotional_Service_GetReferralhistory")) {
 
-			String ReponseStr = resp.body().asString();
 			String referralStatus = resp.body().asString();
 			if(!referralStatus.contains("SUCCESS")){
 				Assert.assertTrue(false);
 			}
 			String signUpCount = resp.body().asString();
 			if(!signUpCount.contains("6")){
+				Assert.assertTrue(false);
+			}
+		}
+
+		else if(Type.equalsIgnoreCase("AS_Fetch_details_api")) {
+
+			String id = jsonPathEvaluator.getString("id");
+			String mobile = jsonPathEvaluator.getString("mobile");
+			if(!id.contains("65269377")){
+				Assert.assertTrue(false);
+			}
+			if(!mobile.contains("1324152002"))
+			{
+				Assert.assertTrue(false);
+			}
+		}
+
+		else if(Type.equalsIgnoreCase("AS_Fetch_details_api_Invalid")) {
+
+
+			String message = jsonPathEvaluator.getString("message");
+			if(!message.contains("cookie not found")){
 				Assert.assertTrue(false);
 			}
 		}
@@ -6589,6 +6910,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			}
 
 		}
+
 
 
 		else if(Type.equalsIgnoreCase("createTraveller")) {

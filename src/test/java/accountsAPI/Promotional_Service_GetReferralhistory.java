@@ -14,9 +14,5 @@ public class Promotional_Service_GetReferralhistory extends AccountsCommon_API{
         resp =getCall("Promotional_Service_GetReferralhistory", "");
         validation( resp, "Promotional_Service_GetReferralhistory", "");
 
-		/*ResponseBody body = resp.getBody();
-		System.out.println("Response of API is:" + body.asString());*/
-
-
     }
 }
