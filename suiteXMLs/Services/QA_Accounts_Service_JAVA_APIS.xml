@@ -11,15 +11,19 @@
 
     <test name="Session maintenance" preserve-order="true" parallel="true">
         <classes>
+            <class name="test.java.accountsAPI.AS_Session_Status_Invalid_API"/>
+            <class name="test.java.accountsAPI.AS_Session_Status_active_API"/>
+            <class name="test.java.accountsAPI.AS_Session_Status_Inactive_API"/>
             <class name="test.java.accountsAPI.AS_Fetch_details_api"/>
             <class name="test.java.accountsAPI.AS_Fetch_details_api_Invalid"/>
         </classes>
     </test>
 
-    <test name="update Apis" preserve-order="true" parallel="true">
+    <test name="Accounts Apis" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.AS_update_company_profile"/>
             <class name="test.java.accountsAPI.AS_update_contact_data"/>
+            <class name="test.java.accountsAPI.AS_AccountExitsAPI_InValid"/>
         </classes>
     </test>
 
@@ -75,6 +79,9 @@
         <test name="Log Out" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.AS_LogOutAPI"/>
+            <class name="test.java.accountsAPI.AS_SignOutAPI"/>
+            <class name="test.java.accountsAPI.AS_SignOutAPI_Invalid"/>
+
         </classes>
     </test>
 

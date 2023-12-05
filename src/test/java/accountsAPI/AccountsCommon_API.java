@@ -278,6 +278,12 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_Fetch_details = "people/v2/fetch/details";
 
+	String url_SignOut_Api = "/signout-redirect";
+
+	String url_Session_Status = "/ct-auth/sessions/CT_b8238860-7e60-47a6-a655-d6b5b14a935e/users/65269357";
+
+	String url_Active_session_status = "/ct-auth/sessions/CT_a2840adc-3feb-40aa-9ca1-a25f97ea69ba/users/65262258";
+
 	String url_Promotional_Service_RefreshStageConfig="/resource/refresh/stageConfig?programType=HI_FIVE";
 
 	String url_Account_Service_GET_UserbyCookie_CleartripUser="/external-api/v2/user";
@@ -1246,6 +1252,60 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("caller", "b2c");
 		headers.put("referer", "qa2new.cleartrip.com");
 		headers.put("cookie","ct-dvId=3iAabvmskTN2monK2E9Z90rB%2BG0ENKr5Xkt4dyYT4PYTDTdWv8xIufeL2o6HUUx4%2BRsI4pgsvS7%2Bi%2BqgaYOad7AX1H9ENzOipl5A8GUG%2BUM%3D;ct-auth=maxgeOBa83Q0gXVN9ViJh7CeLasHd7PDYNIY3BVKHCa96ZaI5cD1rZaJhxBn7ecuvdb22kmKGrhj2VAI20AltrABAF8SR%2BYjh0LJNisiNwQCMwMYGu%2Bvx3fHDXHnbJtzwh%2FUBkbF9StbS9TM02g%2Fzp29nfHldR7dUIiSF8s0onwEi5u%2BJXnXLue%2FmvX6mHcucPq7k%2FbhYQG%2FoqcwrNkguQ%3D%3D");
+		return headers;
+	}
+
+	public HashMap<String, Object> headersForSignOutApi(){
+		HashMap<String, Object> headers = new HashMap<>();
+
+		headers.put("app-version-name", "23.10.0");
+		headers.put("app-agent", "pwa");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("cookie","ct-auth=LdKv0B%2FenR9%2Bhb8oI0ewjN%2Bk0WH9QMvyQLQQ68XxXtYB27A4%2FGqJ1pp7G9cB8VmKvdb22kmKGrhj2VAI20Altnm0eIoesCBPdeU0zBf2ZUYbQMsYlCtH6RKaDYUzr109kG7CrabwxVYLEwqFmSLxG2MIhWO0XtyAqdRMYhM8nh2oBeJ0QrmzAzUqQDF1tpcyVkB1EffCzVhOLoZykd7e8Q%3D%3D;ct-dvid=5ndkaRA5%2FF%2BlvYkBJYPgtam8QnHgOawEDgaGbkxIKYLWHzvjTUkDRIufuWat3miRylCYFM74vw%2F%2Fd6vpk%2BVgoMGffu15kTn%2BcXeVcDkCCIk%3D");
+		return headers;
+	}
+
+	public HashMap<String, Object> headersForSignOutApiInvalid(){
+		HashMap<String, Object> headers = new HashMap<>();
+
+		headers.put("app-version-name", "23.10.0");
+		headers.put("app-agent", "pwa");
+		headers.put("cookie","ct-auth=LdKv0B%2FenR9%2Bhb8oI0ewjN%2Bk0WH9QMvyQLQQ68XxXtYB27A4%2FGqJ1pp7G9cB8VmKvdb22kmKGrhj2VAI20Altnm0eIoesCBPdeU0zBf2ZUYbQMsYlCtH6RKaDYUzr109kG7CrabwxVYLEwqFmSLxG2MIhWO0XtyAqdRMYhM8nh2oBeJ0QrmzAzUqQDF1tpcyVkB1EffCzVhOLoZykd7e8Q%3D%3D;ct-dvid=5ndkaRA5%2FF%2BlvYkBJYPgtam8QnHgOawEDgaGbkxIKYLWHzvjTUkDRIufuWat3miRylCYFM74vw%2F%2Fd6vpk%2BVgoMGffu15kTn%2BcXeVcDkCCIk%3D");
+		return headers;
+	}
+
+	public HashMap<String, Object> headersForSessionStatus(){
+		HashMap<String, Object> headers = new HashMap<>();
+
+		headers.put("app-agent", "PWA");
+		headers.put("caller", "qa2new.cleartrip.com");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("cookie","ct-dvId=h%2BNh8phQVL%2FqLc5O0feoqo0kH8SasDzoRXr39wGNuYNigfC1B2GlbCStZt1uvRVOD7Bwknligk1vCoUANcXhgvpgoe%2FUeI57Ts4gbNi6450%3D;ct-auth=vRLmtJ%2Bl9%2FYw15mNVgLimRG1dWuG6i3KQ9UJcVO8MYMPB0is2rAP4yl%2ByAszPuB%2Bvdb22kmKGrhj2VAI20Altpv8y01Tkkk58GW2wbxQOnxxWXBjpyFFfe9zb2rFPBn1svLdKlGLkhwOTrrxd5B6HTCWXzLrXpfA64FG9S%2F102bGkvUpMcTGi9lHJoblVzdOB5h9Fax7lZj%2FZAAdKeKUNw%3D%3D");
+		headers.put("Auth_key","7GHT#@D65yhgder4R");
+
+		return headers;
+	}
+
+	public HashMap<String, Object> headersForActiveSessionStatus(){
+		HashMap<String, Object> headers = new HashMap<>();
+
+		headers.put("app-agent", "PWA");
+		headers.put("caller", "qa2new.cleartrip.com");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("cookie","ct-dvId=%2F%2FsslYecWP2MkCsHu%2F6p8syzSjvGM7ZX7b3JDU8xnylpgmCLrPovHxp0U%2BHE3M4Jlf76oKcTDStRfS0a%2FAxEgJ7411RiLp3ANiiGw2srxA0%3D;ct-auth=vzCg4WjzhFqatDfzFfH8b9gdoaCdXEutbJVfg%2BacmapzQCjS1XbvaI2WX2JneWzVvdb22kmKGrhj2VAI20Alti%2Fbaxkqma9hQDZN8MOINPK15T1wsy9nMcxkXQf0AuiUmALcWLgHtupbVfudynIgwv%2BW0oC%2BxZz7i8zIXIILsGszoJSq%2FFDIQhRjYn5qcsVl55mdNiu%2FWTJkaHtgQOhzLQ%3D%3D");
+		headers.put("Auth_key","7GHT#@D65yhgder4R");
+
+		return headers;
+	}
+
+	public HashMap<String, Object> headersForSessionStatusInvalid(){
+		HashMap<String, Object> headers = new HashMap<>();
+
+		headers.put("app-agent", "PWA");
+		headers.put("caller", "qa2new.cleartrip.com");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("Auth_key","7GHT#@D65yhgder4R");
+
 		return headers;
 	}
 
@@ -3696,12 +3756,52 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			Reporter.log(url_Promotional_Service_domain+url);
 		}
 
+		else if (Type.equals("AS_Session_Status_Inactive_API")){
+
+			RestAssured.baseURI=url_Acct_Service;
+			url = url_Session_Status;
+			headers = headersForSessionStatus();
+			Reporter.log(url_Acct_Service+url);
+		}
+
+		else if (Type.equals("AS_Session_Status_active_API")){
+
+			RestAssured.baseURI=url_Acct_Service;
+			url = url_Active_session_status;
+			headers = headersForActiveSessionStatus();
+			Reporter.log(url_Acct_Service+url);
+		}
+
+		else if (Type.equals("AS_Session_Status_Invalid_API")){
+
+			RestAssured.baseURI=url_Acct_Service;
+			url = url_Active_session_status;
+			headers = headersForSessionStatusInvalid();
+			Reporter.log(url_Acct_Service+url);
+		}
+
 		else if (Type.equals("AS_Fetch_details_api")){
 
 			RestAssured.baseURI=qaurl;
 			url = url_Fetch_details;
 			headers = headersForFetchdetails();
 			Reporter.log(qaurl+url);
+		}
+
+		else if (Type.equals("AS_SignOutAPI")){
+
+			RestAssured.baseURI=url_Identitymicro_service;
+			url = url_SignOut_Api;
+			headers = headersForSignOutApi();
+			Reporter.log(url_Identitymicro_service+url);
+		}
+
+		else if (Type.equals("AS_SignOutAPI_Invalid")){
+
+			RestAssured.baseURI=url_Identitymicro_service;
+			url = url_SignOut_Api;
+			headers = headersForSignOutApiInvalid();
+			Reporter.log(url_Identitymicro_service+url);
 		}
 
 		else if (Type.equals("AS_Fetch_details_api_Invalid")){
@@ -4466,7 +4566,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
 
-		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")||Type.equals("Floater_Add_Template_InvalidAPI")||Type.equals("Floater_Add_Template_DuplicateAPI")||Type.equals("Floater_Add_Template_WithoutBody")||Type.equals("Account_Service_Update_Personal_Details_InvalidCookie")||Type.equals("Account_Service_Update_Personal_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InValidGST")||Type.equals("Account_Service_Update_GST_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InvalidCookie")||Type.equals("AS_Fetch_details_api_Invalid"))
+		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")||Type.equals("Floater_Add_Template_InvalidAPI")||Type.equals("Floater_Add_Template_DuplicateAPI")||Type.equals("Floater_Add_Template_WithoutBody")||Type.equals("Account_Service_Update_Personal_Details_InvalidCookie")||Type.equals("Account_Service_Update_Personal_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InValidGST")||Type.equals("Account_Service_Update_GST_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InvalidCookie")||Type.equals("AS_Fetch_details_api_Invalid")||Type.equals("AS_Session_Status_Invalid_API")||Type.equals("AS_SignOutAPI_Invalid"))
 		{
 			 if(statusCode!=400) {
 				System.out.println(statusCode);
@@ -5875,11 +5975,53 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			}
 		}
 
+		else if(Type.equalsIgnoreCase("AS_Session_Status_Inactive_API")) {
+
+			String ReponseStr = resp.body().asString();
+
+			if(!ReponseStr.contains("false")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		else if(Type.equalsIgnoreCase("AS_Session_Status_Active_API")) {
+
+			String ReponseStr = resp.body().asString();
+
+			if(!ReponseStr.contains("true")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		else if(Type.equalsIgnoreCase("AS_Session_Status_Invalid_API")) {
+
+			String message = jsonPathEvaluator.getString("message");
+			if(!message.contains("cookie not found")) {
+				Assert.assertTrue(false);
+			}
+		}
+
 		else if(Type.equalsIgnoreCase("AS_Fetch_details_api_Invalid")) {
 
 
 			String message = jsonPathEvaluator.getString("message");
 			if(!message.contains("cookie not found")){
+				Assert.assertTrue(false);
+			}
+		}
+
+		else if(Type.equalsIgnoreCase("AS_SignOutAPI")) {
+
+			String message = jsonPathEvaluator.getString("redirectUrl");
+			if(!message.contains("https://qa2new.cleartrip.com/")){
+				Assert.assertTrue(false);
+			}
+		}
+
+		else if(Type.equalsIgnoreCase("AS_SignOutAPI_Invalid")) {
+
+			String message = jsonPathEvaluator.getString("status");
+			if(!message.contains("BAD_REQUEST")){
 				Assert.assertTrue(false);
 			}
 		}
