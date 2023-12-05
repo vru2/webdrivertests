@@ -52,6 +52,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_Acct_Service="http://accounts-service-api.cltp.com:9001";
 
+	String url_Acct_service_worker = "http://accounts-service-worker.cltp.com:9001";
+
 	String url_prod = "https://www.cleartrip.com";
 	
 	String url_Promotional_Service="http://172.29.23.245:9001";
@@ -246,6 +248,10 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_Update_contact_data = "account/people/v2/update/contactData?userId=65214457";
 
 	String url_Update_User_profile = "/company/v2/update/131304";
+
+	String url_AccountMerge = "/retry/account-merge/date/2023-03-08T05:19:19.564Z?isWalletMerge=true&isTripsMerge=true";
+
+	String url_WalletMerge = "/retry/account-merge/source/65247026/target/65247028?isWalletMerge=true&isTripsMerge=true";
 
 	String url_FKVIP_Injest_Profile = "/ingest/v1/flipkart/profile";
 
@@ -565,6 +571,7 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"    ]\n" +
 			"}\n";
 
+	String params_Account_Wallet_merge = "";
 	String params_FKVIP_injest_profile= "{\n" +
 			"    \"eventType\": \"ACTIVATION\",\n" +
 			"    \"membershipPIITierDetails\": {\n" +
@@ -904,6 +911,24 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("accept", "*/*");
 		headers.put("caller", "b2c");
 		headers.put("AUTH_KEY", "7GHT#@D65yhgder4R1234");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+	public HashMap<String, Object> AccountMerge(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "application/json");
+		headers.put("caller", "https://qa2new.cleartrip.com");
+		headers.put("AUTH_KEY", "test");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+	public HashMap<String, Object> WalletMerge(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("accept", "application/json");
+		headers.put("caller", "https://qa2new.cleartrip.com");
+		headers.put("AUTH_KEY", "test");
 		headers.put("Content-Type", "application/json");
 		return headers;
 	}
@@ -2151,7 +2176,22 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			RestAssured.baseURI =url_Acct_Service;
 			url = url_Update_User_profile;
 			params =params_Update_Profile_Data;
-			Reporter.log(qaurl+url);
+			Reporter.log(url_Acct_Service+url);
+		}
+
+		if(Type.equals("AS_AccountMerge_API")) {
+			headers = AccountMerge();
+			RestAssured.baseURI =url_Acct_service_worker;
+			params =params_Account_Wallet_merge;
+			url = url_AccountMerge;
+			Reporter.log(url_Acct_Service+url);
+		}
+		if(Type.equals("AS_WalletMerge_API")) {
+			headers = WalletMerge();
+			RestAssured.baseURI =url_Acct_service_worker;
+			params =params_Account_Wallet_merge;
+			url = url_WalletMerge;
+			Reporter.log(url_Acct_Service+url);
 		}
 
 		if(Type.equals("Account_Service_Update_GST_Details")) {
@@ -4588,11 +4628,38 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			}
 		}
 
+		if(Type.equalsIgnoreCase("flyinsigninV2")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("success")) {
+				Assert.assertTrue(false);
+			}
+		}
+
 		if(Type.equalsIgnoreCase("AS_update_company_profile")) {
 			System.out.println(statusCode);
 			String message = jsonPathEvaluator.getString("id");
 			System.out.println(message);
 			if(!message.contains("131304")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("AS_AccountMerge_API")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("enqueued");
+			System.out.println(message);
+			if(!message.contains("true")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("AS_WalletMerge_API")) {
+			System.out.println(statusCode);
+			String message = jsonPathEvaluator.getString("enqueued");
+			System.out.println(message);
+			if(!message.contains("true")) {
 				Assert.assertTrue(false);
 			}
 		}

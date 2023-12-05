@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public class AS_update_company_profile extends AccountsCommon_API {
 
-
     @Test
     public void AS_update_company_profile() throws IOException, JSONException {
         Response resp ;

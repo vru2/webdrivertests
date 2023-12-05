@@ -24,6 +24,14 @@
             <class name="test.java.accountsAPI.AS_update_company_profile"/>
             <class name="test.java.accountsAPI.AS_update_contact_data"/>
             <class name="test.java.accountsAPI.AS_AccountExitsAPI_InValid"/>
+            <class name="test.java.accountsAPI.AS_flyinsignin"/>
+        </classes>
+    </test>
+
+    <test name="Trip and Wallet Merge" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.AS_WalletMerge_API"/>
+            <class name="test.java.accountsAPI.AS_AccountMerge_API"/>
         </classes>
     </test>
 
