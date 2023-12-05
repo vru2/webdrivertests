@@ -13,5 +13,6 @@ public class AS_SignOutAPI_Invalid extends AccountsCommon_API{
         Response resp ;
         resp =getCall("AS_SignOutAPI_Invalid", "");
         validation( resp, "AS_SignOutAPI_Invalid", "");
+
     }
 }
