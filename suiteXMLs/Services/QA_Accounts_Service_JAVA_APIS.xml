@@ -25,6 +25,15 @@
             <class name="test.java.accountsAPI.AS_update_contact_data"/>
             <class name="test.java.accountsAPI.AS_AccountExitsAPI_InValid"/>
             <class name="test.java.accountsAPI.AS_flyinsignin"/>
+            <class name="test.java.accountsAPI.AS_FlyinUserDetails_Update"/>
+            <class name="test.java.accountsAPI.AS_GST_AutoComplete"/>
+            <class name="test.java.accountsAPI.AS_GST_AutoCompleteInvalid"/>
+            <class name="test.java.accountsAPI.AS_GSTV2_InvalidSearch"/>
+            <class name="test.java.accountsAPI.AS_authorize_API_Invalid"/>
+            <class name="test.java.accountsAPI.AS_Get_Traveller_Details"/>
+            <class name="test.java.accountsAPI.AS_Get_Traveller_Details_Invalid"/>
+            <class name="test.java.accountsAPI.AS_Update_Traveller_Details"/>
+            <class name="test.java.accountsAPI.AS_Update_Traveller_Details_Invalid"/>
         </classes>
     </test>
 

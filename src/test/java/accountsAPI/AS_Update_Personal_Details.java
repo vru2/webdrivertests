@@ -14,10 +14,6 @@ public class AS_Update_Personal_Details extends AccountsCommon_API
         resp =putCall("Account_Service_Update_Personal_Details", "");
         validation( resp, "Account_Service_Update_Personal_Details", "");
 
-		/*ResponseBody body = resp.getBody();
-		System.out.println("Response of API is:" + body.asString());*/
-
-
     }
 
 }

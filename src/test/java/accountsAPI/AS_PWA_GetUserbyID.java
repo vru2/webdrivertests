@@ -15,10 +15,6 @@ public class AS_PWA_GetUserbyID extends AccountsCommon_API
 		resp =getCall("Account_Service_PWA_GetUserbyID", "");
 		validation( resp, "Account_Service_PWA_GetUserbyID", "");
 
-		/*ResponseBody body = resp.getBody();
-		System.out.println("Response of API is:" + body.asString());*/
-
-
 	}
 
 }

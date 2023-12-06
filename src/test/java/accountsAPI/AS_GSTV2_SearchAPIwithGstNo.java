@@ -15,10 +15,6 @@ public class AS_GSTV2_SearchAPIwithGstNo extends AccountsCommon_API
 		resp =getCall("Account_Service_GSTV2_SearchAPIwithGstNo_ID", "");
 		validation( resp, "Account_Service_GSTV2_SearchAPIwithGstNo_ID", "");
 
-		/*ResponseBody body = resp.getBody();
-		System.out.println("Response of API is:" + body.asString());*/
-
-
 	}
 
 }
