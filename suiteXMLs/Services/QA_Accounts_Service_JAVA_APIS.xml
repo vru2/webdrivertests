@@ -34,6 +34,12 @@
             <class name="test.java.accountsAPI.AS_Get_Traveller_Details_Invalid"/>
             <class name="test.java.accountsAPI.AS_Update_Traveller_Details"/>
             <class name="test.java.accountsAPI.AS_Update_Traveller_Details_Invalid"/>
+            <class name="test.java.accountsAPI.AS_AccountsInfo_BasedonUserId"/>
+            <class name="test.java.accountsAPI.AS_RORRegister_API"/>
+            <class name="test.java.accountsAPI.AS_Sanity_API"/>
+            <class name="test.java.accountsAPI.API_Config_Getcall_APIKey"/>
+            <class name="test.java.accountsAPI.API_Config_Postcall"/>
+            <class name="test.java.accountsAPI.AS_AuthforNonLoggedinUser_InvalidTripID"/>
         </classes>
     </test>
 

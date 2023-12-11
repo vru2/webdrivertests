@@ -15,9 +15,7 @@ public class AS_AuthforNonLoggedinUser_InvalidTripID extends AccountsCommon_API
 		resp =putCall("Account_Service_AuthforNonLoggedinUser_InvalidTripID", "");
 		validation_AppleRegister_NullEmail( resp, "Account_Service_AuthforNonLoggedinUser_InvalidTripID", "");
 		
-		/*ResponseBody body = resp.getBody();
-		System.out.println("Response of API is:" + body.asString());		
-		*/
+
 	}
 
 

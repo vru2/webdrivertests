@@ -16,9 +16,7 @@ public class API_Config_Getcall_APIKey  extends AccountsCommon_API
 		Response resp ;		
 		resp =getCall("apiConfig_APIkey", "");
 		validation( resp, "apiConfig_APIkey", "");
-	/*
-		ResponseBody body = resp.getBody();
-		System.out.println("response body" + body.asString());*/
+
 	}
 
 }

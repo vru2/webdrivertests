@@ -4534,7 +4534,8 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
 
-		if(Type.equalsIgnoreCase("Promotional_Service_ValidateInvalidReferralLink")){
+		if(Type.equalsIgnoreCase("Promotional_Service_ValidateInvalidReferralLink")||Type.equalsIgnoreCase("Account_Service_AuthforNonLoggedinUser_InvalidTripID")){
+			System.out.println(statusCode);
 			if (statusCode != 404) {
 				Assert.assertTrue(false);
 			}
@@ -5380,9 +5381,6 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			if(!fetch_user_profile.contains("true")) {
 				Assert.assertTrue(false);						
 			}
-			//			if(!delete_user.contains("true")) {
-			//				Assert.assertTrue(false);						
-			//			}
 		}
 
 		else if(Type.equalsIgnoreCase("AcctSanity_Prod")) {

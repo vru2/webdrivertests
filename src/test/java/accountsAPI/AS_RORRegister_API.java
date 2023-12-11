@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
-public class AccountsRegister_API extends AccountsCommon_API {
+public class AS_RORRegister_API extends AccountsCommon_API {
 	@Test
 	public void AccountRegister() throws IOException, JSONException{
        		Response resp ;		

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
-public class Acct_Sanity_API  extends AccountsCommon_API{
+public class AS_Sanity_API  extends AccountsCommon_API{
 	
     @Test
 	public void Acct_Sanity() throws IOException, JSONException{
