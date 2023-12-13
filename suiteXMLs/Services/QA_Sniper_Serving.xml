@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Platform Services API" parallel="tests" thread-count="1">
+
+<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="test.java.common.RemoveDuplicateResults"/>
+		<listener class-name="test.java.common.RetryListener"/>
+       <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+</listeners>
+
+	 <test name="Sniper Serving">
+	<classes>
+		<class name="test.java.couponsanity.tcms_serving_get_tc"/>
+		<class name="test.java.couponsanity.tcms_serving_get_tc_from_source"/>
+		<class name="test.java.couponsanity.tcms_serving_get_tc_with_tag"/>
+		<class name="test.java.couponsanity.tcms_serving_get_tc_without_tag"/>
+	</classes>
+	</test>
+
+
+</suite> 
+	

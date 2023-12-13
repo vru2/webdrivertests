@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Platform Services API" parallel="tests" thread-count="1">
+
+<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="test.java.common.RemoveDuplicateResults"/>
+		<listener class-name="test.java.common.RetryListener"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+</listeners>
+
+	 <test name="Intent Serving">
+	<classes>
+		<class name="test.java.couponsanity.intent_serving_get_coupon_oneway"/>
+		<class name="test.java.couponsanity.intent_serving_get_coupon_roundtrip"/>
+		<class name="test.java.couponsanity.intent_serving_get_coupontray_coupon_oneway"/>
+		<class name="test.java.couponsanity.intent_serving_get_coupontray_coupon_roundtrip"/>
+		<class name="test.java.couponsanity.intent_serving_validate_coupon_oneway"/>
+		<class name="test.java.couponsanity.intent_serving_validate_coupon_roundtrip"/>
+	</classes>
+	</test>
+
+
+</suite> 
+	
