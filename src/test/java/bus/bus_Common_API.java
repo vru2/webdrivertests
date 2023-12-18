@@ -111,7 +111,7 @@ public class bus_Common_API {
 
     String url_Endpoint_Cancelation_Eligibility = "/bus/hq/v2/refund-info/Q230911782400?reason=CR01";
 
-    String url_Endpoint_Cancel_Trip_Status = "/bus/hq/v2/cancel/Q230911782400?reason=CR04";
+    String url_Endpoint_Cancel_Trip_Status = "/bus/hq/v2/cancel/Q231215821150?reason=CR04";
     String url_Endpoint_Cancel_Booking = "/api/bus/v1/self/cancel/Q231007798824";
     String url_Endpoint_Update_Traveller = "/api/bus/v1/itin/travellers";
 
@@ -414,7 +414,7 @@ public class bus_Common_API {
             if(!cancellationProcessed.equals("true")) {
                 Assert.assertTrue(false);
             }
-            if(!refundAmount.equals("12")) {
+            if(!refundAmount.equals("195")) {
                 Assert.assertTrue(false);
             }
         }

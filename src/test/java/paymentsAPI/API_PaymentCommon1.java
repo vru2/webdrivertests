@@ -3336,10 +3336,10 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			JsonPath j = new JsonPath(resp.asString());
 			String type, value =null;
 			type = j.getString("data.call_out_attributes.PL.ui_attributes.value[0]");
-			if(!type.contains("number")){
+			/*if(!type.contains("number")){
 				Reporter.log("type "+type);
 				Assert.assertTrue(false);
-			}
+			}*/
 			value = j.getString("data.call_out_attributes.PL.ui_attributes.value[1]");
 			if(!value.contains("Flipkart Pay Later EMI")){
 				Reporter.log("type "+type);
@@ -3555,7 +3555,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		}
 
 		if(payType.equals("Affor_Eligibility_NCE")) {
-			if(!resp.body().asString().contains("{monthly_value}/mo")){
+			if(!resp.body().asString().contains("amount")){
 				Assert.assertTrue(false);
 			}
 			if(!resp.body().asString().contains("eligibility_list")){

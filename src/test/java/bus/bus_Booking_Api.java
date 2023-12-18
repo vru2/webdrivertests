@@ -164,7 +164,7 @@ public class bus_Booking_Api extends bus_Common_API {
 		Thread.sleep(10000);
 		Response respCancellation = busPut("Cancellation", tripId);
 		JsonPath jsonPathrespCancellation = respCancellation.jsonPath();
-		//System.out.println("respCancellation response : " + respCancellation.body().asString());
+		System.out.println("respCancellation response : " + respCancellation.body().asString());
 		String cancellationProcessed = jsonPathrespCancellation.getString("cancellationProcessed");
 		System.out.println("cancellationProcessed : " + cancellationProcessed);
 		if(!cancellationProcessed.equalsIgnoreCase("true")){
