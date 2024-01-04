@@ -21,6 +21,12 @@
         </classes>
     </test>
 
+    <test name="COD" preserve-order="true" parallel="true">
+        <classes><!--
+            <class name="test.java.paymentsAPI.API_Banner_New"/>-->
+        </classes>
+    </test>
+
     <test name="EMI Affordability" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_Affordability_EMI_Eligibility_NCE"/>
