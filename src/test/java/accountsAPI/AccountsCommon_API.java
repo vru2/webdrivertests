@@ -257,6 +257,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_Update_User_profile = "/company/v2/update/131304";
 
+	String url_Create_ct_auth = "/ct-auth/sessions?partner=FLIPKART&referenceId=IuTKN321C02F0A0FF4999B4CE0BA934F2E009YR1";
+
 	String url_AccountMerge = "/retry/account-merge/date/2023-03-08T05:19:19.564Z?isWalletMerge=true&isTripsMerge=true";
 
 	String url_WalletMerge = "/retry/account-merge/source/65247026/target/65247028?isWalletMerge=true&isTripsMerge=true";
@@ -458,6 +460,7 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"  \"gstHolderStateName\": \"okok\"\n" +
 			"}\n";
 
+	String params_Create_Ct_auth = "";
 	String params_Update_Profile_Data = "{\n" +
 			"    \"about\": \"tree1\",\n" +
 			"    \"address1\": \"treesiv\",\n" +
@@ -958,6 +961,30 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("caller", "b2c");
 		headers.put("AUTH_KEY", "7GHT#@D65yhgder4R1234");
 		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+	public HashMap<String, Object> Createctauth(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("referer", "https://travel.flipkart.com");
+		headers.put("caller", "distribution-service");
+		headers.put("app-agent", "AndriodApp");
+		headers.put("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36");
+		headers.put("AUTH_KEY", "7GHT#@D65yhgder4R");
+		headers.put("Cookie", "ct-dvId=WoZreV%2FRgvO8B3qwpZtTN2WGpnDXjOO67XPb2F31dQyZ4nTg526KE3qBRFMfR123PxdFGW%2BWznAISX2LCKNlRy4bGrt3UQ0R4WAL35%2FIAcs%3D");
+		return headers;
+	}
+
+
+
+	public HashMap<String, Object> CreatectauthWithoutKey(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("referer", "https://travel.flipkart.com");
+		headers.put("caller", "distribution-service");
+		headers.put("app-agent", "AndriodApp");
+		headers.put("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36");
+		headers.put("Cookie", "ct-dvId=WoZreV%2FRgvO8B3qwpZtTN2WGpnDXjOO67XPb2F31dQyZ4nTg526KE3qBRFMfR123PxdFGW%2BWznAISX2LCKNlRy4bGrt3UQ0R4WAL35%2FIAcs%3D");
 		return headers;
 	}
 
@@ -2274,6 +2301,22 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			RestAssured.baseURI =url_Acct_Service;
 			url = url_Update_User_profile;
 			params =params_Update_Profile_Data;
+			Reporter.log(url_Acct_Service+url);
+		}
+
+		if(Type.equals("AS_Create_ctauth")) {
+			headers = Createctauth();
+			RestAssured.baseURI =url_Acct_Service;
+			url = url_Create_ct_auth;
+			params =params_Create_Ct_auth;
+			Reporter.log(url_Acct_Service+url);
+		}
+
+		if(Type.equals("AS_Create_Ctauth_Invalid")) {
+			headers = CreatectauthWithoutKey();
+			RestAssured.baseURI =url_Acct_Service;
+			url = url_Create_ct_auth;
+			params =params_Create_Ct_auth;
 			Reporter.log(url_Acct_Service+url);
 		}
 
@@ -4862,6 +4905,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 				Assert.assertTrue(false);
 			}
 		}
+
 
 		if(Type.equalsIgnoreCase("AS_AccountMerge_API")) {
 			System.out.println(statusCode);

@@ -19,6 +19,13 @@
         </classes>
     </test>
 
+    <test name="Ultra API" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.accountsAPI.AS_Create_ctauth"/>
+            <class name="test.java.accountsAPI.AS_Create_Ctauth_Invalid"/>
+        </classes>
+    </test>
+
     <test name="Accounts Apis" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.accountsAPI.AS_update_company_profile"/>
