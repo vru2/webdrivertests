@@ -257,6 +257,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 
 	String url_Update_User_profile = "/company/v2/update/131304";
 
+	String url_Update_UserJson =  "/account/people/v2?domain=http://www.flipkart.com";
+
 	String url_Create_ct_auth = "/ct-auth/sessions?partner=FLIPKART&referenceId=IuTKN321C02F0A0FF4999B4CE0BA934F2E009YR1";
 
 	String url_AccountMerge = "/retry/account-merge/date/2023-03-08T05:19:19.564Z?isWalletMerge=true&isTripsMerge=true";
@@ -461,6 +463,27 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"}\n";
 
 	String params_Create_Ct_auth = "";
+
+	String params_jsonEmpty = "{}";
+
+	String params_json = "{\n" +
+			"  \"id\": 65270513,\n" +
+			"  \"travellerDetails\": [\n" +
+			"    {\n" +
+			"      \"personalDetails\": {\n" +
+			"        \"firstName\": \"Mansur1\",\n" +
+			"        \"gender\": \"Male\",\n" +
+			"        \"lastName\": \"Ansari\",\n" +
+			"        \"title\": \"Mr\",\n" +
+			"        \"paxType\": \"ADT\",\n" +
+			"        \"maritalStatus\":\"SINGLE\"\n" +
+			"      },\n" +
+			"      \"isRegistered\": false\n" +
+			"    }\n" +
+			"  ]\n" +
+			"}";
+
+
 	String params_Update_Profile_Data = "{\n" +
 			"    \"about\": \"tree1\",\n" +
 			"    \"address1\": \"treesiv\",\n" +
@@ -975,7 +998,27 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		return headers;
 	}
 
+	public HashMap<String, Object> CreatectauthWithoutCaller(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("referer", "https://travel.flipkart.com");
+		headers.put("app-agent", "AndriodApp");
+		headers.put("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36");
+		headers.put("AUTH_KEY", "7GHT#@D65yhgder4R");
+		headers.put("Cookie", "ct-dvId=WoZreV%2FRgvO8B3qwpZtTN2WGpnDXjOO67XPb2F31dQyZ4nTg526KE3qBRFMfR123PxdFGW%2BWznAISX2LCKNlRy4bGrt3UQ0R4WAL35%2FIAcs%3D");
+		return headers;
+	}
 
+	public HashMap<String, Object> UserJsonUpdate(){
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("auth_key", "7GHT#@D65yhgder4R");
+		headers.put("caller", "distribution-service");
+		headers.put("x-ct-caller-app", "mobile");
+		headers.put("referer", "https://travel.flipkart.com");
+		headers.put("Content-Type", "application/json");
+
+		return headers;
+	}
 
 	public HashMap<String, Object> CreatectauthWithoutKey(){
 
@@ -1002,6 +1045,16 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("accept", "application/json");
 		headers.put("caller", "https://qa2new.cleartrip.com");
 		headers.put("AUTH_KEY", "test");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+	public HashMap<String, Object> JsonUp(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("auth_key", "7GHT#@D65yhgder4R");
+		headers.put("caller", "distribution-service");
+		headers.put("x-ct-caller-app", "mobile");
+		headers.put("referer","https://travel.flipkart.com");
 		headers.put("Content-Type", "application/json");
 		return headers;
 	}
@@ -1377,6 +1430,8 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("app-agent", "pwa");
 		headers.put("referer", "qa2new.cleartrip.com");
 		headers.put("cookie","ct-auth=LdKv0B%2FenR9%2Bhb8oI0ewjN%2Bk0WH9QMvyQLQQ68XxXtYB27A4%2FGqJ1pp7G9cB8VmKvdb22kmKGrhj2VAI20Altnm0eIoesCBPdeU0zBf2ZUYbQMsYlCtH6RKaDYUzr109kG7CrabwxVYLEwqFmSLxG2MIhWO0XtyAqdRMYhM8nh2oBeJ0QrmzAzUqQDF1tpcyVkB1EffCzVhOLoZykd7e8Q%3D%3D;ct-dvid=5ndkaRA5%2FF%2BlvYkBJYPgtam8QnHgOawEDgaGbkxIKYLWHzvjTUkDRIufuWat3miRylCYFM74vw%2F%2Fd6vpk%2BVgoMGffu15kTn%2BcXeVcDkCCIk%3D");
+		headers.put("caller", "test");
+
 		return headers;
 	}
 
@@ -2317,6 +2372,32 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			RestAssured.baseURI =url_Acct_Service;
 			url = url_Create_ct_auth;
 			params =params_Create_Ct_auth;
+			Reporter.log(url_Acct_Service+url);
+		}
+
+		if(Type.equals("AS_Create_Ctauth_MissingCaller")) {
+			headers = CreatectauthWithoutCaller();
+			RestAssured.baseURI =url_Acct_Service;
+			url = url_Create_ct_auth;
+			params =params_Create_Ct_auth;
+			Reporter.log(url_Acct_Service+url);
+		}
+
+		if(Type.equals("AS_Update_UserJson")) {
+			//headers = UserJsonUpdate();
+			headers = JsonUp();
+			RestAssured.baseURI =url_Acct_Service;
+			url = url_Update_UserJson;
+			params =params_json;
+			Reporter.log(url_Acct_Service+url);
+		}
+
+		if(Type.equals("AS_Update_UserJsonInvalid")) {
+			//headers = UserJsonUpdate();
+			headers = JsonUp();
+			RestAssured.baseURI =url_Acct_Service;
+			url = url_Update_UserJson;
+			params =params_jsonEmpty;
 			Reporter.log(url_Acct_Service+url);
 		}
 
@@ -4821,7 +4902,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		Reporter.log("statusCode: " + statusCode);
 		JsonPath jsonPathEvaluator = resp.jsonPath();
 
-		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")||Type.equals("Floater_Add_Template_InvalidAPI")||Type.equals("Floater_Add_Template_DuplicateAPI")||Type.equals("Floater_Add_Template_WithoutBody")||Type.equals("Account_Service_Update_Personal_Details_InvalidCookie")||Type.equals("Account_Service_Update_Personal_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InValidGST")||Type.equals("Account_Service_Update_GST_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InvalidCookie")||Type.equals("AS_Fetch_details_api_Invalid")||Type.equals("AS_Session_Status_Invalid_API")||Type.equals("AS_SignOutAPI_Invalid")||Type.equals("AS_GST_AutoCompleteInvalid")||Type.equals("AS_GSTV2_InvalidSearch")||Type.equals("AS_authorize_API_Invalid")||Type.equals("AS_Get_Traveller_Details_Invalid")||Type.equals("AS_Update_Traveller_Details_Invalid"))
+		if(Type.equals("FKVIP_InValid_RedeemAPI")||Type.equals("FKVIP_ActiveEntity_Invalid_API")||Type.equals("Floater_Get_FloaterBy_SlotID_Invalid")||Type.equals("Floater_Get_FloaterBy_SlotID_WithoutHeader")||Type.equals("Floater_Add_Template_InvalidAPI")||Type.equals("Floater_Add_Template_DuplicateAPI")||Type.equals("Floater_Add_Template_WithoutBody")||Type.equals("Account_Service_Update_Personal_Details_InvalidCookie")||Type.equals("Account_Service_Update_Personal_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InValidGST")||Type.equals("Account_Service_Update_GST_Details_WithoutCookie")||Type.equals("Account_Service_Update_GST_Details_InvalidCookie")||Type.equals("AS_Fetch_details_api_Invalid")||Type.equals("AS_Session_Status_Invalid_API")||Type.equals("AS_SignOutAPI_Invalid")||Type.equals("AS_GST_AutoCompleteInvalid")||Type.equals("AS_GSTV2_InvalidSearch")||Type.equals("AS_authorize_API_Invalid")||Type.equals("AS_Get_Traveller_Details_Invalid")||Type.equals("AS_Update_Traveller_Details_Invalid")||Type.equals("AS_Create_Ctauth_MissingCaller")||Type.equals("AS_Update_UserJsonInvalid"))
 		{
 			 if(statusCode!=400) {
 				System.out.println(statusCode);
@@ -4832,6 +4913,25 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		else if(statusCode!=200){
 			System.out.println(statusCode);
 			Assert.assertTrue(false);
+		}
+
+		if(Type.equalsIgnoreCase("AS_Update_UserJsonInvalid")) {
+
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("Neither email id or user id or combination of countryCode and mobile is provided to proceed")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+
+		if(Type.equalsIgnoreCase("AS_Create_Ctauth_MissingCaller")) {
+
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("Required request header 'caller' for method parameter type String is not present")) {
+				Assert.assertTrue(false);
+			}
 		}
 
 		if(Type.equalsIgnoreCase("AS_update_contact_data")) {
@@ -7494,7 +7594,6 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		return resp;
 	}
 
-
 	public Response Verification(Response resp, String Type, String Type2) {
 		Reporter.log("Response body " + Type + " : " + resp.body().asString());
 		int statusCode = resp.getStatusCode();
@@ -7509,7 +7608,15 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 		} else if (statusCode != 202) {
 			System.out.println(statusCode);
+			System.out.println(resp.getBody().asString());
 			Assert.assertTrue(false);
+		}
+
+		if(Type.equalsIgnoreCase("AS_Update_UserJson")) {
+			String id = jsonPathEvaluator.getString("id");
+			if(!id.contains("65270513")) {
+				Assert.assertTrue(false);
+			}
 		}
 
 		if(Type.equalsIgnoreCase("AS_FlyinUserDetails_Update")) {

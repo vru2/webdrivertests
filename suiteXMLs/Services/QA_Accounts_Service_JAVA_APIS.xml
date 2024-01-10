@@ -16,6 +16,7 @@
             <class name="test.java.accountsAPI.AS_Session_Status_Inactive_API"/>
             <class name="test.java.accountsAPI.AS_Fetch_details_api"/>
             <class name="test.java.accountsAPI.AS_Fetch_details_api_Invalid"/>
+            <class name="test.java.accountsAPI.AS_Update_UserJson"/>
         </classes>
     </test>
 
@@ -23,6 +24,9 @@
         <classes>
             <class name="test.java.accountsAPI.AS_Create_ctauth"/>
             <class name="test.java.accountsAPI.AS_Create_Ctauth_Invalid"/>
+            <class name="test.java.accountsAPI.AS_Create_Ctauth_MissingCaller"/>
+            <class name="test.java.accountsAPI.AS_Update_UserJsonInvalid"/>
+            <class name="test.java.accountsAPI.AS_Update_UserJson"/>
         </classes>
     </test>
 
