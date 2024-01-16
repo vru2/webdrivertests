@@ -32,6 +32,7 @@
 
     <test name="Accounts Apis" preserve-order="true" parallel="true">
         <classes>
+            <class name="test.java.accountsAPI.AS_Register_API"/>
             <class name="test.java.accountsAPI.AS_update_company_profile"/>
             <class name="test.java.accountsAPI.AS_update_contact_data"/>
             <class name="test.java.accountsAPI.AS_AccountExitsAPI_InValid"/>
