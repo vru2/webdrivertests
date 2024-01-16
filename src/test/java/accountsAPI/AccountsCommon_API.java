@@ -1305,7 +1305,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		headers.put("accept", "*/*");
 		headers.put("caller", "test");
 		headers.put("referer", "qa2new.cleartrip.com");
-		headers.put("cookie", "ct-dvid =4gLS4huJcVGV8p94znaAEvoyINckh0kTHQV%2Bjb8ufJKfCzVMGlLAMGVUT8vk9e3jDgs03T27Z2m7K7ZBsQ6HSjL%2FODpg9cAY1j3JMoR2Dw8%3D;ct-auth =Y400q%2FpP3g85mpgEWl%2B4HZsk8Ugb%2Bvo3vQYExqYLY%2FiABKMol3vJWsOlkk1h%2FcKKMQSQFbQVBxkZathsIXsnSbCrW27PiyVruGbls9pHIkxHPv%2FuoQqCHKK0N8MT3qVLxHFEJs2cUKLJWysUo%2FJdZ5LTgw82tE3ZdKNx6VfhLQo5%2BWfVGTxz4Vb2MQFwhODc67qCoGPbj1sz3ZVPdOWDjhNaDu9yxhMB47BEs7Iv%2FBs%3D");
+		headers.put("cookie", "ct-dvid=M9MmXqjr7v7kS4xtinjChWXrrZaI85o67GXIxI4PaxkMSoOxDF%2FhmdZybWm734Tz0eskIyTdHpVfC6ur0JFYn3LeLR9Ut0DxqxYncSdb6wA%3D;ct-auth =CJRk95Z11M6Lbw0awJlGJGcpQvvMroPgTRYrO%2FU%2Fz%2FR8O2WMsGATtucBkMcse1jsvdb22kmKGrhj2VAI20AltjbChD%2Fyq8ezocz8t67dClvOOiS1Z4u7hcd5HyDSCcP1aDWtyLL4lRozoAmLLsEzKLdKce3rAtpZHDLb7SP%2FnGXZgZ4J%2BbfmMiB9rYb04RKZVj%2BOdCKf0Wck2wqD%2BcHZjA%3D%3D");
 
 		return headers;
 	}
@@ -5513,6 +5513,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		}
 		else if(Type.equalsIgnoreCase("AcctSanity")) {
 			String create_user = jsonPathEvaluator.getString("create_user");
+			System.out.println(create_user);
 			String signinPassword = jsonPathEvaluator.getString("signin_with_right_password");
 			String fetch_user_profile = jsonPathEvaluator.getString("fetch_user_profile");
 			//String delete_user = jsonPathEvaluator.getString("delete_user");
