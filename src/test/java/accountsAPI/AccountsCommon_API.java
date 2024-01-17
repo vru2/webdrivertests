@@ -195,6 +195,8 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 	String url_B2B_user_authentication="/users/authenticate";
 
 	String url_Register = "/user/v2/register";
+
+	String url_FK_Redirection = "/oauth2/redirectionInfo";
 	String url_Apiconfig_postcall="/account/api_config";
 	String url_Companyconfig_contactdata="/companies/121";
 	String url_ForgotPasswordEmail="r3/reset?redirect=no";
@@ -905,6 +907,121 @@ public class 	AccountsCommon_API extends PlatformCommonUtil
 			"  ],\n" +
 			"  \"password\" : \"Cleartrip@123\"\n" +
 			"}";
+
+	String param_Register_Failure = "{\n" +
+			"  \"username\": \"sessionm781@gmail.com\",\n" +
+			"   \"marketingSubscription\": 1,\n" +
+			"  \"travellerDetails\": [\n" +
+			"    {\n" +
+			"      \"profileData\": null,\n" +
+			"      \"contactInfo\": {\n" +
+			"        \"phoneNumbers\": [\n" +
+			"          {\n" +
+			"            \"mobileNumber\": \"1234567890\",\n" +
+			"            \"mobileCountryCode\": \"91\",\n" +
+			"            \"category\": \"mobile\"\n" +
+			"          }\n" +
+			"        ],\n" +
+			"        \"whatsapp\": null,\n" +
+			"        \"addresses\": [],\n" +
+			"        \"otherDetails\": [],\n" +
+			"        \"emails\": []\n" +
+			"      },\n" +
+			"      \"ffnPreferences\": null,\n" +
+			"      \"personalDetails\": {\n" +
+			"        \"anniversaryDate\": null,\n" +
+			"        \"companyDesignation\": null,\n" +
+			"        \"concatName\": \"jayendrasinghjayendra.singh@cleartrip.com\",\n" +
+			"        \"countryOfResidence\": null,\n" +
+			"        \"countryOfResidenceId\": null,\n" +
+			"        \"countryPreference\": null,\n" +
+			"        \"currency\": null,\n" +
+			"        \"dateOfBirth\": null,\n" +
+			"        \"department\": null,\n" +
+			"        \"emergencyContactName\": null,\n" +
+			"        \"emergencyContactNumber\": null,\n" +
+			"        \"firstName\": \"Jayendra\",\n" +
+			"        \"gender\": null,\n" +
+			"        \"homeAirport\": null,\n" +
+			"        \"homeAirportId\": null,\n" +
+			"        \"language\": null,\n" +
+			"        \"lastName\": \"Singh\",\n" +
+			"        \"middleName\": null,\n" +
+			"        \"nickName\": null,\n" +
+			"        \"primaryEmail\": null,\n" +
+			"        \"title\": \"Mr\"\n" +
+			"      },\n" +
+			"      \"preferences\": null,\n" +
+			"      \"docDetails\": null\n" +
+			"    }\n" +
+			"  ],\n" +
+			"  \"password\" : \"Cleartrip@123\"\n" +
+			"}";
+
+	String param_Register_Incomplete = "{\n" +
+			"  \"username\": \"\",\n" +
+			"   \"marketingSubscription\": 1,\n" +
+			"  \"travellerDetails\": [\n" +
+			"    {\n" +
+			"      \"profileData\": null,\n" +
+			"      \"contactInfo\": {\n" +
+			"        \"phoneNumbers\": [\n" +
+			"          {\n" +
+			"            \"mobileNumber\": \"1234567890\",\n" +
+			"            \"mobileCountryCode\": \"91\",\n" +
+			"            \"category\": \"mobile\"\n" +
+			"          }\n" +
+			"        ],\n" +
+			"        \"whatsapp\": null,\n" +
+			"        \"addresses\": [],\n" +
+			"        \"otherDetails\": [],\n" +
+			"        \"emails\": []\n" +
+			"      },\n" +
+			"      \"ffnPreferences\": null,\n" +
+			"      \"personalDetails\": {\n" +
+			"        \"anniversaryDate\": null,\n" +
+			"        \"companyDesignation\": null,\n" +
+			"        \"concatName\": \"jayendrasinghjayendra.singh@cleartrip.com\",\n" +
+			"        \"countryOfResidence\": null,\n" +
+			"        \"countryOfResidenceId\": null,\n" +
+			"        \"countryPreference\": null,\n" +
+			"        \"currency\": null,\n" +
+			"        \"dateOfBirth\": null,\n" +
+			"        \"department\": null,\n" +
+			"        \"emergencyContactName\": null,\n" +
+			"        \"emergencyContactNumber\": null,\n" +
+			"        \"firstName\": \"Jayendra\",\n" +
+			"        \"gender\": null,\n" +
+			"        \"homeAirport\": null,\n" +
+			"        \"homeAirportId\": null,\n" +
+			"        \"language\": null,\n" +
+			"        \"lastName\": \"Singh\",\n" +
+			"        \"middleName\": null,\n" +
+			"        \"nickName\": null,\n" +
+			"        \"primaryEmail\": null,\n" +
+			"        \"title\": \"Mr\"\n" +
+			"      },\n" +
+			"      \"preferences\": null,\n" +
+			"      \"docDetails\": null\n" +
+			"    }\n" +
+			"  ],\n" +
+			"  \"password\" : \"Cleartrip@123\"\n" +
+			"}";
+
+	String params_FK_Redirection="{\n" +
+			"    \"currentPageUri\": \"https://qa2new.cleartrip.com/\",\n" +
+			"    \"fallbackUri\": \"https://qa2new.cleartrip.com\",\n" +
+			"    \"signupPageUri\": \"https://www.cleartrip.com/signin?service=/my-account\",\n" +
+			"    \"provider\": \"flipkart\"\n" +
+			"}";
+
+	String params_FK_Redirection_Incomplete="{\n" +
+			"  \n" +
+			"    \"fallbackUri\": \"https://qa2new.cleartrip.com\",\n" +
+			"    \"signupPageUri\": \"https://www.cleartrip.com/signin?service=/my-account\",\n" +
+			"    \"provider\": \"flipkart\"\n" +
+			"}";
+
 	String params_Apiconfig_postcall="{ \"active_date\": \"2016-01-28T12:56:35+05:30\", \"api_key\": \"d4beada793e93d93fcd432141709400f\", \"api_product_id\": 1042, \"book\": 1, \"create_date\": \"2016-01-28T12:56:35+05:30\", \"inactive_date\": \"2018-01-28T12:56:35+05:30\", \"look\": 2000, \"update_date\": \"2016-01-28T12:56:35+05:30\" }";
 	String params_Companyconfig_contactdata="{\"company\":{\"contact_data\":{\"addresses\":[{\"category\":\"work\",\"city\":\"Kolkata\",\"city_id\":396110,\"contact_data_id\":3647911,\"country\":\"India\",\"country_id\":694,\"id\":339346437,\"pincode\":\"560078\",\"seq_no\":1,\"state\":\"Ka\",\"state_id\":null,\"street_address\":\"Hyderabad\"}],\"phone_numbers\":[{\"category\":\"mobile\",\"contact_data_id\":3647911,\"country_code\":null,\"id\":25744681,\"mobile_number\":\"1234567890\",\"phone_number_value\":\"1234567890999999\",\"seq_no\":1}],\"emails\":[{\"category\":\"other\",\"contact_data_id\":3647911,\"email_id\":\"Hyderabaddddddd@cleartrip.com\",\"id\":9801717,\"seq_no\":1}]},\"company_configs\":[{\"config_name\":\"GALILEO_CORP_DEAL_CODES_100\",\"config_value\":\"AI9WMASTERCODEE\"},{\"config_name\":\"GALILEO_CORP_FARES_ENABLED\",\"config_value\":\"Y\"},{\"config_name\":\"GALILEO_CORP_FARES_ENABLED_disables\",\"config_value\":\"Yyyyyyyy\"}]}}";
 	String params_ForgotPasswordEmail="{\"email\":\"cleartriptester@gmail.com\"}";
@@ -971,6 +1088,15 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 		HashMap<String, Object> headers = new HashMap<>();
 
 		headers.put("x-ct-caller-app", "mobile");
+		headers.put("referer", "qa2new.cleartrip.com");
+		headers.put("Content-Type", "application/json");
+		return headers;
+	}
+
+	public HashMap<String, Object> headersFK_Redirection(){
+		HashMap<String, Object> headers = new HashMap<>();
+
+		headers.put("caller", "qa2new.cleartrip.com");
 		headers.put("referer", "qa2new.cleartrip.com");
 		headers.put("Content-Type", "application/json");
 		return headers;
@@ -2091,6 +2217,34 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			headers=headersRegister();
 			url=url_Register;
 			params=params_Register_api;
+		}
+
+		if(Type.equals("Register_Failure")){
+			RestAssured.baseURI=url_Acct_Service;
+			headers=headersRegister();
+			url=url_Register;
+			params=param_Register_Failure;
+		}
+
+		if(Type.equals("Register_incompete")){
+			RestAssured.baseURI=url_Acct_Service;
+			headers=headersRegister();
+			url=url_Register;
+			params=param_Register_Incomplete;
+		}
+
+		if(Type.equals("FK_Redirection")){
+			RestAssured.baseURI=qaurl;
+			headers=headersFK_Redirection();
+			url=url_FK_Redirection;
+			params=params_FK_Redirection;
+		}
+
+		if(Type.equals("FK_Redirection_Invalid_request")){
+			RestAssured.baseURI=qaurl;
+			headers=headersFK_Redirection();
+			url=url_FK_Redirection;
+			params=params_FK_Redirection_Incomplete;
 		}
 
 		if(Type.equals("Apiconfig_postcall")){
@@ -4723,6 +4877,13 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 				Assert.assertTrue(false);						
 			}
 		}
+
+		if(Type.equalsIgnoreCase("Register_Failure")) {
+			String message = jsonPathEvaluator.getString("message");
+			if (!message.contains("User already exists for email : sessionm781@gmail.com on domain www.cleartrip.com: ")) {
+				Assert.assertTrue(false);
+			}
+		}
 	}
 
 	public void validation_AppleRegister_NullEmail(Response resp, String Type, String Type2){
@@ -4845,6 +5006,14 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 				Assert.assertTrue(false);						
 			}
 		}
+
+		if(Type.equalsIgnoreCase("FK_Redirection_Invalid_request")) {
+			String message = jsonPathEvaluator.getString("message");
+			if(!message.contains("INVALID_REQUEST")) {
+				Assert.assertTrue(false);
+			}
+		}
+
 		if(Type.equalsIgnoreCase("Promotional_Service_GenerateReferralLink_InvalidAuth")) {
 			String message = jsonPathEvaluator.getString("message");
 			if(!message.contains("INVALID_COOKIE_SESSION")) {
@@ -4966,6 +5135,27 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			String username = jsonPathEvaluator.getString("message");
 			if(!username.contains("Another entity already exists with private email sai@privaterelay.appleid.com, can't proceed with the request")) {
 				Assert.assertTrue(false);						
+			}
+		}
+	}
+
+	public void validation_Register(Response resp, String Type, String Type2) {
+		Reporter.log("Response body " + Type + " : " + resp.body().asString());
+		//System.out.println("Response body "+Type +" : "+ resp.body().asString());
+		int statusCode = resp.getStatusCode();
+		//int statusCode1 = resp.getStatusCode();
+		Reporter.log("statusCode: " + statusCode);
+		JsonPath jsonPathEvaluator = resp.jsonPath();
+		if (statusCode != 500) {
+			Assert.assertTrue(false);
+		}
+
+		if(Type.equalsIgnoreCase("Register_incompete")) {
+
+			String message = jsonPathEvaluator.getString("message");
+			System.out.println(message);
+			if(!message.contains("Something went wrong")) {
+				Assert.assertTrue(false);
 			}
 		}
 	}
@@ -5160,6 +5350,18 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			String message = jsonPathEvaluator.getString("status");
 			System.out.println(message);
 			if(!message.contains("SUCCESS")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(Type.equalsIgnoreCase("FK_Redirection")) {
+			System.out.println(statusCode);
+			if(statusCode!=200) {
+				Assert.assertTrue(false);
+			}
+			String message = jsonPathEvaluator.getString("status");
+			System.out.println(message);
+			if(!message.contains("success")) {
 				Assert.assertTrue(false);
 			}
 		}
