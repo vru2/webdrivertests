@@ -1292,7 +1292,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 
 	public HashMap<String, Object> LogoutAPI() {
 		HashMap<String, Object> headers = new HashMap<>();
-		headers.put("cookie", "ct-auth=Adom04s0jWWLpYeJdqQCvSpAXAXfK%2FmItS09lB9PYEG8m%2Fmxya8oyL4s2ROkN98ZMQSQFbQVBxkZathsIXsnSbCrW27PiyVruGbls9pHIkzq7QiGDb7x8BWA5PwDmOdkWeM5kHkfXiKtBH4gyl8vNQfC8%2BU2pv2ChqgCaQM9CXOcIR8vVJAOZtJGpXFnN6KTpgw8mmtlQh%2B7XEmQWV1fBzUEeb5zfEqx82VQlFWkOI8%3D;ct-dvid=a7582pi%2F%2Bu70DqonjQ47Kd99K4dEzqRkfKTWeep2K9wCYb4Je61F8Ri0OER5PA794RDSaM5o%2FKqgCuFT2sjMAGZI6H4S%2FnVEUGthSIGMql0%3D");
+		headers.put("cookie", "ct-auth=LdBARkWUtOmFdAphrfJ1ejAcLfOYONdXBpv7qltBgMGV3N9T1xGYPHBxTtV3StTxvYtwBZwu7%2FcX1Pb0LcLl96z2Mn2XazzUGuVdNS8w5CWrlsBabzCtdjVxGdsg5s3xQt7VyCHD0iaR5UHLJhNz01SpgdjRyL4p9r8Q7E5Hc1icu1WyncHi%2BiTUcq2NL3nkgVULHQG1vjnModEbzmO%2BjJz7q%2F1WcegmCMMcRWALGtI%3D;ct-dvid=lTsssbAzLUoLsD5FHRJtU3O0G3rnKTfEfHFOR4f6j1egD1BUsEnZkn0rKL7Wx5nDuX5Uv3ffnENFn%2FcAeM8jEgJRLSi1Et0U%2BEUxSXUp9Uk%3D");
 		headers.put("referer", "qa2new.cleartrip.com");
 		headers.put("caller", "caller-app");
 		return headers;
@@ -5634,7 +5634,7 @@ String params_IdentityService_Signin_Userauthentication_B2C_B2B="{\"username\":\
 			}
 		}
 		else if (Type.equalsIgnoreCase("Account_Service_LogOutAPI")) {
-			if (!resp.body().asString().contains("65255898")) {
+			if (!resp.body().asString().contains("65250928")) {
 				Assert.assertTrue(false);
 			}
 		}else if(Type.equalsIgnoreCase("Date")) {
