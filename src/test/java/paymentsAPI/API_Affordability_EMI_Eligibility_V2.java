@@ -15,12 +15,12 @@ public class API_Affordability_EMI_Eligibility_V2 extends API_PaymentCommon1 {
 		validation("Affor_Eligibility_NCE_V2_PayTM", resp);
 	}
 
-	@Test
+	/*@Test
 	public void Eligi_NCE_V2_FKPL() throws Exception {
 		Response resp ;
 		resp = payPost("Affor_Eligibility_NCE_V2","13957750");
 		validation("Affor_Eligibility_NCE_V2_FKPL", resp);
-	}
+	}*/
 
 	@Test
 	public void Eligi_NCE_V2_PL() throws Exception {

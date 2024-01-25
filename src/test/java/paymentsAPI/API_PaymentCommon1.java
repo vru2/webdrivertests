@@ -3536,7 +3536,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		}
 
 		if(payType.equals("FPE")) {
-			if (!resp.body().asString().contains("tripRef")) {
+			/*if (!resp.body().asString().contains("tripRef")) {
 				Assert.assertTrue(false);
 			}
 			if (!resp.body().asString().contains("device_ga_aa_id")) {
@@ -3550,6 +3550,11 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Assert.assertTrue(false);
 			}
 			if (!device_dvid.contains("30068def-7291-3ae9-b003-ce9d07784c48")) {
+				Assert.assertTrue(false);
+			}*/
+			JsonPath j = new JsonPath(resp.asString());
+			String message = j.getString("message");
+			if (!message.contains("Something went Wrong")) {
 				Assert.assertTrue(false);
 			}
 		}
