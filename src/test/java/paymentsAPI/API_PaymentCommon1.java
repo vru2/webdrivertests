@@ -241,7 +241,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 
 	String ParamsAffordability_PL_Eligibility_2000="\",   \"productType\": \"DOMESTIC_AIR\",   \"affordabilityType\": \"PL\",   \"amount\": 2000,   \"uuid\": \"Q12345\" }";
 
-	String ParamsEMI_Juspay_SaveAPI="[{\"tenure\":50,\"interest\":12,\"minAmount\":3000.0,\"maxAmount\":null,\"bankFee\":199.0,\"paymentType\":\"EMI\",\"paymentSubtype\":\"CC\",\"providerValue\":\"192\",\"provider\":\"bank\",\"displayPlan\":true,\"emiPlanGatewayMapping\":[{\"gatewayId\":25,\"credentialName\":\"RAZORPAY_V2_TEST\",\"gatewayPlanId\":null},{\"gatewayId\":27,\"credentialName\":\"Tests_HDFC\",\"gatewayPlanId\":null}]}]";
+	String ParamsEMI_Juspay_SaveAPI="[{\"tenure\":10,\"interest\":12,\"minAmount\":3000.0,\"maxAmount\":null,\"bankFee\":199.0,\"paymentType\":\"EMI\",\"paymentSubtype\":\"CC\",\"providerValue\":\"192\",\"provider\":\"bank\",\"displayPlan\":true,\"emiPlanGatewayMapping\":[{\"gatewayId\":25,\"credentialName\":\"RAZORPAY_V2_TEST\",\"gatewayPlanId\":null},{\"gatewayId\":27,\"credentialName\":\"Tests_HDFC\",\"gatewayPlanId\":null}]}]";
 
 	String ParamsSuperCoins_Hold = "{\"rewardsType\":\"SUPERCOINS\",\"rewardsRequestType\":\"HOLD\",\"trackId\":\"681f76-6de-4ec-b359adhks1s6\",\"productType\":\"AIR\",\"amount\":1.6,\"params\":{\"mobile\":\"+919986696785\",\"itineraryId\":\"681f76-6de-4ec-16559048910479\"}}";
 	String ParamsSuperCoins_Unhold = "{\"rewardsType\":\"SUPERCOINS\",\"rewardsRequestType\":\"UNHOLD\",\"trackId\":\"681f76-6de-4ec-b359adhks1s6\",\"params\":{\"mobile\":\"+919986696785\",\"itineraryId\":\"NI68ff2771a0-361c-4a65-bb92-220721200825\"}}";
@@ -4556,7 +4556,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			String reference_id = jsonPathEvaluator.getString("reference_id"); 
 			String processing_gateway = jsonPathEvaluator.getString("processing_gateway"); 
 
-			if(!status.contains("INITIALIZING")) {
+			if(!status.contains("SUCCESS")) {
 				Reporter.log("status is : "+status);
 				Assert.assertTrue(false);
 			}
@@ -5483,8 +5483,8 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	}		
 		
 	else if(payType.equals("EMIRazorpay")) {
-		if(!resp.body().asString().contains("CT_EMI_PLAN_25_9_12_14.0_10")) {
-			Reporter.log("CT_EMI_PLAN_25_9_12_14.0_10");
+		if(!resp.body().asString().contains("CT_EMI_PLAN_25_11_18_15.0_2")) {
+			Reporter.log("CT_EMI_PLAN_25_11_18_15.0_2");
 			Assert.assertTrue(false);
 		}
 	}
