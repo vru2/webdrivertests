@@ -100,20 +100,20 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 
 
 	String paramsGV_GET_SCLP_CAPTURE = "{\"cardNumber\":\"5004000018831128\",\"cardPin\":\"184640\",\"amount\":0.1,\"currency\":\"INR\",\"paymentId\":45246590}";
-	String paramsGV_GET_SCLP_VALIDATE = "{\"amount\":1.1,\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\",\"tripRef\":\"Q243333333\",\"giftVoucherDetail\":{\"cardNumber\":\"5004000019142061\",\"cardPin\":\"111755\"},\"customerDetail\":{\"firstName\":\"Test\",\"lastName\":\"Test\",\"mobile\":\"1121212122\"}}";
-	String paramsGV_GET_SCLP_VALIDATE_LIST = "[{\"amount\":1.0,\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\",\"tripRef\":\"Q243333333\",\"giftVoucherDetail\":{\"cardNumber\":\"5004000017915661\",\"cardPin\":\"256134\"},\"customerDetail\":{\"firstName\":\"Test\",\"lastName\":\"Test\",\"mobile\":\"1121212122\"}},{\"amount\":100.0,\"currency\":\"INR\",\"productType\":\"INTL-AIR\",\"tripRef\":\"Q243333333\",\"giftVoucherDetail\":{\"cardNumber\":\"5004000013522541\",\"cardPin\":\"184630\"},\"customerDetail\":{\"firstName\":\"Test\",\"lastName\":\"Test\",\"mobile\":\"1121212122\"}}]";
-	String paramsGV_GET_SCLP_VALIDATE_INSUFFICENT = "{\"amount\":200120.1,\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\",\"tripRef\":\"Q243333333\",\"giftVoucherDetail\":{\"cardNumber\":\"5004000019142061\",\"cardPin\":\"111755\"},\"customerDetail\":{\"firstName\":\"Test\",\"lastName\":\"Test\",\"mobile\":\"1121212122\"}}";
+	String paramsGV_GET_SCLP_VALIDATE = "{\"amount\":1.1,\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\",\"tripRef\":\"Q243333333\",\"giftVoucherDetail\":{\"cardNumber\":\"5004000014558394\",\"cardPin\":\"143432\"},\"customerDetail\":{\"firstName\":\"Test\",\"lastName\":\"Test\",\"mobile\":\"1121212122\"}}";
+	String paramsGV_GET_SCLP_VALIDATE_LIST = "[{\"amount\":1.0,\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\",\"tripRef\":\"Q243333333\",\"giftVoucherDetail\":{\"cardNumber\":\"5004000013583748\",\"cardPin\":\"182261\"},\"customerDetail\":{\"firstName\":\"Test\",\"lastName\":\"Test\",\"mobile\":\"1121212122\"}},{\"amount\":100.0,\"currency\":\"INR\",\"productType\":\"INTL-AIR\",\"tripRef\":\"Q243333333\",\"giftVoucherDetail\":{\"cardNumber\":\"5004000014558394\",\"cardPin\":\"143432\"},\"customerDetail\":{\"firstName\":\"Test\",\"lastName\":\"Test\",\"mobile\":\"1121212122\"}}]";
+	String paramsGV_GET_SCLP_VALIDATE_INSUFFICENT = "{\"amount\":200120.1,\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\",\"tripRef\":\"Q243333333\",\"giftVoucherDetail\":{\"cardNumber\":\"5004000014558394\",\"cardPin\":\"143432\"},\"customerDetail\":{\"firstName\":\"Test\",\"lastName\":\"Test\",\"mobile\":\"1121212122\"}}";
 
 
-	String paramsGV_GET_SCLP_EXPIRY ="[45241778,45241780]";
+	String paramsGV_GET_SCLP_EXPIRY ="[1706497517854709]";
 
 
-	String paramsGV_GET_SCLP_GENDOM = "{\"cardNumber\":\"5004000013382809\",\"cardPin\":\"147036\",\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\"}";
-	String paramsGV_GET_SCLP_GENINTL = "{\"cardNumber\":\"5004000013382809\",\"cardPin\":\"147036\",\"currency\":\"INR\",\"productType\":\"INTL-AIR\"}";
-	String paramsGV_GET_SCLP_GENHOTEL = "{\"cardNumber\":\"5004000013382809\",\"cardPin\":\"147036\",\"currency\":\"INR\",\"productType\":\"HOTEL\"}";
+	String paramsGV_GET_SCLP_GENDOM = "{\"cardNumber\":\"5004000013583748\",\"cardPin\":\"182261\",\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\"}";
+	String paramsGV_GET_SCLP_GENINTL = "{\"cardNumber\":\"5004000013583748\",\"cardPin\":\"182261\",\"currency\":\"INR\",\"productType\":\"INTL-AIR\"}";
+	String paramsGV_GET_SCLP_GENHOTEL = "{\"cardNumber\":\"5004000013583748\",\"cardPin\":\"182261\",\"currency\":\"INR\",\"productType\":\"HOTEL\"}";
 	String paramsGV_GET_SCLP = "{\"cardNumber\":\"1001471016335397\",\"cardPin\":\"215288\",\"currency\":\"INR\",\"productType\":\"HOTEL\"}";
-	String paramsGV_GET_SCLP_DOMAIR = "{\"cardNumber\":\"1001371063548292\",\"cardPin\":\"142587\",\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\"}";
-	String paramsGV_GET_SCLP_INTLAIR = "{\"cardNumber\":\"1001371063548292\",\"cardPin\":\"142587\",\"currency\":\"INR\",\"productType\":\"INTL-AIR\"}";
+	String paramsGV_GET_SCLP_DOMAIR = "{\"cardNumber\":\"1001371065079202\",\"cardPin\":\"101285\",\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\"}";
+	String paramsGV_GET_SCLP_INTLAIR = "{\"cardNumber\":\"1001371065079202\",\"cardPin\":\"101285\",\"currency\":\"INR\",\"productType\":\"INTL-AIR\"}";
 	String paramsGV_GET_SCLP_HOTEL = "{\"cardNumber\":\"1001471017637077\",\"cardPin\":\"187924\",\"currency\":\"INR\",\"productType\":\"HOTEL\"}";
 	String paramsGV_GET_SCLP_DOMAIR_ERR = "{\"cardNumber\":\"1001471014504415\",\"cardPin\":\"238436\",\"currency\":\"INR\",\"productType\":\"DOMESTIC-AIR\"}";
 	String paramsGV_GET_SCLP_INTLAIR_ERR = "{\"cardNumber\":\"1001471014504415\",\"cardPin\":\"238436\",\"currency\":\"INR\",\"productType\":\"INTL-AIR\"}";
@@ -5686,7 +5686,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			String description = j.getString("description");
 			String expiry = j.getString("gvExpiryDetails.expiry");
 			System.out.println(expiry);
-			if (!description.contains("Expiry details fetched successfully") || !status.contains("S")|| !expiry.contains("2023-12-15T12:38:38.000+00:00")) {
+			if (!description.contains("Expiry details fetched successfully") || !status.contains("S")|| !expiry.contains("2024-04-03T03:27:09.000+00:00")) {
 				Assert.assertTrue(false);
 			}
 		}
@@ -5695,7 +5695,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			JsonPath j = new JsonPath(resp.asString());
 			String status = j.getString("status");
 			String cardNumber = j.getString("giftVoucherResponseDetails.cardNumber");
-			if (!cardNumber.contains("5004000019142061") || !status.contains("SUCCESS")) {
+			if (!cardNumber.contains("5004000014558394") || !status.contains("SUCCESS")) {
 				Assert.assertTrue(false);
 			}
 		}
@@ -5703,7 +5703,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			JsonPath j = new JsonPath(resp.asString());
 			String status = j.getString("status");
 			String cardNumber = j.getString("giftVoucherResponseDetails.cardNumber");
-			if (!status.contains("SUCCESS")|| !cardNumber.contains("5004000017915661")||!cardNumber.contains("5004000013522541")) {
+			if (!status.contains("SUCCESS")|| !cardNumber.contains("5004000013583748")) {
 				Assert.assertTrue(false);
 			}
 		}
@@ -5716,7 +5716,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 
 			String cardNumber = j.getString("giftVoucherResponseDetails.cardNumber");
 
-			if (!cardNumber.contains("5004000019142061") || !status.contains("FAILURE") || !description.contains("Insufficient balance")  ) {
+			if (!cardNumber.contains("5004000014558394") || !status.contains("FAILURE") || !description.contains("Insufficient balance")  ) {
 				Assert.assertTrue(false);
 			}
 		}

@@ -125,8 +125,8 @@ public class bus_Common_API {
 
     String url_EndPoint_Coupon_Active = "/offer/search?active=true";
 
-    String url_EndPoint_Coupon_Activate = "/offer/activate/237";
-    String url_EndPoint_Coupon_Deactivate = "/offer/deactivate/237";
+    String url_EndPoint_Coupon_Activate = "/offer/activate/264";
+    String url_EndPoint_Coupon_Deactivate = "/offer/deactivate/264";
 
     String payload_Update_Trip = "{\"bus_booking_infos\":[{\"seq_no\":1,\"pax_info_seq_no\":1}],\"bus_pricing_infos\":[{\"seq_no\":1,\"bus_cost_pricing_info\":{\"seq_no\":1,\"pricing_elements\":[]},\"pricing_elements\":[{\"amount\":20,\"category\":\"COUPON\",\"code\":\"TEST10\",\"label\":\"Coupon\"}]}]}";
     String payload_Canceled_Trip_Status = "{\"note\":\"string\",\"subject\":\"string\",\"trip_id\":0,\"user_id\":0}";
@@ -441,13 +441,13 @@ public class bus_Common_API {
             String type= jsonPathEvaluator.getString("type");
             Reporter.log("code " +code);
             Reporter.log("active " +active);
-            if(!code.contains("CTCHANNEL")) {
+            if(!code.contains("CTDEVICE")) {
                 Assert.assertTrue(false);
             }
             if(!active.contains("true")) {
                 Assert.assertTrue(false);
             }
-            if(!type.contains("PERCENTAGE_DISCOUNT")) {
+            if(!type.contains("FLAT_DISCOUNT")) {
                 Assert.assertTrue(false);
             }
         }
@@ -457,13 +457,13 @@ public class bus_Common_API {
             String type= jsonPathEvaluator.getString("type");
             Reporter.log("code " +code);
             Reporter.log("active " +active);
-            if(!code.contains("CTCHANNEL")) {
+            if(!code.contains("CTDEVICE")) {
                 Assert.assertTrue(false);
             }
             if(!active.contains("false")) {
                 Assert.assertTrue(false);
             }
-            if(!type.contains("PERCENTAGE_DISCOUNT")) {
+            if(!type.contains("FLAT_DISCOUNT")) {
                 Assert.assertTrue(false);
             }
         }
