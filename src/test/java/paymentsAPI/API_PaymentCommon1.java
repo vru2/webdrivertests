@@ -54,6 +54,15 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String url_QA2 = "https://qa2new.cleartrip.com/";
 	public String url_TestApp = "";
 
+	String url_COD_Pincode_Verify = "/paymentservice/cod/verify/pinCode/ea633400034d440267ce17334a1d2a8e?pinCode=";
+	String url_COD_Pincode_Fetch = "/paymentservice/cod/pinCode?pinCode=";
+
+	String url_COD_Pincode_Update_Create = "/paymentservice/cod/pinCode";
+
+	String url_COD_Ekart_Webhook = "/paymentservice/cod/ekart/tracking-update";
+
+	String url_COD_Fetch_PaymentDetails = "/paymentservice/payments/47391512";
+
 	String banner_New = "paymentservice/bannerDetails";
 
 	String paramsCC ="[{\"payment\":{\"seq_no\":1,\"trip_id\":106562332,\"app_userid\":10001,\"product_type\":\"DOMESTIC-AIR\",\"high_risk\":false,\"d_plus_x_in_hours\":276,\"payment_category\":\"B\",\"fraud_system_invocation\":\"Y\",\"ui_version\":\"v2\",\"customer_detail\":{\"ip_address\":\"119.82.73.123\",\"mobile\":\"9986696785\",\"email\":\"cltppayment@gmail.com\",\"firstName\":\"test\"},\"app_ref1\":\"Q18110926800\",\"app_ref2\":\"167823462\",\"itinerary_id\":\"683a3a6bec-4e58-422a-a2c9-90707b1e5a12\",\"payment_type\":\"CC\",\"amount\":100,\"currency\":\"INR\",\"country\":\"IN\",\"order_info1\":\"9W/362/DEL/BOM/201811XXXXXX00\",\"order_info2\":\"Kiran Kumar\",\"source_type\":\"ACCOUNT\",\"user_id\":85721640,\"company_id\":110340,\"app_return_info\":{\"url\":\"https://www.cleartrip.com/flights/itinerary/683a3a6bec-4e58-422a-a2c9-90707b1e5a12/book\",\"method\":\"POST\",\"book_internal\":true,\"book_internal_url\":\"http://book-flights.cltp.com:9001/r3/book/flights/itinerary/683a3a6bec-4e58-422a-a2c9-90707b1e5a12/book-internal?ll=INFO\"},\"host_name\":\"qa2.cleartrip.com\",\"card_detail\":{\"card_number\":\"5241810000000000\",\"card_type_id\":1,\"expiry_month\":\"12\",\"expiry_year\":\"2025\",\"cvv\":\"123\",\"name\":\"CleartripCard\",\"billto_detail\":{\"firstname\":\"test\",\"lastname\":\"test\",\"address1\":\"Cleartrip JP Nagar\",\"city_name\":\"Bangalore\",\"state_name\":\"Karnataka\",\"country_name\":\"India\",\"postal_code\":\"560076\"}},\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko\"}}]";
@@ -189,6 +198,12 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 
 	String Params_ROR_Create_Profile_List = "{\"card_number_prefix\":\"12345679\",\"ip_address\":\"12.34.56.81\",\"phone_number\":\"121212121221\",\"booked_by_email_id\":\"123@1223.com\",\"card_holder_email_id\":\"123@1223.com\",\"status\":\"T\",\"list_type\":0,\"temporary\":1,\"user_id\":\"123456543\"}";
 	String Params_ROR_Update_Payments = "{\"id\":43327334,\"trip_id\":106562333,\"txn_id\":167823463,\"payment_type\":\"DC\",\"amount\":3.955111,\"created_at\":1571291019000,\"updated_at\":1578889867935,\"seq_no\":1,\"status\":\"S\",\"description\":\"Initializing the payment\",\"currency\":\"INR\",\"order_info1\":null,\"order_info2\":null,\"app_ref1\":\"167823462\",\"app_ref2\":167823462,\"neglist_id\":null,\"pos_list_id\":null,\"linkable_id\":null,\"linkable_type\":null,\"user_message\":null,\"pan_number\":null,\"payment_category\":\"B\",\"merchant_txn_ref\":\"43327334\",\"payment_subtype\":null,\"express_checkout\":null,\"emi_count\":null,\"emi_fee\":null,\"ref_payment_id\":null,\"payment_cards_gateway_accesses\":[{\"id\":389967720,\"payment_id\":43327334,\"trip_ref\":\"TPOtpK34\",\"txn_id\":167823462,\"payment_mode\":\"D\",\"gateway_id\":52,\"card_number\":\"458546XXXXXX5964\",\"name_on_card\":\"test\",\"amount\":1.0,\"status\":\"S\",\"description\":\"Initializing\",\"tran_type\":\"INIT\",\"seq_no\":1,\"created_at\":1571291061000,\"updated_at\":1571291061000,\"credential_name\":\"IN_TECH_PROCESS_OTP_QA\",\"retry_count\":0,\"card_number_hash\":\"d1e0bef8e70b9968ac037aa1d0b0b0242d4a3203836f0822d75a0c3267c37bf1\"},{\"id\":389967722,\"payment_id\":43327334,\"trip_ref\":\"TPOtpK34\",\"txn_id\":167823462,\"payment_mode\":\"D\",\"gateway_id\":52,\"card_number\":\"458546XXXXXX5964\",\"name_on_card\":\"test\",\"amount\":1.0,\"status\":\"F\",\"description\":\"OTP Flag is not present in TP response : Error Code :ERROR082\",\"gateway_response1\":\"0399\",\"gateway_response2\":\"failed\",\"gateway_response4\":\"1180\",\"gateway_response5\":\"43327334\",\"gateway_response8\":\"ERROR082\",\"gateway_response9\":\"NA\",\"gateway_response11\":\"b1029d24a0b8a9fe2ae7b00a815bb453d5c4d55f\",\"tran_type\":\"PAUT\",\"seq_no\":1,\"created_at\":1571291065000,\"updated_at\":1571291303000,\"credential_name\":\"IN_TECH_PROCESS_OTP_QA\",\"retry_count\":0,\"card_number_hash\":\"d1e0bef8e70b9968ac037aa1d0b0b0242d4a3203836f0822d75a0c3267c37bf1\"},{\"id\":389967724,\"payment_id\":43327334,\"trip_ref\":\"TPOtpK34\",\"txn_id\":167823462,\"payment_mode\":\"D\",\"gateway_id\":14,\"card_number\":\"458546XXXXXX5964\",\"name_on_card\":\"test\",\"amount\":1.0,\"status\":\"S\",\"description\":\"Initializing\",\"tran_type\":\"INIT\",\"seq_no\":1,\"created_at\":1571291303000,\"updated_at\":1571291303000,\"credential_name\":\"IN_TECH_PROCESS\",\"retry_count\":0,\"card_number_hash\":\"d1e0bef8e70b9968ac037aa1d0b0b0242d4a3203836f0822d75a0c3267c37bf1\"}],\"payment_cash_details\":null,\"payment_gift_voucher_txns\":[],\"payment_tp_wallet_txns\":[],\"payment_upi_txns\":[],\"payment_redirect_timings\":[{\"payment_id\":43327334,\"redirection_out\":1571291305948,\"created_at\":1571291305951,\"updated_at\":1571291305951,\"retry_count\":0,\"id\":34678514}],\"payment_card_details\":[{\"id\":30780182,\"payment_id\":43327334,\"card_number\":\"458546XXXX445964\",\"card_type_id\":1,\"payment_mode\":\"D\",\"bank_id\":6,\"created_at\":1571291061000,\"updated_at\":1571291061000,\"bin_id\":0,\"country\":\"INDIA\"}],\"payment_cash_card_detail\":null,\"payment_net_banking_details\":null,\"payment_ivr_detail\":null,\"payment_techpro_detail\":null,\"payment_third_party_da_details\":[],\"payment_third_party_details\":[],\"payment_ap_txns\":[],\"payment_da_transactions\":[],\"payment_da_details\":[],\"payment_wallet_transactions\":[],\"reward_points_txns\":null}";
+
+	String Params_COD_Pincode_Update_Create = "[{\"pin_code\":\"560001\",\"city\":\"Bangalore\",\"state\":\"Karnataka\",\"is_active\":true}]";
+
+	String Params_COD_Webhook_Success = "{\"reason\":\"\",\"sub_reasons\":[\"Incomplete Address\"],\"request_id\":null,\"vendor_tracking_id\":\"CLRC0086782727\",\"merchant_reference_id\":\"CLRC0086782727\",\"status\":\"delivered\",\"shipment_type\":\"OutgoingShipment\",\"remarks\":\"\",\"merchant_code\":\"ABC\",\"merchant_name\":\"ABC Corp.\",\"event_date\":\"2023-12-28 10:22:52\",\"courier_name\":\"flipkartlogistics-cod\",\"seller_id\":\"ABC\",\"location\":\"fkl_Binola_ABC\",\"event\":\"shipment_delivered\"}";
+
+	String Params_COD_Webhook_Failure = "{\"reason\":\"\",\"sub_reasons\":[\"Incomplete Address\"],\"request_id\":null,\"vendor_tracking_id\":\"CLRC0000000011\",\"merchant_reference_id\":\"CLRC0000000011\",\"status\":\"delivered\",\"shipment_type\":\"OutgoingShipment\",\"remarks\":\"\",\"merchant_code\":\"ABC\",\"merchant_name\":\"ABC Corp.\",\"event_date\":\"2023-12-19 10:22:52\",\"courier_name\":\"flipkartlogistics-cod\",\"seller_id\":\"ABC\",\"location\":\"fkl_Binola_ABC\",\"event\":\"shipment_undelivered_attempted\"}";
 
 	String Params_IR_Valid_VPA= "{\"accountType\":\"VPA\",\"vpa\":\"kirank@okhdfcbank\",\"bankAccountNumber\":\"51248779\",\"ifsc\":\"HDFC0000531\"}";
 	String Params_IR_InValid_VPA= "{\"accountType\":\"VPA\",\"vpa\":\"kirankokhdfcbank\",\"bankAccountNumber\":\"51248779\",\"ifsc\":\"HDFC0000531\"}";
@@ -356,6 +371,8 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String urlMIS_Report_TW = "/paymentservice/service/air/mis/detail?paymentType=TW&tripRef=Q221123601794";
 	String urlMIS_Report_DA = "/paymentservice/service/air/mis/detail?paymentType=DA&tripRef=Q221213613752";
 	String urlMIS_Report_PL_Refund ="/paymentservice/service/air/mis/detail?paymentType=PL&tripRef=Q221117600854&reqFor=REFUND";
+
+	String urlMIS_Report_COD ="/paymentservice/service/air/mis/detail?tripRef=Q240102827788&paymentType=CASH";
 
 	String urlSuperCoins_MobileLinked= "/payments/rewards/supercoins/checkAccountLinked?mobileNumber=+919986696785";
 
@@ -845,6 +862,12 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		headers.put("api-version","2");
 		return headers;
 	}
+	public HashMap<String, Object> headersCOD(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("security-key", "XVSU1272hslIIOS");
+		headers.put("Content-Type","application/json");
+		return headers;
+	}
 	
 	public HashMap<String, Object> headersForms_Json(){		
 		HashMap<String, Object> headers = new HashMap<>();
@@ -1157,6 +1180,9 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				url = urlMIS_Report_DA;
 			}else if(payType1.equalsIgnoreCase("PL_Refund")) {
 				url = urlMIS_Report_PL_Refund;
+			}
+			else if(payType1.equalsIgnoreCase("COD")) {
+				url = urlMIS_Report_COD;
 			}
 		}
 
@@ -1588,8 +1614,12 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			RestAssured.baseURI =urlReporting;
 			url= urlROR_Update_Payment;
 			params= Params_ROR_Update_Payments;
-		} 		
-
+		}
+		else if(payType.equalsIgnoreCase("CODPincode_Update")) {
+			RestAssured.baseURI = urlPay;
+			url = url_COD_Pincode_Update_Create;
+			params = Params_COD_Pincode_Update_Create;
+		}
 		Reporter.log(urlReporting);
 		Reporter.log("Params :" +params);
 
@@ -1618,6 +1648,27 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			url= url_EMI_Juspay_SavePlan;
 			params = ParamsEMI_Juspay_SaveAPI;
 		}
+
+
+
+		else if(payType.equalsIgnoreCase("COD_Webhook_Success")) {
+			RestAssured.baseURI = urlReporting;
+			headers=headersCOD();
+			url = url_COD_Ekart_Webhook;
+			params = Params_COD_Webhook_Success;
+		}
+		else if(payType.equalsIgnoreCase("COD_Webhook_Failure")) {
+			RestAssured.baseURI = urlReporting;
+			headers=headersCOD();
+			url = url_COD_Ekart_Webhook;
+			params = Params_COD_Webhook_Failure;
+		}
+		else if(payType.equalsIgnoreCase("CODPincode_Create")) {
+			RestAssured.baseURI = urlPay;
+			url = url_COD_Pincode_Update_Create;
+			params = Params_COD_Pincode_Update_Create;
+		}
+
 		else if(payType.equalsIgnoreCase("Affor_Eligibility_NCE_V2")) {
 			headers=headersForms_Eligibility_V2();
 			url= urlAffordability+urlAffordability_EMI_Eligibility;
@@ -3189,11 +3240,19 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				}
 			}
 			else if(payType.equalsIgnoreCase("DC")) {
-				if(!credential_name.equals("[TEST]")) {
-					Assert.assertTrue(false);
-				}if(!txnID.equals("[20221208111212800110168173404295906]")) {
+				if (!credential_name.equals("[TEST]")) {
 					Assert.assertTrue(false);
 				}
+				if (!txnID.equals("[20221208111212800110168173404295906]")) {
+					Assert.assertTrue(false);
+				}
+			}
+			else if(payType.equalsIgnoreCase("COD")) {
+				/*if(!payment_id.equals("1704191265821648")) {
+					Assert.assertTrue(false);
+				}*/if(!txnID.contains("CLRC0087998221")) {
+					Assert.assertTrue(false);
+			}
 			}else if(payType.equalsIgnoreCase("NB")) {
 				if(!credential_name.equals("[IN_CCAVENUEV2_hdfc]")) {
 					Assert.assertTrue(false);
@@ -3290,6 +3349,24 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Assert.assertTrue(false);
 			}
 		}
+		if(payType.equals("CODPincode_Create")) {
+			if(!(resp.body().asString().contains("Pin code details are already available for"))){
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("CODPincode_Update")) {
+			Assert.assertTrue(false);
+			if(!(resp.body().asString().contains(""))){
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("COD_Webhook_Success")) {
+			Assert.assertTrue(false);
+			if(!(resp.body().asString().contains("pay txn already present"))){
+				Assert.assertTrue(false);
+			}
+		}
+
 		if(payType.equals("EMIRouting")) {
 			if(!(resp.body().asString().contains("providerToMonthlyQuotaMap"))){
 				Assert.assertTrue(false);

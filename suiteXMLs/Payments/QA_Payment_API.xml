@@ -124,6 +124,12 @@
         </classes>
     </test>
 
+    <test name="COD" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_COD_Pincode"/>
+        </classes>
+    </test>
+
     <test name="Qitaf" preserve-order="true" parallel="true">
         <classes>
             <!-- <class name="test.java.paymentsAPI.API_Qitaf_Redeem"/>

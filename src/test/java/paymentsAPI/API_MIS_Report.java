@@ -103,4 +103,11 @@ public class API_MIS_Report extends API_PaymentCommon1
 		resp = payGet("MIS_Report","PL_Refund");
 		validation_MIS("PL_Refund", resp);
 	}
+
+	@Test
+	public void MIS_report_COD()  {
+		Response resp ;
+		resp = payGet("MIS_Report","COD");
+		validation_MIS("COD", resp);
+	}
 }
