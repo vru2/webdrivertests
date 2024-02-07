@@ -1085,6 +1085,15 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		else if(payType.equalsIgnoreCase("BannerNew")) {
 			url=url_QA2+banner_New;
 		}
+		else if(payType.equalsIgnoreCase("CODPincode_Verify_Valid")) {
+			RestAssured.baseURI =urlPay;
+			url=url_COD_Pincode_Verify+payType1;
+		}
+
+		else if(payType.equalsIgnoreCase("CODPincode_Fetch")) {
+			RestAssured.baseURI =urlPay;
+			url=url_COD_Pincode_Fetch+payType1;
+		}
 
 		else if(payType.equalsIgnoreCase("Hi_5_get_walletTnx")) {
 			RestAssured.baseURI =url_QA2;
@@ -3349,6 +3358,41 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Assert.assertTrue(false);
 			}
 		}
+		if(payType.equals("CODPincode_Verify_Valid")) {
+
+			String eligible = jsonPathEvaluator.getString("eligible");
+			String description = jsonPathEvaluator.getString("description");
+			if(!eligible.equals("true")) {
+				Assert.assertTrue(false);
+			}
+			if(!description.equals("Pin code verified successfully")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+
+		if(payType.equals("CODPincode_Fetch")) {
+
+			String pin_code = jsonPathEvaluator.getString("pin_code");
+			String city = jsonPathEvaluator.getString("city");
+			if(!pin_code.equals("560085")) {
+				Assert.assertTrue(false);
+			}
+			if(!city.equals("Bangalore")) {
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("CODPincode_Verify_Invalid")) {
+
+			String eligible = jsonPathEvaluator.getString("eligible");
+			String description = jsonPathEvaluator.getString("description");
+			if(!eligible.equals("false")) {
+				Assert.assertTrue(false);
+			}
+			if(!description.equals("Pin code not eligible")) {
+				Assert.assertTrue(false);
+			}
+		}
 		if(payType.equals("CODPincode_Create")) {
 			if(!(resp.body().asString().contains("Pin code details are already available for"))){
 				Assert.assertTrue(false);
@@ -3361,7 +3405,6 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			}
 		}
 		if(payType.equals("COD_Webhook_Success")) {
-			Assert.assertTrue(false);
 			if(!(resp.body().asString().contains("pay txn already present"))){
 				Assert.assertTrue(false);
 			}

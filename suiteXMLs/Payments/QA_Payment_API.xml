@@ -127,6 +127,7 @@
     <test name="COD" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_COD_Pincode"/>
+            <class name="test.java.paymentsAPI.API_COD_Webhook"/>
         </classes>
     </test>
 
