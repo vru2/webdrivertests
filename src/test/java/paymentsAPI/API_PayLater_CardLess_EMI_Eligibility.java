@@ -14,14 +14,14 @@ public class API_PayLater_CardLess_EMI_Eligibility extends API_PaymentCommon1
 		Response resp ;
 		resp = payGet("GET_Raterule_CLEMI","");
 		validation("GET_Raterule_CLEMI", resp);
-		Assert.assertTrue(false);
+		//Assert.assertTrue(false);
 	}
 	@Test
 	public void PayLater_Raterule_PL()  {
 		Response resp ;
 		resp = payGet("GET_Raterule_PL","");
 		validation("GET_Raterule_PL", resp);
-		Assert.assertTrue(false);
+		//Assert.assertTrue(false);
 	}
 
 

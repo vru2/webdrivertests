@@ -11,7 +11,7 @@
     <test name="Navison" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_Navison_CC"/>
-            <!--<class name="test.java.paymentsAPI.API_Navison_Air"/>-->
+            <class name="test.java.paymentsAPI.API_Navison_Air"/>
         </classes>
     </test>
 
@@ -199,8 +199,8 @@
     <test name="Promo service" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_PromoService"/>
-            <!--   <class name="test.java.paymentsAPI.API_Promo_Activate"/> -->
-            <!-- <class name="test.java.paymentsAPI.API_Promo_Used"/>  -->
+               <class name="test.java.paymentsAPI.API_Promo_Activate"/>
+             <class name="test.java.paymentsAPI.API_Promo_Used"/>
         </classes>
     </test>
 

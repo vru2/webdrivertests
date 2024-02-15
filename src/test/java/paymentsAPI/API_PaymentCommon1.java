@@ -4931,6 +4931,12 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Reporter.log("ACTIVE is not displayed");
 				Assert.assertTrue(false);
 			}
+
+			String status = jsonPathEvaluator.getString("status");
+			if(!status.equalsIgnoreCase("ACTIVE")) {
+				Reporter.log("status is : "+status);
+				Assert.assertTrue(false);
+			}
 		}
 
 
