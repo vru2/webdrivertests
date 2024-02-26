@@ -41,7 +41,6 @@ pipelines:
           - name: SOURCE 
           - name: SUBJECT
           - name: Project
-            default: NON-PCI
       - step:
           name: Platform Test Automation
           deployment: Automation
@@ -50,9 +49,10 @@ pipelines:
           script: 
             - APP_NAME=platform-test-automation-qa
             - Team=platform
+            - export BUILD_NUMBER=$BITBUCKET_BUILD_NUMBER
             - if [[ $Environment == "DC" ]]; then export ENVIRONMENT="qa"; elif [[ $Environment == "GCP" ]]; then export ENVIRONMENT="gcp-qa"; fi
             - sed -i "s+SUITE_NAME+$SUITE_NAME+g" start_command.sh
-            - DIR=`date +%d-%m-%y `-$SOURCE-$BITBUCKET_BUILD_NUMBER
+            - DIR=`date +%d-%m-%y `-$SOURCE-$BUILDNUMBER
             - sed -i "s/BITBUCKCET_BUILD_NUMBER/$DIR/g" start_command.sh
             - sed -i "s/APP_NAME/$APP_NAME/g" start_command.sh
             - sed -i "s/ENV/$ENVIRONMENT/g" start_command.sh
