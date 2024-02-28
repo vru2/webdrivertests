@@ -33,3 +33,38 @@ pipelines:
             - ./$QA2_LOGIN $APP_NAME
             - chmod +x $QA2_DEPLOY
             - ./$QA2_DEPLOY $APP_NAME $Team
+    DOWNSTREAM_USE:
+      - variables:
+          - name: SUITE_NAME
+          - name: Environment
+          - name: BUILDNUMBER
+          - name: SOURCE 
+          - name: SUBJECT
+          - name: Project
+      - step:
+          name: Platform Test Automation
+          deployment: Automation
+          services:
+            - docker
+          script: 
+            - APP_NAME=platform-test-automation-qa
+            - Team=platform
+            - export BUILD_NUMBER=$BITBUCKET_BUILD_NUMBER
+            - if [[ $Environment == "DC" ]]; then export ENVIRONMENT="qa"; elif [[ $Environment == "GCP" ]]; then export ENVIRONMENT="gcp-qa"; fi
+            - sed -i "s+SUITE_NAME+$SUITE_NAME+g" start_command.sh
+            - DIR=`date +%d-%m-%y `-$SOURCE-$BUILDNUMBER
+            - sed -i "s/BITBUCKCET_BUILD_NUMBER/$DIR/g" start_command.sh
+            - sed -i "s/APP_NAME/$APP_NAME/g" start_command.sh
+            - sed -i "s/ENV/$ENVIRONMENT/g" start_command.sh
+            - sed -i "s/SUBJECT/$SUBJECT/g" start_command.sh
+            - sed -i "s/MAIL_ID/kiran.kumar@cleartrip.com,varalakshmi.venkateshaiah@cleartrip.com,saicharan.yadau@cleartrip.com,vrushabh.gurjar@cleartrip.com,pragya.sinha@cleartrip.com/g" start_command.sh
+            - git clone git@bitbucket.org:cleartrip/docker_dependency.git
+            - mv docker_dependency/* .
+            - docker login -u $DOCKERHUB_UN -p $DOCKERHUB_PW
+            - docker build -t $DOCKER_REG_URL/$APP_NAME:$BITBUCKET_BUILD_NUMBER .
+            - chmod +x $QA2_LOGIN
+            - ./$QA2_LOGIN $APP_NAME
+            - chmod +x $QA2_DEPLOY
+            - ./$QA2_DEPLOY $APP_NAME $Team
+          after-script:
+              - printf "View The Automation Report Here:\nhttp://qaautomation.cleartripcorp.com/platform/$ENVIRONMENT/$DIR"
