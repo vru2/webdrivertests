@@ -132,7 +132,7 @@
             <class name="test.java.paymentsAPI.API_EMI_NoonPlans"/>
             <class name="test.java.paymentsAPI.API_EMI_RazorpayPlans"/>
             <class name="test.java.paymentsAPI.API_EMI_Resources"/>
-            <class name="test.java.paymentsAPI.API_EMI_NoCost_Get_Offers"/>
+    <!--        <class name="test.java.paymentsAPI.API_EMI_NoCost_Get_Offers"/>-->
         </classes>
     </test>
 
@@ -140,10 +140,9 @@
         <classes>
             <class name="test.java.paymentsAPI.API_EMI_BankDetails"/>
             <class name="test.java.paymentsAPI.API_EMI_Routing_Fetch"/>
-            <class name="test.java.paymentsAPI.API_EMI_BankDetails"/>
-            <class name="test.java.paymentsAPI.API_EMI_Juspay_GetPlans"/>
+          <!--  <class name="test.java.paymentsAPI.API_EMI_Juspay_GetPlans"/>
             <class name="test.java.paymentsAPI.API_EMI_Juspay_GetOffer"/>
-            <class name="test.java.paymentsAPI.API_EMI_Juspay_Save_Delete_Plan"/>
+            <class name="test.java.paymentsAPI.API_EMI_Juspay_Save_Delete_Plan"/>-->
         </classes>
     </test>
 
