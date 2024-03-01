@@ -5610,8 +5610,8 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	}		
 		
 	else if(payType.equals("EMIRazorpay")) {
-		if(!resp.body().asString().contains("CT_EMI_PLAN_25_11_18_15.0_2")) {
-			Reporter.log("CT_EMI_PLAN_25_11_18_15.0_2");
+		if(!resp.body().asString().contains("CT_EMI_PLAN_25_192_3_12.0_1")) {
+			Reporter.log("CT_EMI_PLAN_25_192_3_12.0_1");
 			Assert.assertTrue(false);
 		}
 	}
