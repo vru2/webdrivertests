@@ -54,10 +54,27 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String url_QA2 = "https://qa2new.cleartrip.com/";
 	public String url_TestApp = "";
 
+	String url_CtConfig = "http://ct-config.cltp.com:9001";
+
+	//String url_COD_Pincode_Verify = "/paymentservice/cod/verify/pinCode/ea633400034d440267ce17334a1d2a8e?pinCode=";
+
+	String url_COD_TxnId_Verify = "/paymentservice/payments/47401214";
+
+	String url_COD_Fetch_Pay = "/paymentservice/payments/47391512";
+	//String url_COD_Pincode_Fetch = "/paymentservice/cod/pinCode?pinCode=";
+
 	String url_COD_Pincode_Verify = "/paymentservice/cod/verify/pinCode/ea633400034d440267ce17334a1d2a8e?pinCode=";
 	String url_COD_Pincode_Fetch = "/paymentservice/cod/pinCode?pinCode=";
 
 	String url_COD_Pincode_Update_Create = "/paymentservice/cod/pinCode";
+
+	String url_CTWallet_Deatils = "/paymentservice/ctWallets";
+
+	String banner_ctconfig = "/hq/ct-config/api/resource/v1/fetch/bannerDetails.json?version=STARTUP";
+
+	String banner_Resource_CtConfig = "/hq/ct-config/api/resource/v1/fetch/bannerDetails.json?version=STARTUP";
+
+	String bannerDetails = "/paymentservice/bannerDetails";
 
 	String url_COD_Ekart_Webhook = "/paymentservice/cod/ekart/tracking-update";
 
@@ -199,9 +216,53 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 	String Params_ROR_Create_Profile_List = "{\"card_number_prefix\":\"12345679\",\"ip_address\":\"12.34.56.81\",\"phone_number\":\"121212121221\",\"booked_by_email_id\":\"123@1223.com\",\"card_holder_email_id\":\"123@1223.com\",\"status\":\"T\",\"list_type\":0,\"temporary\":1,\"user_id\":\"123456543\"}";
 	String Params_ROR_Update_Payments = "{\"id\":43327334,\"trip_id\":106562333,\"txn_id\":167823463,\"payment_type\":\"DC\",\"amount\":3.955111,\"created_at\":1571291019000,\"updated_at\":1578889867935,\"seq_no\":1,\"status\":\"S\",\"description\":\"Initializing the payment\",\"currency\":\"INR\",\"order_info1\":null,\"order_info2\":null,\"app_ref1\":\"167823462\",\"app_ref2\":167823462,\"neglist_id\":null,\"pos_list_id\":null,\"linkable_id\":null,\"linkable_type\":null,\"user_message\":null,\"pan_number\":null,\"payment_category\":\"B\",\"merchant_txn_ref\":\"43327334\",\"payment_subtype\":null,\"express_checkout\":null,\"emi_count\":null,\"emi_fee\":null,\"ref_payment_id\":null,\"payment_cards_gateway_accesses\":[{\"id\":389967720,\"payment_id\":43327334,\"trip_ref\":\"TPOtpK34\",\"txn_id\":167823462,\"payment_mode\":\"D\",\"gateway_id\":52,\"card_number\":\"458546XXXXXX5964\",\"name_on_card\":\"test\",\"amount\":1.0,\"status\":\"S\",\"description\":\"Initializing\",\"tran_type\":\"INIT\",\"seq_no\":1,\"created_at\":1571291061000,\"updated_at\":1571291061000,\"credential_name\":\"IN_TECH_PROCESS_OTP_QA\",\"retry_count\":0,\"card_number_hash\":\"d1e0bef8e70b9968ac037aa1d0b0b0242d4a3203836f0822d75a0c3267c37bf1\"},{\"id\":389967722,\"payment_id\":43327334,\"trip_ref\":\"TPOtpK34\",\"txn_id\":167823462,\"payment_mode\":\"D\",\"gateway_id\":52,\"card_number\":\"458546XXXXXX5964\",\"name_on_card\":\"test\",\"amount\":1.0,\"status\":\"F\",\"description\":\"OTP Flag is not present in TP response : Error Code :ERROR082\",\"gateway_response1\":\"0399\",\"gateway_response2\":\"failed\",\"gateway_response4\":\"1180\",\"gateway_response5\":\"43327334\",\"gateway_response8\":\"ERROR082\",\"gateway_response9\":\"NA\",\"gateway_response11\":\"b1029d24a0b8a9fe2ae7b00a815bb453d5c4d55f\",\"tran_type\":\"PAUT\",\"seq_no\":1,\"created_at\":1571291065000,\"updated_at\":1571291303000,\"credential_name\":\"IN_TECH_PROCESS_OTP_QA\",\"retry_count\":0,\"card_number_hash\":\"d1e0bef8e70b9968ac037aa1d0b0b0242d4a3203836f0822d75a0c3267c37bf1\"},{\"id\":389967724,\"payment_id\":43327334,\"trip_ref\":\"TPOtpK34\",\"txn_id\":167823462,\"payment_mode\":\"D\",\"gateway_id\":14,\"card_number\":\"458546XXXXXX5964\",\"name_on_card\":\"test\",\"amount\":1.0,\"status\":\"S\",\"description\":\"Initializing\",\"tran_type\":\"INIT\",\"seq_no\":1,\"created_at\":1571291303000,\"updated_at\":1571291303000,\"credential_name\":\"IN_TECH_PROCESS\",\"retry_count\":0,\"card_number_hash\":\"d1e0bef8e70b9968ac037aa1d0b0b0242d4a3203836f0822d75a0c3267c37bf1\"}],\"payment_cash_details\":null,\"payment_gift_voucher_txns\":[],\"payment_tp_wallet_txns\":[],\"payment_upi_txns\":[],\"payment_redirect_timings\":[{\"payment_id\":43327334,\"redirection_out\":1571291305948,\"created_at\":1571291305951,\"updated_at\":1571291305951,\"retry_count\":0,\"id\":34678514}],\"payment_card_details\":[{\"id\":30780182,\"payment_id\":43327334,\"card_number\":\"458546XXXX445964\",\"card_type_id\":1,\"payment_mode\":\"D\",\"bank_id\":6,\"created_at\":1571291061000,\"updated_at\":1571291061000,\"bin_id\":0,\"country\":\"INDIA\"}],\"payment_cash_card_detail\":null,\"payment_net_banking_details\":null,\"payment_ivr_detail\":null,\"payment_techpro_detail\":null,\"payment_third_party_da_details\":[],\"payment_third_party_details\":[],\"payment_ap_txns\":[],\"payment_da_transactions\":[],\"payment_da_details\":[],\"payment_wallet_transactions\":[],\"reward_points_txns\":null}";
 
-	String Params_COD_Pincode_Update_Create = "[{\"pin_code\":\"560001\",\"city\":\"Bangalore\",\"state\":\"Karnataka\",\"is_active\":true}]";
+	//String Params_COD_Pincode_Update_Create = "[{\"pin_code\":\"560001\",\"city\":\"Bangalore\",\"state\":\"Karnataka\",\"is_active\":true}]";
 
-	String Params_COD_Webhook_Success = "{\"reason\":\"\",\"sub_reasons\":[\"Incomplete Address\"],\"request_id\":null,\"vendor_tracking_id\":\"CLRC0086782727\",\"merchant_reference_id\":\"CLRC0086782727\",\"status\":\"delivered\",\"shipment_type\":\"OutgoingShipment\",\"remarks\":\"\",\"merchant_code\":\"ABC\",\"merchant_name\":\"ABC Corp.\",\"event_date\":\"2023-12-28 10:22:52\",\"courier_name\":\"flipkartlogistics-cod\",\"seller_id\":\"ABC\",\"location\":\"fkl_Binola_ABC\",\"event\":\"shipment_delivered\"}";
+	String Params_Banner_update = "{\n" +
+			"    \"fileName\": \"bannerDetails.json\",\n" +
+			"    \"fileContent\": \"{\\n    \\\"IN\\\": {\\n        \\\"DEFAULT\\\": [\\n            {\\n                \\\"bannerText\\\": \\\"Experiencing high failure rate on HDFC Debit Cards and ICICI Credit Cards. Please try a different bank.\\\",\\n                \\\"bannerType\\\": \\\"ALERT\\\",\\n                  \\\"startTime\\\": 1648344928000,\\n                \\\"endTime\\\": 1711503328000\\n            }\\n        ],\\n        \\\"CC\\\": [\\n            {\\n                \\\"bannerText\\\": \\\"Experiencing high failure rate on Credit Cards. Please try a different payment method.\\\",\\n                \\\"bannerType\\\": \\\"ALERT\\\",\\n                \\\"startTime\\\": 1648344928000,\\n                \\\"endTime\\\": 1711503328000,\\n                \\\"value\\\": \\\"0\\\",\\n                \\\"key\\\": \\\"DEFAULT\\\",\\n                \\\"products\\\": [\\\"AIR\\\",\\\"HOTEL\\\",\\\"BUS\\\"],\\n                \\\"channels\\\": [\\\"*\\\"]\\n            },\\n            {\\n                \\\"bannerText\\\": \\\"RS.1000 cashback on HDFC cards\\\",\\n                \\\"bannerType\\\": \\\"OFFER\\\",\\n                \\\"startTime\\\": 23423535,\\n                \\\"endTime\\\": 1711527968,\\n                \\\"value\\\": \\\"0\\\",\\n                \\\"key\\\": \\\"DEFAULT\\\",\\n                \\\"products\\\": [\\\"AIR\\\"],\\n                \\\"channels\\\": [\\\"*\\\"]\\n            },\\n            {\\n                \\\"bannerText\\\": \\\"RS.1000 cashback on HDFC cards\\\",\\n                \\\"bannerType\\\": \\\"OFFER\\\",\\n                \\\"startTime\\\": 23423535,\\n                \\\"endTime\\\": 6575375476,\\n                \\\"value\\\": \\\"2\\\",\\n                \\\"key\\\": \\\"HDFC Bank\\\",\\n                \\\"products\\\": [\\\"AIR\\\"],\\n                \\\"channels\\\": [\\\"*\\\"]\\n            }\\n        ],\\n        \\\"NB\\\": [\\n            {\\n                \\\"bannerText\\\": \\\"Experiencing high failure rate on NB. Please try a different payment method.\\\",\\n                \\\"bannerType\\\": \\\"ALERT\\\",\\n                \\\"startTime\\\": 23423535,\\n                \\\"endTime\\\": 6575375476,\\n                \\\"value\\\": \\\"1\\\",\\n                \\\"key\\\": \\\"ICICI Bank\\\",\\n                \\\"products\\\": [\\\"AIR\\\"],\\n                \\\"channels\\\": [\\\"*\\\"]\\n            }\\n        ],\\n        \\\"EMI\\\": [\\n            {\\n                \\\"bannerText\\\": \\\"Experiencing high failure rate on EMIs. Please try a different payment method.\\\",\\n                \\\"bannerType\\\": \\\"ALERT\\\",\\n                \\\"startTime\\\": 23423535,\\n                \\\"endTime\\\": 6575375476,\\n                \\\"value\\\": \\\"1\\\",\\n                \\\"key\\\": \\\"ICICI\\\",\\n                \\\"products\\\": [\\\"AIR\\\"],\\n                \\\"channels\\\": [\\\"*\\\"]\\n            }\\n        ],\\n        \\\"TW\\\": [\\n            {\\n                \\\"bannerText\\\": \\\"Experiencing high failure rate on Wallets.\\\",\\n                \\\"bannerType\\\": \\\"ALERT\\\",\\n                \\\"startTime\\\": 23423535,\\n                \\\"endTime\\\": 6575375476,\\n                \\\"value\\\": \\\"3\\\",\\n                \\\"key\\\": \\\"Paytm\\\",\\n                \\\"products\\\": [\\\"AIR\\\"],\\n                \\\"channels\\\": [\\\"*\\\"]\\n            }\\n        ],\\n        \\\"UP\\\": [\\n            {\\n                \\\"bannerText\\\": \\\"10% cashback on GPay\\\",\\n                \\\"bannerType\\\": \\\"OFFER\\\",\\n                \\\"startTime\\\": 23423535,\\n                \\\"endTime\\\": 6575375476,\\n                \\\"value\\\": \\\"4\\\",\\n                \\\"key\\\": \\\"UPI_INTENT\\\",\\n                \\\"pspApp\\\": \\\"GPAY\\\",\\n                \\\"products\\\": [\\\"AIR\\\", \\\"HOTEL\\\"],\\n                \\\"channels\\\": [\\\"*\\\"]\\n            }\\n        ],\\n        \\\"PL\\\": [\\n            {\\n                \\\"bannerText\\\": \\\"Experiencing high failure rate on PL. Please try a different payment method.\\\",\\n                \\\"bannerType\\\": \\\"ALERT\\\",\\n                \\\"startTime\\\": 1648344928000,\\n                \\\"endTime\\\": 1711503328000,\\n                \\\"value\\\": \\\"4\\\",\\n                \\\"key\\\": \\\"LAZYPAY\\\",\\n                \\\"products\\\": [\\\"AIR\\\"],\\n                \\\"channels\\\": [\\\"*\\\"]\\n            }\\n        ],\\n        \\\"CL_EMI\\\": [\\n            {\\n                \\\"bannerText\\\": \\\"Experiencing high failure rate on Credit Cards. Please try a different payment method.\\\",\\n                \\\"bannerType\\\": \\\"ALERT\\\",\\n                \\\"startTime\\\": 23423535,\\n                \\\"endTime\\\": 6575375476,\\n                \\\"value\\\": \\\"10\\\",\\n                \\\"key\\\": \\\"WALNUT369\\\",\\n                \\\"products\\\": [\\\"AIR\\\"],\\n                \\\"channels\\\": [\\\"*\\\"]\\n            }\\n        ]\\n    }\\n}\\n\"\n" +
+			"}";
+	String Params_COD_Pincode_Update = "{\n" +
+			"    \"pin_code\": \"560001\",\n" +
+			"    \"city\": \"BENGALURU\",\n" +
+			"    \"state\": \"KARNATAKA\",\n" +
+			"    \"is_active\": true\n" +
+			"}";
+
+	String Params_COD_Pincode_Create = "[\n" +
+			"    {\n" +
+			"        \"pin_code\": \"560105\",\n" +
+			"        \"city\": \"Bangalore\",\n" +
+			"        \"state\": \"Karnataka\",\n" +
+			"        \"is_active\": true\n" +
+			"    }\n" +
+			"]";
+
+	String Params_COD_Webhook_Success = "{\n" +
+			"    \"reason\": \"\",\n" +
+			"    \"sub_reasons\": [\"Incomplete Address\"],\n" +
+			"    \"request_id\": null,\n" +
+			"    \"vendor_tracking_id\": \"CLRC0088468202\",\n" +
+			"    \"merchant_reference_id\": \"CLRC0088468202\",\n" +
+			"    \"status\": \"delivered\",\n" +
+			"    \"shipment_type\": \"OutgoingShipment\",\n" +
+			"    \"remarks\": \"\",\n" +
+			"    \"merchant_code\": \"ABC\",\n" +
+			"    \"merchant_name\": \"ABC Corp.\",\n" +
+			"    \"event_date\": \"2023-12-28 10:22:52\",\n" +
+			"    \"courier_name\": \"flipkartlogistics-cod\",\n" +
+			"    \"seller_id\": \"ABC\",\n" +
+			"    \"location\": \"fkl_Binola_ABC\",\n" +
+			"    \"event\": \"shipment_delivered\"\n" +
+			"}";
+
+	String Params_COD_Pincode_Update_Create = "{\n" +
+			"    \"pin_code\": \"560001\",\n" +
+			"    \"city\": \"BENGALURU\",\n" +
+			"    \"state\": \"KARNATAKA\",\n" +
+			"    \"is_active\": true\n" +
+			"}";
+	//String Params_COD_Webhook_Success = "{\"reason\":\"\",\"sub_reasons\":[\"Incomplete Address\"],\"request_id\":null,\"vendor_tracking_id\":\"CLRC0086782727\",\"merchant_reference_id\":\"CLRC0086782727\",\"status\":\"delivered\",\"shipment_type\":\"OutgoingShipment\",\"remarks\":\"\",\"merchant_code\":\"ABC\",\"merchant_name\":\"ABC Corp.\",\"event_date\":\"2023-12-28 10:22:52\",\"courier_name\":\"flipkartlogistics-cod\",\"seller_id\":\"ABC\",\"location\":\"fkl_Binola_ABC\",\"event\":\"shipment_delivered\"}";
 
 	String Params_COD_Webhook_Failure = "{\"reason\":\"\",\"sub_reasons\":[\"Incomplete Address\"],\"request_id\":null,\"vendor_tracking_id\":\"CLRC0000000011\",\"merchant_reference_id\":\"CLRC0000000011\",\"status\":\"delivered\",\"shipment_type\":\"OutgoingShipment\",\"remarks\":\"\",\"merchant_code\":\"ABC\",\"merchant_name\":\"ABC Corp.\",\"event_date\":\"2023-12-19 10:22:52\",\"courier_name\":\"flipkartlogistics-cod\",\"seller_id\":\"ABC\",\"location\":\"fkl_Binola_ABC\",\"event\":\"shipment_undelivered_attempted\"}";
 
@@ -403,7 +464,15 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 
 	String urlSuperCoins_UpdatePromo = "/promoservice/v1/promogroups/Q2109156655/promotions/64905";
 	String urlSuperCoins_ActivatePromo = "/promoservice/v1/promogroups/Q210921153722/promotions/65253";
-	
+	String urlCtwallet_Refresh= "/paymentservice/refresh/ctWallets";
+
+	String urlPaymentLevel_Config_Refresh = "/paymentservice/refresh/paymentLevelConfig";
+	String url_EMI_Gateway_refresh = "/paymentservice/refresh/juspayEmiGateway";
+	String url_EMI_Fetch_Gateway="/paymentservice/juspayEmiGateway";
+
+	String url_Banner_update = "/hq/ct-config/api/resource/update";
+
+	String url_Banner_Refresh = "/paymentservice/refresh/bannerDetails";
 	String urlPayFlyin = "/paymentservice/gw/v1/pay";
 	String urlSavedCards ="/paymentservice/saved/payments/get/65218452";
 
@@ -834,6 +903,30 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		return headers;
 	}
 
+	public HashMap<String, Object> headersbannerCTconfig(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("Cookie", "JSESSIONID=9508410984AB834B451511F1756D0A17");
+		headers.put("source", "payments");
+		return headers;
+	}
+
+	public HashMap<String, Object> headersbannerRefreshCtConfig(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Accept", "*/*");
+		headers.put("Cookie", "JSESSIONID=A1B39F1C36C9399AA9E8E2C2F5828A2C");
+		headers.put("source", "test");
+		return headers;
+	}
+
+	public HashMap<String, Object> headersForms_BannerUpdate(){
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Content-Type", "application/json");
+		headers.put("Accept", "*/*");
+		headers.put("Cookie", "ct-auth=%2FhDWkJhbUUpsMluym%2FVcBxKImT742FEFmu2Kb2Y1%2FdGlZZ%2FPMvJG80VYl9N0p2HYEUrgVSM3cgM9x6wexLhWoQAvoCkHaCucwBqS439OaRj2Esu5jALbJD%2BpN5fLK%2BI3ajjlnxi9AmOXalhgAkk0fngZpCcVNGVWyWxx%2BiSK22%2F7T9cUvNn3kqvJXHxV%2FT%2BrbCcKl6B4fBA%2BlNr6eWTadxedDVNvZVzKna5dKidUAJE1l8vfB3iRW1SXF48TfCUTS86rLddtn5Ezp1sQr%2FUUltCf1u2X6Qbv9VdFB1bQ0guGs%2BqtBLn4Wj5zB1G2lB%2F9eBipeSDhnAMp%2B5sk8JbmuJsofFNO27tV00nkDyiX5uGqQJA%2FKe6R0QbpNFydUJJHHN%2BMynqWQfeY3pDCWhpUVB%2BuC4N9Yclsc19rIgExeF1cjoyYvIqWlfRSCuBHDDRZOJGQFQNhEcb%2Bohy0v%2FLE7uIN%2FfEz6qk38F88X9l5qu9Y%2FSZkri97CR5hIkTwC5h9AFxEgk1nmhSvj%2Bc0AlPDOUqho84pYsQDNtPlcn0e8I00RmtnUxxeEwmvtgdS4JEfK6iQv3uJwxmNErKS%2BgHAlpyRsJpKrNRNb5Q%2FaT8TL8euFvf%2BgBYNhNLXLn44QE2nXmxV%2FhsJQiW59DxLdnMALJD2hLVKIQ6Bbz0GpBD%2F5182nMuZk7sPtnjwlY%2BlxuM%2F3zAOOvYF3MbTEC%2FseSyM2o1fubtb3p7elN606%2B4H%2BzMtkIWgfs%2FvSZoxB%2FHntlpnRoRruZC6bk9DJkpPGgLc71EsC7NPVvZHeXDl%2B0HZHnTHLcwVJbqcoihMOmU8h3bKYIK55ppNwCq31G3DI%2Fm%2B0sSMYa7JvaWb7tBZkRcNWwlHfgHy9w0XRAJqNrvZNG%2FtcCsUviGKMSNy2mhCBCnh%2BgAgjf6oS6NSbuXMylPZ6oWZdLAWaz9bYT0hph3tcgDR9t2BS51jx0Gt8MBGdImHPKcQ%2BRE%2Fi7OpNhzHulCPJvq0YiIxJAiTs6hBqAqN2yWFWNKy7fd%2FRXv2Xz4fDIFAWdkwz21EyElfSU%2F7UswxzJOpv87xjAaa9KtBV7s5FGFenKxZBLgKjE8bBREGgTxCcf82MwgbGlVbFg2yOewvazWyVlKM8qlGFfPoCZdArrNIPm3473cM6%2FpV54ffNOjwb3d9E4sKahWgzrgwIcLCCZCmy%2FoZYEJyDRsucVySX3A2h3N3Fw7miIdvh6ov5GfWF2YxwQz88G4Ayb8q%2FPm9ufItL%2BS7A0zniugo%2FDggkXMkfdM4QACfve5Zg3OXves%2BFSgTF40dmGwALzNh3AlHtWvy8vFQLVRot6alUo4fIX%2B7FmzzzXTJygYREiFTJarOfbcFcN0yD56%2BRV2ZtPOrgNX8%2F36ErOh8%2F64Iwf3Ghb%2Bg1vPKVk7Aa1XKm8AJJiLmNGKnkuH6VyxlFhxSpmNZxksrkue%2F8ST3oVl4Ku7V8FEs0UNWcZ3IOoqlmjeJzKMTOWBQUI%2B4Fe17PCAxL2VADoDjnHUESTaPTdDMrzpQhjJkQwRp1iMgVekpSXdyIUtXOWEwEzdh2oek7XchwEPUM8sSkWIaO7Gy3l0g%2FfiZsdEviw0KuRYrfHRyow%2BSUv3X9Pcvqqff2Ix0VIcmRgbCB3BT8DCv661JyLJngDDBOYNJCEkBZIBwUUnsuiH5cQKGwR23YuHpGrK4xPkdj65xH2elncH72VAbybQf2DCfl8ViWMa8pBxqjxR%2BQmajPb01DT%2FjbBcVGxtgieF9uZWQRtDtZDsZybs%2BKKHB%2F8NxnknI2MCEVzbpoHO9SYuQPF3%2BWMWkfqxa7IxDp6W9J2umVuWwC1R5vgEBpEWO1O0tNnKnKID3vO8VBpqMNuRmYRr%2BeDPElY1RmF83%2B5eiGXr8B2GhR01b%2BYzCNcBjFaoSJ4enJcMGGMJZFem3q13K00%2ByLzuIy5VuaF%2BulE8SB5sIH0QZ40Q96P%2FCpOaViL6XVl7Cx%2FGSu9rXa5nx1h3K9qJaZayxSRHCXGifRCi0DMJR4GQmLjAFIP1lTFsSO567tJGS8zI%2BAq34LXHtFVkvkWheaujQ%2BInjFMuEM5V1snIXM1UcrLCQYQplOyiSo%2FnCFhUBZ6MjzlaQR%2BZRUlqYwgJLmFC2RGkSc%2B8ivXwiA86zNUGolF1iTYFXI0eOAgqZ79SNuxfzVgrEjtOKhN7ActQPEJuEN0up3zSbKgL%2F0AGsRYy9f8yk9wrILSRG4%2BKhAJcXSyUREoZtLNxkBn%2FHcDguh7PYIrvVZKrGXZfAz9h7fM9FrU4le%2BrnKDn6%2Be4M4lEtlLH3YyxUFUxKS%2BuMu4HhxpFQxPbsRKlzN9XE166sDnZg9mXhn4XRz4kPblEYy8m4");
+		return headers;
+	}
+
 	public HashMap<String, Object> headersForms_IR1(){
 		HashMap<String, Object> headers = new HashMap<>();
 		headers.put("Content-Type", "application/json");
@@ -1093,6 +1186,41 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		else if(payType.equalsIgnoreCase("CODPincode_Fetch")) {
 			RestAssured.baseURI =urlPay;
 			url=url_COD_Pincode_Fetch+payType1;
+		}
+
+		else if(payType.equalsIgnoreCase("Banner_Ct_config")) {
+			headers = headersbannerCTconfig();
+			RestAssured.baseURI =url_CtConfig;
+			url=banner_ctconfig;
+		}
+		else if(payType.equalsIgnoreCase("BannerResource_CtConfig")) {
+			headers = headersbannerRefreshCtConfig();
+			RestAssured.baseURI =url_CtConfig;
+			url=banner_Resource_CtConfig;
+		}
+		else if(payType.equalsIgnoreCase("BannerDetails")) {
+			RestAssured.baseURI =urlPay;
+			url=bannerDetails;
+		}
+		else if(payType.equalsIgnoreCase("EMIJuspay_Fetch_Gateway")) {
+			RestAssured.baseURI =urlPay;
+			Reporter.log(urlPay);
+			url= url_EMI_Fetch_Gateway;
+		}
+
+		else if(payType.equalsIgnoreCase("COD_TxnID_Verify")) {
+			RestAssured.baseURI =urlPay;
+			url=url_COD_TxnId_Verify;
+		}
+
+		else if(payType.equalsIgnoreCase("CODFetch_Pay")) {
+			RestAssured.baseURI =urlPay;
+			url=url_COD_Fetch_Pay;
+		}
+
+		else if(payType.equalsIgnoreCase("CTWallet_Details")) {
+			RestAssured.baseURI =urlPay;
+			url=url_CTWallet_Deatils;
 		}
 
 		else if(payType.equalsIgnoreCase("Hi_5_get_walletTnx")) {
@@ -1589,10 +1717,41 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 
 			url= url_EMI_Cache_ResourcesRefresh;
 			params= "";
-		} 
-		
-		
-		
+		}
+
+		else if(payType.equalsIgnoreCase("EMI_Gateway_refresh")) {
+			RestAssured.baseURI =urlPay;
+			url= url_EMI_Gateway_refresh;
+			params= "";
+		}
+
+		else if(payType.equalsIgnoreCase("BannerUpdateCtConfig")) {
+			headers=headersForms_BannerUpdate();
+			RestAssured.baseURI =url_CtConfig;
+			url= url_Banner_update;
+			params= Params_Banner_update;
+		}
+
+		else if(payType.equalsIgnoreCase("BannerRefresh")) {
+			RestAssured.baseURI =urlPay;
+			url= url_Banner_Refresh;
+			params= "";
+		}
+
+		else if(payType.equalsIgnoreCase("CtWallet_refresh")) {
+			RestAssured.baseURI =urlPay;
+			url= urlCtwallet_Refresh;
+			params= "";
+		}
+		else if(payType.equalsIgnoreCase("PaymentLevel_Config_refresh")) {
+			RestAssured.baseURI =urlPay;
+			url= urlPaymentLevel_Config_Refresh;
+			params= "";
+		}
+
+
+
+
 		else if(payType.equalsIgnoreCase("RORUpdate_Refund_List")) {
 			RestAssured.baseURI =urlReporting;
 			Random rand = new Random(); 
@@ -1627,7 +1786,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		else if(payType.equalsIgnoreCase("CODPincode_Update")) {
 			RestAssured.baseURI = urlPay;
 			url = url_COD_Pincode_Update_Create;
-			params = Params_COD_Pincode_Update_Create;
+			params = Params_COD_Pincode_Update;
 		}
 		Reporter.log(urlReporting);
 		Reporter.log("Params :" +params);
@@ -1675,7 +1834,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		else if(payType.equalsIgnoreCase("CODPincode_Create")) {
 			RestAssured.baseURI = urlPay;
 			url = url_COD_Pincode_Update_Create;
-			params = Params_COD_Pincode_Update_Create;
+			params = Params_COD_Pincode_Create;
 		}
 
 		else if(payType.equalsIgnoreCase("Affor_Eligibility_NCE_V2")) {
@@ -3233,6 +3392,7 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 		String credential_name = jsonPathEvaluator.getString("credential_name");
 		String txnID = jsonPathEvaluator.getString("gateway_transaction_id");
 		String payment_id = jsonPathEvaluator.getString("payment_id");
+		String trip_ref = jsonPathEvaluator.getString("trip_ref");
 		String wallet_number = jsonPathEvaluator.getString("wallet_number");
 		String card_numbers = jsonPathEvaluator.getString("card_numbers");
 
@@ -3257,11 +3417,14 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				}
 			}
 			else if(payType.equalsIgnoreCase("COD")) {
-				/*if(!payment_id.equals("1704191265821648")) {
+				if(!payment_id.equals("[1704191265821648]")) {
 					Assert.assertTrue(false);
-				}*/if(!txnID.contains("CLRC0087998221")) {
+				}
+				if(!trip_ref.equals("[Q240102827788]")) {
 					Assert.assertTrue(false);
-			}
+				}if(!txnID.contains("CLRC0087998221")) {
+					Assert.assertTrue(false);
+				}
 			}else if(payType.equalsIgnoreCase("NB")) {
 				if(!credential_name.equals("[IN_CCAVENUEV2_hdfc]")) {
 					Assert.assertTrue(false);
@@ -3369,6 +3532,132 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 				Assert.assertTrue(false);
 			}
 		}
+		if(payType.equals("EMI_Gateway_refresh")) {
+			if(!(resp.body().asString().contains("SUCCESS"))){
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("BannerUpdateCtConfig")) {
+			if(!(resp.body().asString().contains("File updated successfully"))){
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("BannerRefresh")) {
+			if(!(resp.body().asString().contains("Success"))){
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("Banner_Ct_config")) {
+			String DefaultBannerText = jsonPathEvaluator.getString("IN.DEFAULT.bannerText");
+			String DefaultBannerType = jsonPathEvaluator.getString("IN.DEFAULT.bannerType");
+			String CCBannerText = jsonPathEvaluator.getString("IN.CC.bannerText[2]");
+			String CCBannerType = jsonPathEvaluator.getString("IN.CC.bannerType[2]");
+			if(!DefaultBannerText.equals("[Experiencing high failure rate on HDFC Debit Cards and ICICI Credit Cards. Please try a different bank.]")) {
+				Assert.assertTrue(false);
+			}
+			if(!DefaultBannerType.equals("[ALERT]")) {
+				Assert.assertTrue(false);
+			}
+			if(!CCBannerText.equals("RS.1000 cashback on HDFC cards")) {
+				Assert.assertTrue(false);
+			}
+			if(!CCBannerType.equals("OFFER")) {
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("BannerDetails")) {
+			String DefaultBannerText = jsonPathEvaluator.getString("IN.DEFAULT.bannerText");
+			String DefaultBannerType = jsonPathEvaluator.getString("IN.DEFAULT.bannerType");
+			String UPBannerText = jsonPathEvaluator.getString("IN.UP.bannerText");
+			String UPBannerType = jsonPathEvaluator.getString("IN.UP.bannerType");
+			if(!DefaultBannerText.equals("[Experiencing high failure rate on HDFC Debit Cards and ICICI Credit Cards. Please try a different bank.]")) {
+				Assert.assertTrue(false);
+			}
+			if(!DefaultBannerType.equals("[ALERT]")) {
+				Assert.assertTrue(false);
+			}
+			if(!UPBannerText.equals("[10% cashback on GPay]")) {
+				Assert.assertTrue(false);
+			}
+			if(!UPBannerType.equals("[OFFER]")) {
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("BannerResource_CtConfig")) {
+			String CCBannerText = jsonPathEvaluator.getString("IN.CC.bannerText[0]");
+			String CCproducts = jsonPathEvaluator.getString("IN.CC.products[0]");
+			String UPBannerText = jsonPathEvaluator.getString("IN.UP.bannerText");
+			String UPproducts = jsonPathEvaluator.getString("IN.UP.products");
+			if(!CCBannerText.equals("Experiencing high failure rate on Credit Cards. Please try a different payment method.")) {
+				Assert.assertTrue(false);
+			}
+			if(!CCproducts.equals("[AIR, HOTEL, BUS]")) {
+				Assert.assertTrue(false);
+			}
+			if(!UPBannerText.equals("[10% cashback on GPay]")) {
+				Assert.assertTrue(false);
+			}
+			if(!UPproducts.equals("[[AIR, HOTEL]]")) {
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("CtWallet_refresh")) {
+			if(!(resp.body().asString().contains("Success"))){
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("PaymentLevel_Config_refresh")) {
+			if(!(resp.body().asString().contains("Success"))){
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(payType.equals("CTWallet_Details")) {
+
+			String Reward = jsonPathEvaluator.getString("REWARD.default_message");
+			String Credit = jsonPathEvaluator.getString("CREDIT.default_message");
+			if(!Reward.equals("Balance credited for promotions")) {
+				Assert.assertTrue(false);
+			}
+			if(!Credit.equals("Refunds credited on cancellations")) {
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("COD_TxnID_Verify")) {
+
+			String merchantTxn = jsonPathEvaluator.getString("merchant_txn_ref");
+			String paymentID = jsonPathEvaluator.getString("payment_cod_txns.payment_id");
+			if(!merchantTxn.equals("[1704778704687905]")) {
+				Assert.assertTrue(false);
+			}
+			if(!paymentID.equals("[[1704778704687905]]")) {
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("CODFetch_Pay")) {
+
+			String payment_type = jsonPathEvaluator.getString("payment_type");
+			String description = jsonPathEvaluator.getString("description");
+			if(!payment_type.equals("[CASH]")) {
+				Assert.assertTrue(false);
+			}
+			if(!description.equals("[Cod Payment Initiated]")) {
+				Assert.assertTrue(false);
+			}
+		}
+
+		if(payType.equals("EMIJuspay_Fetch_Gateway")) {
+			JsonPath j = new JsonPath(resp.asString());
+			String emiPlanTypes = j.getString("bankIdToJuspayGatewayMap.171.emiPlanTypes");
+			if (!emiPlanTypes.contains("NOCOST") ) {
+				Assert.assertTrue(false);
+			}
+		}
+		if(payType.equals("CODDelete_Pincode")) {
+			if(!resp.body().asString().contains("Pin code details deleted successfully")){
+				Assert.assertTrue(false);
+			}
+		}
 
 
 		if(payType.equals("CODPincode_Fetch")) {
@@ -3394,13 +3683,13 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			}
 		}
 		if(payType.equals("CODPincode_Create")) {
-			if(!(resp.body().asString().contains("Pin code details are already available for"))){
+			if(!(resp.body().asString().contains("Pin codes created successfully"))){
 				Assert.assertTrue(false);
 			}
 		}
 		if(payType.equals("CODPincode_Update")) {
-			Assert.assertTrue(false);
-			if(!(resp.body().asString().contains(""))){
+			//Assert.assertTrue(false);
+			if(!(resp.body().asString().contains("Pin code details updated successfully"))){
 				Assert.assertTrue(false);
 			}
 		}
@@ -5607,11 +5896,11 @@ public class API_PaymentCommon1 extends PlatformCommonUtil
 			Reporter.log("success is not displayed");
 			Assert.assertTrue(false);
 		}
-	}		
-		
+	}
+
 	else if(payType.equals("EMIRazorpay")) {
-		if(!resp.body().asString().contains("CT_EMI_PLAN_25_192_3_12.0_1")) {
-			Reporter.log("CT_EMI_PLAN_25_192_3_12.0_1");
+		if(!resp.body().asString().contains("CT_EMI_PLAN_25_192_6_12.0_2")) {
+			Reporter.log("CT_EMI_PLAN_25_192_6_12.0_2");
 			Assert.assertTrue(false);
 		}
 	}

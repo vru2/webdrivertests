@@ -18,6 +18,11 @@
     <test name="Banner New" preserve-order="true" parallel="true">
         <classes>
             <class name="test.java.paymentsAPI.API_Banner_New"/>
+            <class name="test.java.paymentsAPI.API_Banner_new_Ct_Config"/>
+            <class name="test.java.paymentsAPI.API_Banner_Update_CtConfig"/>
+            <class name="test.java.paymentsAPI.API_Banner_Failure_Refresh"/>
+            <class name="test.java.paymentsAPI.API_Banner_Details"/>
+            <class name="test.java.paymentsAPI.API_Banner_Get_Resource_CtConfig"/>
         </classes>
     </test>
 
@@ -25,6 +30,8 @@
         <classes>
             <class name="test.java.paymentsAPI.API_COD_Pincode"/>
             <class name="test.java.paymentsAPI.API_COD_Webhook"/>
+            <class name="test.java.paymentsAPI.API_COD_Pay_Fetch"/>
+            <class name="test.java.paymentsAPI.API_COD_Txn_ID_Verify"/>
         </classes>
     </test>
 
@@ -140,6 +147,8 @@
         <classes>
             <class name="test.java.paymentsAPI.API_EMI_BankDetails"/>
             <class name="test.java.paymentsAPI.API_EMI_Routing_Fetch"/>
+            <class name="test.java.paymentsAPI.API_EMI_Juspay_Fetch_Gateway"/>
+            <class name="test.java.paymentsAPI.API_EMI_Gateway_Refresh"/>
           <!--  <class name="test.java.paymentsAPI.API_EMI_Juspay_GetPlans"/>
             <class name="test.java.paymentsAPI.API_EMI_Juspay_GetOffer"/>
             <class name="test.java.paymentsAPI.API_EMI_Juspay_Save_Delete_Plan"/>-->
@@ -232,6 +241,8 @@
             <class name="test.java.paymentsAPI.API_Wallet_PromoUsed"/>
             <class name="test.java.paymentsAPI.API_Wallet_RevertPromo"/>
             <class name="test.java.paymentsAPI.API_Wallet_TOA"/>
+            <class name="test.java.paymentsAPI.API_CTWallet_Details"/>
+            <class name="test.java.paymentsAPI.API_CTWallet_Refresh"/>
             <!-- <class name="test.java.paymentsAPI.API_Wallet_Promo_CashBackDetails"/> -->
         </classes>
     </test>
@@ -242,6 +253,12 @@
             <class name="test.java.paymentsAPI.API_Wallet_Get_Wallet_All"/>
             <class name="test.java.paymentsAPI.API_Wallet_Get_Wallet_INR"/>
             <!-- <class name="test.java.paymentsAPI.API_GV_Get"/> -->
+        </classes>
+    </test>
+
+    <test name="Payment Level Config" preserve-order="true" parallel="true">
+        <classes>
+            <class name="test.java.paymentsAPI.API_Payment_Level_config_Refresh"/>
         </classes>
     </test>
 
